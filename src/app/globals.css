@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Custom styles for brand consistency */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom focus styles for better accessibility */
+.focus-ring:focus {
+  outline: 2px solid #4A70C2;
+  outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom selection color */
+::selection {
+  background-color: #4A70C2;
+  color: white;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4A70C2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d5ba3;
+}
+
+/* Typography improvements for Poppins */
+.font-display {
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* Custom utilities for brand colors */
+.text-gradient {
+  background: linear-gradient(135deg, #4A70C2 0%, #FF6161 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #4A70C2 0%, #3d5ba3 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, #FF6161 0%, #e64d4d 100%);
 }

@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Empowr Site - Netlify
 
-## Getting Started
+A modern Next.js website showcasing the Empowr brand with Poppins typography and a comprehensive color system.
 
-First, run the development server:
+## 🎨 Brand System
 
+### Typography
+- **Primary Font**: Poppins (Google Fonts)
+- **Weights**: 300 (Light), 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
+- **Optimized**: Using Next.js font optimization for better performance
+
+### Color Palette
+
+#### Primary Colors
+- **Empowr Blue**: `#4A70C2` - Primary brand color
+- **Empowr Red**: `#FF6161` - Secondary brand color  
+- **Empowr Black**: `#1B1B1B` - Neutral brand color
+
+#### Color Usage
+- **Primary**: Main actions, important information, headers
+- **Secondary**: Supporting actions, highlights, accents
+- **Neutral**: General content, subtle elements, backgrounds
+
+#### Available Shades
+Each color includes 10 shades (50-900) for flexible design:
+- `empowr-blue-50` to `empowr-blue-900`
+- `empowr-red-50` to `empowr-red-900`
+- `empowr-black-50` to `empowr-black-900`
+
+#### Semantic Colors
+- `primary-500` = `empowr-blue-500`
+- `secondary-500` = `empowr-red-500`
+- `neutral-900` = `empowr-black-900`
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or pnpm
+
+### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Linting
+```bash
+npm run lint
+```
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: Next.js 15.4.4
+- **Styling**: Tailwind CSS v4
+- **Typography**: Poppins (Google Fonts)
+- **Language**: TypeScript
+- **Linting**: ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── globals.css      # Global styles and brand utilities
+│   ├── layout.tsx       # Root layout with Poppins font setup
+│   └── page.tsx         # Brand showcase page
+├── components/          # Reusable components (to be added)
+└── lib/                # Utility functions (to be added)
+```
 
-## Deploy on Vercel
+## 🎯 Brand Guidelines
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Typography Usage
+```jsx
+// Headings
+<h1 className="text-6xl font-bold">Main Heading</h1>
+<h2 className="text-5xl font-semibold">Section Heading</h2>
+<h3 className="text-4xl font-medium">Subsection Heading</h3>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+// Body text
+<p className="text-base font-normal">Regular body text</p>
+<p className="text-xl font-light">Light body text</p>
+```
+
+### Color Usage
+```jsx
+// Primary actions
+<button className="bg-primary-500 hover:bg-primary-600 text-white">
+  Primary Button
+</button>
+
+// Secondary actions
+<button className="bg-secondary-500 hover:bg-secondary-600 text-white">
+  Secondary Button
+</button>
+
+// Text colors
+<h1 className="text-neutral-900">Dark text</h1>
+<p className="text-neutral-600">Medium text</p>
+<span className="text-neutral-400">Light text</span>
+```
+
+### Custom Utilities
+```jsx
+// Gradient text
+<h1 className="text-gradient">Gradient Text</h1>
+
+// Gradient backgrounds
+<div className="bg-gradient-primary">Primary gradient</div>
+<div className="bg-gradient-secondary">Secondary gradient</div>
+
+// Focus styles
+<button className="focus-ring">Accessible button</button>
+```
+
+## 🌟 Features
+
+- ✅ **Brand-Consistent Design**: Complete color system with semantic naming
+- ✅ **Optimized Typography**: Poppins font with proper weights and optimization
+- ✅ **Responsive Design**: Mobile-first approach with Tailwind CSS
+- ✅ **Performance Optimized**: Next.js 15 with image and font optimization
+- ✅ **Accessibility**: Proper focus states and semantic HTML
+- ✅ **Type Safety**: Full TypeScript support
+- ✅ **Code Quality**: ESLint configuration for consistent code
+
+## 📝 License
+
+This project is proprietary to Empowr.
