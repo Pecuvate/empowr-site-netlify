@@ -1,0 +1,91 @@
+# memory.md — Empowr Main Site
+
+Current phase status and key facts that would otherwise need re-explaining at the start of every session.
+
+---
+
+## Current Phase
+
+**Phase 2 — Build (in progress)**
+
+Scaffold complete. Home page built and build verified clean. Remaining pages to build next session.
+
+---
+
+## Phase Status
+
+| Phase | Status |
+|---|---|
+| Planning | Complete |
+| Scaffold (Next.js init, layout, globals) | Complete |
+| Home page | Complete |
+| Remaining pages (About, Our Work, Impact, Get Involved, Work With Us, News, Contact) | Not started |
+| MDX news system | Not started |
+| Content population (report links, stats, bios) | Blocked — awaiting client content |
+| Domain cutover (Wix → Netlify) | Not started — Phase 4 |
+
+---
+
+## Key Facts
+
+- Domain target: `empowrcic.org` (replacing Wix — DNS already on Route 53)
+- Wix is currently live and is left untouched until Phase 4
+- Stack: Next.js 16 + Tailwind v4 + shadcn/ui. Static export (`output: "export"`). One line to go full dynamic.
+- CIC reports: external links to Companies House — not hosted PDFs
+- Contact form: mailto link in Phase 1, Resend in Phase 2 if needed
+- News: MDX files in `src/content/news/` — no CMS in Phase 1
+
+---
+
+## Confirmed from Current Site and Notion Workspace
+
+- CIC / Companies House number: **13660924**
+- Registered address: **Crown House, 27 Old Gloucester Street, London, WC1N 3AX**
+- Incorporated: **October 2021** | First activities: **February 2022**
+- Geographic base: **SE London, Lewisham area**
+- Social handles: **@empowr.cic** — Instagram, Facebook, YouTube
+- Founders: **Jasmine Barnett** (community, operations, culture) & **Shaun Barnett** (narrative, structure, strategic vision)
+- Tagline: *"Live by growing. Grow by learning. Learn by doing."*
+- Mission: *"Promoting lifelong well-being through the transformative power of experiential learning."*
+- Vision: leading Health Activities Provider — full text in `narrative.md`
+- Founding story: full narrative in `founding-story.md` — Ikigai inspiration, empty spaces, RC pivot, skating emerging naturally
+- Core frameworks: EELA (Empowr Experiential Learning Activities) and ECCP (Empowr Certified Coaching Program)
+- Community roles: Champions (ground support), Ambassadors (network carriers), Heroes (sustainers)
+- Key quotes and wider impact narrative: all in `narrative.md`
+- Commissioning partners: HAF, public health initiatives, schools, youth organisations
+- Confirmed community partners: Ivydale Primary School, Somerville TRA, Barnes Wallis Community Centre, Lewisham Tenants Fund, Catbytes CIC
+- One confirmed stat: Street Skate Support Group averaged 50+ participants/week over 12 weeks
+- Notion source: `planning/architecture/narrative.md` and `planning/architecture/founding-story.md`
+
+---
+
+- Values: **Confirmed** — Growth Through Action, Community and Belonging, Wellbeing as a Way of Life (in `narrative.md`)
+- Heroes URL: **Confirmed** — hero.empowrcic.org
+- Third director: **Clifton George Barrett** — appointed Sep 2025 (from Companies House). Role/bio needed.
+- Company year end: **31 October** | Accounts filed as "AA" on Companies House
+- CIC accounts confirmed: to 31 Oct 2025 (filed Feb 2026) and to 31 Oct 2024 (filed Feb 2025)
+
+- Contact email: **enquiries@empowrcic.org**
+- Heroes URL: **hero.empowrcic.org**
+- Clifton George Barrett: **Director of Events**, Board of Directors
+- Active programmes: confirmed from empowrcic.org/book-online — 10 programmes across drop-ins, lessons, courses, camps (full table in `content-requirements.md`)
+- Board of Directors: 3 confirmed (Jasmine, Shaun, Clifton), 3 more TBC — client will add to Notion
+
+## Still Awaiting
+
+- 2–3 sentence descriptions for each programme group (for the website — booking page has names/prices only)
+- Direct URLs to each annual accounts filing on Companies House (for `/impact` report links)
+- Headline impact statistics from most recent accounts
+- Bios and photos for Clifton and future board members
+- Three additional Board of Directors members (client adding to Notion)
+- Whether registered address is appropriate to display publicly
+
+---
+
+## Pre-close Checklist
+
+Before ending any session:
+1. Update this file with current phase status
+2. Add any new decisions to `DEVLOG.md`
+3. If a new architectural decision was made, add an ADR to `planning/decisions/`
+4. Prompt the user to commit and push
