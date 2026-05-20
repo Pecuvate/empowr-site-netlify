@@ -99,3 +99,37 @@
 - Confirm LegalHub URL paths before launch
 
 ---
+
+## Session 4 — 2026-05-20
+
+**What was done:**
+- Built all 7 remaining pages: `/about`, `/our-work`, `/impact`, `/get-involved`, `/work-with-us`, `/news`, `/contact`
+- Built `/news/[slug]` dynamic route with `generateStaticParams` for static export
+- Set up MDX news system: installed `gray-matter` + `next-mdx-remote`, created `src/lib/news.ts` utility
+- Created first news post: `2026-05-20-welcome-to-our-new-website.mdx` (site relaunch announcement)
+- Wired home page news strip to show real posts from `getAllPosts()`
+- Added `.mdx-body` styles to `globals.css` for post typography (no extra plugin dependency)
+- Updated `src/lib/types.ts` with `NewsPostFull` type
+- Build verified clean: 12 static pages, zero errors
+
+**Key decisions this session:**
+- Contact page uses `mailto:` links for Phase 1 — no form handler required yet (Resend is Phase 2)
+- Past programmes listed on `/our-work` with "Past" labels — deliberate narrative choice to show breadth
+- Annual report links on `/impact` show "Link coming soon" where URLs are missing — no broken links
+- Avoided `@tailwindcss/typography` — custom `.mdx-body` CSS handles post styling cleanly
+
+**Still outstanding before launch:**
+- Confirm LegalHub URL paths (`privacyPolicy`, `cookiePolicy` in `links.ts`)
+- Provide direct URLs to Companies House annual accounts filings (`cicReport2025`, `cicReport2024` in `links.ts`)
+- Confirm registered address display with client
+- Headline impact stats from most recent CIC accounts (for `/impact`)
+- Photos and bios for team members (currently using initials as avatars)
+- Three additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+
+**Next steps:**
+- Start dev server and review all pages visually
+- Deploy to Netlify (`/netlify-deploy`)
+- DNS cutover from Wix to Netlify (Route 53)
+
+---

@@ -5,3 +5,7 @@ export interface NewsPost {
   category: "Announcement" | "Event" | "Story" | "Update";
   excerpt: string;
 }
+
+export interface NewsPostFull extends NewsPost {
+  content: string;
+}

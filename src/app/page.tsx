@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LINKS } from "@/lib/links";
+import { getAllPosts } from "@/lib/news";
 
 const BELIEF_PILLARS = [
   {
@@ -51,7 +52,16 @@ const ROUTE_CARDS = [
   },
 ];
 
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 export default function Home() {
+  const latestPosts = getAllPosts().slice(0, 3);
   return (
     <>
       {/* Hero */}
@@ -192,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest News placeholder — populated when MDX posts exist */}
+      {/* Latest News */}
       <section className="bg-blue-pale py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between mb-10">
@@ -206,13 +216,40 @@ export default function Home() {
               All news →
             </Link>
           </div>
-          <p className="text-mid">
-            News posts will appear here. Check back soon, or{" "}
-            <Link href="/news" className="text-blue hover:text-blue-dark">
-              visit the news page
-            </Link>
-            .
-          </p>
+          {latestPosts.length === 0 ? (
+            <p className="text-mid">
+              News posts will appear here. Check back soon, or{" "}
+              <Link href="/news" className="text-blue hover:text-blue-dark">
+                visit the news page
+              </Link>
+              .
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestPosts.map((post) => (
+                <article
+                  key={post.slug}
+                  className="bg-warm-white rounded-2xl p-6 border border-border flex flex-col"
+                >
+                  <time className="text-muted text-xs mb-3">
+                    {formatDate(post.date)}
+                  </time>
+                  <h3 className="font-bold text-black mb-2 leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-mid text-sm leading-relaxed flex-1 mb-5">
+                    {post.excerpt}
+                  </p>
+                  <Link
+                    href={`/news/${post.slug}`}
+                    className="text-blue text-sm font-semibold hover:text-blue-dark transition-colors"
+                  >
+                    Read more →
+                  </Link>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

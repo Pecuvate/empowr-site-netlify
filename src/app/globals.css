@@ -22,3 +22,64 @@ body {
   background-color: var(--color-cream);
   color: var(--color-black);
 }
+
+/* MDX post body styles */
+.mdx-body {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-mid);
+}
+
+.mdx-body h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-body h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.mdx-body p {
+  margin-bottom: 1.25rem;
+}
+
+.mdx-body a {
+  color: var(--color-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mdx-body a:hover {
+  color: var(--color-blue-dark);
+}
+
+.mdx-body strong {
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+.mdx-body ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.mdx-body ul li {
+  margin-bottom: 0.4rem;
+}
+
+.mdx-body blockquote {
+  border-left: 4px solid var(--color-blue);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--color-black);
+  font-weight: 600;
+  font-style: italic;
+}
