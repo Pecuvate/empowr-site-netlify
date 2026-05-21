@@ -133,3 +133,44 @@
 - DNS cutover from Wix to Netlify (Route 53)
 
 ---
+
+## Session 5 — 2026-05-21
+
+**What was done:**
+- Started dev server — all pages reviewed locally, looking good
+- Deployed to Netlify:
+  - Site created: `empowr-main-site` (ID: `f96dd515-c51e-4265-b3ae-c3f1440fe6d9`)
+  - Moved `netlify.toml` from `src/` to repo root with `base = "src"` directive — no manual UI config needed when connecting repo
+  - `.netlify/state.json` written for future deploy triggers
+  - GitHub repo connected: `Pecuvate/empowr-site-netlify`
+  - Live URL: `empowr-main-site.netlify.app`
+- Audited all policies on current Wix site — fetched full content of all 5 policy pages
+- **Decision: all policies will be hosted on LegalHub** (Sanity CMS via PecuvateHub) and linked from the new site
+
+**Current Wix policies retrieved:**
+- Website Policies — thin Wix-generated stub, not GDPR-compliant, references Wix as data processor
+- Terms & Conditions — general session T&Cs, usable as base
+- Risk Waiver — liability waiver, reasonable base
+- Photography & Media Consent — photo/video consent, reasonable base
+- Kidz Skate Jam with Coaching Policies — gear requirements and membership terms
+
+**Policies to be written (new, not updates):**
+1. Privacy Policy — GDPR-compliant, Netlify stack, no Wix references
+2. Cookie Policy — essential cookies only (static site)
+3. Terms & Conditions — updated general session T&Cs
+4. Risk Waiver — updated
+5. Photography & Media Consent — updated
+6. Programme Policies (Kidz Skate Jam / membership) — updated
+
+**Still outstanding before launch:**
+- Write all 6 policies and publish to LegalHub via Sanity (`/update-sanity`)
+- Update `links.ts` with confirmed LegalHub policy URLs once published
+- Confirm Companies House filing URLs and add to `links.ts` (`cicReport2025`, `cicReport2024`)
+- Headline impact stats from most recent CIC accounts
+- Team photos and bios (currently initials avatars on `/about`)
+- Three additional board members (TBC via Notion)
+- Client review of programme descriptions
+- Confirm registered address display with client
+- DNS cutover: lower TTL in Route 53 ahead of cutover, then swap A/CNAME from Wix to Netlify
+
+---
