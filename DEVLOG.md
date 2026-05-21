@@ -174,3 +174,38 @@
 - DNS cutover: lower TTL in Route 53 ahead of cutover, then swap A/CNAME from Wix to Netlify
 
 ---
+
+## Session 6 — 2026-05-21
+
+**What was done:**
+
+**Policy naming convention established and applied across LegalHub:**
+- Confirmed naming rule: audience/product-specific policies carry a prefix (Donor, EFN); org-wide standard policies carry no prefix
+- Renamed two misnamed Donor policies in Sanity (they had no prefix despite being Donor-platform-specific):
+  - `Privacy Policy - Empowr` → **Donor Privacy Policy** (slug: `empowr-donor-privacy-policy`)
+  - `Cookie Policy - Empowr` → **Donor Cookie Policy** (slug: `empowr-donor-cookie-policy`)
+- Updated Heroes platform `links.ts` to point at the renamed slugs
+- Renamed source markdown files and updated `policyMap` in `import-policies.ts` and `seed.ts` to match
+
+**6 new org-wide Empowr CIC policies written and published to LegalHub:**
+1. Privacy Policy (`empowr-privacy-policy`) — UK GDPR-compliant, covers website and programme data
+2. Cookie Policy (`empowr-cookie-policy`) — static site, no tracking cookies
+3. Terms & Conditions (`empowr-terms-and-conditions`) — website use and programme participation
+4. Risk Waiver (`empowr-risk-waiver`) — physical activity risks, equipment requirements
+5. Photography & Media Consent (`empowr-photography-media-consent`) — image use, consent, under-18 safeguarding
+6. Programme Policies (`empowr-programme-policies`) — session rules, code of conduct, Kidz Skate Jam membership
+
+- 3 new policy types added to Sanity: Risk Waiver, Photography & Media Consent, Programme Policies
+- All markdown source files in `PecuvateHubCMS/content/policies/empowr/`
+- `links.ts` in Empowr Main Site updated with all 6 confirmed LegalHub URLs — TODO placeholder removed
+
+**Still outstanding before launch:**
+- Confirm Companies House filing URLs (`cicReport2025`, `cicReport2024` in `links.ts`)
+- Headline impact stats from most recent CIC accounts (for `/impact`)
+- Team photos and bios (currently initials avatars on `/about`)
+- Three additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- Confirm registered address display with client
+- DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify
+
+---
