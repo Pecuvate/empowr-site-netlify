@@ -50,10 +50,24 @@ export default function ImpactPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">50+</p>
+              <p className="text-5xl font-extrabold text-blue mb-3">10,000+</p>
               <p className="text-mid text-sm leading-relaxed">
-                Participants per week — average attendance during the 12-week
-                Street Skate Support Group programme.
+                Participant attendances in 2024–25 — a 100% increase on the
+                previous year.
+              </p>
+            </div>
+            <div className="bg-warm-white rounded-2xl p-8 border border-border">
+              <p className="text-5xl font-extrabold text-blue mb-3">426</p>
+              <p className="text-mid text-sm leading-relaxed">
+                Sessions delivered in 2024–25, equating to over 700 hours of
+                activity across schools, community venues, and public spaces.
+              </p>
+            </div>
+            <div className="bg-warm-white rounded-2xl p-8 border border-border">
+              <p className="text-5xl font-extrabold text-blue mb-3">500+</p>
+              <p className="text-mid text-sm leading-relaxed">
+                Hours of paid and voluntary work generated — supporting
+                workforce development and community leadership.
               </p>
             </div>
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
@@ -63,23 +77,9 @@ export default function ImpactPage() {
                 community since our founding.
               </p>
             </div>
-            <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">10+</p>
-              <p className="text-mid text-sm leading-relaxed">
-                Active programmes delivered across drop-in sessions, lessons,
-                courses, camps, and advanced sessions.
-              </p>
-            </div>
-            <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">5</p>
-              <p className="text-mid text-sm leading-relaxed">
-                Community partners — schools, community organisations, and local
-                authority programmes.
-              </p>
-            </div>
           </div>
           <p className="text-muted text-sm mt-6">
-            Further statistics from CIC 34 annual filings will be published here when confirmed.
+            Figures sourced from the Community Interest Report within our 2024–25 annual accounts, filed with Companies House.
           </p>
         </div>
       </section>
@@ -91,9 +91,9 @@ export default function ImpactPage() {
             Annual Reports
           </h2>
           <p className="text-mid text-lg max-w-2xl mb-10">
-            Empowr&apos;s CIC 34 reports are filed annually with the CIC Regulator
-            and publicly available. These are verified public filings — not
-            self-produced documents.
+            Empowr&apos;s annual accounts — including our Community Interest Report
+            — are filed with Companies House and publicly available. These are
+            verified public filings, not self-produced documents.
           </p>
           <div className="space-y-4 max-w-2xl">
             {REPORTS.map((report) => (
@@ -112,7 +112,7 @@ export default function ImpactPage() {
                     rel="noopener noreferrer"
                     className="text-blue font-semibold text-sm hover:text-blue-dark transition-colors whitespace-nowrap"
                   >
-                    View on CIC Regulator →
+                    View on Companies House →
                   </a>
                 ) : (
                   <span className="text-muted text-sm italic">

@@ -13,7 +13,8 @@ export const LINKS = {
   programmePolicies: "https://legalhub.pecuvate.com/share/empowr/empowr-programme-policies",
   companiesHouse:
     "https://find-and-update.company-information.service.gov.uk/company/13660924",
-  // TODO: add direct URLs to each annual accounts filing (AA filings) — awaiting from client
-  cicReport2025: "",
-  cicReport2024: "",
+  cicReport2025:
+    "https://find-and-update.company-information.service.gov.uk/company/13660924/filing-history/MzUwMzQ0NDc4NWFkaXF6a2N4/document?format=pdf&download=0",
+  cicReport2024:
+    "https://find-and-update.company-information.service.gov.uk/company/13660924/filing-history/MzQ1MzgyNTQwOWFkaXF6a2N4/document?format=pdf&download=0",
 } as const;
