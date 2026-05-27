@@ -113,6 +113,14 @@ export default function Footer() {
               >
                 Cookie Policy
               </a>
+              <a
+                href={LINKS.termsAndConditions}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-muted hover:text-white transition-colors"
+              >
+                Terms &amp; Conditions
+              </a>
             </div>
           </div>
         </div>
