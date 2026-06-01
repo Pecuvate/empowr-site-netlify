@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { LINKS } from "@/lib/links";
 
 const NAV_LINKS = [
@@ -16,6 +17,7 @@ const NAV_LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="bg-warm-white border-b border-border sticky top-0 z-50">
@@ -25,15 +27,22 @@ export default function Nav() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-mid hover:text-blue transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors ${
+                  isActive
+                    ? "font-semibold text-blue border-b-2 border-blue pb-0.5"
+                    : "font-medium text-mid hover:text-blue"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <a
             href={LINKS.heroesplatform}
             target="_blank"
