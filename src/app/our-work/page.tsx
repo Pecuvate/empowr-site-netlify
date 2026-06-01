@@ -116,6 +116,14 @@ export default function OurWorkPage() {
                   stimulation combined produce outcomes no passive approach can
                   replicate.
                 </p>
+                <p>
+                  Empowr&apos;s long-term ambition is to be recognised as a{" "}
+                  <strong className="text-black">Health Activities Provider</strong>{" "}
+                  — a legitimate health intervention alongside clinical care,
+                  with experiential learning prescribed as part of a broader
+                  wellbeing strategy. Every programme we build is a step toward
+                  that goal.
+                </p>
               </div>
             </div>
             <div className="space-y-4">
@@ -123,25 +131,80 @@ export default function OurWorkPage() {
                 <h3 className="font-bold text-blue mb-2">
                   EELA — Empowr Experiential Learning Activities
                 </h3>
-                <p className="text-mid text-sm leading-relaxed">
-                  A structured methodology for designing sessions based on
-                  movement, community, experiential growth, and psychological
-                  safety. Every session — whatever the activity — is built on
-                  inclusion, meaningful challenge, and joy.
+                <p className="text-mid text-sm leading-relaxed mb-3">
+                  The overarching programme framework — every activity Empowr
+                  delivers sits within it. Currently active through{" "}
+                  <strong className="text-black">MoveWell</strong>, the
+                  Movement &amp; Wellness sub-programme that covers skating,
+                  dance, yoga, and parkour. Four further sub-programmes are
+                  planned as Empowr grows.
                 </p>
               </div>
               <div className="bg-blue-pale rounded-2xl p-7 border border-blue/10">
                 <h3 className="font-bold text-blue mb-2">
                   ECCP — Empowr Certified Coaching Program
                 </h3>
-                <p className="text-mid text-sm leading-relaxed">
-                  A development pathway that trains facilitators to lead with
-                  empathy, communicate clearly, and hold space for everyone in
-                  the room. The essence of Empowr, carried by every person who
-                  delivers a session.
+                <p className="text-mid text-sm leading-relaxed mb-3">
+                  A development pathway that converts participants into certified
+                  coaches — building Empowr&apos;s delivery capacity from within
+                  the community. Currently in development and piloting.
                 </p>
+                <ul className="space-y-1">
+                  {[
+                    "Level 1 — certifies to train beginner to intermediate",
+                    "Level 2 — certifies to train intermediate to advanced",
+                    "Level 3 — certifies to train advanced and beyond",
+                  ].map((level) => (
+                    <li key={level} className="text-xs text-muted flex items-start gap-2">
+                      <span className="text-blue mt-0.5">–</span>
+                      <span>{level}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EELA Vision */}
+      <section className="bg-blue-pale py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+            The EELA Framework
+          </h2>
+          <p className="text-mid text-lg max-w-2xl mb-10">
+            EELA is designed to expand across five sub-programmes — each led by
+            a dedicated programme lead, each delivering the same experiential
+            learning principles in a different domain.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { name: "MoveWell", focus: "Movement & Wellness — skating, dance, yoga, parkour", active: true },
+              { name: "Mind Body & Wellness", focus: "Mindfulness, breathwork, meditation, recovery", active: false },
+              { name: "Creative Expression", focus: "Art, music, dance, creative writing", active: false },
+              { name: "Outdoor & Adventure", focus: "Hiking, cycling, team sports, nature", active: false },
+              { name: "Team-Building & Leadership", focus: "Leadership workshops, group challenges", active: false },
+            ].map((prog) => (
+              <div
+                key={prog.name}
+                className={`rounded-2xl p-6 border flex flex-col ${
+                  prog.active
+                    ? "bg-blue text-white border-blue"
+                    : "bg-white border-border"
+                }`}
+              >
+                <span className={`text-xs font-semibold uppercase tracking-widest mb-3 ${prog.active ? "text-blue-light" : "text-muted"}`}>
+                  {prog.active ? "Active" : "Planned"}
+                </span>
+                <h3 className={`font-bold mb-2 ${prog.active ? "text-white" : "text-black"}`}>
+                  {prog.name}
+                </h3>
+                <p className={`text-xs leading-relaxed ${prog.active ? "text-blue-light" : "text-muted"}`}>
+                  {prog.focus}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
