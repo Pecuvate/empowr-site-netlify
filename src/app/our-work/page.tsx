@@ -56,6 +56,8 @@ const PAST_PROGRAMMES = [
 
 const PARTNERS = [
   "Ivydale Primary School",
+  "St Winifred's School",
+  "BOST (Bankside Open Spaces Trust)",
   "The Somerville TRA",
   "Barnes Wallis Community Centre",
   "Lewisham Tenants Fund",

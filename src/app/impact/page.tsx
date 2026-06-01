@@ -57,7 +57,7 @@ export default function ImpactPage() {
               </p>
             </div>
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">426</p>
+              <p className="text-5xl font-extrabold text-blue mb-3">428</p>
               <p className="text-mid text-sm leading-relaxed">
                 Sessions delivered in 2024–25, equating to over 700 hours of
                 activity across schools, community venues, and public spaces.
@@ -81,6 +81,61 @@ export default function ImpactPage() {
           <p className="text-muted text-sm mt-6">
             Figures sourced from the Community Interest Report within our 2024–25 annual accounts, filed with Companies House.
           </p>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="bg-warm-white py-16 md:py-20 border-t border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+            Highlights
+          </h2>
+          <p className="text-mid text-lg max-w-2xl mb-10">
+            Selected milestones from our 2024–25 delivery year.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-cream rounded-2xl p-7 border border-border">
+              <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">
+                Government Commissioned
+              </p>
+              <h3 className="text-lg font-bold text-black mb-3">
+                HAF Programme — Year 2
+              </h3>
+              <p className="text-mid text-sm leading-relaxed">
+                For the second consecutive year, Empowr was commissioned as a
+                delivery partner under the government&apos;s Holiday Activities and
+                Food (HAF) programme — providing structured activity and food
+                provision for children during school holidays.
+              </p>
+            </div>
+            <div className="bg-cream rounded-2xl p-7 border border-border">
+              <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">
+                Beyond London
+              </p>
+              <h3 className="text-lg font-bold text-black mb-3">
+                Birmingham &amp; International Reach
+              </h3>
+              <p className="text-mid text-sm leading-relaxed">
+                Empowr expanded its reach beyond SE London with a community
+                collaboration in Birmingham and a street skate activation in
+                Badalona, Spain — where over 200 participants engaged in a
+                single session, connecting with international skate culture.
+              </p>
+            </div>
+            <div className="bg-cream rounded-2xl p-7 border border-border">
+              <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">
+                Year-on-Year Growth
+              </p>
+              <h3 className="text-lg font-bold text-black mb-3">
+                100% Growth in Attendance
+              </h3>
+              <p className="text-mid text-sm leading-relaxed">
+                From approximately 5,000 participant attendances in 2023–24 to
+                10,000+ in 2024–25. Sustained growth across school delivery,
+                community sessions, holiday camps, and public events.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
