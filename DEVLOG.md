@@ -209,3 +209,50 @@
 - DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify
 
 ---
+
+## Session 7 — 2026-06-01
+
+**What was done:**
+
+**Companies House filing URLs sourced and wired:**
+- Fetched Companies House filing history for company 13660924
+- Found direct AA filing document links for both years (2024–25 and 2023–24)
+- PDFs are image-based scans — rendered to PNG via PyMuPDF to read content
+- Updated `links.ts`: `cicReport2025` and `cicReport2024` now point to direct Companies House document URLs
+- Read Community Interest Report from the 2024–25 accounts (pages 10–12)
+
+**Impact page overhauled with real data:**
+- Replaced all placeholder stats with figures from the official Community Interest Report
+- Stats: 10,000+ participant attendances, 428 sessions (corrected from 426), 500+ hours paid/volunteer work, Feb 2022 founding date
+- Added Highlights section: HAF Year 2 commissioning, Birmingham + Badalona international reach, 100% YoY growth narrative
+- Fixed copy: annual accounts filed on Companies House, not the CIC Regulator separately
+- Report links now labelled "View on Companies House"
+
+**All 6 policies wired into the site:**
+- Footer: Terms & Conditions added alongside Privacy Policy and Cookie Policy
+- `/our-work`: new "Policies & Documents" strip added above CTA — Programme Policies, Risk Waiver, Photography & Media Consent
+
+**KB audit — Empowr Obsidian vault compared against site:**
+- Added St Winifred's School and BOST (Bankside Open Spaces Trust) to partners list
+- Updated EELA box to name MoveWell as the current active sub-programme
+- Updated ECCP box with all 3 certification levels; noted piloting began Year 3
+- Added EELA Framework section to Our Work — 5-card grid, MoveWell (Active) + 4 planned sub-programmes
+- Added Health Activities Provider aspiration to Our Work approach narrative
+
+**UI polish:**
+- Blue background paragraph text: lightened `--color-blue-light` from `#7093d4` to `#c8ddf8` — single CSS variable change fixes contrast across all pages
+- Desktop nav active state: `usePathname` added; current route gets bold + blue underline; nested routes handled correctly
+- Booking link updated to `https://eela.empowrcic.org/` across all "Book a Session" buttons
+
+**Key decisions this session:**
+- Registered address confirmed as virtual — appropriate to display publicly in footer
+- "Health Activities Provider" framing is aspirational ("aims to become"), not current positioning
+- Booking destination is now the EELA platform, not the old Wix booking page
+
+**Still outstanding before launch:**
+- Team photos and bios (currently initials avatars on `/about`)
+- Three additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify
+
+---
