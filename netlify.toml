@@ -8,7 +8,7 @@
 
 [[redirects]]
   from   = "/legal/*"
-  to     = "https://legalhub.pecuvate.com/share/empowr/:splat"
+  to     = "https://legalhub.pecuvate.com/share/empowr/org/:splat"
   status = 200
   force  = true
 
