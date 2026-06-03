@@ -348,41 +348,6 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      {/* Policies */}
-      <section className="bg-cream py-12 border-t border-border">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-semibold text-muted uppercase tracking-widest mb-4">
-            Policies &amp; Documents
-          </p>
-          <div className="flex flex-wrap gap-6 text-sm">
-            <a
-              href={LINKS.programmePolicies}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue hover:text-blue-dark transition-colors"
-            >
-              Programme Policies
-            </a>
-            <a
-              href={LINKS.riskWaiver}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue hover:text-blue-dark transition-colors"
-            >
-              Risk Waiver
-            </a>
-            <a
-              href={LINKS.photographyConsent}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue hover:text-blue-dark transition-colors"
-            >
-              Photography &amp; Media Consent
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-blue text-white py-16">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">

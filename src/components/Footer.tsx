@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-warm-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <p className="font-extrabold text-lg text-white mb-3 tracking-tight">
               Empowr CIC
@@ -97,32 +97,74 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="mt-6 space-y-2 text-sm">
-              <a
-                href={LINKS.privacyPolicy}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-muted hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href={LINKS.cookiePolicy}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-muted hover:text-white transition-colors"
-              >
-                Cookie Policy
-              </a>
-              <a
-                href={LINKS.termsAndConditions}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-muted hover:text-white transition-colors"
-              >
-                Terms &amp; Conditions
-              </a>
-            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
+              Legal
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href={LINKS.privacyPolicy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.cookiePolicy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Cookie Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.termsAndConditions}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Terms &amp; Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.riskWaiver}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Risk Waiver
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.photographyConsent}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Photography &amp; Media Consent
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.programmePolicies}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Programme Policies
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
