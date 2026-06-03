@@ -274,7 +274,15 @@ See `PecuvateHubCMS/scripts/patch-policy-platforms.ts` and `LegalHub/DEVLOG.md` 
 - `/our-work`: "Who We Work With" section changed from `bg-blue-pale` to `bg-cream` — was adjacent to EELA Framework section (also `bg-blue-pale`) with no visual break between them
 - `Footer.tsx`: "well-being" → "wellbeing" to match all other pages; added "Get Involved" to footer nav (was in main nav but missing from footer)
 - `contact/page.tsx`: Facebook handle display fixed `empowr.cic` → `@empowr.cic` (Instagram and YouTube already had `@` prefix)
-- Build verified clean: 12 static pages, zero errors
+
+**Footer restructured (5 columns):**
+- Added dedicated **Legal** column with all 6 policies: Privacy Policy, Cookie Policy, Terms & Conditions, Risk Waiver, Photography & Media Consent, Programme Policies
+- Added dedicated **Connect With Us** column with social links (Instagram, Facebook, YouTube) — moved out of the brand column
+- Removed the "Policies & Documents" strip from `/our-work` — all policies now live in the footer, accessible from every page
+- Footer layout: 5 columns on desktop (`lg:grid-cols-5`), 2 on tablet (`sm:grid-cols-2`), 1 on mobile; consistent `gap-8` throughout
+- Column order: Brand → Navigate → Connect With Us → Get In Touch → Legal
+
+All changes committed and pushed to `Pecuvate/empowr-site-netlify` (main). Netlify auto-deploys on push.
 
 **Still outstanding before launch:**
 - Team photos and bios (currently initials avatars on `/about`)
