@@ -256,3 +256,30 @@
 - DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify
 
 ---
+
+## Session 8 — 2026-06-03
+
+**What was done:**
+
+Content consistency audit — all pages reviewed against planning docs. Three issues found and fixed.
+
+**Policy links — confirmed correct (background):**
+The `links.ts` policy paths (`/legal/privacy-policy`, `/legal/cookie-policy`, etc.) were audited and verified working. How they resolve:
+1. `netlify.toml` proxies `empowrcic.org/legal/*` → `legalhub.pecuvate.com/share/empowr/org/:splat` (status 200, force=true)
+2. LegalHub's share route queries Sanity: `slug.current == $policySlug && platform == "org" && company == "empowr"`
+3. The Sanity slugs are the short form — `privacy-policy`, `cookie-policy`, `terms-and-conditions`, `risk-waiver`, `photography-media-consent`, `programme-policies` — NOT the original `empowr-*` prefixed slugs from DEVLOG Session 6. The prefix was stripped by `patch-policy-platforms.ts` (PecuvateHubCMS) when the `platform` field was added to the policy schema, making the prefix redundant (company + platform + slug is already unique). The `links.ts` paths correctly map to these renamed slugs.
+See `PecuvateHubCMS/scripts/patch-policy-platforms.ts` and `LegalHub/DEVLOG.md` (2026-06-02 session) for full context.
+
+**Fixes applied:**
+- `/our-work`: "Who We Work With" section changed from `bg-blue-pale` to `bg-cream` — was adjacent to EELA Framework section (also `bg-blue-pale`) with no visual break between them
+- `Footer.tsx`: "well-being" → "wellbeing" to match all other pages; added "Get Involved" to footer nav (was in main nav but missing from footer)
+- `contact/page.tsx`: Facebook handle display fixed `empowr.cic` → `@empowr.cic` (Instagram and YouTube already had `@` prefix)
+- Build verified clean: 12 static pages, zero errors
+
+**Still outstanding before launch:**
+- Team photos and bios (currently initials avatars on `/about`)
+- Three additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify
+
+---

@@ -122,7 +122,7 @@ export default function ContactPage() {
                   className="flex items-center gap-3 text-mid hover:text-blue transition-colors"
                 >
                   <span className="font-semibold">Facebook</span>
-                  <span className="text-muted text-sm">empowr.cic</span>
+                  <span className="text-muted text-sm">@empowr.cic</span>
                 </a>
                 <a
                   href={LINKS.socialYoutube}

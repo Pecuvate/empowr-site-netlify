@@ -210,7 +210,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* Who We Work With */}
-      <section className="bg-blue-pale py-16 md:py-20">
+      <section className="bg-cream py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
             Who We Work With

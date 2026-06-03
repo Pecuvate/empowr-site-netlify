@@ -5,6 +5,7 @@ const FOOTER_NAV = [
   { label: "About", href: "/about" },
   { label: "Our Work", href: "/our-work" },
   { label: "Impact", href: "/impact" },
+  { label: "Get Involved", href: "/get-involved" },
   { label: "Work With Us", href: "/work-with-us" },
   { label: "News", href: "/news" },
   { label: "Contact", href: "/contact" },
@@ -20,7 +21,7 @@ export default function Footer() {
               Empowr CIC
             </p>
             <p className="text-sm text-muted leading-relaxed">
-              Promoting lifelong well-being through the transformative power of
+              Promoting lifelong wellbeing through the transformative power of
               experiential learning.
             </p>
             <div className="flex gap-4 mt-5">
