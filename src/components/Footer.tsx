@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-warm-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           <div>
             <p className="font-extrabold text-lg text-white mb-3 tracking-tight">
               Empowr CIC
@@ -24,35 +24,6 @@ export default function Footer() {
               Promoting lifelong wellbeing through the transformative power of
               experiential learning.
             </p>
-            <div className="flex gap-4 mt-5">
-              <a
-                href={LINKS.socialInstagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-white transition-colors text-sm"
-                aria-label="Instagram"
-              >
-                Instagram
-              </a>
-              <a
-                href={LINKS.socialFacebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-white transition-colors text-sm"
-                aria-label="Facebook"
-              >
-                Facebook
-              </a>
-              <a
-                href={LINKS.socialYoutube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-white transition-colors text-sm"
-                aria-label="YouTube"
-              >
-                YouTube
-              </a>
-            </div>
           </div>
 
           <div>
@@ -70,6 +41,44 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
+              Connect With Us
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href={LINKS.socialInstagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.socialFacebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.socialYoutube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-white transition-colors"
+                >
+                  YouTube
+                </a>
+              </li>
             </ul>
           </div>
 
