@@ -7,14 +7,9 @@
 
 ## Sections
 
-### 1. Page Header
-- Blue background
-- Eyebrow: *"Contact"*
-- Headline: *"Get In Touch"*
-- No sub-copy
-
-### 2. Contact Form
-- Cream background
+### 1. Contact Form
+- Cream background, full min-height, centred `max-w-2xl` column — no hero banner
+- Headline: *"Get In Touch"* (inline, not a separate section)
 - Sub-copy: "Fill in the form below and your message will reach the right person. We aim to respond within 2 working days."
 - Fields: Name · Email · Subject (dropdown) · Message
 - Submit states: idle → submitting (button disabled) → success message or inline error with fallback email link
@@ -29,7 +24,7 @@
 **Complete (Phase 2 — Netlify Function + Resend form).**
 
 **Outstanding:**
-- Add `RESEND_API_KEY`, `CONTACT_EMAIL`, `OPPORTUNITIES_EMAIL` to Netlify environment variables before form will work in production
+- Query param pre-fill: `/contact?subject=Partnership` should pre-select the dropdown and optionally pre-fill the message field — good for next session
 
 ---
 

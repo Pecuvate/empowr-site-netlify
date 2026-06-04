@@ -56,12 +56,31 @@
 - `eccp.md` — Who We're Looking For and How It Works sections added; note on migration from Work With Us
 - `_index.md` — Work With Us status updated to Complete; pending item moved from `/work-with-us` to `/eccp`
 
+**Additional changes this session:**
+
+**Get In Touch CTA routing — all pages:**
+- `partner-with-us`: CTA changed from `mailto:` to `Link href="/contact"`
+- `work-with-us`: bottom CTA and all 3 role cards (Ops, Management, Volunteering) changed from `mailto:` to `/contact`; unused `LINKS` import removed
+
+**Contact page — layout simplified:**
+- Hero banner removed entirely
+- Page is now a single cream section with centred `max-w-2xl` column — headline and form only
+
+**Netlify env vars — pushed via CLI:**
+- `RESEND_API_KEY`, `CONTACT_EMAIL`, `OPPORTUNITIES_EMAIL` imported to Netlify using `netlify env:import`
+- Contact form is now fully live in production
+
+**check-cli skill — shared env files lookup added:**
+- `GUIDE.md` and `SKILL.md` updated: before asking for any API key, check `F:\Projects\.env.shared` and `F:\Projects\.env.pecuvate` first
+
 **Still outstanding before launch:**
 - Team photos and bios (currently DiceBear avatars on `/about`)
 - 3 additional board members (TBC via Notion)
 - Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
-- Add `RESEND_API_KEY`, `CONTACT_EMAIL`, `OPPORTUNITIES_EMAIL` to Netlify environment variables
 - DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+**Next session:**
+- Contact form query param pre-fill: `/contact?subject=Partnership` pre-selects dropdown and optionally pre-fills message — requires `useSearchParams()` in `ContactForm.tsx`
 
 ---
 
