@@ -2,6 +2,7 @@ export const LINKS = {
   heroesplatform: "https://hero.empowrcic.org",
   booking: "https://eela.empowrcic.org/",
   contactEmail: "enquiries@empowrcic.org",
+  opportunitiesEmail: "opportunities@empowrcic.org",
   socialInstagram: "https://www.instagram.com/empowr.cic",
   socialFacebook: "https://www.facebook.com/empowr.cic",
   socialYoutube: "https://www.youtube.com/@empowr.cic",

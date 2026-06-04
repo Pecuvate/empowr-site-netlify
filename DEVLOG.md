@@ -257,6 +257,58 @@
 
 ---
 
+## Session 9 — 2026-06-04
+
+**What was done:**
+
+**Team avatars — `/about`**
+- Replaced initials placeholders with DiceBear `adventurer` style SVG avatars
+- Avatars downloaded locally to `public/avatars/` (jasmine.svg, shaun.svg, clifton.svg) — no external API calls at runtime
+- Skin tones: Jasmine `#8d5524`, Shaun `#4a2912`, Clifton `#7b4e2d`
+- Avatar size increased to 80px (w-20 h-20)
+
+**Home page — restructured as catch-all**
+- Removed "What We Stand For" section (4 belief pillar cards) — values moved to `/about`
+- "Partner With Us" Get Involved card updated: `/contact` → `/partner-with-us`
+
+**About page — values updated**
+- VALUES array expanded from 3 to 4
+- "Growth Through Action" renamed to "Growth Through Learning"
+- "Inclusion For All" added as fourth value
+
+**Footer — full restructure**
+- 5 columns → 6 columns (`lg:grid-cols-6`)
+- Brand column: tagline + company info (reg number + address) — social links removed from here
+- About Us column: Who We Are · News · Our Impact
+- Get In Touch column: Contact Us · Partner With Us · Work With Us
+- Connect With Us column: Instagram · Facebook · YouTube (restored as dedicated column)
+- Programmes column: All Programmes · Empowr Heroes · ECCP (Soon) · Certified Coach
+- Legal column: Empowr Legal Policies → `/legal`
+- Footer bar: copyright (left) + social links (right) — company info removed from footer bar
+
+**New pages created**
+- `/eccp` — ECCP Coming Soon: what it is, 3 certification levels, register interest CTA (→ opportunities@empowrcic.org)
+- `/partner-with-us` — Partnership page: why Empowr, 4 partner types, impact stats, contact CTA
+- `/legal` — Policy hub: 6 policy cards linking through to LegalHub via netlify.toml proxy
+
+**links.ts**
+- Added `opportunitiesEmail: "opportunities@empowrcic.org"`
+
+**Planning directory — as-built docs**
+- Created `planning/pages/` with 11 page files + `_index.md` (status overview)
+- Created `planning/layout/` with `nav.md` and `footer.md`
+- Updated `planning/CONTEXT.md` — `pages/` is now the primary reference; `page-blueprints.md` noted as superseded
+- All docs reflect current built state, not pre-build plans
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- Practitioner copy for `/work-with-us`
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 8 — 2026-06-03
 
 **What was done:**

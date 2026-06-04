@@ -2,25 +2,6 @@ import Link from "next/link";
 import { LINKS } from "@/lib/links";
 import { getAllPosts } from "@/lib/news";
 
-const BELIEF_PILLARS = [
-  {
-    heading: "Wellbeing",
-    body: "We believe everyone deserves the tools to live well — mentally, physically, and emotionally.",
-  },
-  {
-    heading: "Learning",
-    body: "We believe experience is the most powerful teacher. People grow best when they are in motion.",
-  },
-  {
-    heading: "Community",
-    body: "We believe change happens when people come together. Connection is not a by-product — it is the work.",
-  },
-  {
-    heading: "Inclusion",
-    body: "We believe wellbeing is for everyone, at every age. No one is too old, too young, or too far behind to grow.",
-  },
-];
-
 const ROUTE_CARDS = [
   {
     heading: "Support Our Work",
@@ -46,8 +27,8 @@ const ROUTE_CARDS = [
   {
     heading: "Partner With Us",
     body: "Schools, organisations, and commissioners interested in working with Empowr at a strategic level.",
-    cta: "Get In Touch",
-    href: "/contact",
+    cta: "Find Out More",
+    href: "/partner-with-us",
     external: false,
   },
 ];
@@ -93,32 +74,6 @@ export default function Home() {
             >
               Support Our Work
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Stand For */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-            What We Stand For
-          </h2>
-          <p className="text-mid text-lg max-w-2xl mb-14">
-            Empowr is more than an organisation — it is a movement built on four
-            core beliefs.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BELIEF_PILLARS.map((pillar) => (
-              <div
-                key={pillar.heading}
-                className="bg-warm-white rounded-2xl p-7 border border-border"
-              >
-                <h3 className="text-lg font-bold text-blue mb-3">
-                  {pillar.heading}
-                </h3>
-                <p className="text-mid text-sm leading-relaxed">{pillar.body}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -10,16 +10,20 @@ export const metadata: Metadata = {
 
 const VALUES = [
   {
-    name: "Growth Through Action",
-    body: "Transformation happens when people engage and experience. We help them grow through doing — not watching, not waiting.",
+    name: "Wellbeing as a Way of Life",
+    body: "We support everyday habits and mindsets that build lasting health and joy — not just one-off interventions.",
   },
   {
     name: "Community and Belonging",
     body: "Empowr is a movement. We create spaces where everyone feels valued and connected, united by authentic relationships and shared purpose.",
   },
   {
-    name: "Wellbeing as a Way of Life",
-    body: "We support everyday habits and mindsets that build lasting health and joy — not just one-off interventions.",
+    name: "Growth Through Learning",
+    body: "Transformation happens when people engage and experience. We help them grow through doing — not watching, not waiting.",
+  },
+  {
+    name: "Inclusion For All",
+    body: "Wellbeing is for everyone, at every age. No one is too old, too young, or too far behind to grow — every person has a place here.",
   },
 ];
 
@@ -28,16 +32,19 @@ const TEAM = [
     name: "Jasmine Barnett",
     role: "Co-founder",
     bio: "Leads community, operations, and culture. The lived experience people feel in every Empowr space.",
+    avatar: "/avatars/jasmine.svg",
   },
   {
     name: "Shaun Barnett",
     role: "Co-founder",
     bio: "Leads narrative, structure, and long-term strategic vision. The thinking and design that guide how Empowr evolves with clarity and intention.",
+    avatar: "/avatars/shaun.svg",
   },
   {
     name: "Clifton George Barrett",
     role: "Director of Events",
     bio: "Leads the planning and delivery of Empowr's events programme.",
+    avatar: "/avatars/clifton.svg",
   },
 ];
 
@@ -183,11 +190,13 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-cream rounded-2xl p-8 border border-border"
               >
-                <div className="w-14 h-14 rounded-full bg-blue-pale border border-blue/20 mb-5 flex items-center justify-center">
-                  <span className="text-blue font-extrabold text-xl">
-                    {member.name.charAt(0)}
-                  </span>
-                </div>
+                <img
+                  src={member.avatar}
+                  alt={member.name}
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full mb-5 border-2 border-blue/20 bg-blue-pale"
+                />
                 <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-1">
                   {member.role}
                 </p>

@@ -8,9 +8,14 @@ This workspace is for thinking before building. Nothing here is deployed. Nothin
 
 | Folder | Purpose |
 |---|---|
-| `architecture/` | Site structure, page blueprints, content requirements — the "what" before the "how" |
+| `pages/` | **As-built docs** — one file per page; current sections, status, and outstanding items |
+| `layout/` | **As-built docs** — Nav and Footer structure and behaviour |
+| `architecture/` | Pre-build thinking — site structure, original blueprints, content requirements |
 | `decisions/` | Architectural decision records (ADRs) — why past choices were made |
-| `specs/` | Feature specifications — written before implementation starts (empty until build begins) |
+| `specs/` | Feature specifications — written before implementation starts |
+
+**Start here for any page-level work:** `pages/_index.md` — all routes, status, and outstanding items at a glance.  
+**`architecture/page-blueprints.md`** is the original pre-build plan (May 2026) — useful for historical context but superseded by the `pages/` files.
 
 ---
 
@@ -37,8 +42,12 @@ This workspace is for thinking before building. Nothing here is deployed. Nothin
 
 | File | Purpose |
 |---|---|
-| `architecture/site-map.md` | Full site map, routes, navigation structure |
-| `architecture/page-blueprints.md` | Section-by-section content plan for every page |
-| `architecture/content-requirements.md` | Content the client needs to provide before build can complete |
+| `pages/_index.md` | All routes at a glance — status + outstanding items |
+| `pages/[route].md` | As-built doc for each page — sections, status, notes |
+| `layout/nav.md` | Nav structure, links, active state behaviour |
+| `layout/footer.md` | Footer columns, routing, registered details |
+| `architecture/site-map.md` | Original site map and navigation plan |
+| `architecture/page-blueprints.md` | Original pre-build page designs (May 2026 — superseded) |
+| `architecture/content-requirements.md` | Content the client needs to provide |
 | `architecture/technical-decisions.md` | Tech stack, infrastructure, deployment choices |
 | `decisions/` | Individual ADRs for each significant decision |
