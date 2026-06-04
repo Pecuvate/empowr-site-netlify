@@ -156,12 +156,12 @@ export default function WorkWithUsPage() {
             No formal application — just reach out and tell us who you are and
             how you would like to be involved.
           </p>
-          <a
-            href={`mailto:${LINKS.opportunitiesEmail}`}
+          <Link
+            href="/contact"
             className="bg-white text-blue font-semibold px-8 py-4 rounded-full hover:bg-blue-pale transition-colors text-lg"
           >
             Get In Touch
-          </a>
+          </Link>
         </div>
       </section>
     </>
