@@ -9,29 +9,17 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      {/* Page Header */}
-      <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-          <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-4">
-            Contact
-          </p>
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl">
-            Get In Touch
-          </h1>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-mid text-lg max-w-xl mb-14">
-            Fill in the form below and your message will reach the right person.
-            We aim to respond within 2 working days.
-          </p>
-          <ContactForm />
-        </div>
-      </section>
-    </>
+    <section className="bg-cream min-h-screen py-24 md:py-32">
+      <div className="max-w-2xl mx-auto px-6">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+          Get In Touch
+        </h1>
+        <p className="text-mid text-lg mb-14 leading-relaxed">
+          Fill in the form below and your message will reach the right person.
+          We aim to respond within 2 working days.
+        </p>
+        <ContactForm />
+      </div>
+    </section>
   );
 }
