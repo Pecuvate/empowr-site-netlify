@@ -18,6 +18,7 @@
 - Who We Are → `/about`
 - News → `/news`
 - Our Impact → `/impact`
+- FAQs → `/faqs`
 
 ### Programmes (col 3)
 - All Programmes → `/our-work`

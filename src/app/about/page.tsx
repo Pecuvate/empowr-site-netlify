@@ -31,19 +31,19 @@ const TEAM = [
   {
     name: "Jasmine Barnett",
     role: "Co-founder",
-    bio: "Leads community, operations, and culture. The lived experience people feel in every Empowr space.",
+    bio: "Leads community, operations, and culture. The warmth people feel in every Empowr space — the welcome, the relationships, the sense that they belong — flows from Jasmine.",
     avatar: "/avatars/jasmine.svg",
   },
   {
     name: "Shaun Barnett",
     role: "Co-founder",
-    bio: "Leads narrative, structure, and long-term strategic vision. The thinking and design that guide how Empowr evolves with clarity and intention.",
+    bio: "Leads narrative, structure, and long-term strategic vision. The clarity of Empowr's identity — its frameworks, its purpose, the way it grows with intention — is Shaun's work.",
     avatar: "/avatars/shaun.svg",
   },
   {
     name: "Clifton George Barrett",
     role: "Director of Events",
-    bio: "Leads the planning and delivery of Empowr's events programme.",
+    bio: "Leads the planning and delivery of Empowr's events programme — bringing the organisation's values into every event and making sure each one feels true to what Empowr stands for.",
     avatar: "/avatars/clifton.svg",
   },
 ];
@@ -54,28 +54,55 @@ export default function AboutPage() {
       {/* Page Header */}
       <section className="bg-blue text-white">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-          <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
-            About Us
-          </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-6">
-            Who We Are
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl mb-6">
+            We promote lifelong wellbeing through the transformative power of
+            experiential learning.
           </h1>
           <p className="text-lg text-blue-light max-w-2xl leading-relaxed">
-            Empowr CIC is a Community Interest Company based in SE London. We
-            design and deliver experiential learning programmes that improve
-            long-term mental, physical, and emotional wellbeing — for people of
-            every age.
+            Empowr CIC is a community organisation based in SE London. Our
+            mission is to be the number one Health Activities Provider in the
+            UK, providing people with safe spaces where they can feel empowered
+            to learn, develop and grow as an individual.
           </p>
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* What We Stand For (Values) */}
       <section className="bg-cream py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+            What We Stand For
+          </h2>
+          <p className="text-mid text-lg max-w-2xl mb-14">
+            Empowr is more than an organisation — it is a movement built on
+            four core beliefs.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {VALUES.map((value) => (
+              <div
+                key={value.name}
+                className="bg-warm-white rounded-2xl p-8 border border-border border-l-4 border-l-blue"
+              >
+                <h3 className="text-lg font-bold text-blue mb-4">
+                  {value.name}
+                </h3>
+                <p className="text-mid leading-relaxed">{value.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="bg-blue-pale py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-8">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-2">
               Our Story
             </h2>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-8">
+              How we got here.
+            </p>
             <div className="space-y-6 text-mid text-lg leading-relaxed">
               <p>
                 Empowr was officially incorporated in October 2021, but the idea
@@ -92,85 +119,41 @@ export default function AboutPage() {
                 meaningful action. The more they reflected on it, the clearer it
                 became that real growth doesn&apos;t happen in theory; it happens
                 through experience. Through doing, trying, and learning in
-                motion. This became the foundation of Empowr: to bring life back
-                into unused community spaces by turning them into hubs of
-                experiential learning.
+                motion. This became the founding principle of Empowr: to bring
+                life back into unused community spaces by turning them into hubs
+                of experiential learning.
               </p>
               <p>
-                Skating wasn&apos;t chosen — it emerged. Naturally and organically
-                from the community&apos;s own needs. When the first sessions began,
-                something became immediately clear: people weren&apos;t just
-                attending, they were connecting. Parents stayed longer than
-                expected. Adults rediscovered movement. Young people found
-                confidence they didn&apos;t know they had. What began as an activity
-                became a movement — and Empowr has been growing ever since.
-              </p>
-              <blockquote className="border-l-4 border-blue pl-6 italic text-black font-semibold">
-                &ldquo;Empty spaces can become places of growth. People, given the
-                right environment, can thrive. And the most powerful learning
-                happens when we are in motion — together.&rdquo;
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What Is a CIC? */}
-      <section className="bg-blue-pale py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
-              What Is a CIC?
-            </h2>
-            <div className="space-y-4 text-mid text-lg leading-relaxed mb-8">
-              <p>
-                A Community Interest Company (CIC) is a type of company
-                specifically designed to benefit the community rather than
-                private shareholders. Any profits are reinvested back into the
-                community purpose — not distributed to owners.
+                Before settling on skating, the founders explored a completely
+                different direction — an RC (remote control) workshop, a space
+                where people could build, tinker, and learn through hands-on
+                experimentation. It aligned with the principles, but planning
+                took over from action and the concept grew cumbersome. The
+                original instinct had been simpler:{" "}
+                <em>
+                  we have empty spaces, people need activities — start where
+                  it&apos;s human.
+                </em>{" "}
+                Then something more organic happened. Jasmine had developed an
+                interest in roller skating and quickly realised others wanted the
+                same thing: a safe, open, welcoming place to move and learn.
+                Skating aligned with the community&apos;s real needs. It wasn&apos;t
+                chosen — it emerged.
               </p>
               <p>
-                CICs are regulated by the CIC Regulator and are required to
-                submit annual reports — called CIC 34 reports — demonstrating
-                how their work has benefited the community. These reports are
-                publicly available. Empowr CIC (company number 13660924) was
-                incorporated in October 2021.
+                Once the first sessions began, something became immediately
+                clear: people weren&apos;t just attending — they were connecting.
+                Parents stayed longer than expected. Adults rediscovered
+                movement. Young people found confidence they didn&apos;t know they
+                had. What began as an activity became a movement — and Empowr
+                has been growing ever since.
               </p>
             </div>
-            <a
-              href={LINKS.companiesHouse}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-blue font-semibold hover:text-blue-dark transition-colors"
-            >
-              View our public filing on Companies House →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Values */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-            Our Values
-          </h2>
-          <p className="text-mid text-lg max-w-2xl mb-14">
-            Three values that guide every decision, every session, and every
-            relationship Empowr builds.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {VALUES.map((value) => (
-              <div
-                key={value.name}
-                className="bg-warm-white rounded-2xl p-8 border border-border"
-              >
-                <h3 className="text-lg font-bold text-blue mb-4">
-                  {value.name}
-                </h3>
-                <p className="text-mid leading-relaxed">{value.body}</p>
-              </div>
-            ))}
+            <blockquote className="mt-10 border-l-4 border-blue pl-6 text-black font-semibold text-xl md:text-2xl leading-relaxed italic">
+              &ldquo;Empty spaces can become places of growth. People, given the
+              right environment, can thrive. And the most powerful learning
+              happens when we are in motion — together.&rdquo;
+            </blockquote>
           </div>
         </div>
       </section>

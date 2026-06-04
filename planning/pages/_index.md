@@ -15,6 +15,7 @@ All routes in the site, their purpose, and current build status. Read this first
 | `/news` + `/news/[slug]` | `news.md` | Keep the site alive — news posts (MDX) | Live — needs posts |
 | `/contact` | `contact.md` | Easy contact + registered details | Complete (Phase 1) |
 | `/legal` | `legal.md` | Policy hub — cards linking to 6 LegalHub policies | Complete — not in nav |
+| `/faqs` | `faqs.md` | Accordion FAQ — answers to common questions | Live — stub (1 FAQ) |
 
 **Pending client content before launch:**
 - Team photos and bios (`/about`)

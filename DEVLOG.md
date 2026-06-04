@@ -2,6 +2,39 @@
 
 ---
 
+## Session 12 — 2026-06-04
+
+**What was done:**
+
+**About page — full improvement pass:**
+- Header: eyebrow removed; headline updated to "We promote lifelong wellbeing through the transformative power of experiential learning."; sub-copy updated to mission/Health Activities Provider framing; mission callout block removed
+- Section reorder: "What We Stand For" (values) moved before "Our Story"
+- Values section renamed from "Our Values" → "What We Stand For"; sub updated to "Empowr is more than an organisation — it is a movement built on four core beliefs."; cards given left-border blue accent
+- Our Story: eyebrow "How we got here." added (`text-xs uppercase tracking-widest font-semibold text-muted`); RC workshop pivot paragraph added from founding story source doc; blockquote sized up
+- "What Is a CIC?" section removed from About page — moved to FAQs
+- All three team bios improved; Clifton's bio notably expanded
+
+**FAQs page — created:**
+- `/faqs` — accordion pattern; server component (`page.tsx`) + client component (`FaqsAccordion.tsx`)
+- Seeded with one FAQ: "What is a Community Interest Company (CIC)?" — sourced from the removed About section
+- FAQs link added to footer "About Us" column
+
+**Planning docs updated:**
+- `planning/pages/about.md` — fully rewritten to reflect current built state
+- `planning/pages/faqs.md` — created
+- `planning/pages/_index.md` — `/faqs` row added
+- `planning/layout/footer.md` — FAQs link added to About Us column
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- Practitioner copy for `/work-with-us`
+- Build out remaining FAQs content
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 1 — 2026-05-19
 
 **What was done:**

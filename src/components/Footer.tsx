@@ -64,6 +64,14 @@ export default function Footer() {
                   Our Impact
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/faqs"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  FAQs
+                </Link>
+              </li>
             </ul>
           </div>
 
