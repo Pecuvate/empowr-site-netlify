@@ -16,7 +16,7 @@
 
 ### About Us (col 2)
 - Who We Are → `/about`
-- News → `/news`
+- News → unclickable (temporarily disabled — no posts published yet)
 - Our Impact → `/impact`
 - FAQs → `/faqs`
 
@@ -52,7 +52,7 @@ Company registration details live in the Brand column, not the footer bar.
 ---
 
 ## Notes
-- "Work With Us" footer link → `/eccp` (not `/work-with-us`) — intentional; this is the future ECCP platform entry point
+- "Work With Us" footer link → `/work-with-us`
 - "Certified Coach" in Programmes column also → `/eccp`; ECCP entry removed to avoid duplication
 - All 6 individual policy links consolidated to "Empowr Legal Policies" → `/legal`; Privacy Policy and Terms & Conditions additionally surfaced in the footer bar for immediate visibility
 - Footer is a Server Component — no `"use client"` needed

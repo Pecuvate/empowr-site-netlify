@@ -13,7 +13,6 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 | Impact | `/impact` |
 | Get Involved | `/get-involved` |
 | Work With Us | `/work-with-us` |
-| News | `/news` |
 | Contact | `/contact` |
 
 **CTA button (right):** Support Us → `hero.empowrcic.org` (external, opens in new tab)
@@ -32,5 +31,6 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 
 ## Notes
 
-- `/eccp`, `/partner-with-us`, and `/legal` are **not** in the main nav — accessible from footer only
+- `/eccp`, `/partner-with-us`, `/legal`, and `/news` are **not** in the main nav — accessible from footer only
+- `/news` temporarily removed from nav (no posts published yet); restore when content is live
 - The Support Us CTA routes directly to the Heroes donation platform, not to any internal page
