@@ -257,6 +257,41 @@
 
 ---
 
+## Session 10 — 2026-06-04
+
+**What was done:**
+
+**Planning doc audit — `planning/architecture/`**
+- `page-blueprints.md` — deprecation header added; redirects to `planning/pages/`
+- `technical-decisions.md` — Styling row corrected (Tailwind v4 + shadcn/ui, was wrong); Phase Plan updated with Status column (Phases 1–3 complete, Phase 4 next)
+- `site-map.md` — 3 new routes added (`/eccp`, `/partner-with-us`, `/legal`); nav and footer descriptions rewritten to match `layout/nav.md` and `layout/footer.md`; audience routing fixed
+- `content-requirements.md` — resolved items marked confirmed (CIC report links, impact stats, registered address, contact emails, launch post, partners); `/work-with-us` section added; "Not required from client" section updated
+
+**Footer — further restructure**
+- Column order changed: Brand · About Us · **Programmes** · **Connect With Us** · **Get In Touch** · Legal
+- ECCP entry removed from Programmes column (Certified Coach kept, pointing to `/eccp`)
+- Work With Us footer link fixed: `/eccp` → `/work-with-us`
+- Footer bar left: Privacy Policy and Terms & Conditions links added alongside copyright
+- Footer bar right: social text links replaced with inline SVG icons (Instagram, Facebook, YouTube)
+- LinkedIn added to Connect With Us column and footer bar
+- WhatsApp added to Connect With Us column and footer bar (`chat.whatsapp.com/BuKlBkfDxHs2jdPyRzXwza`)
+- `links.ts`: `socialLinkedIn` and `socialWhatsApp` keys added
+
+**Process — `src/CONTEXT.md`**
+- Step 6 added to Process: update corresponding `planning/pages/` or `planning/layout/` doc after making code changes
+
+**All changes committed and pushed to `feat/session-9-restructure`.**
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- Practitioner copy for `/work-with-us`
+- Confirm LinkedIn URL in `links.ts` (`linkedin.com/company/empowr-cic`)
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 9 — 2026-06-04
 
 **What was done:**
