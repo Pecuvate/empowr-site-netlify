@@ -2,6 +2,69 @@
 
 ---
 
+## Session 13 — 2026-06-04
+
+**What was done:**
+
+**Our Impact page — header polish:**
+- Eyebrow restored: *"Our Impact"*
+- Headline promoted from sub-copy: *"As a registered CIC, we are publicly held to account for the community benefit we deliver. Here is our evidence."*
+- Font size reduced to `text-3xl md:text-4xl` to suit the longer headline
+
+**Get Involved page — full improvement pass:**
+- Headline changed to *"There is more than one way to be part of the team"* (swapped with Work With Us)
+- Sub-copy removed from page header
+- Partner With Us card: href updated to `/partner-with-us`, CTA changed to "Find Out More"
+- Join the Community card: href updated to `LINKS.socialWhatsApp`, CTA changed to "Join on WhatsApp", marked external
+- New section added: "Whatever your role, you're part of the same thing" — 2-column warm-white section with narrative left and 3 left-border blue pillars right (Growth never stops / Community is the work / Every form of involvement matters)
+
+**Work With Us page — complete rebuild:**
+- Page purpose changed from practitioner-specific to a broad roles hub
+- Headline changed to *"Welcoming anyone who wishes to support us on our mission"* (swapped with Get Involved)
+- 4 role cards: Session Delivery (→ `/eccp`), Operations & Coordination, Management & Leadership, Volunteering — latter three route to `opportunities@`
+- New "We invest in the people who represent us" section — same 2-column pattern with 3 pillars (Values before credentials / You join a community, not a roster / Quality is non-negotiable)
+- Blue CTA at bottom: "Ready to start the conversation?" → `opportunities@empowrcic.org`
+- Practitioner-specific content (Who We're Looking For, How It Works) moved to ECCP
+
+**Key decision:** Work With Us was too narrowly focused on session practitioners. Broader roles (Ops, Management, Volunteering) had no home. Practitioner recruitment belongs on ECCP since ECCP is the pathway in for session delivery anyway.
+
+**ECCP page — practitioner recruitment sections added:**
+- "Who We're Looking For" section added (cream, 2-column) — facilitators not instructors narrative + 3 value cards (Values first / Community-minded / Committed to quality)
+- "How It Works" section added (blue-pale) — freelance associate model, EELA framework onboarding, community not a roster
+- Register Interest CTA unchanged
+
+**Contact page — contact form built:**
+- All mailto route cards removed
+- New `ContactForm` client component: name, email, subject dropdown (General Enquiry, Partnership, Work With Us, Media), message
+- Idle → Submitting → Success/Error states with fallback email link on error
+- Netlify Function `netlify/functions/contact.ts`: routes Work With Us to `opportunities@empowrcic.org`, all other subjects to `enquiries@empowrcic.org`; sends confirmation email to sender via Resend
+- `netlify.toml` updated with `[functions] directory = "netlify/functions"`
+- `resend` installed as dependency
+- `.env.example` updated: `RESEND_API_KEY`, `CONTACT_EMAIL`, `OPPORTUNITIES_EMAIL`
+- Removed sections: Email Us Directly, Follow Us, Registered Details
+
+**Nav:**
+- News link removed temporarily (no posts published yet)
+
+**Footer:**
+- News link replaced with unclickable `<span>` at 50% opacity
+
+**Planning docs updated:**
+- `impact.md` — header section reflects eyebrow + headline pattern
+- `get-involved.md` — header, card links, Spirit of Involvement section documented
+- `work-with-us.md` — fully rewritten to reflect new broad roles structure
+- `eccp.md` — Who We're Looking For and How It Works sections added; note on migration from Work With Us
+- `_index.md` — Work With Us status updated to Complete; pending item moved from `/work-with-us` to `/eccp`
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- Add `RESEND_API_KEY`, `CONTACT_EMAIL`, `OPPORTUNITIES_EMAIL` to Netlify environment variables
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 12 — 2026-06-04
 
 **What was done:**
