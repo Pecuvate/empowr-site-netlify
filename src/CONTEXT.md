@@ -8,6 +8,7 @@ Next.js 15 (App Router), TypeScript strict, Tailwind v4, shadcn/ui. Built as a s
 3. Extract reusable UI into `components/`
 4. Register any new external URLs in `lib/links.ts` — never hardcode
 5. Run `npm run build` from `src/` to verify before committing
+6. Update the corresponding `planning/pages/` or `planning/layout/` doc to reflect what was built
 
 ## Inputs and Outputs
 - In: copy and content from `planning/architecture/`; links from `lib/links.ts`
