@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Work With Us | Empowr CIC",
@@ -20,22 +19,22 @@ const ROLES = [
     heading: "Operations & Coordination",
     body: "Programme coordination, logistics, admin, and community-facing support. The people who keep Empowr running well behind the scenes.",
     cta: "Express Interest",
-    href: `mailto:${LINKS.opportunitiesEmail}`,
-    external: true,
+    href: "/contact",
+    external: false,
   },
   {
     heading: "Management & Leadership",
     body: "Strategic support, project management, and organisational development. Help shape the direction and infrastructure of a growing CIC.",
     cta: "Express Interest",
-    href: `mailto:${LINKS.opportunitiesEmail}`,
-    external: true,
+    href: "/contact",
+    external: false,
   },
   {
     heading: "Volunteering",
     body: "Contribute time in any capacity — event support, mentoring, community outreach, or skills-based volunteering. Every hour counts.",
     cta: "Express Interest",
-    href: `mailto:${LINKS.opportunitiesEmail}`,
-    external: true,
+    href: "/contact",
+    external: false,
   },
 ];
 
