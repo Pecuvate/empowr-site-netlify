@@ -9,18 +9,21 @@
 
 ### 1. Page Header
 - Blue background
-- Headline: *"Get Involved"*
-- Sub-copy: *"There are several ways to connect with, support, and be part of Empowr."*
+- Eyebrow: *"Get Involved"*
+- Headline: *"Welcoming anyone who wishes to support us on our mission"*
+- No sub-copy
 
 ### 2. Route Cards
 - Cream background, 4-card grid
-- **Become a Hero** — donate to fund programmes → `hero.empowrcic.org`
-- **Partner With Us** — schools, organisations, commissioners → `/partner-with-us`
+- **Support Our Work** — donate to fund programmes → `hero.empowrcic.org` (external)
+- **Partner With Us** — schools, organisations, commissioners → `/partner-with-us` ("Find Out More")
 - **Work With Us** — practitioners and facilitators → `/work-with-us`
-- **Join the Community** — individuals wanting to participate → `/contact`
+- **Join the Community** — individuals wanting to participate → `LINKS.socialWhatsApp` ("Join on WhatsApp", external)
 
-### 3. CTA
-- Blue background: Our Work → `/our-work` | Contact → `/contact`
+### 3. Spirit of Involvement
+- Warm-white background, 2-column layout
+- Left: heading "Whatever your role, you're part of the same thing" + 2 paragraphs on non-transactional involvement
+- Right: 3 left-border blue pillars — Growth never stops / Community is the work / Every form of involvement matters
 
 ---
 

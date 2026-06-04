@@ -26,16 +26,13 @@ export default function ImpactPage() {
       {/* Page Header */}
       <section className="bg-blue text-white">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-          <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
-            Impact
-          </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-6">
+          <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-4">
             Our Impact
-          </h1>
-          <p className="text-lg text-blue-light max-w-2xl leading-relaxed">
+          </p>
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl">
             As a registered CIC, we are publicly held to account for the
             community benefit we deliver. Here is our evidence.
-          </p>
+          </h1>
         </div>
       </section>
 

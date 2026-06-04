@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { label: "Impact", href: "/impact" },
   { label: "Get Involved", href: "/get-involved" },
   { label: "Work With Us", href: "/work-with-us" },
-  { label: "News", href: "/news" },
   { label: "Contact", href: "/contact" },
 ];
 

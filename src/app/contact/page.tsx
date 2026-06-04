@@ -23,7 +23,7 @@ const CONTACT_ROUTES = [
     subject: "Work With Us",
     description:
       "Practitioners and facilitators interested in delivering with Empowr.",
-    href: `mailto:${LINKS.contactEmail}?subject=Work%20With%20Us%20Enquiry`,
+    href: `mailto:${LINKS.opportunitiesEmail}?subject=Work%20With%20Us%20Enquiry`,
   },
   {
     subject: "Media",
@@ -83,81 +83,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Direct Contact + Social */}
-      <section className="bg-blue-pale py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-extrabold text-black mb-4">
-                Email Us Directly
-              </h2>
-              <a
-                href={`mailto:${LINKS.contactEmail}`}
-                className="text-blue text-lg font-semibold hover:text-blue-dark transition-colors"
-              >
-                {LINKS.contactEmail}
-              </a>
-              <p className="text-muted text-sm mt-2">
-                We aim to respond within 2 working days.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-extrabold text-black mb-4">
-                Follow Us
-              </h2>
-              <div className="space-y-3">
-                <a
-                  href={LINKS.socialInstagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-mid hover:text-blue transition-colors"
-                >
-                  <span className="font-semibold">Instagram</span>
-                  <span className="text-muted text-sm">@empowr.cic</span>
-                </a>
-                <a
-                  href={LINKS.socialFacebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-mid hover:text-blue transition-colors"
-                >
-                  <span className="font-semibold">Facebook</span>
-                  <span className="text-muted text-sm">@empowr.cic</span>
-                </a>
-                <a
-                  href={LINKS.socialYoutube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-mid hover:text-blue transition-colors"
-                >
-                  <span className="font-semibold">YouTube</span>
-                  <span className="text-muted text-sm">@empowr.cic</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Registered Details */}
-      <section className="bg-cream py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-xl font-bold text-black mb-5">
-            Registered Details
-          </h2>
-          <div className="text-mid text-sm space-y-1">
-            <p>
-              <strong className="text-black">Empowr CIC</strong>
-            </p>
-            <p>Community Interest Company — Registered in England and Wales</p>
-            <p>Company number: 13660924</p>
-            <p>
-              Registered address: Crown House, 27 Old Gloucester Street, London
-              WC1N 3AX
-            </p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

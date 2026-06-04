@@ -9,7 +9,7 @@ All routes in the site, their purpose, and current build status. Read this first
 | `/our-work` | `our-work.md` | Make the work concrete — programmes + methodology | Pending client review |
 | `/impact` | `impact.md` | Credibility + transparency — stats + annual reports | Complete |
 | `/get-involved` | `get-involved.md` | Audience routing — clear paths for all stakeholders | Complete |
-| `/work-with-us` | `work-with-us.md` | Attract practitioners and facilitators | Pending client copy |
+| `/work-with-us` | `work-with-us.md` | Broad roles page — sessions, ops, management, volunteering | Complete |
 | `/eccp` | `eccp.md` | ECCP Coming Soon — certification programme | Live (coming soon) |
 | `/partner-with-us` | `partner-with-us.md` | Strategic partnerships page | Complete |
 | `/news` + `/news/[slug]` | `news.md` | Keep the site alive — news posts (MDX) | Live — needs posts |
@@ -21,5 +21,5 @@ All routes in the site, their purpose, and current build status. Read this first
 - Team photos and bios (`/about`)
 - 3 additional board members (`/about`)
 - Programme description review (`/our-work`)
-- Practitioner engagement copy (`/work-with-us`)
+- Practitioner engagement copy (`/eccp` — Who We're Looking For / How It Works)
 - DNS cutover: Route 53 TTL → swap from Wix to Netlify

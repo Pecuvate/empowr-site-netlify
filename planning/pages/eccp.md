@@ -23,7 +23,18 @@
 - **Level 2 — Practitioner**: facilitation skills, session planning, participant wellbeing
 - **Level 3 — Advanced Coach**: programme design, community leadership, coaching others
 
-### 4. Register Interest CTA
+### 4. Who We're Looking For
+- Cream background, 2-column layout
+- Left: 3 paragraphs — facilitators not instructors, values over specialism, adapts across settings
+- Right: 3 cards — Values first / Community-minded / Committed to quality
+
+### 5. How It Works
+- Blue-pale background
+- Freelance associate model — right people for the right contexts
+- Scoping around programmes/sessions, EELA framework onboarding
+- Joining a community, not just a delivery roster
+
+### 6. Register Interest CTA
 - Blue background
 - Email CTA → `opportunities@empowrcic.org`
 
@@ -43,3 +54,4 @@
 - ECCP also described on `/our-work` in the Our Approach section — keep both in sync
 - Currently in pilot phase — 3 certification levels confirmed
 - `opportunities@empowrcic.org` handles all interest until the platform is live
+- Sections 4 and 5 (Who We're Looking For / How It Works) moved here from `/work-with-us` — they belong with practitioner recruitment, not the broad roles page

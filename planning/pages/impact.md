@@ -9,8 +9,8 @@
 
 ### 1. Page Header
 - Blue background
-- Headline: *"Our Impact"*
-- Sub-copy: commitment to transparency and community accountability
+- Eyebrow: *"Our Impact"*
+- Headline: *"As a registered CIC, we are publicly held to account for the community benefit we deliver. Here is our evidence."*
 
 ### 2. Headline Stats
 - Cream background, 4-stat grid

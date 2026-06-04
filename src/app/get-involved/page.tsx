@@ -22,8 +22,8 @@ const ROUTES = [
   {
     heading: "Partner With Us",
     body: "For schools, community organisations, commissioners, and anchor institutions interested in working with Empowr at an organisational level.",
-    cta: "Get In Touch",
-    href: "/contact",
+    cta: "Find Out More",
+    href: "/partner-with-us",
     external: false,
     accent: "bg-warm-white border border-border text-black",
     ctaClass:
@@ -42,9 +42,9 @@ const ROUTES = [
   {
     heading: "Join the Community",
     body: "For individuals who want to participate in Empowr programmes — skating sessions, courses, camps, and more.",
-    cta: "Contact Us",
-    href: "/contact",
-    external: false,
+    cta: "Join on WhatsApp",
+    href: LINKS.socialWhatsApp,
+    external: true,
     accent: "bg-warm-white border border-border text-black",
     ctaClass:
       "bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors",
@@ -60,13 +60,9 @@ export default function GetInvolvedPage() {
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Get Involved
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-6">
-            Get Involved
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl">
+            There is more than one way to be part of the team
           </h1>
-          <p className="text-lg text-blue-light max-w-xl leading-relaxed">
-            There are several ways to connect with, support, and be part of
-            Empowr. Find the right route for you below.
-          </p>
         </div>
       </section>
 
@@ -103,6 +99,58 @@ export default function GetInvolvedPage() {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Spirit of Involvement */}
+      <section className="bg-warm-white border-t border-border py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
+                Whatever your role, you&apos;re part of the same thing
+              </h2>
+              <div className="space-y-5 text-mid text-lg leading-relaxed">
+                <p>
+                  Whether you give, partner, deliver, or participate —
+                  involvement at Empowr is not transactional. Every person who
+                  engages, in any capacity, is contributing to the same mission:
+                  a community that believes wellbeing is a way of life and that
+                  real growth happens through experience.
+                </p>
+                <p>
+                  We work with people of every age, across schools, community
+                  venues, and public spaces. The right route for you depends on
+                  who you are and what you bring. What stays the same, regardless
+                  of your route in, is the community you are joining.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {[
+                {
+                  heading: "Growth never stops",
+                  body: "Empowr is built on the belief that learning through experience is the most powerful form of development — and that it belongs to everyone, at every age.",
+                },
+                {
+                  heading: "Community is the work",
+                  body: "The people who surround Empowr are not customers or contractors in the conventional sense. They are part of a movement that takes belonging seriously.",
+                },
+                {
+                  heading: "Every form of involvement matters",
+                  body: "A donation funds a session. A partnership opens a door. A practitioner holds the space. A participant shows up. All of it is the work.",
+                },
+              ].map((point) => (
+                <div
+                  key={point.heading}
+                  className="border-l-4 border-blue pl-6 py-1"
+                >
+                  <h3 className="font-bold text-black mb-1">{point.heading}</h3>
+                  <p className="text-mid text-sm leading-relaxed">{point.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 # Work With Us — `/work-with-us`
 
-**Purpose:** Attract the right practitioners and facilitators. Explains the engagement model honestly.  
-**Audience:** Coaches, facilitators, community workers, and practitioners who want to deliver work with Empowr.
+**Purpose:** Broad entry point for anyone who wants to work with Empowr in any capacity. Routes to the right pathway per role type.  
+**Audience:** Anyone interested in contributing to Empowr — practitioners, operations, management, and volunteers.
 
 ---
 
@@ -9,35 +9,32 @@
 
 ### 1. Page Header
 - Blue background
-- Headline: *"Work With Us"*
-- Sub-copy: ethos-first framing — practitioners who align with Empowr's values
+- Eyebrow: *"Work With Us"*
+- Headline: *"There is more than one way to be part of the team"*
 
-### 2. Who We're Looking For
-- Cream background
-- Values and ethos statement — what kind of practitioner fits Empowr
-- Not a job listing — a values match
+### 2. Role Cards
+- Cream background, 2×2 grid
+- **Session Delivery** — practitioners, facilitators, coaches → `/eccp` ("Find Out More")
+- **Operations & Coordination** — programme coordination, logistics, admin → `opportunities@empowrcic.org`
+- **Management & Leadership** — strategic support, project management, org development → `opportunities@empowrcic.org`
+- **Volunteering** — any capacity, event support, mentoring, skills-based → `opportunities@empowrcic.org`
 
-### 3. How It Works
-- Blue-pale background
-- Engagement model: Empowr works with freelance associates
-- How scoping and management works in practice
-- What practitioners can expect
+### 3. What Working With Empowr Means
+- Warm-white background, 2-column layout
+- Left: 2 paragraphs — values-first relationship framing, expectations set honestly
+- Right: 3 left-border blue pillars — Values before credentials / You join a community, not a roster / Quality is non-negotiable
 
-### 4. Expression of Interest
-- CTA: email → `opportunities@empowrcic.org`
+### 4. CTA
+- Blue background: "Ready to start the conversation?" → `opportunities@empowrcic.org`
 
 ---
 
 ## Status
-**Pending client copy.** Page is built with placeholder content.
-
-**Outstanding:**
-- Client to confirm and expand practitioner engagement copy (sections 2 and 3)
-- Email CTA links to `opportunities@empowrcic.org` — this will eventually route to the ECCP platform
+Complete.
 
 ---
 
 ## Notes
-- The footer "Work With Us" link routes to `/eccp` (Coming Soon ECCP platform), not this page
-- This page is accessible from the main nav and the Get Involved page
-- Long-term this page may evolve into or merge with the ECCP platform entry point
+- Practitioner/facilitator-specific content (who we're looking for, how it works) moved to `/eccp`
+- Session Delivery card links to `/eccp` as the practitioner pathway entry point
+- All non-practitioner roles funnel directly to `opportunities@empowrcic.org`
