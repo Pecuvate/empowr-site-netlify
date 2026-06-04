@@ -1,32 +1,36 @@
 # Site Map
 
-**Last updated:** 2026-05-19
+**Last updated:** 2026-06-04
 
 ---
 
 ## Routes
 
-| Route | Page title | Primary audiences |
-|---|---|---|
-| `/` | Home | All |
-| `/about` | Who We Are | Public, Funders |
-| `/our-work` | What We Do | Public, Funders, Community |
-| `/impact` | Our Impact | Funders, Public |
-| `/get-involved` | Get Involved | All |
-| `/work-with-us` | Work With Us | Practitioners |
-| `/news` | News & Updates | All |
-| `/news/[slug]` | Individual news post | All |
-| `/contact` | Contact | All |
+| Route | Page title | Primary audiences | In nav |
+|---|---|---|---|
+| `/` | Home | All | No (logo) |
+| `/about` | Who We Are | Public, Funders | Yes |
+| `/our-work` | What We Do | Public, Funders, Community | Yes |
+| `/impact` | Our Impact | Funders, Public | Yes |
+| `/get-involved` | Get Involved | All | Yes |
+| `/work-with-us` | Work With Us | Practitioners | Yes |
+| `/news` | News & Updates | All | Yes |
+| `/news/[slug]` | Individual news post | All | — |
+| `/contact` | Contact | All | Yes |
+| `/eccp` | ECCP — Coming Soon | Practitioners, Partners | No (footer only) |
+| `/partner-with-us` | Partner With Us | Organisations, Schools | No (footer only) |
+| `/legal` | Legal Policies | All | No (footer only) |
 
 ---
 
 ## Navigation
 
-**Primary nav (top, all pages):**
-Home · About · Our Work · Impact · Get Involved · News · Contact
+**Primary nav (top, all pages):** About · Our Work · Impact · Get Involved · Work With Us · News · Contact  
+**CTA button (right):** Support Us → `hero.empowrcic.org` (external)  
+See `planning/layout/nav.md` for full behaviour spec.
 
-**Footer nav (all pages):**
-About · Our Work · Impact · Work With Us · Contact · Empowr Heroes [external] · Privacy Policy [external — LegalHub]
+**Footer (6 columns, all pages):** Brand · About Us · Get In Touch · Connect With Us · Programmes · Legal  
+See `planning/layout/footer.md` for full column breakdown.
 
 ---
 
@@ -36,6 +40,7 @@ About · Our Work · Impact · Work With Us · Contact · Empowr Heroes [externa
 |---|---|---|
 | General public | Home → About | `/about`, `/our-work` |
 | Potential funders / partners | Home → Impact | `/impact`, `/about` (CIC section) |
+| Organisations / commissioners | Home → Get Involved → Partner With Us | `/partner-with-us` |
 | Freelancers / practitioners | Home → Get Involved → Work With Us | `/work-with-us` |
 | Community members | Home → Get Involved | `/contact` |
 | Supporters / donors | Home → Get Involved → Support Our Work | Heroes platform (external) |
@@ -48,7 +53,8 @@ All external links centralised in `src/lib/links.ts`. Key external destinations:
 
 | Destination | Purpose | Route it appears on |
 |---|---|---|
-| Empowr Heroes platform | Donation / support CTA | Home, Get Involved |
-| CIC Regulator filing (per year) | Each CIC 34 annual report | Impact |
-| LegalHub — Privacy Policy | Footer legal requirement | Footer (all pages) |
-| LegalHub — Cookie Policy | Footer legal requirement | Footer (all pages) |
+| Empowr Heroes platform (`hero.empowrcic.org`) | Donation / support CTA | Home, Get Involved, Nav CTA, Footer |
+| EELA platform (`eela.empowrcic.org`) | Book a session | Our Work |
+| Companies House — 2024–25 accounts | Annual report link | Impact |
+| Companies House — 2023–24 accounts | Annual report link | Impact |
+| LegalHub — 6 Empowr org policies | Policy hub | `/legal` page + footer |

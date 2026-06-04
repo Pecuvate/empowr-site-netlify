@@ -1,5 +1,11 @@
 # Page Blueprints
 
+> **Historical document — pre-build planning only.**
+> This file describes the original intended structure for each page (May 2026) and is no longer maintained.
+> For the current as-built state of each page, use `planning/pages/` instead:
+> - `planning/pages/_index.md` — all routes, status, and outstanding items at a glance
+> - `planning/pages/[route].md` — section-level detail for each page
+
 Section-by-section content plan for every page. Read top to bottom as a visitor would experience it.
 
 **Last updated:** 2026-05-19 (updated with insights from current site analysis — see `architecture/current-site-analysis.md`)

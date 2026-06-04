@@ -19,21 +19,22 @@
 - News → `/news`
 - Our Impact → `/impact`
 
-### Get In Touch (col 3)
-- Contact Us → `/contact`
-- Partner With Us → `/partner-with-us`
-- Work With Us → `/eccp`
+### Programmes (col 3)
+- All Programmes → `/our-work`
+- Empowr Heroes → `hero.empowrcic.org` (external)
+- Certified Coach → `/eccp`
 
 ### Connect With Us (col 4)
 - Instagram → `instagram.com/empowr.cic` (external)
 - Facebook → `facebook.com/empowr.cic` (external)
 - YouTube → `youtube.com/@empowr.cic` (external)
+- LinkedIn → `linkedin.com/company/empowr-cic` (external) — confirm URL
+- WhatsApp → `chat.whatsapp.com/BuKlBkfDxHs2jdPyRzXwza` (external)
 
-### Programmes (col 5)
-- All Programmes → `/our-work`
-- Empowr Heroes → `hero.empowrcic.org` (external)
-- ECCP *(Soon badge)* → `/eccp`
-- Certified Coach → `/eccp`
+### Get In Touch (col 5)
+- Contact Us → `/contact`
+- Partner With Us → `/partner-with-us`
+- Work With Us → `/work-with-us`
 
 ### Legal (col 6)
 - Empowr Legal Policies → `/legal`
@@ -42,8 +43,8 @@
 
 ## Footer Bar
 
-- Left: © {year} Empowr CIC. All rights reserved.
-- Right: Instagram · Facebook · YouTube (social links, repeat of Connect With Us column)
+- Left: © {year} Empowr CIC. All rights reserved. · Privacy Policy · Terms & Conditions
+- Right: Instagram · Facebook · YouTube · LinkedIn · WhatsApp (SVG icons with aria-labels)
 
 Company registration details live in the Brand column, not the footer bar.
 
@@ -51,5 +52,6 @@ Company registration details live in the Brand column, not the footer bar.
 
 ## Notes
 - "Work With Us" footer link → `/eccp` (not `/work-with-us`) — intentional; this is the future ECCP platform entry point
-- All 6 individual policy links replaced by a single "Empowr Legal Policies" → `/legal` in Session 9
+- "Certified Coach" in Programmes column also → `/eccp`; ECCP entry removed to avoid duplication
+- All 6 individual policy links consolidated to "Empowr Legal Policies" → `/legal`; Privacy Policy and Terms & Conditions additionally surfaced in the footer bar for immediate visibility
 - Footer is a Server Component — no `"use client"` needed

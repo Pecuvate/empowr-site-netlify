@@ -6,6 +6,8 @@ export const LINKS = {
   socialInstagram: "https://www.instagram.com/empowr.cic",
   socialFacebook: "https://www.facebook.com/empowr.cic",
   socialYoutube: "https://www.youtube.com/@empowr.cic",
+  socialLinkedIn: "https://www.linkedin.com/company/empowr-cic", // TODO: confirm LinkedIn URL
+  socialWhatsApp: "https://chat.whatsapp.com/BuKlBkfDxHs2jdPyRzXwza",
   privacyPolicy: "/legal/privacy-policy",
   cookiePolicy: "/legal/cookie-policy",
   termsAndConditions: "/legal/terms-and-conditions",

@@ -2,7 +2,7 @@
 
 Stable architectural and infrastructure choices for the Empowr Main Site. Each decision here has a corresponding ADR in `planning/decisions/`.
 
-**Last updated:** 2026-05-19
+**Last updated:** 2026-06-04
 
 ---
 
@@ -12,7 +12,7 @@ Stable architectural and infrastructure choices for the Empowr Main Site. Each d
 |---|---|---|
 | Framework | Next.js (App Router) | Matches Heroes platform; workspace standard |
 | Language | TypeScript | Workspace standard |
-| Styling | Custom CSS (CSS variables, no Tailwind) | Matches Heroes platform; brand consistency |
+| Styling | Tailwind v4 + shadcn/ui | Revised Session 3 — see `decisions/2026-05-20-styling-and-framework.md` |
 | Font | Nunito via `next/font/google` | Same as Heroes (weights 400–900) |
 | Deployment | Netlify | Workspace standard; DNS already on Route 53 |
 | News / blog | MDX files in `src/content/news/` | Simple, no CMS dependency in Phase 1 |
@@ -45,9 +45,9 @@ Stable architectural and infrastructure choices for the Empowr Main Site. Each d
 
 ## Phase Plan
 
-| Phase | Scope |
-|---|---|
-| 1 — Structure | Scaffold, all pages with draft content, Nav, Footer, CIC report links, Heroes link |
-| 2 — Content | Real copy, team section, real report links, headline stats |
-| 3 — Growth | News posts, partner logos, impact stories |
-| 4 — Go live | Switch `empowrcic.org` DNS from Wix to Netlify, decommission Wix |
+| Phase | Scope | Status |
+|---|---|---|
+| 1 — Structure | Scaffold, all pages with draft content, Nav, Footer, CIC report links, Heroes link | Complete |
+| 2 — Content | Real copy, team section, real report links, headline stats | Complete |
+| 3 — Growth | News posts, partner logos, impact stories | Complete |
+| 4 — Go live | Switch `empowrcic.org` DNS from Wix to Netlify, decommission Wix | Next |
