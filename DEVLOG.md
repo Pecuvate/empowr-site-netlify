@@ -257,6 +257,31 @@
 
 ---
 
+## Session 11 — 2026-06-04
+
+**What was done:**
+
+**LinkedIn URL confirmed:**
+- Removed TODO comment from `links.ts` — `socialLinkedIn: "https://www.linkedin.com/company/empowr-cic"` confirmed
+
+**Home page hero — restructured:**
+- Eyebrow removed entirely
+- Headline updated to: "Live by growing. Grow by learning. Learn by doing." (promoted from eyebrow)
+- Sub copy updated: "We design and deliver experiential learning programmes that improve long-term mental, physical, and emotional wellbeing — for people of every age."
+- Book a Session CTA added as primary button (→ EELA platform); Find Out More and Support Our Work demoted to secondary ghost buttons
+
+**Temporarily removed:**
+- Latest News section removed from home page — no posts yet. Restore when content is published: re-add import from `@/lib/news`, `latestPosts` const, and the News section JSX (pattern is in git history).
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- Practitioner copy for `/work-with-us`
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 10 — 2026-06-04
 
 **What was done:**
@@ -287,7 +312,6 @@
 - 3 additional board members (TBC via Notion)
 - Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
 - Practitioner copy for `/work-with-us`
-- Confirm LinkedIn URL in `links.ts` (`linkedin.com/company/empowr-cic`)
 - DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
 
 ---

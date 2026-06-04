@@ -1,6 +1,29 @@
 import Link from "next/link";
 import { LINKS } from "@/lib/links";
-import { getAllPosts } from "@/lib/news";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
+
+const OFFER_CARDS = [
+  {
+    label: "Drop In & Skate",
+    ages: "Ages 5+ · All levels",
+    body: "Open community sessions — no commitment, no pressure. Just show up, lace up, and move at your own pace.",
+  },
+  {
+    label: "Learn to Skate",
+    ages: "Ages 5+ · Beginner to advanced",
+    body: "Progressive lessons and multi-session courses that take you from first steps to real, lasting confidence.",
+  },
+  {
+    label: "Holiday Camps",
+    ages: "Ages 5–15 · School holidays",
+    body: "Immersive multi-day skating experiences for children and young people. High-energy, skill-building, and genuinely memorable.",
+  },
+  {
+    label: "Push Your Skills",
+    ages: "Ages 13+ · Intermediate to advanced",
+    body: "Level 2 courses and advanced sessions for skaters ready to develop their own style and go further.",
+  },
+];
 
 const ROUTE_CARDS = [
   {
@@ -33,36 +56,33 @@ const ROUTE_CARDS = [
   },
 ];
 
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
 
 export default function Home() {
-  const latestPosts = getAllPosts().slice(0, 3);
   return (
     <>
       {/* Hero */}
       <section className="bg-blue text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-36">
-          <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
-            Live by growing. Grow by learning. Learn by doing.
-          </p>
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl mb-6">
-            Promoting lifelong wellbeing through experiential learning.
+            Live by growing. Grow by learning. Learn by doing.
           </h1>
           <p className="text-lg md:text-xl text-blue-light max-w-2xl leading-relaxed mb-10">
-            Empowr CIC is a community organisation based in SE London. We design
-            and deliver hands-on programmes that strengthen body and mind — for
-            children, young people, adults, and older adults.
+            We design and deliver experiential learning programmes that improve
+            long-term mental, physical, and emotional wellbeing — for people of
+            every age.
           </p>
           <div className="flex flex-wrap gap-4">
+            <a
+              href={LINKS.booking}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-blue font-semibold px-7 py-3 rounded-full hover:bg-blue-pale transition-colors"
+            >
+              Book a Session
+            </a>
             <Link
               href="/about"
-              className="bg-white text-blue font-semibold px-7 py-3 rounded-full hover:bg-blue-pale transition-colors"
+              className="border-2 border-white text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-colors"
             >
               Find Out More
             </Link>
@@ -78,37 +98,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Who We Work With */}
-      <section className="bg-blue-pale py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-center gap-8">
-          <div className="flex-1">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-              Everyone is welcome here.
-            </h2>
-            <p className="text-mid text-lg leading-relaxed max-w-xl">
-              Empowr works with people of all ages and backgrounds — children,
-              young people, adults, older adults, and whole families. We are not
-              a skating club. We are a wellbeing organisation that uses
-              experiential learning to help every person grow.
-            </p>
+      {/* What We Offer */}
+      <section className="bg-cream py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+                Everyone is welcome here.
+              </h2>
+              <p className="text-mid text-lg max-w-xl">
+                Empowr works with people of all ages and backgrounds. Whether
+                you&apos;re stepping on skates for the first time or looking to
+                push your limits — there&apos;s a session for you.
+              </p>
+            </div>
+            <Link
+              href="/our-work"
+              className="text-blue font-semibold text-sm hover:text-blue-dark transition-colors whitespace-nowrap"
+            >
+              See all programmes →
+            </Link>
           </div>
-          <div className="flex flex-wrap gap-3 md:justify-end">
-            {[
-              "Children",
-              "Young People",
-              "Adults",
-              "Older Adults",
-              "Families",
-              "Communities",
-            ].map((group) => (
-              <span
-                key={group}
-                className="bg-white text-blue font-semibold text-sm px-5 py-2.5 rounded-full border border-blue/20"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            {OFFER_CARDS.map((card) => (
+              <div
+                key={card.label}
+                className="bg-warm-white rounded-2xl p-7 border border-border flex flex-col"
               >
-                {group}
-              </span>
+                <p className="text-xs text-muted font-medium mb-3">{card.ages}</p>
+                <h3 className="text-lg font-bold text-black mb-3">{card.label}</h3>
+                <p className="text-mid text-sm leading-relaxed flex-1">{card.body}</p>
+              </div>
             ))}
           </div>
+          <div className="text-center">
+            <a
+              href={LINKS.booking}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue text-white font-semibold px-8 py-3.5 rounded-full hover:bg-blue-dark transition-colors inline-block"
+            >
+              Book a Session
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact */}
+      <section className="bg-blue-pale py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+                Thousands of people. One community.
+              </h2>
+              <p className="text-mid text-lg max-w-xl">
+                Since February 2022, Empowr has been showing up. Our mission is
+                to <em>empowr</em>{" "}as many people as possible — here&apos;s our
+                reach so far.
+              </p>
+            </div>
+            <Link
+              href="/impact"
+              className="text-blue font-semibold text-sm hover:text-blue-dark transition-colors whitespace-nowrap"
+            >
+              See our full impact →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { stat: "10,000+", label: "Participant attendances" },
+              { stat: "428", label: "Sessions delivered" },
+              { stat: "500+", label: "Hours of paid & volunteer work" },
+              { stat: "2", label: "Countries reached" },
+            ].map(({ stat, label }) => (
+              <div
+                key={label}
+                className="bg-white rounded-2xl p-7 border border-border flex flex-col"
+              >
+                <span className="text-4xl md:text-5xl font-extrabold text-blue mb-3">
+                  {stat}
+                </span>
+                <span className="text-mid text-sm leading-snug">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="bg-warm-white py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+              See what others say
+            </h2>
+            <p className="text-mid text-lg max-w-xl">
+              Real people. Real sessions. Here&apos;s what our community thinks.
+            </p>
+          </div>
+          <ReviewsCarousel />
         </div>
       </section>
 
@@ -154,57 +243,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Latest News */}
-      <section className="bg-blue-pale py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl font-extrabold text-black">
-              News &amp; Updates
-            </h2>
-            <Link
-              href="/news"
-              className="text-blue font-semibold text-sm hover:text-blue-dark transition-colors"
-            >
-              All news →
-            </Link>
-          </div>
-          {latestPosts.length === 0 ? (
-            <p className="text-mid">
-              News posts will appear here. Check back soon, or{" "}
-              <Link href="/news" className="text-blue hover:text-blue-dark">
-                visit the news page
-              </Link>
-              .
-            </p>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {latestPosts.map((post) => (
-                <article
-                  key={post.slug}
-                  className="bg-warm-white rounded-2xl p-6 border border-border flex flex-col"
-                >
-                  <time className="text-muted text-xs mb-3">
-                    {formatDate(post.date)}
-                  </time>
-                  <h3 className="font-bold text-black mb-2 leading-snug">
-                    {post.title}
-                  </h3>
-                  <p className="text-mid text-sm leading-relaxed flex-1 mb-5">
-                    {post.excerpt}
-                  </p>
-                  <Link
-                    href={`/news/${post.slug}`}
-                    className="text-blue text-sm font-semibold hover:text-blue-dark transition-colors"
-                  >
-                    Read more →
-                  </Link>
-                </article>
-              ))}
-            </div>
-          )}
         </div>
       </section>
     </>

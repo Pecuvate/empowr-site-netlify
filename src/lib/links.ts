@@ -6,7 +6,7 @@ export const LINKS = {
   socialInstagram: "https://www.instagram.com/empowr.cic",
   socialFacebook: "https://www.facebook.com/empowr.cic",
   socialYoutube: "https://www.youtube.com/@empowr.cic",
-  socialLinkedIn: "https://www.linkedin.com/company/empowr-cic", // TODO: confirm LinkedIn URL
+  socialLinkedIn: "https://www.linkedin.com/company/empowr-cic",
   socialWhatsApp: "https://chat.whatsapp.com/BuKlBkfDxHs2jdPyRzXwza",
   privacyPolicy: "/legal/privacy-policy",
   cookiePolicy: "/legal/cookie-policy",
@@ -18,6 +18,7 @@ export const LINKS = {
     "https://find-and-update.company-information.service.gov.uk/company/13660924",
   cicReport2025:
     "https://find-and-update.company-information.service.gov.uk/company/13660924/filing-history/MzUwMzQ0NDc4NWFkaXF6a2N4/document?format=pdf&download=0",
+  trustpilot: "https://www.trustpilot.com/review/empowrcic.org",
   cicReport2024:
     "https://find-and-update.company-information.service.gov.uk/company/13660924/filing-history/MzQ1MzgyNTQwOWFkaXF6a2N4/document?format=pdf&download=0",
 } as const;
