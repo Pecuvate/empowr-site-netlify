@@ -2,6 +2,37 @@
 
 ---
 
+## Session 15 — 2026-06-05
+
+**What was done:**
+
+**Contact form — subject + message pre-fill:**
+- `ContactForm.tsx` split into `ContactFormInner` (uses `useSearchParams`) + outer `ContactForm` (wraps in `Suspense` for static export compatibility)
+- Subject field made controlled; initialised from `?subject=` query param, validated against `SUBJECTS` array — no arbitrary values accepted
+- Message field uses `defaultValue` initialised from `?message=` query param — any string accepted, user can edit freely
+- Both params are optional and independent: `?subject=Partnership`, `?message=...`, or `?subject=Partnership&message=...`
+- `partner-with-us`: "Get In Touch" CTA → `/contact?subject=Partnership`
+- `work-with-us`: 3 role card "Express Interest" links + bottom CTA → `/contact?subject=Work%20With%20Us`
+
+**Mobile responsive pass — all pages:**
+- **Headline sizing**: `text-4xl md:text-5xl` page headers → `text-3xl md:text-4xl lg:text-5xl` (about, eccp, faqs, legal, partner-with-us); home hero `text-4xl md:text-6xl` → `text-3xl md:text-5xl lg:text-6xl`
+- **Section padding**: `py-20 md:py-28` → `py-12 md:py-20 lg:py-28` across all pages; contact `py-24 md:py-32` → `py-12 md:py-24 lg:py-32`; sub-sections `py-16 md:py-20` → `py-10 md:py-16 lg:py-20`
+- **Stat numbers**: impact page `text-5xl` (bare) → `text-3xl md:text-5xl`; home stats `text-4xl md:text-5xl` → `text-2xl md:text-4xl lg:text-5xl`; partner-with-us stats `text-4xl` → `text-2xl md:text-4xl`
+- **Two-column stacked grids**: `gap-16` → `gap-8 lg:gap-16` on our-work, get-involved, work-with-us, eccp
+- **Nav**: mobile menu link touch target `py-2` → `py-3`
+- **Footer**: social icon SVGs `w-5 h-5` → `w-6 h-6`
+
+**Skill updated:**
+- `pre-build-check` GUIDE.md: new "Tailwind Responsive Checks" section (R1–R5) — H1 sizing, section padding, stacked grid gaps, bare stat sizes, touch targets. Runs as part of `/pre-build-check` before any deploy.
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 14 — 2026-06-05
 
 **What was done:**

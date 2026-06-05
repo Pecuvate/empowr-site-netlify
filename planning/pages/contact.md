@@ -18,13 +18,20 @@
   - General Enquiry, Partnership, Media → `enquiries@empowrcic.org`
 - Confirmation email sent to sender via Resend on every submission
 
+### Query param pre-fill
+Both params are optional and independent:
+- `?subject=Partnership` — pre-selects the subject dropdown (validated against allowed values)
+- `?message=...` — pre-fills the message textarea (any string, user can edit)
+- `?subject=Partnership&message=...` — both together
+
+Current wired links:
+- `/partner-with-us` "Get In Touch" → `/contact?subject=Partnership`
+- `/work-with-us` role cards + bottom CTA → `/contact?subject=Work%20With%20Us`
+
 ---
 
 ## Status
-**Complete (Phase 2 — Netlify Function + Resend form).**
-
-**Outstanding:**
-- Query param pre-fill: `/contact?subject=Partnership` should pre-select the dropdown and optionally pre-fill the message field — good for next session
+**Complete.**
 
 ---
 

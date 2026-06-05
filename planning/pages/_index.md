@@ -13,7 +13,7 @@ All routes in the site, their purpose, and current build status. Read this first
 | `/eccp` | `eccp.md` | ECCP Coming Soon — certification programme | Live (coming soon) |
 | `/partner-with-us` | `partner-with-us.md` | Strategic partnerships page | Complete |
 | `/news` + `/news/[slug]` | `news.md` | Keep the site alive — news posts (MDX) | Live — needs posts |
-| `/contact` | `contact.md` | Easy contact + registered details | Complete (Phase 1) |
+| `/contact` | `contact.md` | Easy contact + registered details | Complete |
 | `/legal` | `legal.md` | Policy hub — cards linking to 6 LegalHub policies | Complete — not in nav |
 | `/faqs` | `faqs.md` | Accordion FAQ — answers to common questions | Live — stub (1 FAQ) |
 
@@ -21,5 +21,4 @@ All routes in the site, their purpose, and current build status. Read this first
 - Team photos and bios (`/about`)
 - 3 additional board members (`/about`)
 - Programme description review (`/our-work`)
-- Practitioner engagement copy (`/eccp` — Who We're Looking For / How It Works)
 - DNS cutover: Route 53 TTL → swap from Wix to Netlify
