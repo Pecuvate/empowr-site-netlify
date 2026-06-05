@@ -21,8 +21,8 @@ export default function Nav() {
   return (
     <header className="bg-warm-white border-b border-border sticky top-0 z-50">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-extrabold text-xl text-blue tracking-tight">
-          Empowr CIC
+        <Link href="/" aria-label="Empowr CIC — Home">
+          <img src="/logo.png" alt="Empowr CIC" className="h-10 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
