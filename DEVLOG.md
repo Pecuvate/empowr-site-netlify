@@ -2,6 +2,50 @@
 
 ---
 
+## Session 14 — 2026-06-05
+
+**What was done:**
+
+**Our Work page — full pass:**
+
+**Content fixes:**
+- Headline changed to *"Delivering programmes that use hands-on experience as the route to lasting wellbeing."* and reduced to `text-3xl md:text-4xl` (consistent with all other inner pages)
+- Sub-copy removed from page header
+- EELA programme data aligned with `eela.empowrcic.org/about`: "Creative Expression" → "Creative Expression & Arts"; taglines, descriptions, and "Coming soon" labels updated throughout
+- EELA intro text aligned with EELA site framing
+- ECCP paragraph rewritten from KB source (`entities/eccp.md`): *"converts participants into certified coaches — building Empowr's delivery capacity from within the community"*
+- `LINKS.eelaAbout` added to `links.ts`
+
+**Our Approach section:**
+- Info cards (EELA + ECCP) removed — content was duplicated from the paragraphs
+- Restored 2-col layout (lg:col-span-2 left + 1 right): left holds narrative + CTAs, right holds two blue-pale callout cards (The Science / Where We're Headed)
+- "Find out more about EELA →" CTA added (→ `eela.empowrcic.org/about`, external)
+- "Find out more about ECCP →" CTA added (→ `/eccp`, internal)
+
+**EELA Framework section:**
+- Replaced 5-column card grid with a vertical list — each row: name + tagline + status badge + description
+- MoveWell row styled with `bg-white border-blue/30`; Coming soon rows with `bg-white/60 border-border`
+
+**Our Programmes section:**
+- Card background changed from `bg-warm-white` to `bg-white` (better contrast on cream)
+- Past Programmes given `border-t` separator within the section
+
+**Who We Work With + Partners:**
+- Merged into a single 2-col section on `bg-warm-white` — both tell the same story (who Empowr reaches and works with)
+
+**Colour sequence:** `blue → cream → blue-pale → cream → warm-white → blue` — no consecutive same-colour sections
+
+**Planning docs updated:**
+- `planning/pages/our-work.md` — fully rewritten to reflect current built state
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 13 — 2026-06-04
 
 **What was done:**

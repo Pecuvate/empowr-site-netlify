@@ -64,6 +64,39 @@ const PARTNERS = [
   "Catbytes CIC",
 ];
 
+const EELA_PROGRAMMES = [
+  {
+    name: "MoveWell",
+    tagline: "Movement & Wellness",
+    description: "Dynamic ways to improve physical and mental health through movement.",
+    active: true,
+  },
+  {
+    name: "Mind Body & Wellness",
+    tagline: "Mindfulness & Recovery",
+    description: "A space for relaxation and rejuvenation, nurturing inner peace, mental clarity, and physical flexibility.",
+    active: false,
+  },
+  {
+    name: "Creative Expression & Arts",
+    tagline: "Creativity & Self-Expression",
+    description: "Exploring personal expression as a meaningful pathway to wellbeing.",
+    active: false,
+  },
+  {
+    name: "Outdoor & Adventure",
+    tagline: "Nature & Exploration",
+    description: "Building fitness, teamwork, and a genuine connection with the natural world.",
+    active: false,
+  },
+  {
+    name: "Team-Building & Leadership",
+    tagline: "Collaboration & Growth",
+    description: "Group challenges and interactive workshops that develop leadership, problem-solving, and strategic thinking through hands-on experience.",
+    active: false,
+  },
+];
+
 export default function OurWorkPage() {
   return (
     <>
@@ -73,182 +106,129 @@ export default function OurWorkPage() {
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Our Work
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-6">
-            What We Do
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl">
+            Delivering programmes that use hands-on experience as the route to lasting wellbeing.
           </h1>
-          <p className="text-lg text-blue-light max-w-2xl leading-relaxed">
-            We design and deliver programmes that use hands-on experience as the
-            route to lasting wellbeing. Skating is the vehicle. Growth is the
-            destination.
-          </p>
         </div>
       </section>
 
       {/* Our Approach */}
       <section className="bg-cream py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-8">
                 Our Approach
               </h2>
-              <div className="space-y-5 text-mid text-lg leading-relaxed">
-                <p>
-                  Empowr designs and delivers programmes through{" "}
-                  <strong className="text-black">EELA</strong> — the Empowr
-                  Experiential Learning Activities framework. EELA ensures every
-                  session is grounded in psychological safety, inclusion,
-                  meaningful challenge, and joy. It keeps Empowr true to its
-                  roots: people learn and grow best through doing.
-                </p>
-                <p>
-                  Our facilitators are trained through{" "}
-                  <strong className="text-black">ECCP</strong> — the Empowr
-                  Certified Coaching Program. ECCP develops facilitators, not
-                  instructors — equipping them to lead with empathy, hold space
-                  for others, and uphold Empowr&apos;s values in any context.
-                </p>
-                <p>
-                  The science supports what we see in practice. Experiential
-                  learning — hands-on activity that challenges both body and mind
-                  — creates new neural pathways, improves brain function, and
-                  reduces stress hormones. Physical movement and mental
-                  stimulation combined produce outcomes no passive approach can
-                  replicate.
-                </p>
-                <p>
-                  Empowr&apos;s long-term ambition is to be recognised as a{" "}
-                  <strong className="text-black">Health Activities Provider</strong>{" "}
-                  — a legitimate health intervention alongside clinical care,
-                  with experiential learning prescribed as part of a broader
-                  wellbeing strategy. Every programme we build is a step toward
-                  that goal.
-                </p>
+              <div className="space-y-8 text-mid text-lg leading-relaxed">
+                <div>
+                  <p className="mb-3">
+                    Empowr designs and delivers programmes through{" "}
+                    <strong className="text-black">EELA</strong> — the Empowr
+                    Experiential Learning Activities framework. EELA ensures every
+                    session is grounded in psychological safety, inclusion,
+                    meaningful challenge, and joy. It keeps Empowr true to its
+                    roots: people learn and grow best through doing.
+                  </p>
+                  <a
+                    href={LINKS.eelaAbout}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue hover:opacity-75 transition-opacity"
+                  >
+                    Find out more about EELA →
+                  </a>
+                </div>
+                <div>
+                  <p className="mb-3">
+                    Our facilitators are trained through{" "}
+                    <strong className="text-black">ECCP</strong> — the Empowr
+                    Certified Coaching Programme. Rather than recruiting externally,
+                    ECCP converts participants into certified coaches — building
+                    Empowr&apos;s delivery capacity from within the community, and
+                    ensuring every coach carries Empowr&apos;s values into every
+                    session.
+                  </p>
+                  <Link
+                    href="/eccp"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue hover:opacity-75 transition-opacity"
+                  >
+                    Find out more about ECCP →
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="bg-blue-pale rounded-2xl p-7 border border-blue/10">
-                <h3 className="font-bold text-blue mb-2">
-                  EELA — Empowr Experiential Learning Activities
-                </h3>
-                <p className="text-mid text-sm leading-relaxed mb-3">
-                  The overarching programme framework — every activity Empowr
-                  delivers sits within it. Currently active through{" "}
-                  <strong className="text-black">MoveWell</strong>, the
-                  Movement &amp; Wellness sub-programme that covers skating,
-                  dance, yoga, and parkour. Four further sub-programmes are
-                  planned as Empowr grows.
+                <p className="text-xs font-semibold uppercase tracking-widest text-blue mb-3">
+                  The Science
+                </p>
+                <p className="text-mid text-sm leading-relaxed">
+                  Experiential learning — hands-on activity that challenges both
+                  body and mind — creates new neural pathways, improves brain
+                  function, and reduces stress hormones. Physical movement and
+                  mental stimulation combined produce outcomes no passive approach
+                  can replicate.
                 </p>
               </div>
               <div className="bg-blue-pale rounded-2xl p-7 border border-blue/10">
-                <h3 className="font-bold text-blue mb-2">
-                  ECCP — Empowr Certified Coaching Program
-                </h3>
-                <p className="text-mid text-sm leading-relaxed mb-3">
-                  A development pathway that converts participants into certified
-                  coaches — building Empowr&apos;s delivery capacity from within
-                  the community. Currently in development and piloting.
+                <p className="text-xs font-semibold uppercase tracking-widest text-blue mb-3">
+                  Where We&apos;re Headed
                 </p>
-                <ul className="space-y-1">
-                  {[
-                    "Level 1 — certifies to train beginner to intermediate",
-                    "Level 2 — certifies to train intermediate to advanced",
-                    "Level 3 — certifies to train advanced and beyond",
-                  ].map((level) => (
-                    <li key={level} className="text-xs text-muted flex items-start gap-2">
-                      <span className="text-blue mt-0.5">–</span>
-                      <span>{level}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-mid text-sm leading-relaxed">
+                  Empowr&apos;s long-term ambition is to be recognised as a{" "}
+                  <strong className="text-black">Health Activities Provider</strong>{" "}
+                  — a legitimate health intervention alongside clinical care, with
+                  experiential learning prescribed as part of a broader wellbeing
+                  strategy.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* EELA Vision */}
+      {/* EELA Framework */}
       <section className="bg-blue-pale py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
             The EELA Framework
           </h2>
           <p className="text-mid text-lg max-w-2xl mb-10">
-            EELA is designed to expand across five sub-programmes — each led by
-            a dedicated programme lead, each delivering the same experiential
-            learning principles in a different domain.
+            EELA is not a single programme — it is the architecture that all
+            programmes live within. Five sub-programmes, each with its own team
+            and focus, all aligned to the same mission.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {[
-              { name: "MoveWell", focus: "Movement & Wellness — skating, dance, yoga, parkour", active: true },
-              { name: "Mind Body & Wellness", focus: "Mindfulness, breathwork, meditation, recovery", active: false },
-              { name: "Creative Expression", focus: "Art, music, dance, creative writing", active: false },
-              { name: "Outdoor & Adventure", focus: "Hiking, cycling, team sports, nature", active: false },
-              { name: "Team-Building & Leadership", focus: "Leadership workshops, group challenges", active: false },
-            ].map((prog) => (
+          <div className="flex flex-col gap-3">
+            {EELA_PROGRAMMES.map((prog) => (
               <div
                 key={prog.name}
-                className={`rounded-2xl p-6 border flex flex-col ${
+                className={`flex items-start gap-5 rounded-2xl border p-5 sm:p-6 ${
                   prog.active
-                    ? "bg-blue text-white border-blue"
-                    : "bg-white border-border"
+                    ? "bg-white border-blue/30"
+                    : "bg-white/60 border-border"
                 }`}
               >
-                <span className={`text-xs font-semibold uppercase tracking-widest mb-3 ${prog.active ? "text-blue-light" : "text-muted"}`}>
-                  {prog.active ? "Active" : "Planned"}
-                </span>
-                <h3 className={`font-bold mb-2 ${prog.active ? "text-white" : "text-black"}`}>
-                  {prog.name}
-                </h3>
-                <p className={`text-xs leading-relaxed ${prog.active ? "text-blue-light" : "text-muted"}`}>
-                  {prog.focus}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Work With */}
-      <section className="bg-cream py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
-            Who We Work With
-          </h2>
-          <p className="text-mid text-lg max-w-2xl mb-10">
-            Empowr works with people of every age in SE London and beyond —
-            across schools, community centres, public spaces, and events.
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
-            {[
-              "Children",
-              "Young People",
-              "Adults",
-              "Older Adults",
-              "Families",
-              "Communities",
-            ].map((group) => (
-              <div
-                key={group}
-                className="bg-white rounded-xl p-4 text-center border border-border"
-              >
-                <span className="text-blue font-semibold text-sm">{group}</span>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-mid">
-            {[
-              { label: "Schools", example: "Ivydale Primary School" },
-              { label: "Community Centres", example: "Barnes Wallis" },
-              { label: "Community Events", example: "Jubilee Family Funday" },
-              { label: "Public Spaces", example: "Street Skate Support Group" },
-            ].map((setting) => (
-              <div
-                key={setting.label}
-                className="bg-white rounded-xl p-5 border border-border"
-              >
-                <p className="font-bold text-black mb-1">{setting.label}</p>
-                <p className="text-muted">{setting.example}</p>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center flex-wrap gap-2 mb-1.5">
+                    <p className={`font-bold ${prog.active ? "text-black" : "text-black/70"}`}>
+                      {prog.name}
+                    </p>
+                    <span className="text-xs text-muted">{prog.tagline}</span>
+                    {prog.active ? (
+                      <span className="text-xs font-semibold uppercase tracking-wider text-blue bg-blue/10 px-2 py-0.5 rounded-full">
+                        Active
+                      </span>
+                    ) : (
+                      <span className="text-xs font-semibold uppercase tracking-wider text-muted bg-black/5 px-2 py-0.5 rounded-full">
+                        Coming soon
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm leading-relaxed ${prog.active ? "text-mid" : "text-muted"}`}>
+                    {prog.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -281,7 +261,7 @@ export default function OurWorkPage() {
             {PROGRAMME_GROUPS.map((group) => (
               <div
                 key={group.category}
-                className="bg-warm-white rounded-2xl p-7 border border-border flex flex-col"
+                className="bg-white rounded-2xl p-7 border border-border flex flex-col"
               >
                 <h3 className="text-lg font-bold text-blue mb-3">
                   {group.category}
@@ -302,7 +282,7 @@ export default function OurWorkPage() {
           </div>
 
           {/* Past Programmes */}
-          <div className="mt-14">
+          <div className="mt-14 pt-10 border-t border-border">
             <h3 className="text-xl font-bold text-black mb-2">
               Past Programmes
             </h3>
@@ -315,7 +295,7 @@ export default function OurWorkPage() {
               {PAST_PROGRAMMES.map((p) => (
                 <span
                   key={p}
-                  className="text-sm text-muted bg-warm-white px-4 py-2 rounded-full border border-border"
+                  className="text-sm text-muted bg-white px-4 py-2 rounded-full border border-border"
                 >
                   {p} <span className="text-xs ml-1 opacity-60">Past</span>
                 </span>
@@ -325,25 +305,71 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      {/* Partners */}
+      {/* Who We Work With + Partners */}
       <section className="bg-warm-white py-16 md:py-20 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-extrabold text-black mb-4">
-            Our Partners
-          </h2>
-          <p className="text-mid text-lg max-w-xl mb-10">
-            Empowr builds value-based partnerships with organisations committed
-            to community wellbeing.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {PARTNERS.map((p) => (
-              <span
-                key={p}
-                className="bg-blue-pale text-blue font-semibold text-sm px-5 py-2.5 rounded-full border border-blue/20"
-              >
-                {p}
-              </span>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl font-extrabold text-black mb-4">
+                Who We Work With
+              </h2>
+              <p className="text-mid text-lg mb-8">
+                Empowr works with people of every age in SE London and beyond —
+                across schools, community centres, public spaces, and events.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {[
+                  "Children",
+                  "Young People",
+                  "Adults",
+                  "Older Adults",
+                  "Families",
+                  "Communities",
+                ].map((group) => (
+                  <span
+                    key={group}
+                    className="bg-blue-pale text-blue font-semibold text-sm px-4 py-1.5 rounded-full border border-blue/20"
+                  >
+                    {group}
+                  </span>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Schools", example: "Ivydale Primary School" },
+                  { label: "Community Centres", example: "Barnes Wallis" },
+                  { label: "Community Events", example: "Jubilee Family Funday" },
+                  { label: "Public Spaces", example: "Street Skate Support Group" },
+                ].map((setting) => (
+                  <div
+                    key={setting.label}
+                    className="bg-white rounded-xl p-4 border border-border"
+                  >
+                    <p className="font-bold text-black text-sm mb-0.5">{setting.label}</p>
+                    <p className="text-muted text-xs">{setting.example}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="text-3xl font-extrabold text-black mb-4">
+                Our Partners
+              </h2>
+              <p className="text-mid text-lg mb-8">
+                Empowr builds value-based partnerships with organisations
+                committed to community wellbeing.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {PARTNERS.map((p) => (
+                  <span
+                    key={p}
+                    className="bg-blue-pale text-blue font-semibold text-sm px-5 py-2.5 rounded-full border border-blue/20"
+                  >
+                    {p}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
