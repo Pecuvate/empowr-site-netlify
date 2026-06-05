@@ -19,6 +19,7 @@ function ContactFormInner() {
   const searchParams = useSearchParams();
   const rawSubject = searchParams.get("subject") ?? "";
   const initialSubject = SUBJECTS.includes(rawSubject) ? rawSubject : "";
+  const initialMessage = searchParams.get("message") ?? "";
 
   const [subject, setSubject] = useState(initialSubject);
   const [status, setStatus] = useState<Status>("idle");
@@ -123,6 +124,7 @@ function ContactFormInner() {
           name="message"
           required
           rows={5}
+          defaultValue={initialMessage}
           className={`${inputClass} resize-none`}
         />
       </div>
