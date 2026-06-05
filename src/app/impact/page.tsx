@@ -25,7 +25,7 @@ export default function ImpactPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
           <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-4">
             Our Impact
           </p>
@@ -37,7 +37,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Headline Numbers */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             By the Numbers
@@ -47,28 +47,28 @@ export default function ImpactPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">10,000+</p>
+              <p className="text-3xl md:text-5xl font-extrabold text-blue mb-3">10,000+</p>
               <p className="text-mid text-sm leading-relaxed">
                 Participant attendances in 2024–25 — a 100% increase on the
                 previous year.
               </p>
             </div>
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">428</p>
+              <p className="text-3xl md:text-5xl font-extrabold text-blue mb-3">428</p>
               <p className="text-mid text-sm leading-relaxed">
                 Sessions delivered in 2024–25, equating to over 700 hours of
                 activity across schools, community venues, and public spaces.
               </p>
             </div>
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">500+</p>
+              <p className="text-3xl md:text-5xl font-extrabold text-blue mb-3">500+</p>
               <p className="text-mid text-sm leading-relaxed">
                 Hours of paid and voluntary work generated — supporting
                 workforce development and community leadership.
               </p>
             </div>
             <div className="bg-warm-white rounded-2xl p-8 border border-border">
-              <p className="text-5xl font-extrabold text-blue mb-3">Feb&nbsp;2022</p>
+              <p className="text-3xl md:text-5xl font-extrabold text-blue mb-3">Feb&nbsp;2022</p>
               <p className="text-mid text-sm leading-relaxed">
                 First activities delivered. Operating continuously in the
                 community since our founding.
@@ -82,7 +82,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Highlights */}
-      <section className="bg-warm-white py-16 md:py-20 border-t border-border">
+      <section className="bg-warm-white py-10 md:py-16 lg:py-20 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             Highlights
@@ -137,7 +137,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Annual Reports */}
-      <section className="bg-blue-pale py-16 md:py-20">
+      <section className="bg-blue-pale py-10 md:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             Annual Reports
@@ -190,7 +190,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Transparency Statement */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-extrabold text-black mb-6">

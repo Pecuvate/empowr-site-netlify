@@ -53,8 +53,8 @@ export default function AboutPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl mb-6">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight max-w-3xl mb-6">
             We promote lifelong wellbeing through the transformative power of
             experiential learning.
           </h1>
@@ -68,7 +68,7 @@ export default function AboutPage() {
       </section>
 
       {/* What We Stand For (Values) */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             What We Stand For
@@ -94,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="bg-blue-pale py-20 md:py-28">
+      <section className="bg-blue-pale py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-2">
@@ -149,7 +149,7 @@ export default function AboutPage() {
                 has been growing ever since.
               </p>
             </div>
-            <blockquote className="mt-10 border-l-4 border-blue pl-6 text-black font-semibold text-xl md:text-2xl leading-relaxed italic">
+            <blockquote className="mt-10 border-l-4 border-blue pl-6 text-black font-semibold text-lg md:text-xl lg:text-2xl leading-relaxed italic">
               &ldquo;Empty spaces can become places of growth. People, given the
               right environment, can thrive. And the most powerful learning
               happens when we are in motion — together.&rdquo;
@@ -159,7 +159,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section className="bg-warm-white py-20 md:py-28 border-t border-border">
+      <section className="bg-warm-white py-12 md:py-20 lg:py-28 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             Our Team

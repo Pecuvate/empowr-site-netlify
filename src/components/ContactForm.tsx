@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const SUBJECTS = [
   "General Enquiry",
@@ -14,7 +15,12 @@ type Status = "idle" | "submitting" | "success" | "error";
 const inputClass =
   "w-full rounded-xl border border-border px-4 py-3 text-sm text-black bg-white focus:outline-none focus:ring-2 focus:ring-blue/30 transition-colors";
 
-export default function ContactForm() {
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const rawSubject = searchParams.get("subject") ?? "";
+  const initialSubject = SUBJECTS.includes(rawSubject) ? rawSubject : "";
+
+  const [subject, setSubject] = useState(initialSubject);
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -93,7 +99,8 @@ export default function ContactForm() {
           id="subject"
           name="subject"
           required
-          defaultValue=""
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
           className={inputClass}
         >
           <option value="" disabled>
@@ -138,5 +145,13 @@ export default function ContactForm() {
         {status === "submitting" ? "Sending…" : "Send Message"}
       </button>
     </form>
+  );
+}
+
+export default function ContactForm() {
+  return (
+    <Suspense fallback={<div className="max-w-2xl space-y-6" />}>
+      <ContactFormInner />
+    </Suspense>
   );
 }

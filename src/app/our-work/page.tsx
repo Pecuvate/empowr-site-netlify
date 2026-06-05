@@ -102,7 +102,7 @@ export default function OurWorkPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Our Work
           </p>
@@ -113,9 +113,9 @@ export default function OurWorkPage() {
       </section>
 
       {/* Our Approach */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-2">
               <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-8">
                 Our Approach
@@ -189,7 +189,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* EELA Framework */}
-      <section className="bg-blue-pale py-16 md:py-20">
+      <section className="bg-blue-pale py-10 md:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
             The EELA Framework
@@ -236,7 +236,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* Programmes */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
             <div>
@@ -306,9 +306,9 @@ export default function OurWorkPage() {
       </section>
 
       {/* Who We Work With + Partners */}
-      <section className="bg-warm-white py-16 md:py-20 border-t border-border">
+      <section className="bg-warm-white py-10 md:py-16 lg:py-20 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <div>
               <h2 className="text-3xl font-extrabold text-black mb-4">
                 Who We Work With

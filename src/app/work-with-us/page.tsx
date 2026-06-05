@@ -19,21 +19,21 @@ const ROLES = [
     heading: "Operations & Coordination",
     body: "Programme coordination, logistics, admin, and community-facing support. The people who keep Empowr running well behind the scenes.",
     cta: "Express Interest",
-    href: "/contact",
+    href: "/contact?subject=Work%20With%20Us",
     external: false,
   },
   {
     heading: "Management & Leadership",
     body: "Strategic support, project management, and organisational development. Help shape the direction and infrastructure of a growing CIC.",
     cta: "Express Interest",
-    href: "/contact",
+    href: "/contact?subject=Work%20With%20Us",
     external: false,
   },
   {
     heading: "Volunteering",
     body: "Contribute time in any capacity — event support, mentoring, community outreach, or skills-based volunteering. Every hour counts.",
     cta: "Express Interest",
-    href: "/contact",
+    href: "/contact?subject=Work%20With%20Us",
     external: false,
   },
 ];
@@ -43,7 +43,7 @@ export default function WorkWithUsPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
           <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-4">
             Work With Us
           </p>
@@ -54,7 +54,7 @@ export default function WorkWithUsPage() {
       </section>
 
       {/* Roles */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-mid text-lg max-w-2xl mb-14">
             Empowr needs people across sessions, operations, leadership, and
@@ -94,9 +94,9 @@ export default function WorkWithUsPage() {
       </section>
 
       {/* What working with Empowr means */}
-      <section className="bg-warm-white border-t border-border py-20 md:py-28">
+      <section className="bg-warm-white border-t border-border py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
                 We invest in the people who represent us
@@ -146,7 +146,7 @@ export default function WorkWithUsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-blue text-white py-20">
+      <section className="bg-blue text-white py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
             Ready to start the conversation?
@@ -156,7 +156,7 @@ export default function WorkWithUsPage() {
             how you would like to be involved.
           </p>
           <Link
-            href="/contact"
+            href="/contact?subject=Work%20With%20Us"
             className="bg-white text-blue font-semibold px-8 py-4 rounded-full hover:bg-blue-pale transition-colors text-lg"
           >
             Get In Touch

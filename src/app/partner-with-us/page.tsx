@@ -38,11 +38,11 @@ export default function PartnerWithUsPage() {
   return (
     <>
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Work Together
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight max-w-2xl mb-6">
             Partner With Us
           </h1>
           <p className="text-lg text-blue-light max-w-2xl leading-relaxed">
@@ -53,7 +53,7 @@ export default function PartnerWithUsPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-8">
@@ -82,7 +82,7 @@ export default function PartnerWithUsPage() {
         </div>
       </section>
 
-      <section className="bg-blue-pale py-16 md:py-20">
+      <section className="bg-blue-pale py-10 md:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             Who we work with
@@ -105,7 +105,7 @@ export default function PartnerWithUsPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-16 md:py-20">
+      <section className="bg-cream py-10 md:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-extrabold text-black mb-12">
             Our reach
@@ -113,7 +113,7 @@ export default function PartnerWithUsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {STATS.map((item) => (
               <div key={item.label} className="text-center">
-                <p className="text-4xl font-extrabold text-blue mb-2">
+                <p className="text-2xl md:text-4xl font-extrabold text-blue mb-2">
                   {item.stat}
                 </p>
                 <p className="text-mid text-sm">{item.label}</p>
@@ -136,7 +136,7 @@ export default function PartnerWithUsPage() {
           </div>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/contact"
+              href="/contact?subject=Partnership"
               className="bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors whitespace-nowrap"
             >
               Get In Touch

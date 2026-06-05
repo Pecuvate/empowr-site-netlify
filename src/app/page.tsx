@@ -62,8 +62,8 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-36">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl mb-6">
+        <div className="max-w-6xl mx-auto px-6 py-14 md:py-28 lg:py-36">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl mb-6">
             Live by growing. Grow by learning. Learn by doing.
           </h1>
           <p className="text-lg md:text-xl text-blue-light max-w-2xl leading-relaxed mb-10">
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* What We Offer */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
             <div>
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Impact */}
-      <section className="bg-blue-pale py-20 md:py-28">
+      <section className="bg-blue-pale py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
             <div>
@@ -176,7 +176,7 @@ export default function Home() {
                 key={label}
                 className="bg-white rounded-2xl p-7 border border-border flex flex-col"
               >
-                <span className="text-4xl md:text-5xl font-extrabold text-blue mb-3">
+                <span className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-blue mb-3">
                   {stat}
                 </span>
                 <span className="text-mid text-sm leading-snug">{label}</span>
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="bg-warm-white py-20 md:py-28">
+      <section className="bg-warm-white py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* Get Involved Routes */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
             Get Involved

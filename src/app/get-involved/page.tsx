@@ -56,7 +56,7 @@ export default function GetInvolvedPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Get Involved
           </p>
@@ -67,7 +67,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Route Cards */}
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ROUTES.map((route) => (
@@ -104,9 +104,9 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Spirit of Involvement */}
-      <section className="bg-warm-white border-t border-border py-20 md:py-28">
+      <section className="bg-warm-white border-t border-border py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
                 Whatever your role, you&apos;re part of the same thing
