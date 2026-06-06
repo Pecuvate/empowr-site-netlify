@@ -2,6 +2,46 @@
 
 ---
 
+## Session 16 — 2026-06-06
+
+**What was done:**
+
+**Nav logo:**
+- Replaced "Empowr CIC" text link with `logo.png` from `Empowr CIC/_brand/`
+- Copied to `src/public/logo.png`; `Nav.tsx` uses `<img src="/logo.png" h-10 w-auto />`
+
+**About page — headline and Our Story:**
+- Headline: "We promote..." → "Promoting lifelong wellbeing..."
+- Our Story section extracted to `src/components/OurStorySection.tsx` (client component)
+- First paragraph + question visible by default; "See more →" button reveals remaining 3 paragraphs + blockquote
+
+**Home page — UI cleanup:**
+- Hero: "Find Out More" button removed; "Book a Session" and "Support Our Work" remain
+- "Everyone is welcome" section: "See all programmes →" text link removed
+
+**Contact form:**
+- Subject `<select>` moved into left half of a 2-col grid (was full-width, appeared too wide)
+
+**Message pre-fill on contact links:**
+- `partner-with-us`: "Get In Touch" → `/contact` with subject=Partnership + partnership-specific starter message
+- `work-with-us`: all three "Express Interest" role cards carry role-specific starter messages (Ops, Management, Volunteering); bottom CTA carries general message
+- Uses Next.js Link `href={{ pathname, query }}` object form — URL-encodes automatically
+
+**Home impact section — annual report context:**
+- Added muted footnote below the stats grid: `"Figures from our 2024–25 Annual Report — one year's output."`
+- Original sub-copy ("Since February 2022...") preserved unchanged
+
+**Discussed and deferred:**
+- Cumulative impact stats across all years: would need Companies House filings for 2022–23 and 2023–24 to get real totals. Deferred to a future session.
+
+**Still outstanding before launch:**
+- Team photos and bios (currently DiceBear avatars on `/about`)
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 15 — 2026-06-05
 
 **What was done:**
