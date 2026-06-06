@@ -169,6 +169,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="text-xs text-muted mt-6">
+            Figures from our 2024–25 Annual Report — one year&apos;s output.
+          </p>
         </div>
       </section>
 
