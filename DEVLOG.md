@@ -2,6 +2,27 @@
 
 ---
 
+## Session 17 — 2026-06-06
+
+**What was done:**
+
+**About page — real team portrait photos:**
+- Replaced DiceBear SVG placeholder avatars with real PNG portraits for all three team members (Jasmine, Shaun, Clifton)
+- Switched `<img>` to Next.js `<Image>` component — automatic WebP conversion, correct size served, lazy loading
+- Wrapped in `overflow-hidden` container div with `rounded-full` for reliable circular crop; `object-cover object-center` handles non-square source (Jasmine is 1184×864)
+- PNG backgrounds: AI image generator had baked the checkerboard "transparency indicator" in as solid opaque pixels (not real alpha). Confirmed with full pixel scan (0 transparent pixels) and RGB sampling. Fixed using a C# flood fill compiled via PowerShell `Add-Type` — seeds from all four image edges, replaces all connected near-white/neutral-grey pixels with warm-white (#fdfcfa), stops at portrait pixels. Jasmine's checkerboard grey (~227) was slightly below the initial threshold — re-run with tolerance=30 to catch it.
+
+**Security:**
+- Root-level `.gitignore` created at `Empowr Main Site/.gitignore`
+- `.env.local` was untracked but unignored at the repo root — outside the scope of `src/.gitignore`. Now explicitly ignored.
+
+**Still outstanding before launch:**
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap from Wix to Netlify
+
+---
+
 ## Session 16 — 2026-06-06
 
 **What was done:**

@@ -73,12 +73,9 @@ Scaffold complete. Home page built and build verified clean. Remaining pages to 
 
 ## Still Awaiting
 
-- 2–3 sentence descriptions for each programme group (for the website — booking page has names/prices only)
-- Direct URLs to each annual accounts filing on Companies House (for `/impact` report links)
-- Headline impact statistics from most recent accounts
-- Bios and photos for Clifton and future board members
-- Three additional Board of Directors members (client adding to Notion)
-- Whether registered address is appropriate to display publicly
+- Three additional Board of Directors members (client adding to Notion) — add to TEAM array in `about/page.tsx` when confirmed
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify (`empowrcic.org`)
 
 ---
 

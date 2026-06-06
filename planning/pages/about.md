@@ -49,11 +49,10 @@
 ---
 
 ## Status
-**Pending client content.**
+**Team photos live.** DiceBear avatars replaced with real portrait PNGs (Session 17).
 
 **Outstanding:**
-- Team photos — currently using DiceBear adventurer avatars as placeholders. When real photos arrive: add `photo` field to TEAM array, swap `src` from avatar URL to photo path
-- 3 additional board members (TBC via Notion)
+- 3 additional board members (TBC via Notion) — add to TEAM array when confirmed
 
 ---
 
