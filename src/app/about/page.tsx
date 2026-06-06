@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/lib/links";
 import OurStorySection from "@/components/OurStorySection";
@@ -33,19 +34,19 @@ const TEAM = [
     name: "Jasmine Barnett",
     role: "Co-founder",
     bio: "Leads community, operations, and culture. The warmth people feel in every Empowr space — the welcome, the relationships, the sense that they belong — flows from Jasmine.",
-    avatar: "/avatars/jasmine.svg",
+    avatar: "/avatars/jasmine.png",
   },
   {
     name: "Shaun Barnett",
     role: "Co-founder",
     bio: "Leads narrative, structure, and long-term strategic vision. The clarity of Empowr's identity — its frameworks, its purpose, the way it grows with intention — is Shaun's work.",
-    avatar: "/avatars/shaun.svg",
+    avatar: "/avatars/shaun.png",
   },
   {
     name: "Clifton George Barrett",
     role: "Director of Events",
     bio: "Leads the planning and delivery of Empowr's events programme — bringing the organisation's values into every event and making sure each one feels true to what Empowr stands for.",
-    avatar: "/avatars/clifton.svg",
+    avatar: "/avatars/clifton.png",
   },
 ];
 
@@ -111,13 +112,15 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-cream rounded-2xl p-8 border border-border"
               >
-                <img
-                  src={member.avatar}
-                  alt={member.name}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 rounded-full mb-5 border-2 border-blue/20 bg-blue-pale"
-                />
+                <div className="w-20 h-20 rounded-full mb-5 border-2 border-blue/20 overflow-hidden shrink-0">
+                  <Image
+                    src={member.avatar}
+                    alt={member.name}
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
                 <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-1">
                   {member.role}
                 </p>
