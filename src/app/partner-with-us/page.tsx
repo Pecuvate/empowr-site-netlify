@@ -136,7 +136,7 @@ export default function PartnerWithUsPage() {
           </div>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/contact?subject=Partnership"
+              href={{ pathname: "/contact", query: { subject: "Partnership", message: "Hi, I'd like to explore a partnership with Empowr CIC. I'll share a bit about our organisation and what we're hoping to achieve below." } }}
               className="bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors whitespace-nowrap"
             >
               Get In Touch

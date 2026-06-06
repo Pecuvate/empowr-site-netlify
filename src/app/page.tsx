@@ -80,12 +80,6 @@ export default function Home() {
             >
               Book a Session
             </a>
-            <Link
-              href="/about"
-              className="border-2 border-white text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-colors"
-            >
-              Find Out More
-            </Link>
             <a
               href={LINKS.heroesplatform}
               target="_blank"
@@ -101,23 +95,15 @@ export default function Home() {
       {/* What We Offer */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
-                Everyone is welcome here.
-              </h2>
-              <p className="text-mid text-lg max-w-xl">
-                Empowr works with people of all ages and backgrounds. Whether
-                you&apos;re stepping on skates for the first time or looking to
-                push your limits — there&apos;s a session for you.
-              </p>
-            </div>
-            <Link
-              href="/our-work"
-              className="text-blue font-semibold text-sm hover:text-blue-dark transition-colors whitespace-nowrap"
-            >
-              See all programmes →
-            </Link>
+          <div className="mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+              Everyone is welcome here.
+            </h2>
+            <p className="text-mid text-lg max-w-xl">
+              Empowr works with people of all ages and backgrounds. Whether
+              you&apos;re stepping on skates for the first time or looking to
+              push your limits — there&apos;s a session for you.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {OFFER_CARDS.map((card) => (

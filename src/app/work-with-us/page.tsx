@@ -12,28 +12,32 @@ const ROLES = [
     heading: "Session Delivery",
     body: "Practitioners, facilitators, and coaches who deliver Empowr programmes in schools, community venues, and public spaces. The Empowr Certified Coach Programme (ECCP) is the pathway in.",
     cta: "Find Out More",
-    href: "/eccp",
+    href: "/eccp" as const,
+    message: null,
     external: false,
   },
   {
     heading: "Operations & Coordination",
     body: "Programme coordination, logistics, admin, and community-facing support. The people who keep Empowr running well behind the scenes.",
     cta: "Express Interest",
-    href: "/contact?subject=Work%20With%20Us",
+    href: "/contact" as const,
+    message: "Hi, I'd like to express my interest in supporting Empowr CIC with operations and coordination.",
     external: false,
   },
   {
     heading: "Management & Leadership",
     body: "Strategic support, project management, and organisational development. Help shape the direction and infrastructure of a growing CIC.",
     cta: "Express Interest",
-    href: "/contact?subject=Work%20With%20Us",
+    href: "/contact" as const,
+    message: "Hi, I'd like to express my interest in supporting Empowr CIC in a management or leadership capacity.",
     external: false,
   },
   {
     heading: "Volunteering",
     body: "Contribute time in any capacity — event support, mentoring, community outreach, or skills-based volunteering. Every hour counts.",
     cta: "Express Interest",
-    href: "/contact?subject=Work%20With%20Us",
+    href: "/contact" as const,
+    message: "Hi, I'd like to find out about volunteering with Empowr CIC.",
     external: false,
   },
 ];
@@ -81,7 +85,7 @@ export default function WorkWithUsPage() {
                   </a>
                 ) : (
                   <Link
-                    href={role.href}
+                    href={role.message ? { pathname: role.href, query: { subject: "Work With Us", message: role.message } } : role.href}
                     className="self-start bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors"
                   >
                     {role.cta}
@@ -156,7 +160,7 @@ export default function WorkWithUsPage() {
             how you would like to be involved.
           </p>
           <Link
-            href="/contact?subject=Work%20With%20Us"
+            href={{ pathname: "/contact", query: { subject: "Work With Us", message: "Hi, I'd like to get in touch about working with Empowr CIC. Here's a bit about who I am and how I'd like to be involved:" } }}
             className="bg-white text-blue font-semibold px-8 py-4 rounded-full hover:bg-blue-pale transition-colors text-lg"
           >
             Get In Touch

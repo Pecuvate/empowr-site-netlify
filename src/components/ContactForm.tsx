@@ -92,27 +92,29 @@ function ContactFormInner() {
         </div>
       </div>
 
-      <div>
-        <label htmlFor="subject" className="block text-sm font-semibold text-black mb-2">
-          What is your enquiry about?
-        </label>
-        <select
-          id="subject"
-          name="subject"
-          required
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          className={inputClass}
-        >
-          <option value="" disabled>
-            Select a subject
-          </option>
-          {SUBJECTS.map((s) => (
-            <option key={s} value={s}>
-              {s}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="subject" className="block text-sm font-semibold text-black mb-2">
+            What is your enquiry about?
+          </label>
+          <select
+            id="subject"
+            name="subject"
+            required
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            className={inputClass}
+          >
+            <option value="" disabled>
+              Select a subject
             </option>
-          ))}
-        </select>
+            {SUBJECTS.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div>
