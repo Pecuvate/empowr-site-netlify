@@ -29,6 +29,7 @@ export function getAllPosts(): NewsPost[] {
       date: data.date as string,
       category: data.category as NewsPost["category"],
       excerpt: data.excerpt as string,
+      coverImage: data.coverImage as string | undefined,
     };
   });
 }
@@ -46,6 +47,7 @@ export function getPostBySlug(slug: string): NewsPostFull | null {
     date: data.date as string,
     category: data.category as NewsPost["category"],
     excerpt: data.excerpt as string,
+    coverImage: data.coverImage as string | undefined,
     content,
   };
 }

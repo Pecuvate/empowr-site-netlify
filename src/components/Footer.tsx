@@ -49,9 +49,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-sm text-muted/50 cursor-default">
+                <Link
+                  href="/news"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
                   News
-                </span>
+                </Link>
               </li>
               <li>
                 <Link
@@ -68,6 +71,11 @@ export default function Footer() {
                 >
                   FAQs
                 </Link>
+              </li>
+              <li>
+                <span className="text-sm text-muted/50 cursor-default">
+                  Shop
+                </span>
               </li>
             </ul>
           </div>

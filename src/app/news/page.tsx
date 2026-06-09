@@ -53,8 +53,16 @@ export default function NewsPage() {
               {posts.map((post) => (
                 <article
                   key={post.slug}
-                  className="bg-warm-white rounded-2xl p-7 border border-border flex flex-col"
+                  className="bg-warm-white rounded-2xl border border-border flex flex-col overflow-hidden"
                 >
+                  {post.coverImage && (
+                    <img
+                      src={post.coverImage}
+                      alt={post.title}
+                      className="w-full aspect-video object-cover"
+                    />
+                  )}
+                  <div className="p-7 flex flex-col flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <span
                       className={`text-xs font-semibold px-3 py-1 rounded-full ${CATEGORY_COLOURS[post.category] ?? CATEGORY_COLOURS.Update}`}
@@ -77,6 +85,7 @@ export default function NewsPage() {
                   >
                     Read more →
                   </Link>
+                  </div>
                 </article>
               ))}
             </div>

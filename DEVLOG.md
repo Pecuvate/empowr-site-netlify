@@ -2,6 +2,44 @@
 
 ---
 
+## Session 18 — 2026-06-09
+
+**What was done:**
+
+**Wix → new site: page coverage audit:**
+- Compared all Wix pages against new Next.js site
+- All Wix pages are now covered: Home, What We Do, Who We Are, Our Programs, Contact, all 5 policy pages
+- Wix Shop page noted as needing an external subdomain (`shop.empowrcic.org`) — link added as disabled footer item for now
+- DNS cutover deferred to a future session — Wix pages should not be deleted until after cutover
+
+**Migrated 6 Wix news posts to MDX:**
+- Fetched all posts from the live Wix site (2 had dedicated URLs, 2 had inline content only, 2 were program pages serving as news)
+- Created MDX files in `src/content/news/`:
+  - `2022-02-04-launch-of-empowr-first-skate-jam.mdx` — inaugural Skate Jam, Feb 2022
+  - `2022-05-28-donated-computer-from-catbytes-cic.mdx` — Catbytes donation + ICT room, May 2022
+  - `2022-06-04-jubilee-family-funday.mdx` — 400+ attendees, 11 partners, Jun 2022
+  - `2022-06-05-street-skate-support-group.mdx` — 12-week free programme, 50+ skaters/week
+  - `2023-01-13-first-partnership-ivydale-primary.mdx` — first school partnership, Jan 2023
+  - `2023-02-06-one-year-anniversary.mdx` — 1-year celebration + retrospective, Feb 2023
+
+**Nav and Footer:**
+- News link restored to main nav (between Our Work and Impact)
+- Footer: News `<span>` replaced with active `<Link href="/news">`
+- Footer About Us column: disabled `<span>Shop</span>` added below FAQs
+
+**links.ts:**
+- `shop: "https://shop.empowrcic.org"` added as placeholder — update when SumUp/Shopify subdomain is live
+
+**Build:** 22 static pages, all 7 news slugs generated, zero errors
+
+**Still outstanding before launch:**
+- 3 additional board members (TBC via Notion)
+- Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
+- DNS cutover: lower TTL in Route53, swap A/CNAME from Wix to Netlify (`empowrcic.org`)
+- Shop subdomain (`shop.empowrcic.org`) — wire to SumUp or Shopify when ready; update `links.ts` and activate footer link
+
+---
+
 ## Session 17 — 2026-06-06
 
 **What was done:**

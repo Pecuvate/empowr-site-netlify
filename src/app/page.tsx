@@ -61,8 +61,17 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-14 md:py-28 lg:py-36">
+      <section className="relative overflow-hidden text-white">
+        <video
+          src="/hero-banner2-sharp.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-blue/70" />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 md:py-28 lg:py-36">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl mb-6">
             Live by growing. Grow by learning. Learn by doing.
           </h1>

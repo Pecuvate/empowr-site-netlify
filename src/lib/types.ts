@@ -4,6 +4,7 @@ export interface NewsPost {
   date: string;
   category: "Announcement" | "Event" | "Story" | "Update";
   excerpt: string;
+  coverImage?: string;
 }
 
 export interface NewsPostFull extends NewsPost {

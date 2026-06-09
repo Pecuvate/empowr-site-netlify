@@ -43,48 +43,46 @@ export default async function NewsPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <>
-      {/* Post Header */}
-      <section className="bg-blue text-white">
-        <div className="max-w-3xl mx-auto px-6 py-20 md:py-24">
+    <section className="bg-cream py-16 md:py-20">
+      <div className="max-w-3xl mx-auto px-6">
+        <Link
+          href="/news"
+          className="text-blue text-sm font-semibold hover:text-blue-dark transition-colors mb-8 inline-block"
+        >
+          ← Back to News
+        </Link>
+        <div className="flex items-center gap-3 mb-5">
+          <span
+            className={`text-xs font-semibold px-3 py-1 rounded-full ${CATEGORY_COLOURS[post.category] ?? CATEGORY_COLOURS.Update}`}
+          >
+            {post.category}
+          </span>
+          <time className="text-muted text-sm">
+            {formatDate(post.date)}
+          </time>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-black mb-10">
+          {post.title}
+        </h1>
+        {post.coverImage && (
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            className="w-full aspect-video object-cover rounded-2xl mb-12"
+          />
+        )}
+        <div className="mdx-body">
+          <MDXRemote source={post.content} />
+        </div>
+        <div className="mt-14 pt-8 border-t border-border">
           <Link
             href="/news"
-            className="text-blue-light text-sm font-semibold hover:text-white transition-colors mb-8 inline-block"
+            className="text-blue font-semibold hover:text-blue-dark transition-colors"
           >
             ← Back to News
           </Link>
-          <div className="flex items-center gap-3 mb-5">
-            <span
-              className={`text-xs font-semibold px-3 py-1 rounded-full ${CATEGORY_COLOURS[post.category] ?? CATEGORY_COLOURS.Update}`}
-            >
-              {post.category}
-            </span>
-            <time className="text-blue-light text-sm">
-              {formatDate(post.date)}
-            </time>
-          </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
-            {post.title}
-          </h1>
         </div>
-      </section>
-
-      {/* Post Body */}
-      <section className="bg-cream py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="mdx-body">
-            <MDXRemote source={post.content} />
-          </div>
-          <div className="mt-14 pt-8 border-t border-border">
-            <Link
-              href="/news"
-              className="text-blue font-semibold hover:text-blue-dark transition-colors"
-            >
-              ← Back to News
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
