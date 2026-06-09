@@ -8,13 +8,15 @@ export default function OurStorySection() {
   return (
     <section className="bg-blue-pale py-12 md:py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-2">
-            Our Story
-          </h2>
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted mb-8">
-            How we got here.
-          </p>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-2">
+              Our Story
+            </h2>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted">
+              How we got here.
+            </p>
+          </div>
           <div className="space-y-6 text-mid text-lg leading-relaxed">
             <p>
               Empowr was officially incorporated in October 2021, but the idea

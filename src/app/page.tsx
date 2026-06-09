@@ -61,26 +61,26 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden text-white">
+      <section className="relative bg-blue text-white overflow-hidden">
         <video
           src="/hero-banner2-sharp.mp4"
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[200%] w-auto"
         />
-        <div className="absolute inset-0 bg-blue/70" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 md:py-28 lg:py-36">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl mb-6">
+        <div className="absolute inset-0 bg-blue/65" />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 md:py-28 lg:py-36 text-center">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl mx-auto mb-6">
             Live by growing. Grow by learning. Learn by doing.
           </h1>
-          <p className="text-lg md:text-xl text-blue-light max-w-2xl leading-relaxed mb-10">
+          <p className="text-lg md:text-xl text-blue-light max-w-2xl mx-auto leading-relaxed mb-10">
             We design and deliver experiential learning programmes that improve
             long-term mental, physical, and emotional wellbeing — for people of
             every age.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             <a
               href={LINKS.booking}
               target="_blank"
@@ -104,11 +104,11 @@ export default function Home() {
       {/* What We Offer */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-14">
+          <div className="mb-14 text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
               Everyone is welcome here.
             </h2>
-            <p className="text-mid text-lg max-w-xl">
+            <p className="text-mid text-lg max-w-xl mx-auto">
               Empowr works with people of all ages and backgrounds. Whether
               you&apos;re stepping on skates for the first time or looking to
               push your limits — there&apos;s a session for you.
@@ -142,11 +142,11 @@ export default function Home() {
       {/* Impact */}
       <section className="bg-blue-pale py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-14">
+          <div className="mb-14 text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
               Thousands of people. One community.
             </h2>
-            <p className="text-mid text-lg max-w-xl">
+            <p className="text-mid text-lg max-w-xl mx-auto">
               Since February 2022, Empowr has been showing up. Our mission is
               to <em>empowr</em>{" "}as many people as possible — here&apos;s our
               reach so far.
@@ -170,10 +170,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-xs text-muted mt-6">
+          <p className="text-xs text-muted mt-6 text-center">
             Figures from our 2024–25 Annual Report — one year&apos;s output.
           </p>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-4 flex flex-wrap gap-3 justify-center">
             <Link
               href="/impact"
               className="text-sm font-semibold text-blue bg-white border border-blue/30 px-5 py-2.5 rounded-full hover:bg-blue-pale hover:border-blue/60 transition-colors"
@@ -193,11 +193,11 @@ export default function Home() {
       {/* Reviews */}
       <section className="bg-warm-white py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-10">
+          <div className="mb-10 text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
               See what others say
             </h2>
-            <p className="text-mid text-lg max-w-xl">
+            <p className="text-mid text-lg max-w-xl mx-auto">
               Real people. Real sessions. Here&apos;s what our community thinks.
             </p>
           </div>
@@ -208,10 +208,10 @@ export default function Home() {
       {/* Get Involved Routes */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 text-center">
             Get Involved
           </h2>
-          <p className="text-mid text-lg max-w-xl mb-14">
+          <p className="text-mid text-lg max-w-xl mx-auto mb-14 text-center">
             There are several ways to connect with, support, and be part of
             Empowr.
           </p>

@@ -126,11 +126,11 @@ export default function OurWorkPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28 text-center">
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Our Work
           </p>
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl">
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl mx-auto">
             Delivering programmes that use hands-on experience as the route to lasting wellbeing.
           </h1>
         </div>
@@ -215,14 +215,16 @@ export default function OurWorkPage() {
       {/* EELA Framework */}
       <section className="bg-blue-pale py-10 md:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
             The EELA Framework
           </h2>
-          <p className="text-mid text-lg max-w-2xl mb-10">
+          <p className="text-mid text-lg max-w-2xl mx-auto mb-10">
             EELA is not a single programme — it is the architecture that all
             programmes live within. Five sub-programmes, each with its own team
             and focus, all aligned to the same mission.
           </p>
+          </div>
           <div className="flex flex-col gap-3">
             {EELA_PROGRAMMES.map((prog) => (
               <div
@@ -262,24 +264,14 @@ export default function OurWorkPage() {
       {/* Programmes */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
-                Our Programmes
-              </h2>
-              <p className="text-mid text-lg max-w-xl">
-                Active sessions, courses, and camps — all grounded in the EELA
-                framework.
-              </p>
-            </div>
-            <a
-              href={LINKS.booking}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors whitespace-nowrap self-start sm:self-auto"
-            >
-              Book a Session →
-            </a>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+              Our Programmes
+            </h2>
+            <p className="text-mid text-lg max-w-xl mx-auto">
+              Active sessions, courses, and camps — all grounded in the EELA
+              framework.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROGRAMME_GROUPS.map((group) => (
@@ -303,6 +295,17 @@ export default function OurWorkPage() {
                 </ul>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href={LINKS.booking}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue text-white font-semibold px-8 py-3.5 rounded-full hover:bg-blue-dark transition-colors inline-block"
+            >
+              Book a Session
+            </a>
           </div>
 
           {/* Past Programmes */}

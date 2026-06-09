@@ -55,12 +55,12 @@ export default function AboutPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight max-w-3xl mb-6">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28 text-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight max-w-3xl mx-auto mb-6">
             Promoting lifelong wellbeing through the transformative power of
             experiential learning.
           </h1>
-          <p className="text-lg text-blue-light max-w-2xl leading-relaxed">
+          <p className="text-lg text-blue-light max-w-2xl mx-auto leading-relaxed">
             Empowr CIC is a community organisation based in SE London. Our
             mission is to be the number one Health Activities Provider in the
             UK, providing people with safe spaces where they can feel empowered
@@ -72,13 +72,15 @@ export default function AboutPage() {
       {/* What We Stand For (Values) */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-            What We Stand For
-          </h2>
-          <p className="text-mid text-lg max-w-2xl mb-14">
-            Empowr is more than an organisation — it is a movement built on
-            four core beliefs.
-          </p>
+          <div className="mb-14 text-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+              What We Stand For
+            </h2>
+            <p className="text-mid text-lg max-w-2xl mx-auto">
+              Empowr is more than an organisation — it is a movement built on
+              four core beliefs.
+            </p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {VALUES.map((value) => (
               <div
@@ -100,12 +102,14 @@ export default function AboutPage() {
       {/* Our Team */}
       <section className="bg-warm-white py-12 md:py-20 lg:py-28 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-            Our Team
-          </h2>
-          <p className="text-mid text-lg max-w-2xl mb-14">
-            The people who lead and shape Empowr.
-          </p>
+          <div className="mb-14 text-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+              Our Team
+            </h2>
+            <p className="text-mid text-lg max-w-2xl mx-auto">
+              The people who lead and shape Empowr.
+            </p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {TEAM.map((member) => (
               <div
@@ -145,7 +149,7 @@ export default function AboutPage() {
               See our programmes, read our impact reports, or get in touch.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/our-work"
               className="bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors whitespace-nowrap"
