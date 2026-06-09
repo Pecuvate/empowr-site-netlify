@@ -142,23 +142,15 @@ export default function Home() {
       {/* Impact */}
       <section className="bg-blue-pale py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
-                Thousands of people. One community.
-              </h2>
-              <p className="text-mid text-lg max-w-xl">
-                Since February 2022, Empowr has been showing up. Our mission is
-                to <em>empowr</em>{" "}as many people as possible — here&apos;s our
-                reach so far.
-              </p>
-            </div>
-            <Link
-              href="/impact"
-              className="text-blue font-semibold text-sm hover:text-blue-dark transition-colors whitespace-nowrap"
-            >
-              See our full impact →
-            </Link>
+          <div className="mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
+              Thousands of people. One community.
+            </h2>
+            <p className="text-mid text-lg max-w-xl">
+              Since February 2022, Empowr has been showing up. Our mission is
+              to <em>empowr</em>{" "}as many people as possible — here&apos;s our
+              reach so far.
+            </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -181,6 +173,20 @@ export default function Home() {
           <p className="text-xs text-muted mt-6">
             Figures from our 2024–25 Annual Report — one year&apos;s output.
           </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/impact"
+              className="text-sm font-semibold text-blue bg-white border border-blue/30 px-5 py-2.5 rounded-full hover:bg-blue-pale hover:border-blue/60 transition-colors"
+            >
+              See our full impact →
+            </Link>
+            <Link
+              href="/history"
+              className="text-sm font-semibold text-blue bg-white border border-blue/30 px-5 py-2.5 rounded-full hover:bg-blue-pale hover:border-blue/60 transition-colors"
+            >
+              Read our full story →
+            </Link>
+          </div>
         </div>
       </section>
 

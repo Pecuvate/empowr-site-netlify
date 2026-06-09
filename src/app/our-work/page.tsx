@@ -46,12 +46,36 @@ const PROGRAMME_GROUPS = [
 ];
 
 const PAST_PROGRAMMES = [
-  "Bouldering",
-  "Hula Hoop Workshops",
-  "Kids Digital Art Club",
-  "Kids Coding Club",
-  "Zumba",
-  "Rubix Cube Workshop",
+  {
+    name: "Bouldering",
+    description: "Physical problem-solving and full-body challenge on the wall.",
+    image: "https://empowr-cic.s3.us-east-1.amazonaws.com/past_activities/bouldering-session.avif",
+  },
+  {
+    name: "Hula Hoop Workshops",
+    description: "Movement, rhythm, and coordination through hoop play — for all ages.",
+    image: "https://empowr-cic.s3.us-east-1.amazonaws.com/past_activities/hula-hoop-session.avif",
+  },
+  {
+    name: "Kids Digital Art Club",
+    description: "Creative digital expression and design skills for young people.",
+    image: "https://empowr-cic.s3.us-east-1.amazonaws.com/past_activities/digital-design-session.avif",
+  },
+  {
+    name: "Kids Coding Club",
+    description: "Hands-on introduction to programming, logic, and computational thinking.",
+    image: "https://empowr-cic.s3.us-east-1.amazonaws.com/past_activities/coding-club-session.avif",
+  },
+  {
+    name: "Zumba",
+    description: "High-energy Latin-inspired dance fitness for all levels.",
+    image: "https://empowr-cic.s3.us-east-1.amazonaws.com/past_activities/zumba-fitness-session.avif",
+  },
+  {
+    name: "Rubix Cube Workshop",
+    description: "Spatial reasoning and logical thinking through puzzle-solving.",
+    image: "https://empowr-cic.s3.us-east-1.amazonaws.com/past_activities/rubiks-cube-session.avif",
+  },
 ];
 
 const PARTNERS = [
@@ -291,14 +315,35 @@ export default function OurWorkPage() {
               that Empowr&apos;s methodology works across activities — whatever
               creates movement, challenge, and connection.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
               {PAST_PROGRAMMES.map((p) => (
-                <span
-                  key={p}
-                  className="text-sm text-muted bg-white px-4 py-2 rounded-full border border-border"
+                <div
+                  key={p.name}
+                  className="bg-white rounded-2xl border border-border overflow-hidden flex flex-col"
                 >
-                  {p} <span className="text-xs ml-1 opacity-60">Past</span>
-                </span>
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      className="w-full aspect-video object-cover"
+                    />
+                  ) : (
+                    <div className="w-full aspect-video bg-blue-pale flex items-center justify-center px-4">
+                      <span className="text-blue font-bold text-base text-center">
+                        {p.name}
+                      </span>
+                    </div>
+                  )}
+                  <div className="p-4 flex flex-col gap-1">
+                    <p className="font-bold text-black text-sm">{p.name}</p>
+                    <p className="text-muted text-xs leading-snug">
+                      {p.description}
+                    </p>
+                    <span className="text-xs font-semibold text-muted bg-black/5 self-start px-2 py-0.5 rounded-full mt-1">
+                      Past
+                    </span>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
