@@ -28,15 +28,18 @@
 
 ## Current FAQs
 
-1. **What is a Community Interest Company (CIC)?** — explains CIC structure, profit reinvestment, annual reporting, company number, and incorporation date
+1. **What is a Community Interest Company (CIC)?** — CIC structure, profit reinvestment, CIC Regulator link (gov.uk), annual CIC 34 reporting
+2. **Why did Empowr become a CIC?** — reinvesting surpluses into community; flexibility vs charities and traditional businesses; community commitment
 
 ---
 
 ## Status
 
-**Live — stub.** One FAQ added to seed the page. Build out the full question set when content is ready.
+**Live — 2 FAQs.** Build out the full question set when content is ready.
 
 **To add more FAQs:** append to the `FAQS` array in `app/faqs/FaqsAccordion.tsx`.
+
+**Note:** `answer` type is `ReactNode` (not `string`) — use JSX for answers that need inline links or multiple paragraphs.
 
 ---
 
