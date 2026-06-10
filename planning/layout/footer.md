@@ -16,9 +16,10 @@
 
 ### About Us (col 2)
 - Who We Are → `/about`
-- News → unclickable (temporarily disabled — no posts published yet)
+- News → `/news`
 - Our Impact → `/impact`
 - FAQs → `/faqs`
+- Our History → `/history`
 
 ### Programmes (col 3)
 - All Programmes → `/our-work`

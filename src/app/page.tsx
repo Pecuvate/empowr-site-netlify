@@ -184,7 +184,7 @@ export default function Home() {
               href="/history"
               className="text-sm font-semibold text-blue bg-white border border-blue/30 px-5 py-2.5 rounded-full hover:bg-blue-pale hover:border-blue/60 transition-colors"
             >
-              Read our full story →
+              Explore our history →
             </Link>
           </div>
         </div>

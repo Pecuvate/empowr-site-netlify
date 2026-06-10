@@ -47,11 +47,11 @@ export default function WorkWithUsPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28 text-center">
           <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-4">
             Work With Us
           </p>
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl">
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl mx-auto">
             Welcoming anyone who wishes to support us on our mission
           </h1>
         </div>
@@ -60,13 +60,21 @@ export default function WorkWithUsPage() {
       {/* Roles */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-mid text-lg max-w-2xl mb-14">
-            Empowr needs people across sessions, operations, leadership, and
-            volunteering — people who believe in the power of hands-on
-            experience to transform people&apos;s lives and who lead with
-            values, not just skills. Whatever your background, there is a role
-            for you.
-          </p>
+          <div className="text-mid text-lg max-w-2xl mb-14 space-y-4 text-center mx-auto">
+            <p>
+              We&apos;re always on the lookout for passionate individuals to
+              join our team and make a positive impact on the community. Empowr
+              needs people across sessions, operations, leadership, and
+              volunteering — people who believe in the power of hands-on
+              experience to transform people&apos;s lives and who lead with
+              values, not just skills.
+            </p>
+            <p>
+              Whether you want to become a staff member, an Empowr Champion, a
+              facilitator, or collaborate with us as a creative, there is a
+              place for you here — reach out and explore the possibilities.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ROLES.map((role) => (
               <div

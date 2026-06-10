@@ -8,21 +8,36 @@
 
 **About page:**
 - Jasmine Barnett role changed from "Co-founder" to "Founder"
-- "Meet the full team" button added below team grid — disabled (opacity-40, cursor-not-allowed) pending `/team` page build; links to `/team` when enabled
+- "Meet the full team" button added below team grid — disabled (opacity-40, cursor-not-allowed) pending `/team` page build
+- Page header and team section heading centred
 
 **History page:**
-- Creative Collaborators section description rewritten with provided client copy
+- Creative Collaborators section description rewritten with client copy
+- HAF Programme and Lewisham Young Mayor's Team added to Organisations We've Worked With
 
 **FAQs:**
 - `FaqsAccordion.tsx` refactored: `answer` type changed from `string` to `ReactNode` to support inline links
-- "What is a CIC?" answer updated — "CIC Regulator" now links to gov.uk CIC Regulator page
-- New FAQ added: "Why did Empowr become a CIC?"
+- "What is a CIC?" updated — "CIC Regulator" links to gov.uk CIC Regulator page
+- "Why did Empowr become a CIC?" added with client-supplied copy
 
 **Home page:**
-- CIC callout strip added between Reviews and Get Involved sections — "Accountable to the community by law" with "What is a CIC?" CTA linking to `/faqs`
+- CIC callout strip removed (to rethink)
+- Impact section pill renamed from "Read our full story →" to "Explore our history →"
+
+**Impact page:**
+- Page header, all section headings and sub-copy centred
+- Transparency Statement `max-w-3xl` centred on page; heading centred
+- History callout strip added at end of page (centred): "Empowr has been showing up for over three years" → `/history`
 
 **Work With Us:**
-- Roles intro paragraph updated with provided client copy: values-first hiring philosophy
+- Page header centred
+- Roles intro rebuilt: two centred paragraphs combining values-first copy with warm community invite
+- "facilitator" added to the list of roles in the invite paragraph
+
+**Footer:**
+- "Our History" link added to About Us column → `/history`
+
+**planning/layout/footer.md updated** to reflect History link and corrected News link status.
 
 **Still outstanding before launch:**
 - 3 additional board members

@@ -73,6 +73,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/history"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Our History
+                </Link>
+              </li>
+              <li>
                 <span className="text-sm text-muted/50 cursor-default">
                   Shop
                 </span>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
@@ -25,11 +26,11 @@ export default function ImpactPage() {
     <>
       {/* Page Header */}
       <section className="bg-blue text-white">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 lg:py-28 text-center">
           <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-4">
             Our Impact
           </p>
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl">
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-2xl mx-auto">
             As a registered CIC, we are publicly held to account for the
             community benefit we deliver. Here is our evidence.
           </h1>
@@ -39,10 +40,10 @@ export default function ImpactPage() {
       {/* Headline Numbers */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 text-center">
             By the Numbers
           </h2>
-          <p className="text-mid text-lg max-w-xl mb-14">
+          <p className="text-mid text-lg max-w-xl mb-14 text-center mx-auto">
             Selected impact statistics from our programmes.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -84,10 +85,10 @@ export default function ImpactPage() {
       {/* Highlights */}
       <section className="bg-warm-white py-10 md:py-16 lg:py-20 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 text-center">
             Highlights
           </h2>
-          <p className="text-mid text-lg max-w-2xl mb-10">
+          <p className="text-mid text-lg max-w-2xl mb-10 text-center mx-auto">
             Selected milestones from our 2024–25 delivery year.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -139,10 +140,10 @@ export default function ImpactPage() {
       {/* Annual Reports */}
       <section className="bg-blue-pale py-10 md:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 text-center">
             Annual Reports
           </h2>
-          <p className="text-mid text-lg max-w-2xl mb-10">
+          <p className="text-mid text-lg max-w-2xl mb-10 text-center mx-auto">
             Empowr&apos;s annual accounts — including our Community Interest Report
             — are filed with Companies House and publicly available. These are
             verified public filings, not self-produced documents.
@@ -192,8 +193,8 @@ export default function ImpactPage() {
       {/* Transparency Statement */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-extrabold text-black mb-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-black mb-6 text-center">
               A Statement on Transparency
             </h2>
             <div className="space-y-5 text-mid text-lg leading-relaxed">
@@ -216,6 +217,29 @@ export default function ImpactPage() {
               </blockquote>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* History Callout */}
+      <section className="bg-blue text-white py-12 md:py-16">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-2">
+            Since February 2022
+          </p>
+          <h2 className="text-2xl font-extrabold mb-4">
+            Empowr has been showing up for over three years.
+          </h2>
+          <p className="text-blue-light leading-relaxed mb-8">
+            The numbers above are one measure of that. Our history page tells
+            you how — the milestones, the collaborators, and the communities
+            we have built it with.
+          </p>
+          <Link
+            href="/history"
+            className="bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors inline-block"
+          >
+            Explore our full history →
+          </Link>
         </div>
       </section>
     </>
