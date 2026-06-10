@@ -2,6 +2,63 @@
 
 ---
 
+## Session 20 — 2026-06-10
+
+**What was done:**
+
+**Video cleanup:**
+- Deleted 4 untracked raw MP4s from `src/public/`: 3 AI-generated source clips + `hero-banner.mp4` (the processed 3-clip version)
+- `git rm src/public/hero-banner2.mp4` — portrait source video removed; `hero-banner2-sharp.mp4` is the production asset and is all that's needed
+
+**Still outstanding before launch:**
+- 3 additional board members
+- Client review of programme descriptions
+- DNS cutover (`empowrcic.org`)
+- Shop subdomain
+- Welcome post (`2026-05-20-welcome-to-our-new-website.mdx.draft` → rename to `.mdx`)
+
+---
+
+## Session 19 — 2026-06-09
+
+**What was done:**
+
+**Video hero — homepage:**
+- Installed FFmpeg 8.1.1 via winget (`Gyan.FFmpeg`) — safe, open-source Windows build
+- Uploaded 3 AI-generated MP4 clips + 1 portrait video (`hero-banner2.mp4`) to `src/public/`
+- Processed 3-clip version: concatenated, trimmed to 5s each, 0.7x slow motion, 1s crossfades, vignette → `hero-banner.mp4`
+- Portrait video sharpened (`unsharp=5:5:1.5`) → `hero-banner2-sharp.mp4` (already committed)
+- Final hero: portrait video (`hero-banner2-sharp.mp4`) centred at `h-[200%]` with `bg-blue/65` overlay
+- 3-clip source videos and `hero-banner.mp4` left untracked — can be deleted or gitignored
+
+**Centred layouts — homepage:**
+- Hero: headline, subtext, CTAs all centred; overlay changed to uniform `bg-blue/65`
+- What We Offer: section heading + description centred
+- Impact: heading, description, footnote, link buttons centred
+- Reviews: heading + description centred
+- Get Involved: heading + description centred
+
+**Centred layouts — about page (via subagents):**
+- Page hero (`h1` strip): centred
+- What We Stand For + Our Team section headings centred
+- Our Story heading centred (`OurStorySection.tsx`); narrative body left left-aligned
+
+**Centred layouts — our-work page (via subagents):**
+- Page hero (`h1` strip): centred
+- EELA Framework heading + description centred
+- Our Programmes heading + description centred; Book a Session CTA removed from header row, added centred below programme cards
+
+**Commit:** `035558f` — pushed to `main`, auto-deployed to Netlify
+
+**Still outstanding before launch:**
+- 3 additional board members
+- Client review of programme descriptions
+- DNS cutover (`empowrcic.org`)
+- Shop subdomain
+- Clean up untracked raw video files from `public/`
+
+---
+
 ## Session 18 — 2026-06-09
 
 **What was done:**
