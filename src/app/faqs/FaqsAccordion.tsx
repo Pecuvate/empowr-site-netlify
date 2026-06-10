@@ -33,8 +33,23 @@ const FAQS: { question: string; answer: ReactNode }[] = [
   },
   {
     question: "Why did Empowr become a CIC?",
-    answer:
-      "Empowr chose the CIC structure because it is the most transparent and accountable way to operate a community organisation. As a CIC, we are legally required to demonstrate that our work benefits the community — not just in intent, but in fact. Our annual CIC 34 report is publicly filed, meaning anyone can see what we have done and how we have used our resources. For us, the CIC structure is not just a legal form — it is a public commitment to the community we serve.",
+    answer: (
+      <>
+        <p>
+          As a community interest company, our primary goal is to reinvest our
+          surpluses back into the company or community, rather than maximizing
+          profits for shareholders or owners.
+        </p>
+        <p className="mt-3">
+          Being a CIC sets us apart from charities and traditional businesses,
+          giving us the flexibility to undertake a diverse range of projects and
+          activities without being bound by the same regulations and
+          limitations. Our commitment to serving our community remains our top
+          priority, and we strive to create a positive impact through all our
+          initiatives.
+        </p>
+      </>
+    ),
   },
 ];
 

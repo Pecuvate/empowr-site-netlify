@@ -180,6 +180,16 @@ const PARTNERS = [
     name: "BOST (Bankside Open Spaces Trust)",
     context: "Community space partner supporting Empowr's outdoor and public programming.",
   },
+  {
+    name: "HAF Programme",
+    context:
+      "Government-funded Holiday Activities and Food programme — commissioned Empowr to deliver free holiday sessions for children eligible for free school meals.",
+  },
+  {
+    name: "Lewisham Young Mayor's Team",
+    context:
+      "Lewisham's youth civic leadership body — partnered with Empowr to engage and serve young people across the borough.",
+  },
 ];
 
 export default function HistoryPage() {
