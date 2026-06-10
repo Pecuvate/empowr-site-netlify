@@ -6,6 +6,36 @@
 
 **What was done:**
 
+**About page:**
+- Jasmine Barnett role changed from "Co-founder" to "Founder"
+- "Meet the full team" button added below team grid — disabled (opacity-40, cursor-not-allowed) pending `/team` page build; links to `/team` when enabled
+
+**History page:**
+- Creative Collaborators section description rewritten with provided client copy
+
+**FAQs:**
+- `FaqsAccordion.tsx` refactored: `answer` type changed from `string` to `ReactNode` to support inline links
+- "What is a CIC?" answer updated — "CIC Regulator" now links to gov.uk CIC Regulator page
+- New FAQ added: "Why did Empowr become a CIC?"
+
+**Home page:**
+- CIC callout strip added between Reviews and Get Involved sections — "Accountable to the community by law" with "What is a CIC?" CTA linking to `/faqs`
+
+**Work With Us:**
+- Roles intro paragraph updated with provided client copy: values-first hiring philosophy
+
+**Still outstanding before launch:**
+- 3 additional board members
+- Client review of programme descriptions
+- DNS cutover (`empowrcic.org`)
+- Shop subdomain
+- Welcome post (`2026-05-20-welcome-to-our-new-website.mdx.draft` → rename to `.mdx`)
+- `/team` page build (board members, founders, coaches, ops staff with photos + bios)
+
+---
+
+**What was done (earlier this session):**
+
 **Video cleanup:**
 - Deleted 4 untracked raw MP4s from `src/public/`: 3 AI-generated source clips + `hero-banner.mp4` (the processed 3-clip version)
 - `git rm src/public/hero-banner2.mp4` — portrait source video removed; `hero-banner2-sharp.mp4` is the production asset and is all that's needed

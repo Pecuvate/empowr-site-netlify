@@ -1,16 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactNode } from "react";
 
-const FAQS = [
+const FAQS: { question: string; answer: ReactNode }[] = [
   {
     question: "What is a Community Interest Company (CIC)?",
+    answer: (
+      <>
+        <p>
+          A Community Interest Company (CIC) is a type of company specifically
+          designed to benefit the community rather than private shareholders. Any
+          profits are reinvested back into the community purpose — not
+          distributed to owners.
+        </p>
+        <p className="mt-3">
+          CICs are regulated by the{" "}
+          <a
+            href="https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue underline hover:text-blue-dark transition-colors"
+          >
+            CIC Regulator
+          </a>{" "}
+          and are required to submit annual reports — called CIC 34 reports —
+          demonstrating how their work has benefited the community. These
+          reports are publicly available.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Why did Empowr become a CIC?",
     answer:
-      "A Community Interest Company (CIC) is a type of company specifically designed to benefit the community rather than private shareholders. Any profits are reinvested back into the community purpose — not distributed to owners. CICs are regulated by the CIC Regulator and are required to submit annual reports — called CIC 34 reports — demonstrating how their work has benefited the community. These reports are publicly available.",
+      "Empowr chose the CIC structure because it is the most transparent and accountable way to operate a community organisation. As a CIC, we are legally required to demonstrate that our work benefits the community — not just in intent, but in fact. Our annual CIC 34 report is publicly filed, meaning anyone can see what we have done and how we have used our resources. For us, the CIC structure is not just a legal form — it is a public commitment to the community we serve.",
   },
 ];
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: ReactNode;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -38,7 +72,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         </span>
       </button>
       {open && (
-        <p className="pb-5 text-mid leading-relaxed text-base">{answer}</p>
+        <div className="pb-5 text-mid leading-relaxed text-base">{answer}</div>
       )}
     </div>
   );

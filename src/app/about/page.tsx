@@ -32,7 +32,7 @@ const VALUES = [
 const TEAM = [
   {
     name: "Jasmine Barnett",
-    role: "Co-founder",
+    role: "Founder",
     bio: "Leads community, operations, and culture. The warmth people feel in every Empowr space — the welcome, the relationships, the sense that they belong — flows from Jasmine.",
     avatar: "/avatars/jasmine.png",
   },
@@ -134,6 +134,11 @@ export default function AboutPage() {
                 <p className="text-mid text-sm leading-relaxed">{member.bio}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <span className="inline-block bg-blue text-white font-semibold px-6 py-3 rounded-full opacity-40 cursor-not-allowed select-none">
+              Meet the full team
+            </span>
           </div>
         </div>
       </section>

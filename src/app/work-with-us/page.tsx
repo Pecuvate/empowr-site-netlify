@@ -60,10 +60,17 @@ export default function WorkWithUsPage() {
       {/* Roles */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-mid text-lg max-w-2xl mb-14">
-            Empowr needs people across sessions, operations, leadership, and
-            volunteering. Whatever your background, there is a role for you.
-          </p>
+          <div className="text-mid text-lg max-w-2xl mb-14 space-y-4">
+            <p>
+              Empowr needs people across sessions, operations, leadership, and
+              volunteering. Whatever your background, there is a role for you.
+            </p>
+            <p>
+              Empowr wants to work with people who believe in the power of
+              hands-on experience to transform people&apos;s lives. We&apos;re
+              looking for people who lead with values, not just skills.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ROLES.map((role) => (
               <div

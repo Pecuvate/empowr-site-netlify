@@ -265,9 +265,12 @@ export default function HistoryPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
               Creative Collaborators &amp; Instructors
             </h2>
-            <p className="text-mid text-lg max-w-xl mb-14">
-              The practitioners and facilitators who have brought Empowr&apos;s
-              programmes to life.
+            <p className="text-mid text-lg max-w-2xl mb-14">
+              Here are the creatives who have collaborated with us to teach their
+              skills and contribute to our mission becoming a reality. They have
+              played a crucial role in bringing our sessions to life, making them
+              engaging and impactful, and we are immensely grateful for their
+              valuable contributions.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {COLLABORATORS.map((person) => (

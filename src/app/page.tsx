@@ -205,6 +205,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CIC Callout */}
+      <section className="bg-blue text-white py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <p className="text-blue-light text-xs font-semibold uppercase tracking-widest mb-2">
+              Registered CIC
+            </p>
+            <h2 className="text-2xl font-extrabold mb-2">
+              Accountable to the community by law
+            </h2>
+            <p className="text-blue-light max-w-xl leading-relaxed">
+              Empowr is a Community Interest Company — legally required to
+              demonstrate that our work benefits the community, not just claim
+              it. Our annual reports are publicly filed.
+            </p>
+          </div>
+          <Link
+            href="/faqs"
+            className="bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors whitespace-nowrap shrink-0"
+          >
+            What is a CIC?
+          </Link>
+        </div>
+      </section>
+
       {/* Get Involved Routes */}
       <section className="bg-cream py-12 md:py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-6">
