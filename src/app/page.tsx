@@ -4,24 +4,16 @@ import ReviewsCarousel from "@/components/ReviewsCarousel";
 
 const OFFER_CARDS = [
   {
-    label: "Drop In & Skate",
-    ages: "Ages 5+ · All levels",
-    body: "Open community sessions — no commitment, no pressure. Just show up, lace up, and move at your own pace.",
+    label: "Sessions for Children",
+    body: "Using fun games and engaging drills, our roller skating sessions help children build confidence, develop new skills, stay active, and make friends in a safe, supportive, and encouraging environment.",
   },
   {
-    label: "Learn to Skate",
-    ages: "Ages 5+ · Beginner to advanced",
-    body: "Progressive lessons and multi-session courses that take you from first steps to real, lasting confidence.",
+    label: "Sessions for Adults",
+    body: "Whether you're a complete beginner or looking to refine your skills, our adult sessions use structured coaching, drills, and practical exercises to help you build confidence, improve your skating, and become part of a supportive community.",
   },
   {
-    label: "Holiday Camps",
-    ages: "Ages 5–15 · School holidays",
-    body: "Immersive multi-day skating experiences for children and young people. High-energy, skill-building, and genuinely memorable.",
-  },
-  {
-    label: "Push Your Skills",
-    ages: "Ages 13+ · Intermediate to advanced",
-    body: "Level 2 courses and advanced sessions for skaters ready to develop their own style and go further.",
+    label: "Sessions for All Ages",
+    body: "Bringing generations together through roller skating, our all-ages sessions combine fun activities, games, and skill-building exercises to create an inclusive environment where everyone can learn, connect, and enjoy skating together.",
   },
 ];
 
@@ -114,13 +106,12 @@ export default function Home() {
               push your limits — there&apos;s a session for you.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {OFFER_CARDS.map((card) => (
               <div
                 key={card.label}
                 className="bg-warm-white rounded-2xl p-7 border border-border flex flex-col"
               >
-                <p className="text-xs text-muted font-medium mb-3">{card.ages}</p>
                 <h3 className="text-lg font-bold text-black mb-3">{card.label}</h3>
                 <p className="text-mid text-sm leading-relaxed flex-1">{card.body}</p>
               </div>
