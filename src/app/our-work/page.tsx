@@ -154,14 +154,12 @@ export default function OurWorkPage() {
                     meaningful challenge, and joy. It keeps Empowr true to its
                     roots: people learn and grow best through doing.
                   </p>
-                  <a
-                    href={LINKS.eelaAbout}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={LINKS.experientialLearning}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue hover:opacity-75 transition-opacity"
                   >
                     Find out more about EELA →
-                  </a>
+                  </Link>
                 </div>
                 <div>
                   <p className="mb-3">

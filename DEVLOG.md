@@ -2,6 +2,79 @@
 
 ---
 
+## Session 23 — 2026-06-12
+
+**What was done:**
+
+**`/experiential-learning/report` — full report sub-page:**
+- New page at `src/app/experiential-learning/report/page.tsx`
+- Ports the full "A Non-Medical Approach to Mental Health" report from Heroes (`why-experiential-learning/page.tsx`) into the Main Site
+- Adapted from Heroes-specific CSS classes to Main Site Tailwind tokens (blue, cream, border, mid, muted, rounded-2xl, etc.)
+- Sections: stats strip → The Problem → The Science (callout box) → The Evidence (5 cards) → The Economic Case (4 cards) → Our Commitment → Sources (collapsible `<details>`)
+- No CTA section — removed entirely pending decision on what to put there
+- Hero: eyebrow "Empowr Report · 2025", h1 "A Non-Medical Approach to Mental Health", `← Experiential Learning` back link
+- `links.ts`: `experientialLearningReport` updated from `https://hero.empowrcic.org/why-experiential-learning` → `/experiential-learning/report` (internal)
+
+**`ExperientialLearningTabs.tsx` — "Why It Matters" condensed:**
+- Tab 3 "Why It Matters" stripped to a teaser: 1-para intro + 4 stats grid + 1-para summary + "Read the full report →" (internal `<Link>`)
+- "Read the full report →" links in tabs 2 and 3 changed from `<a target="_blank">` to `<Link>` (now internal)
+
+**Footer + home page inline link:**
+- Footer Programmes column: "Our Philosophy" link added → `/experiential-learning`
+- Home page hero sub-copy: "experiential learning" text wrapped in `<Link href={LINKS.experientialLearning}>` with `underline` style
+
+**Outstanding before launch:**
+- Heroes `src/lib/links.ts` — add direct URL to `/experiential-learning/report`
+- 3 additional board members
+- Client review of programme descriptions
+- DNS cutover (`empowrcic.org`)
+
+---
+
+## Session 22 — 2026-06-12
+
+**What was done:**
+
+**New page — `/experiential-learning`:**
+- Built canonical EELA philosophy page at `src/app/experiential-learning/page.tsx`
+- Client component `src/components/ExperientialLearningTabs.tsx` — 5 tabs: What is EELA? / The Science / The Evidence / Why It Matters / Our Vision
+- Hero: eyebrow "Our Philosophy", headline "People learn and grow best through doing." — EELA-forward, not crisis-reactive
+- v1 was restructured during the session: originally led with NHS health crisis stats and "A Non-Medical Approach to Mental Health" (report tone). Reframed so EELA is the story and the mental health context lives inside the "Why It Matters" tab as supporting evidence
+- Stats (1 in 4, 8.7M, +45%, 11.4) moved from above-the-fold strip into "Why It Matters" tab
+- References section removed entirely — replaced with "Read the full report →" link to `hero.empowrcic.org/why-experiential-learning` in "The Evidence" and "Why It Matters" tabs
+- `src/lib/links.ts`: added `experientialLearning: "/experiential-learning"` and `experientialLearningReport: "https://hero.empowrcic.org/why-experiential-learning"`
+- `src/app/our-work/page.tsx`: "Find out more about EELA →" updated from external `eela.empowrcic.org/about` to internal `/experiential-learning`
+- Planning doc: `planning/pages/experiential-learning.md` created and kept in sync throughout — documents v1 issues and v2 reframe rationale
+
+**DNS cutover — executed this session:**
+- `bookings.empowrcic.org`: CNAME → `cdn1.wixdns.net` replaced with A records → `185.230.63.107`, `185.230.63.186`, `185.230.63.171` (Wix IPs, matches root domain)
+- `empowrcic.org` A record: Wix IPs → `75.2.60.5` (Netlify load balancer)
+- `www.empowrcic.org` CNAME: `cdn1.wixdns.net` → `empowr-main-site.netlify.app`
+- Both root records at TTL 60 — propagation fast
+- Netlify already had `empowrcic.org` set as primary custom domain; SSL will auto-provision via Let's Encrypt
+- EELA `feat/bookings-domain-cutover` branch left unmerged — booking links use default Wix URL, not `bookings.empowrcic.org`
+
+**Not yet done (next session):**
+- Footer link (Programmes column) + home page inline link (hero sub-copy "experiential learning" → `/experiential-learning`)
+- Heroes project `src/lib/links.ts` — add direct URL to this page
+- Nav placement — client decision pending
+- Commit and push
+- Verify `empowrcic.org` serving Netlify site + SSL provisioned
+
+---
+
+## Session 21 — 2026-06-12
+
+**What was done:**
+
+**Home page:**
+- "Everyone is welcome here" section: replaced 4 programme-type cards (Drop In, Learn to Skate, Holiday Camps, Push Your Skills) with 3 audience-focused cards (Sessions for Children, Sessions for Adults, Sessions for All Ages)
+- Updated copy in each card with client-supplied descriptions
+- Grid updated from `lg:grid-cols-4` to `lg:grid-cols-3`; ages label row removed
+- Pushed to `main` — Netlify auto-deployed
+
+---
+
 ## Session 20 — 2026-06-10
 
 **What was done:**

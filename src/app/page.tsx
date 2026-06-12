@@ -68,9 +68,12 @@ export default function Home() {
             Live by growing. Grow by learning. Learn by doing.
           </h1>
           <p className="text-lg md:text-xl text-blue-light max-w-2xl mx-auto leading-relaxed mb-10">
-            We design and deliver experiential learning programmes that improve
-            long-term mental, physical, and emotional wellbeing — for people of
-            every age.
+            We design and deliver{" "}
+            <Link href={LINKS.experientialLearning} className="underline underline-offset-2 hover:text-white transition-colors">
+              experiential learning
+            </Link>{" "}
+            programmes that improve long-term mental, physical, and emotional
+            wellbeing — for people of every age.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a

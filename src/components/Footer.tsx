@@ -103,6 +103,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href={LINKS.experientialLearning}
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Our Philosophy
+                </Link>
+              </li>
+              <li>
                 <a
                   href={LINKS.heroesplatform}
                   target="_blank"
