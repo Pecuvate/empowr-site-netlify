@@ -43,6 +43,14 @@ export default function Nav() {
             );
           })}
           <a
+            href={LINKS.shop}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-mid hover:text-blue transition-colors"
+          >
+            Shop
+          </a>
+          <a
             href={LINKS.heroesplatform}
             target="_blank"
             rel="noopener noreferrer"
@@ -74,6 +82,15 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
+          <a
+            href={LINKS.shop}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-mid hover:text-blue transition-colors py-3 border-b border-border"
+            onClick={() => setOpen(false)}
+          >
+            Shop
+          </a>
           <a
             href={LINKS.heroesplatform}
             target="_blank"

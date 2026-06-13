@@ -225,9 +225,14 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               <li>
-                <span className="text-sm text-muted/50 cursor-default">
-                  Coming Soon
-                </span>
+                <a
+                  href={LINKS.shop}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Visit Shop
+                </a>
               </li>
             </ul>
           </div>
