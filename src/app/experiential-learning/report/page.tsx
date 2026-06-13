@@ -17,22 +17,27 @@ const CONTEXT_STATS = [
 
 const EVIDENCE_ITEMS = [
   {
+    icon: '🧠',
     label: 'Neuroplasticity',
     body: 'Repeated engagement in novel, hands-on activities leads to growth of new neural pathways and improved brain health.',
   },
   {
+    icon: '💪',
     label: 'Resilience & Self-Efficacy',
     body: 'Real-world challenges foster confidence, adaptability, and coping strategies — skills protective against anxiety and depression.',
   },
   {
+    icon: '🤝',
     label: 'Social Connection',
     body: 'Group-based experiential learning directly counteracts isolation — a recognised driver of poor mental health.',
   },
   {
+    icon: '🌿',
     label: 'Physical Health Synergy',
     body: 'Movement-rich and outdoor-based programmes deliver simultaneous mental and physical benefits, reducing stress hormones and enhancing emotional regulation.',
   },
   {
+    icon: '📈',
     label: 'Long-Term Impact',
     body: 'Participatory, experiential learning models in schools, communities, and workplaces improve mood, lower anxiety, and reduce healthcare reliance.',
   },
@@ -40,18 +45,22 @@ const EVIDENCE_ITEMS = [
 
 const ECONOMIC_ITEMS = [
   {
+    icon: '💼',
     label: 'Greater Workforce Engagement',
     body: 'Individuals who stay mentally and physically active are more focused, adaptable, and productive — better able to maintain a healthy work-life balance.',
   },
   {
+    icon: '🏥',
     label: 'Health System Relief',
     body: 'Improving mental resilience reduces reliance on NHS services — freeing resources for critical, acute care.',
   },
   {
+    icon: '🌍',
     label: 'A More Resilient Population',
     body: 'A society built on continual learning and personal agency is more resilient in the face of social, economic, and technological change.',
   },
   {
+    icon: '🔄',
     label: 'Indirect Public Benefit',
     body: 'The psychological effects of learning and achievement — increased dopamine and serotonin — naturally lead to more positive social behaviour and community contribution.',
   },
@@ -166,10 +175,11 @@ export default function ExperientialLearningReportPage() {
             <h2 className="text-2xl md:text-3xl font-extrabold text-black">
               What the Research Shows
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {EVIDENCE_ITEMS.map((item) => (
                 <div key={item.label} className="bg-white rounded-2xl border border-border p-6 flex flex-col gap-2">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-blue">{item.label}</p>
+                  <span className="text-2xl">{item.icon}</span>
+                  <p className="font-bold text-black text-sm">{item.label}</p>
                   <p className="text-mid text-sm leading-relaxed">{item.body}</p>
                 </div>
               ))}
@@ -192,7 +202,8 @@ export default function ExperientialLearningReportPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {ECONOMIC_ITEMS.map((item) => (
-                <div key={item.label} className="bg-white rounded-2xl border border-border p-6">
+                <div key={item.label} className="bg-blue-pale rounded-2xl border border-blue/10 p-6">
+                  <span className="text-2xl mb-3 block">{item.icon}</span>
                   <p className="font-bold text-black mb-2">{item.label}</p>
                   <p className="text-mid text-sm leading-relaxed">{item.body}</p>
                 </div>
