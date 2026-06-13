@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-warm-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8">
 
           {/* Brand */}
           <div>
@@ -214,6 +214,20 @@ export default function Footer() {
                 >
                   Work With Us
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Shop */}
+          <div>
+            <p className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
+              Shop
+            </p>
+            <ul className="space-y-2">
+              <li>
+                <span className="text-sm text-muted/50 cursor-default">
+                  Coming Soon
+                </span>
               </li>
             </ul>
           </div>
