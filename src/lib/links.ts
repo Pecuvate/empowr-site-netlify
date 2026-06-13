@@ -11,12 +11,12 @@ export const LINKS = {
   socialYoutube: "https://www.youtube.com/@empowr.cic",
   socialLinkedIn: "https://www.linkedin.com/company/empowr-cic",
   socialWhatsApp: "https://chat.whatsapp.com/BuKlBkfDxHs2jdPyRzXwza",
-  privacyPolicy: "/legal/privacy-policy",
-  cookiePolicy: "/legal/cookie-policy",
-  termsAndConditions: "/legal/terms-and-conditions",
-  riskWaiver: "/legal/risk-waiver",
-  photographyConsent: "/legal/photography-consent",
-  programmePolicies: "/legal/programme-policies",
+  privacyPolicy: "https://legalhub.pecuvate.com/share/empowr/org/privacy-policy",
+  cookiePolicy: "https://legalhub.pecuvate.com/share/empowr/org/cookie-policy",
+  termsAndConditions: "https://legalhub.pecuvate.com/share/empowr/org/terms-and-conditions",
+  riskWaiver: "https://legalhub.pecuvate.com/share/empowr/org/risk-waiver",
+  photographyConsent: "https://legalhub.pecuvate.com/share/empowr/org/photography-consent",
+  programmePolicies: "https://legalhub.pecuvate.com/share/empowr/org/programme-policies",
   companiesHouse:
     "https://find-and-update.company-information.service.gov.uk/company/13660924",
   cicReport2025:

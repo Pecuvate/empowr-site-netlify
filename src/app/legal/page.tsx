@@ -65,6 +65,8 @@ export default function LegalPage() {
               <a
                 key={policy.name}
                 href={policy.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-warm-white rounded-2xl p-8 border border-border hover:border-blue/30 hover:shadow-sm transition-all flex flex-col"
               >
                 <h2 className="text-lg font-bold text-black mb-3">

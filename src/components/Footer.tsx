@@ -259,12 +259,12 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-muted">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <p>© {new Date().getFullYear()} Empowr CIC. All rights reserved.</p>
-            <Link href={LINKS.privacyPolicy} className="hover:text-white transition-colors">
+            <a href={LINKS.privacyPolicy} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Privacy Policy
-            </Link>
-            <Link href={LINKS.termsAndConditions} className="hover:text-white transition-colors">
+            </a>
+            <a href={LINKS.termsAndConditions} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Terms &amp; Conditions
-            </Link>
+            </a>
           </div>
           <div className="flex gap-4 items-center">
             <a
