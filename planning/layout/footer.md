@@ -40,7 +40,7 @@
 - Work With Us → `/work-with-us`
 
 ### Shop (col 6)
-- Coming Soon — disabled `<span>` at 50% opacity; placeholder until `shop.empowrcic.org` is wired
+- Visit Shop → `empowrcic.wixsite.com/empowrcic/shop` (external, opens new tab)
 
 ### Legal (cols 7–8, `lg:col-span-2`)
 - All Our Policies → `/legal` (internal hub)

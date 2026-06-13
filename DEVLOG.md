@@ -2,6 +2,44 @@
 
 ---
 
+## Session 28 — 2026-06-13
+
+**What was done:**
+
+**Bug fix — `/legal` route redirecting to `/share/empowr/org`:**
+- Root cause: `netlify.toml` had `from = "/legal/*"` with `force = true`; Netlify adds a trailing slash to bare `/legal`, making `/legal/` match the pattern with an empty splat; this proxied to `legalhub.pecuvate.com/share/empowr/org/` which returned a relative redirect the browser followed back to `empowrcic.org/share/empowr/org`
+- Fix: changed `from = "/legal/*"` → `from = "/legal/:slug"` (requires a non-empty path segment); bare `/legal` and `/legal/` now fall through to the static Next.js page; individual policy links like `/legal/privacy-policy` still proxy to LegalHub correctly
+- Committed `e568c4b` and pushed to `main` — Netlify auto-deployed
+
+**Contact form — end-to-end verification:**
+- Tested "General Enquiry" subject → confirmed success state on site + email landed at `enquiries@empowrcic.org` + auto-reply to sender
+- Tested "Work With Us" subject → confirmed success state on site + email landed at `opportunities@empowrcic.org` + auto-reply to sender
+- Both routing paths confirmed working in production
+
+---
+
+## Session 27 — 2026-06-13
+
+**What was done:**
+
+**KB sync — Empowr CIC Obsidian vault aligned to live site:**
+- Audited live site (local files + Netlify) vs KB — 85% aligned; 8 updates made
+- `entities/empowr-cic`: registered address, 4th core value, SYNKRON8 active, annual reports, open questions cleaned up
+- `entities/movewell`: confirmed programme name suite; removed stale SYNKRON8 "in development" warning
+- `entities/eccp`: corrected status — coming-soon concept page only, not yet developed or launched
+- `entities/news-posts`: new — 6 live historical posts documented
+- `planning/pages/news.md`: Current Posts table corrected to show all 6 live posts + draft
+
+**Outstanding (post-launch, unchanged):**
+- 3 additional board members (client via Notion)
+- Programme descriptions (client review)
+- Welcome post — rename `.mdx.draft` → `.mdx`
+- `/team` page
+- Shop subdomain
+- EELA booking links — update to `bookings.empowrcic.org/*` once Wix SSL confirmed
+
+---
+
 ## Session 26 — 2026-06-13
 
 **What was done:**
