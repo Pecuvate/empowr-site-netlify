@@ -4,8 +4,8 @@ import { LINKS } from "@/lib/links";
 export default function Footer() {
   return (
     <footer className="bg-black text-warm-white">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-8 gap-8">
 
           {/* Brand */}
           <div>
@@ -232,10 +232,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
+          {/* Our Policies */}
+          <div className="lg:col-span-2">
             <p className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
-              Legal
+              Our Policies
             </p>
             <ul className="space-y-2">
               <li>
@@ -243,8 +243,68 @@ export default function Footer() {
                   href="/legal"
                   className="text-sm text-muted hover:text-white transition-colors"
                 >
-                  Empowr Legal Policies
+                  All Our Policies
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={LINKS.privacyPolicy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.cookiePolicy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Cookie Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.termsAndConditions}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Terms &amp; Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.riskWaiver}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Risk Waiver
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.photographyConsent}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Photography &amp; Media Consent
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKS.programmePolicies}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Programme Policies
+                </a>
               </li>
             </ul>
           </div>
