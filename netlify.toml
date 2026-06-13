@@ -10,8 +10,8 @@
   NODE_VERSION = "20"
 
 [[redirects]]
-  from   = "/legal/*"
-  to     = "https://legalhub.pecuvate.com/share/empowr/org/:splat"
+  from   = "/legal/:slug"
+  to     = "https://legalhub.pecuvate.com/share/empowr/org/:slug"
   status = 200
   force  = true
 
