@@ -2,6 +2,37 @@
 
 ---
 
+## Session 24 — 2026-06-13
+
+**What was done:**
+
+**Report page — emojis + layout:**
+- Evidence cards: emoji icons added (🧠💪🤝🌿📈); grid expanded to `lg:grid-cols-3`
+- Economic items: emoji icons added (💼🏥🌍🔄); bg changed to `blue-pale` with `border-blue/10`
+- Page width: `max-w-3xl` → `max-w-4xl` (matches Heroes 880px)
+
+**Footer reorder + Shop column:**
+- "Our Philosophy" moved from Programmes → About Us column
+- About Us order: Who We Are / Our Philosophy / Our Impact / Our History / News / FAQs
+- Shop added as its own column (`lg:grid-cols-7`, was 6); "Coming Soon" placeholder, re-enabled when shop is ready
+
+**Favicon fix:**
+- Replaced 25KB Vercel default `app/favicon.ico` with 2KB Empowr brand favicon
+- Added all PNG sizes + `site.webmanifest` to `public/`
+- Added explicit `icons` + `manifest` metadata to `layout.tsx`
+
+**Heroes platform — link to Main Site `/experiential-learning`:**
+- `links.ts`: `site.el` added → `empowrcic.org/experiential-learning`
+- Home page "Why This Matters" section: "Discover our approach to experiential learning →" link added after body copy
+
+**Outstanding before launch:**
+- Heroes platform `/why-experiential-learning` page now orphaned — redirect or retire in a future session
+- 3 additional board members (client to provide)
+- Client review of programme descriptions
+- DNS cutover (`empowrcic.org`)
+
+---
+
 ## Session 23 — 2026-06-12
 
 **What was done:**
