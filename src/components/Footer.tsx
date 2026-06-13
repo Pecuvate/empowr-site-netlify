@@ -232,10 +232,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Our Policies */}
+          {/* Legal */}
           <div className="lg:col-span-2">
             <p className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
-              Our Policies
+              Legal
             </p>
             <ul className="space-y-2">
               <li>
