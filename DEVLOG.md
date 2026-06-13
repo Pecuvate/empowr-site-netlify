@@ -2,6 +2,76 @@
 
 ---
 
+## Session 26 — 2026-06-13
+
+**What was done:**
+
+**DNS cutover — executed:**
+- `bookings.empowrcic.org`: CNAME → `cdn1.wixdns.net` replaced with 3× A records → Wix IPs (`185.230.63.107`, `185.230.63.186`, `185.230.63.171`)
+- `empowrcic.org` A record: Wix IPs → `75.2.60.5` (Netlify load balancer)
+- `www.empowrcic.org` CNAME: `cdn1.wixdns.net` → `empowr-main-site.netlify.app`
+- SSL auto-provisioned by Netlify/Let's Encrypt post-propagation
+- EELA `feat/bookings-domain-cutover` branch left unmerged
+
+**EELA platform — booking links updated (`empowr-eela` repo):**
+- All `https://www.empowrcic.org/*` booking/programme links → `https://empowrcic.wixsite.com/empowrcic/*` (13 links)
+- Committed and pushed to `main` — Netlify auto-deployed EELA
+
+**Planning docs — full audit (8 files updated):**
+- `pages/_index.md` — added `/experiential-learning`, `/report`; DNS removed from pending; post-launch outstanding items listed
+- `pages/home.md` — Section 2 corrected to 3 audience cards; hero inline link noted; news status updated
+- `pages/experiential-learning.md` — side-effects table completed; report sub-page documented; status → Complete
+- `architecture/site-map.md` — added `/experiential-learning`, `/report`, `/history`, `/faqs`; nav order corrected
+- `layout/nav.md` — News restored; `/experiential-learning` noted as linked-only
+- `layout/footer.md` — "Our Philosophy" in About Us; LinkedIn confirmed; column counts updated
+- `architecture/content-requirements.md` — team photos corrected; news backfill confirmed; Work With Us confirmed
+- `architecture/technical-decisions.md` — Resend confirmed; live site → Netlify; Phase 4 complete; Phase 5 added
+
+**Footer — Legal column:**
+- Link text: "Empowr Legal Policies" → "All Our Policies"
+- Single link to `/legal` hub (all individual policies accessible from that page)
+- Footer max width: `max-w-6xl` → `max-w-7xl`
+
+**Outstanding (post-launch):**
+- 3 additional board members (client via Notion)
+- Programme descriptions (client review)
+- Welcome post — rename `.mdx.draft` → `.mdx`
+- `/team` page
+- Heroes `/why-experiential-learning` page — orphaned, redirect or retire
+- Shop subdomain
+- EELA booking links — update to `bookings.empowrcic.org/*` once Wix SSL confirmed
+
+---
+
+## Session 25 — 2026-06-13
+
+**What was done:**
+
+**Planning doc audit — code vs docs compared:**
+- Identified 4 gaps between the built code and the planning directory that had drifted since Session 24
+
+**`planning/layout/footer.md` updated:**
+- Column count: `lg:grid-cols-6` → `lg:grid-cols-7`
+- About Us column: added "Our Philosophy" (second item); reordered to: Who We Are / Our Philosophy / Our Impact / Our History / News / FAQs
+- Programmes column: removed "Our Philosophy" entry (moved to About Us)
+- Added new Shop column (col 6): "Coming Soon" placeholder
+- Legal is now col 7
+
+**`planning/pages/home.md` updated:**
+- Hero CTAs: removed "Find Out More" ghost button — only "Book a Session" + "Support Our Work" in the actual code
+- Impact section: corrected to show 2 pills ("See our full impact →" + "Explore our history →"), not 1
+
+**`planning/pages/experiential-learning.md` updated:**
+- Side-effects table: corrected "Our Philosophy" footer entry from "Programmes column" → "About Us column (moved in Session 24)"
+
+**`planning/pages/_index.md` updated:**
+- `/experiential-learning/report` row: changed "(sub-page, no separate doc)" → "experiential-learning.md (sub-page section)"
+
+**Memory:**
+- Saved `feedback_empowr_site_planning_docs.md` — lookup table mapping source files to their planning docs; flags the cross-reference step that tends to get missed; will load automatically in future sessions
+
+---
+
 ## Session 24 — 2026-06-13
 
 **What was done:**

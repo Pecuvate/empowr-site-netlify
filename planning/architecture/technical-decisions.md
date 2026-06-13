@@ -2,7 +2,7 @@
 
 Stable architectural and infrastructure choices for the Empowr Main Site. Each decision here has a corresponding ADR in `planning/decisions/`.
 
-**Last updated:** 2026-06-04
+**Last updated:** 2026-06-12
 
 ---
 
@@ -17,7 +17,7 @@ Stable architectural and infrastructure choices for the Empowr Main Site. Each d
 | Deployment | Netlify | Workspace standard; DNS already on Route 53 |
 | News / blog | MDX files in `src/content/news/` | Simple, no CMS dependency in Phase 1 |
 | CMS | None (Phase 1) | Sanity can be added later if news volume justifies it |
-| Contact form | mailto link (Phase 1) | Resend integration in Phase 2 if needed |
+| Contact form | Resend (Phase 2 complete) | Routes to `enquiries@` or `opportunities@` by subject; confirmation email sent to sender |
 
 ---
 
@@ -27,7 +27,7 @@ Stable architectural and infrastructure choices for the Empowr Main Site. Each d
 |---|---|---|
 | Domain | `empowrcic.org` — replacing Wix | `decisions/2026-05-19-domain-strategy.md` |
 | DNS | AWS Route 53 (already managing the domain) | — |
-| Current live site | Wix at `empowrcic.org` — not touched until Phase 4 | `decisions/2026-05-19-domain-strategy.md` |
+| Current live site | **Netlify at `empowrcic.org`** — DNS cutover executed 2026-06-12 | `decisions/2026-05-19-domain-strategy.md` |
 | Hosting | Netlify | — |
 | Email sending | Not required in Phase 1 | — |
 
@@ -50,4 +50,5 @@ Stable architectural and infrastructure choices for the Empowr Main Site. Each d
 | 1 — Structure | Scaffold, all pages with draft content, Nav, Footer, CIC report links, Heroes link | Complete |
 | 2 — Content | Real copy, team section, real report links, headline stats | Complete |
 | 3 — Growth | News posts, partner logos, impact stories | Complete |
-| 4 — Go live | Switch `empowrcic.org` DNS from Wix to Netlify, decommission Wix | Next |
+| 4 — Go live | Switch `empowrcic.org` DNS from Wix to Netlify | **Complete — 2026-06-12** |
+| 5 — Post-launch | Board members, welcome post, `/team` page, shop subdomain | In progress |

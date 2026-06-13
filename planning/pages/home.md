@@ -10,26 +10,24 @@
 ### 1. Hero
 - Blue background, white text
 - Headline: *"Live by growing. Grow by learning. Learn by doing."*
-- Sub-copy: *"We design and deliver experiential learning programmes that improve long-term mental, physical, and emotional wellbeing — for people of every age."*
-- CTAs: **Book a Session** → `eela.empowrcic.org` (primary, white button) | **Find Out More** → `/about` (ghost) | **Support Our Work** → `hero.empowrcic.org` (ghost)
+- Sub-copy: *"We design and deliver [experiential learning](/experiential-learning) programmes that improve long-term mental, physical, and emotional wellbeing — for people of every age."* — "experiential learning" is an inline `<Link>` → `/experiential-learning`
+- CTAs: **Book a Session** → `eela.empowrcic.org` (primary, white button) | **Support Our Work** → `hero.empowrcic.org` (ghost)
 
 ### 2. Everyone Is Welcome Here — Find Your Session
 - Cream background
 - Headline: *"Everyone is welcome here."*
 - Sub: *"Empowr works with people of all ages and backgrounds. Whether you're stepping on skates for the first time or looking to push your limits — there's a session for you."*
-- "See all programmes →" link → `/our-work`
-- 4 cards (participant intent framing):
-  - **Drop In & Skate** — Ages 5+ · All levels
-  - **Learn to Skate** — Ages 5+ · Beginner to advanced
-  - **Holiday Camps** — Ages 5–15 · School holidays
-  - **Push Your Skills** — Ages 13+ · Intermediate to advanced
+- 3 cards (audience-focused framing), `lg:grid-cols-3`:
+  - **Sessions for Children** — client copy
+  - **Sessions for Adults** — client copy
+  - **Sessions for All Ages** — client copy
 - **Book a Session** CTA → `eela.empowrcic.org`
 
 ### 3. Our Impact
 - Blue-pale background
 - Headline: *"Thousands of people. One community."*
 - Sub: *"Since February 2022, Empowr has been showing up. Our mission is to empowr as many people as possible — here's our reach so far."* (empowr italicised)
-- "See our full impact →" link → `/impact`
+- 2 pill links: "See our full impact →" → `/impact` | "Explore our history →" → `/history`
 - 4 white cards: **10,000+** Participant attendances · **428** Sessions delivered · **500+** Hours of paid & volunteer work · **2** Countries reached
 
 ### 4. See What Others Say (Reviews)
@@ -48,14 +46,14 @@
 - **Work With Us** → `/work-with-us`
 - **Partner With Us** → `/partner-with-us`
 
-### 6. Latest News *(temporarily removed)*
-- Removed — no posts yet. Restore when content is published.
-- Pattern: `getAllPosts()` from `src/lib/news.ts`, 3 most recent posts, link to `/news`
+### 6. Latest News *(removed from home page)*
+- Not shown on home page. 6 historical news posts exist at `/news`. Restore when new content is being actively published.
+- Pattern when restored: `getAllPosts()` from `src/lib/news.ts`, 3 most recent posts, link to `/news`
 
 ---
 
 ## Status
-Complete. News section temporarily removed pending content.
+Complete.
 
 ---
 

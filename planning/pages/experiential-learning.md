@@ -42,9 +42,12 @@ Concrete changes:
 
 | File | Change |
 |---|---|
-| `src/lib/links.ts` | Add `experientialLearning: "/experiential-learning"` ✓ done |
-| `src/app/our-work/page.tsx` | Update "Find out more about EELA →" to point to `/experiential-learning` ✓ done |
-| Heroes project `src/lib/links.ts` | Add `site.experientialLearning` pointing to `https://empowrcic.org/experiential-learning` |
+| `src/lib/links.ts` | `experientialLearning: "/experiential-learning"` ✓ done |
+| `src/lib/links.ts` | `experientialLearningReport: "/experiential-learning/report"` ✓ done (updated from Heroes URL to internal) |
+| `src/app/our-work/page.tsx` | "Find out more about EELA →" → `/experiential-learning` ✓ done |
+| `src/app/page.tsx` | Hero sub-copy: "experiential learning" inline `<Link>` → `/experiential-learning` ✓ done |
+| `src/components/Footer.tsx` | About Us column: "Our Philosophy" → `/experiential-learning` ✓ done (moved from Programmes → About Us in Session 24) |
+| Heroes project `src/lib/links.ts` | Add direct URL to `https://empowrcic.org/experiential-learning/report` — **outstanding** |
 
 ---
 
@@ -128,13 +131,31 @@ The NHS data and mental health context lives here as *supporting context*, not a
 ---
 
 ### 3. CTA Section
-- Blue background
-- h2: "Ready to be part of it?"
-- 3 buttons: See Our Programmes → `/our-work` | Join a Session → `eela.empowrcic.org` | Support Our Work → `hero.empowrcic.org`
+- Removed — pending decision on what to put here
 
 ### 4. References
-- Collapsible `<details>` element
-- 13 academic references (Empowr 2025 report)
+- Removed — replaced by "Read the full report →" links inside tabs 3 and 4, pointing to `/experiential-learning/report`
+
+---
+
+## Sub-page — `/experiential-learning/report`
+
+Full "A Non-Medical Approach to Mental Health" report — ported from the Heroes platform (`why-experiential-learning/page.tsx`), adapted to the Main Site Tailwind tokens.
+
+**Hero:** eyebrow "Empowr Report · 2025", h1 "A Non-Medical Approach to Mental Health", `← Experiential Learning` back link
+
+**Sections (in order):**
+1. Stats strip — 4 headline figures
+2. The Problem — context
+3. The Science — callout box
+4. The Evidence — 5 cards
+5. The Economic Case — 4 cards
+6. Our Commitment
+7. Sources — collapsible `<details>`
+
+**Notes:**
+- No CTA section — pending decision
+- Links from tabs 3 and 4 in `ExperientialLearningTabs.tsx` use `<Link>` (internal, not `<a target="_blank">`)
 
 ---
 
@@ -159,14 +180,8 @@ The NHS data and mental health context lives here as *supporting context*, not a
 ---
 
 ## Status
-**Built (v1) — reframe in progress (v2).**
+**Complete (v2).** Both `/experiential-learning` and `/experiential-learning/report` are live.
 
-**v1 issues resolved by v2:**
-- Hero and stats strip reframed to EELA-first
-- Stats strip moved inside "Why It Matters" tab
-- Tab order corrected: EELA → Science → Evidence → Context → Vision
-
-**Still outstanding:**
-- Footer link and home page inline link (to add after v2 is confirmed)
-- Heroes project `links.ts` update
-- Client to confirm nav placement
+**Outstanding:**
+- Heroes project `links.ts` — add direct URL to `/experiential-learning/report`
+- Nav placement — client decision pending (currently linked-only: home hero, Our Work, footer Programmes column)

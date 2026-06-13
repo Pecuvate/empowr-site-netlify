@@ -10,6 +10,7 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 |---|---|
 | About | `/about` |
 | Our Work | `/our-work` |
+| News | `/news` |
 | Impact | `/impact` |
 | Get Involved | `/get-involved` |
 | Work With Us | `/work-with-us` |
@@ -31,6 +32,7 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 
 ## Notes
 
-- `/eccp`, `/partner-with-us`, `/legal`, and `/news` are **not** in the main nav — accessible from footer only
-- `/news` temporarily removed from nav (no posts published yet); restore when content is live
+- `/eccp`, `/partner-with-us`, `/legal`, `/faqs`, `/history`, and `/experiential-learning` are **not** in the main nav — accessible from footer or inline links
+- `/news` restored to nav (between Our Work and Impact) — 6 historical posts live
+- `/experiential-learning` nav placement pending client decision — currently linked-only
 - The Support Us CTA routes directly to the Heroes donation platform, not to any internal page

@@ -34,7 +34,7 @@ Everything on this list must be provided before the relevant page can be conside
 | Approach / Why | **Confirmed** | EELA, ECCP, science-backed narrative — all in `narrative.md` |
 | Team members (3 confirmed) | **Confirmed** | Jasmine Barnett, Shaun Barnett, Clifton George Barrett |
 | Team members (3 additional) | **Outstanding** | TBC via Notion — client to confirm |
-| Team photos | **Outstanding** | Currently using DiceBear adventurer avatars as placeholders |
+| Team photos | **Confirmed (3 of 6)** | Real portrait PNGs live for Jasmine, Shaun, Clifton. 3 additional board members TBC. |
 | Values | **Confirmed** | Four values live: Wellbeing as a Way of Life, Community and Belonging, Growth Through Learning, Inclusion For All |
 | CIC explainer | Not needed from client | Drafted by Pecuvate — built into page |
 
@@ -120,8 +120,8 @@ Everything on this list must be provided before the relevant page can be conside
 
 | Item | Status | Notes |
 |---|---|---|
-| Launch post | **Confirmed** | Published: `2026-05-20-welcome-to-our-new-website.mdx` |
-| Backfill of old posts | Optional | Six existing Wix posts from 2022–2023 could be migrated as MDX files. Worth discussing with client. |
+| Launch post | **Draft ready** | `2026-05-20-welcome-to-our-new-website.mdx.draft` — rename to `.mdx` to publish |
+| Backfill of old Wix posts | **Confirmed** | 6 posts migrated to MDX (Feb 2022 – Feb 2023), all live with S3 AVIF cover images |
 
 ---
 
@@ -129,7 +129,7 @@ Everything on this list must be provided before the relevant page can be conside
 
 | Item | Status | Notes |
 |---|---|---|
-| Practitioner engagement copy | **Outstanding** | Who Empowr is looking for, how it works, what to expect — client to provide |
+| Practitioner engagement copy | **Confirmed** | Broad roles page built — Session Delivery, Ops, Management, Volunteering; practitioner-specific content moved to `/eccp` |
 
 ---
 

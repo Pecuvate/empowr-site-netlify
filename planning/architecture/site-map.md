@@ -1,6 +1,6 @@
 # Site Map
 
-**Last updated:** 2026-06-04
+**Last updated:** 2026-06-12
 
 ---
 
@@ -20,12 +20,16 @@
 | `/eccp` | ECCP — Coming Soon | Practitioners, Partners | No (footer only) |
 | `/partner-with-us` | Partner With Us | Organisations, Schools | No (footer only) |
 | `/legal` | Legal Policies | All | No (footer only) |
+| `/experiential-learning` | Our Philosophy (EELA) | Partners, Funders, curious visitors | No (linked only — footer, Our Work, home hero) |
+| `/experiential-learning/report` | A Non-Medical Approach to Mental Health | Partners, Funders | No (linked from `/experiential-learning` tabs) |
+| `/history` | Our History | All | No (unlisted — home Impact + Impact page) |
+| `/faqs` | FAQs | All | No (footer only) |
 
 ---
 
 ## Navigation
 
-**Primary nav (top, all pages):** About · Our Work · Impact · Get Involved · Work With Us · News · Contact  
+**Primary nav (top, all pages):** About · Our Work · News · Impact · Get Involved · Work With Us · Contact  
 **CTA button (right):** Support Us → `hero.empowrcic.org` (external)  
 See `planning/layout/nav.md` for full behaviour spec.
 
