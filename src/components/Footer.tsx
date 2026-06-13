@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-warm-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-8 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8">
 
           {/* Brand */}
           <div>
@@ -233,7 +233,7 @@ export default function Footer() {
           </div>
 
           {/* Legal */}
-          <div className="lg:col-span-2">
+          <div>
             <p className="text-xs font-semibold text-white mb-4 uppercase tracking-widest">
               Legal
             </p>
@@ -245,66 +245,6 @@ export default function Footer() {
                 >
                   All Our Policies
                 </Link>
-              </li>
-              <li>
-                <a
-                  href={LINKS.privacyPolicy}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LINKS.cookiePolicy}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Cookie Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LINKS.termsAndConditions}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Terms &amp; Conditions
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LINKS.riskWaiver}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Risk Waiver
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LINKS.photographyConsent}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Photography &amp; Media Consent
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LINKS.programmePolicies}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Programme Policies
-                </a>
               </li>
             </ul>
           </div>
