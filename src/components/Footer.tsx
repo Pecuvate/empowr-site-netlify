@@ -50,10 +50,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/news"
+                  href={LINKS.experientialLearning}
                   className="text-sm text-muted hover:text-white transition-colors"
                 >
-                  News
+                  Our Philosophy
                 </Link>
               </li>
               <li>
@@ -66,14 +66,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/faqs"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/history"
                   className="text-sm text-muted hover:text-white transition-colors"
                 >
@@ -81,9 +73,20 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-sm text-muted/50 cursor-default">
-                  Shop
-                </span>
+                <Link
+                  href="/news"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faqs"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  FAQs
+                </Link>
               </li>
             </ul>
           </div>
@@ -100,14 +103,6 @@ export default function Footer() {
                   className="text-sm text-muted hover:text-white transition-colors"
                 >
                   All Programmes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={LINKS.experientialLearning}
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  Our Philosophy
                 </Link>
               </li>
               <li>

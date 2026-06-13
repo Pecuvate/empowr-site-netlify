@@ -71,7 +71,7 @@ export default function ExperientialLearningReportPage() {
     <>
       {/* Hero */}
       <section className="bg-blue text-white">
-        <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
           <Link
             href={LINKS.experientialLearning}
             className="inline-flex items-center gap-1.5 text-blue-light text-sm font-semibold hover:text-white transition-colors mb-8"
@@ -94,7 +94,7 @@ export default function ExperientialLearningReportPage() {
 
       {/* Body */}
       <section className="bg-cream py-12 md:py-20">
-        <div className="max-w-3xl mx-auto px-6 space-y-16">
+        <div className="max-w-4xl mx-auto px-6 space-y-16">
 
           {/* Stats */}
           <div>
