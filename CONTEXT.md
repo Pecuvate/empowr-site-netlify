@@ -8,8 +8,8 @@ Read this after `CLAUDE.md` to orient within the project.
 
 The main public website for Empowr CIC. Narrative and information site — not transactional. Routes audiences to the right places and surfaces CIC reports, programme info, and contact routes.
 
-**Status:** Planning → Scaffold → Build
-**Target domain:** `empowrcic.org` (replacing Wix — DNS already on Route 53)
+**Status:** Live on Netlify
+**Domains:** `empowrcic.org` and `www.empowrcic.org`
 
 ---
 

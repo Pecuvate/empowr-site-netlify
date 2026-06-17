@@ -6,9 +6,9 @@ Current phase status and key facts that would otherwise need re-explaining at th
 
 ## Current Phase
 
-**Phase 2 — Build (in progress)**
+**Live — post-launch iteration**
 
-Scaffold complete. Home page built and build verified clean. Remaining pages to build next session.
+The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic.org`. Continue from `DEVLOG.md` for current post-launch work.
 
 ---
 
@@ -18,18 +18,17 @@ Scaffold complete. Home page built and build verified clean. Remaining pages to 
 |---|---|
 | Planning | Complete |
 | Scaffold (Next.js init, layout, globals) | Complete |
-| Home page | Complete |
-| Remaining pages (About, Our Work, Impact, Get Involved, Work With Us, News, Contact) | Not started |
-| MDX news system | Not started |
-| Content population (report links, stats, bios) | Blocked — awaiting client content |
-| Domain cutover (Wix → Netlify) | Not started — Phase 4 |
+| Core pages | Complete |
+| MDX news system | Complete |
+| Content population (report links, stats, bios) | Partially complete — some client content still outstanding |
+| Domain cutover to Netlify | Complete |
 
 ---
 
 ## Key Facts
 
-- Domain target: `empowrcic.org` (replacing Wix — DNS already on Route 53)
-- Wix is currently live and is left untouched until Phase 4
+- Live domains: `empowrcic.org` and `www.empowrcic.org`
+- Hosting: Netlify (`empowr-main-site.netlify.app` behind the custom domains)
 - Stack: Next.js 16 + Tailwind v4 + shadcn/ui. Static export (`output: "export"`). One line to go full dynamic.
 - CIC reports: external links to Companies House — not hosted PDFs
 - Contact form: mailto link in Phase 1, Resend in Phase 2 if needed
@@ -75,7 +74,7 @@ Scaffold complete. Home page built and build verified clean. Remaining pages to 
 
 - Three additional Board of Directors members (client adding to Notion) — add to TEAM array in `about/page.tsx` when confirmed
 - Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
-- DNS cutover: lower TTL in Route 53, then swap A/CNAME from Wix to Netlify (`empowrcic.org`)
+- Main site DNS is cut over to Netlify; continue post-launch work from `DEVLOG.md`
 
 ---
 
