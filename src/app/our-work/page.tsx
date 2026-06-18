@@ -131,7 +131,7 @@ export default function OurWorkPage() {
             Our Work
           </p>
           <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl mx-auto">
-            Delivering programmes that use hands-on experience as the route to lasting wellbeing.
+            Delivering activities that use hands-on experience as the route to lasting wellbeing.
           </h1>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function OurWorkPage() {
               <div className="space-y-8 text-mid text-lg leading-relaxed">
                 <div>
                   <p className="mb-3">
-                    Empowr designs and delivers programmes through{" "}
+                    Empowr designs and delivers activities through{" "}
                     <strong className="text-black">EELA</strong> — the Empowr
                     Experiential Learning Activities framework. EELA ensures every
                     session is grounded in psychological safety, inclusion,
@@ -218,9 +218,9 @@ export default function OurWorkPage() {
             The EELA Framework
           </h2>
           <p className="text-mid text-lg max-w-2xl mx-auto mb-10">
-            EELA is not a single programme — it is the architecture that all
-            programmes live within. Five sub-programmes, each with its own team
-            and focus, all aligned to the same mission.
+            EELA is not a single activity — it is the framework that all
+            activities are built within. Five sub-programmes, each with its own
+            focus, all aligned to the same mission.
           </p>
           </div>
           <div className="flex flex-col gap-3">
@@ -264,7 +264,7 @@ export default function OurWorkPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-3">
-              Our Programmes
+              Our Activities
             </h2>
             <p className="text-mid text-lg max-w-xl mx-auto">
               Active sessions, courses, and camps — all grounded in the EELA
@@ -309,11 +309,11 @@ export default function OurWorkPage() {
           {/* Past Programmes */}
           <div className="mt-14 pt-10 border-t border-border">
             <h3 className="text-xl font-bold text-black mb-2">
-              Past Programmes
+              Past Activities
             </h3>
             <p className="text-mid text-sm max-w-2xl mb-6">
-              Skating is one vehicle among many. Past programmes demonstrate
-              that Empowr&apos;s methodology works across activities — whatever
+              Skating is one vehicle among many. Past activities demonstrate
+              that Empowr&apos;s methodology works across different formats — whatever
               creates movement, challenge, and connection.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-5">

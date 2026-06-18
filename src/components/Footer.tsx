@@ -98,14 +98,6 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/our-work"
-                  className="text-sm text-muted hover:text-white transition-colors"
-                >
-                  All Programmes
-                </Link>
-              </li>
-              <li>
                 <a
                   href={LINKS.heroesplatform}
                   target="_blank"

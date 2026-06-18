@@ -161,7 +161,7 @@ const PARTNERS = [
   {
     name: "Barnes Wallis Community Centre",
     context:
-      "Home of Empowr's community ICT room and base for early programmes in Newcross.",
+      "Home of Empowr's community ICT room and base for early activities in Newcross.",
   },
   {
     name: "Lewisham Tenants Fund",
@@ -201,13 +201,10 @@ export default function HistoryPage() {
           <p className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-4">
             Our History
           </p>
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl mb-6">
-            From two skaters to a community of thousands.
-          </h1>
-          <p className="text-lg text-blue-light max-w-2xl leading-relaxed">
+          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl">
             Since February 2022, Empowr has been showing up — in schools, community centres,
             public spaces, and everywhere people want to move and grow. Here&apos;s how we got here.
-          </p>
+          </h1>
         </div>
       </section>
 
@@ -320,7 +317,7 @@ export default function HistoryPage() {
               In Action
             </h2>
             <p className="text-mid text-lg max-w-xl mb-14">
-              A look back at Empowr programmes and activities across the years.
+              A look back at Empowr sessions and activities across the years.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {ACTIVITY_PHOTOS.map((photo, i) => (
