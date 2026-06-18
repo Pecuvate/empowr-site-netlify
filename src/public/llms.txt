@@ -1,0 +1,28 @@
+# Empowr CIC
+
+> Empowr CIC is a UK-based Community Interest Company focused on empowering individuals through education, employment, and community connection.
+
+Empowr CIC runs structured programmes for adults and young people — including skills development, mentorship, and supported pathways into freelance and professional work. It operates as a social enterprise, reinvesting its activity into measurable community benefit.
+
+## Programmes
+
+- Adult skills and development sessions
+- Children's activities and learning (Kids Space)
+- Empowr Freelancer Network — supported pathways into self-employment
+- Empowr Heroes — community fundraising and donation platform
+
+## Platforms
+
+- [EELA](https://eela.empowrcic.org): Session discovery and membership platform — find and book Empowr programmes
+- [EFN](https://efn.empowrcic.org): Empowr Freelancer Network — onboarding, assignments, and payments for freelancers
+- [Empowr Heroes](https://heroes.empowrcic.org): Fundraising and donation platform supporting Empowr CIC's mission
+
+## Key Pages
+
+- [Home](https://empowrcic.org): Overview of Empowr CIC's mission and programmes
+- [About](https://empowrcic.org/about): Background, values, board, and governance
+- [Get Involved](https://empowrcic.org/get-involved): How to participate, volunteer, or support
+
+## Contact
+
+- Website: https://empowrcic.org
