@@ -1,0 +1,58 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+const STORAGE_KEY = "empowr-cookie-consent";
+
+export default function CookieBanner() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      setVisible(true);
+    }
+  }, []);
+
+  const dismiss = (value: "all" | "essential") => {
+    localStorage.setItem(STORAGE_KEY, value);
+    setVisible(false);
+  };
+
+  if (!visible) return null;
+
+  return (
+    <div
+      role="dialog"
+      aria-label="Cookie consent"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-warm-white px-4 py-5 shadow-lg"
+    >
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-mid leading-relaxed">
+          We use essential cookies to make this site work. With your consent, we
+          may also use analytics cookies to understand how visitors use the site.{" "}
+          <Link
+            href="/legal/privacy-policy"
+            className="font-semibold text-blue underline underline-offset-2 hover:text-blue-dark"
+          >
+            Privacy policy
+          </Link>
+        </p>
+        <div className="flex shrink-0 gap-3">
+          <button
+            onClick={() => dismiss("essential")}
+            className="rounded-xl border border-border px-4 py-2 text-sm font-semibold text-mid hover:bg-cream transition-colors"
+          >
+            Essential only
+          </button>
+          <button
+            onClick={() => dismiss("all")}
+            className="rounded-xl bg-blue px-5 py-2 text-sm font-semibold text-white hover:bg-blue-dark transition-colors"
+          >
+            Accept all
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
