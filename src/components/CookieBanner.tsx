@@ -17,15 +17,17 @@ export default function CookieBanner() {
       <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-mid leading-relaxed">
           We use essential cookies to make this site work. With your consent, we
-          may also use analytics cookies to understand how visitors use the site.{" "}
+          may also use analytics cookies to understand how visitors use the site.
+          View our{" "}
           <Link
             href="/legal/privacy-policy"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-blue underline underline-offset-2 hover:text-blue-dark"
           >
-            View our privacy policy to find out more.
-          </Link>
+            privacy policy
+          </Link>{" "}
+          to find out more.
         </p>
         <div className="flex shrink-0 gap-3">
           <button
