@@ -45,12 +45,12 @@ export default function CookieBanner() {
         </Link>{" "}
         to find out more.
       </p>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <button
           onClick={() => dismiss("essential")}
           className="rounded-xl border border-border px-4 py-2 text-sm font-semibold text-mid hover:bg-cream transition-colors"
         >
-          Essential only
+          Reject all
         </button>
         <button
           onClick={() => dismiss("all")}
@@ -58,6 +58,12 @@ export default function CookieBanner() {
         >
           Accept all
         </button>
+        <Link
+          href="/cookie-preferences"
+          className="text-sm font-semibold text-blue hover:text-blue-dark underline underline-offset-2 transition-colors"
+        >
+          Manage preferences
+        </Link>
       </div>
     </div>
   );
