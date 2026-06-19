@@ -26,7 +26,7 @@ export default function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className={`fixed bottom-4 left-4 right-4 z-50 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-sm rounded-2xl border border-border bg-warm-white shadow-2xl p-5 transition-all duration-300 ease-out ${
+      className={`fixed bottom-4 left-4 right-4 z-50 sm:left-8 sm:right-8 rounded-2xl border border-border bg-warm-white shadow-2xl p-5 transition-all duration-300 ease-out ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
