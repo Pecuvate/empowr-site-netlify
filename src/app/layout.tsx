@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import { ConsentProvider } from "@/context/ConsentContext";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -63,10 +64,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-cream text-black font-sans antialiased">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <CookieBanner />
+        <ConsentProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CookieBanner />
+        </ConsentProvider>
       </body>
     </html>
   );

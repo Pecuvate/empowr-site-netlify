@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LINKS } from "@/lib/links";
+import CookiePreferencesButton from "@/components/CookiePreferencesButton";
 
 export default function Footer() {
   return (
@@ -242,6 +243,9 @@ export default function Footer() {
                 >
                   All Our Policies
                 </Link>
+              </li>
+              <li>
+                <CookiePreferencesButton />
               </li>
             </ul>
           </div>
