@@ -24,7 +24,7 @@ export default function CookieBanner() {
             rel="noopener noreferrer"
             className="font-semibold text-blue underline underline-offset-2 hover:text-blue-dark"
           >
-            Privacy policy
+            View our privacy policy to find out more.
           </Link>
         </p>
         <div className="flex shrink-0 gap-3">
