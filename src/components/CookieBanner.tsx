@@ -48,13 +48,13 @@ export default function CookieBanner() {
       <div className="flex gap-3">
         <button
           onClick={() => dismiss("essential")}
-          className="flex-1 rounded-xl border border-border px-4 py-2 text-sm font-semibold text-mid hover:bg-cream transition-colors"
+          className="rounded-xl border border-border px-4 py-2 text-sm font-semibold text-mid hover:bg-cream transition-colors"
         >
           Essential only
         </button>
         <button
           onClick={() => dismiss("all")}
-          className="flex-1 rounded-xl bg-blue px-4 py-2 text-sm font-semibold text-white hover:bg-blue-dark transition-colors"
+          className="rounded-xl bg-blue px-4 py-2 text-sm font-semibold text-white hover:bg-blue-dark transition-colors"
         >
           Accept all
         </button>
