@@ -4,6 +4,15 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useConsent } from "@/context/ConsentContext";
 
+function DetailRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex gap-3 text-sm">
+      <span className="w-28 shrink-0 font-semibold text-black">{label}</span>
+      <span className="text-mid">{value}</span>
+    </div>
+  );
+}
+
 export default function CookiePreferencesPage() {
   const { consent, accept } = useConsent();
   const [analytics, setAnalytics] = useState(false);
@@ -34,7 +43,7 @@ export default function CookiePreferencesPage() {
         </h1>
         <p className="text-mid text-lg leading-relaxed mb-12">
           Manage how Empowr CIC uses cookies on this site. You can update your
-          preferences at any time. View our{" "}
+          choices at any time. View our{" "}
           <Link
             href="/legal/privacy-policy"
             target="_blank"
@@ -47,30 +56,40 @@ export default function CookiePreferencesPage() {
         </p>
 
         <div className="space-y-4 mb-10">
+
           {/* Essential */}
           <div className="rounded-2xl border border-border bg-white p-6">
-            <div className="flex items-start justify-between gap-6">
+            <div className="flex items-start justify-between gap-6 mb-4">
               <div>
                 <p className="font-extrabold text-black mb-1">Essential cookies</p>
                 <p className="text-sm text-mid leading-relaxed">
-                  Required for core site functions like navigation and security.
-                  These cannot be turned off.
+                  Strictly necessary for the site to work. They enable core functions
+                  like page navigation, security, and remembering your cookie
+                  choices. The site cannot function properly without them.
                 </p>
               </div>
               <span className="shrink-0 mt-0.5 rounded-full bg-cream border border-border px-3 py-1 text-xs font-semibold text-muted">
                 Always on
               </span>
             </div>
+            <div className="border-t border-border pt-4 space-y-2">
+              <DetailRow label="Purpose" value="Site functionality, security, consent memory" />
+              <DetailRow label="Set by" value="Empowr CIC (first-party only)" />
+              <DetailRow label="Duration" value="Session or up to 12 months" />
+              <DetailRow label="Data shared" value="Never — not shared with any third party" />
+            </div>
           </div>
 
           {/* Analytics */}
           <div className="rounded-2xl border border-border bg-white p-6">
-            <div className="flex items-start justify-between gap-6">
+            <div className="flex items-start justify-between gap-6 mb-4">
               <div>
                 <p className="font-extrabold text-black mb-1">Analytics cookies</p>
                 <p className="text-sm text-mid leading-relaxed">
-                  Help us understand how visitors use the site so we can improve
-                  it. No personal data is sold or shared with third parties.
+                  Help us understand how people find and use the site — which
+                  pages are most visited, how long people stay, and where they
+                  came from. This helps us improve the experience for everyone.
+                  No personal information is collected and data is never sold.
                 </p>
               </div>
               <button
@@ -89,7 +108,15 @@ export default function CookiePreferencesPage() {
                 />
               </button>
             </div>
+            <div className="border-t border-border pt-4 space-y-2">
+              <DetailRow label="What we see" value="Pages visited, time on site, device type, approximate country, referral source" />
+              <DetailRow label="What we don't see" value="Your name, email address, or anything that identifies you personally" />
+              <DetailRow label="Set by" value="Empowr CIC via an analytics provider (first-party data only)" />
+              <DetailRow label="Duration" value="Up to 2 years" />
+              <DetailRow label="Data shared" value="Anonymised — never sold or shared with advertisers" />
+            </div>
           </div>
+
         </div>
 
         <div className="flex items-center gap-5">
@@ -100,9 +127,7 @@ export default function CookiePreferencesPage() {
             Save preferences
           </button>
           {saved && (
-            <p className="text-sm font-semibold text-mid">
-              Preferences saved.
-            </p>
+            <p className="text-sm font-semibold text-mid">Preferences saved.</p>
           )}
         </div>
       </div>
