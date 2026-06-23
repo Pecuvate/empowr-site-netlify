@@ -2,6 +2,31 @@
 
 ---
 
+## Session 29 — 2026-06-22
+
+**What was done:**
+
+**Cookie consent system — built from scratch:**
+
+Full PECR-compliant cookie consent system built as a self-contained mini-tool. No third-party CMP used.
+
+**Architecture:**
+- `src/lib/consent.ts` — `ConsentLevel` type, `getStoredConsent()` with 12-month expiry check, `storeConsent()` with timestamp, `clearStoredConsent()`, `loadAnalyticsScript()` utility for future analytics wiring
+- `src/context/ConsentContext.tsx` — React context exposing `consent`, `bannerVisible`, `accept()`, `openPreferences()`; hydration-safe (localStorage read in `useEffect`)
+- `src/components/CookieBanner.tsx` — animated floating card (slide up / fade in+out); "Reject all" / "Accept all" buttons with equal visual weight (PECR button parity); "Manage preferences →" link; privacy policy link opens in new tab
+- `src/components/CookiePreferencesButton.tsx` — Link to `/cookie-preferences` in footer Legal section
+- `src/app/cookie-preferences/page.tsx` — full preferences page with Essential (locked, "Always on") and Analytics (toggle) category cards; each card has detail rows (Purpose, What we see/don't see, Set by, Duration, Data shared); Save button with inline confirmation
+- `src/app/layout.tsx` — wrapped with `ConsentProvider`; `CookieBanner` rendered after `Footer`
+- `src/components/Footer.tsx` — "Cookie Preferences" added to Legal column
+
+**Key compliance notes:**
+- Both buttons (Reject all / Accept all) are visually identical — satisfies PECR/ICO button parity requirement
+- Consent expires after 12 months and re-asks automatically
+- `loadAnalyticsScript()` ready: when analytics is added, call it inside a `useEffect` guarded by `consent === "all"`
+- "Cookie Preferences" in footer navigates to `/cookie-preferences` (standard pattern per GOV.UK, National Trust, Cancer Research UK)
+
+---
+
 ## Session 28 — 2026-06-13
 
 **What was done:**
