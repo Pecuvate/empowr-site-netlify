@@ -1,6 +1,9 @@
 # Empowr Main Site
+
+## Identity
 Public website for Empowr CIC (empowrcic.org) — mission, programmes, impact, and audience routing. Replacing Wix. Not a transactional site.
 
+## Self-Reference
 This file is the map. Workspace detail lives in each CONTEXT.md.
 
 ## Routing
