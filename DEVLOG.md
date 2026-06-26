@@ -2,6 +2,30 @@
 
 ---
 
+## Session 30 — 2026-06-26
+
+**What was done:**
+
+**Prospectus updated (`src/public/prospectus.html`):**
+- Mission section rewritten — opens with founding story (Jasmine & Shaun, Oct 2021, empty halls, Ikigai); removed "Not therapy. Not prescription." opener
+- New "What We Stand For" section inserted between Mission and The Need — four core beliefs as h3 sub-headings
+- The Need — closing line updated to reference "the case we now make... supported by a growing evidence base"
+- How We Work — opens with origin gesture ("It started with one session — skating jam, Feb 2022") before engine cards
+- How We Work — section background changed from black to plain white (consistent with alternating cream/white theme); engine cards made blue with white text; flywheel dividers and text updated for light background
+- Impact — narrative paragraph added above the year table contextualising Year 1 (proof of concept), Year 2 (consolidation), Year 3 (model came into its own)
+- Where We're Going — EELA sub-programme names updated to MoveWell/MindWell/CreateWell/ExploreWell/ConnectWell; new closing paragraph tying all four infrastructure pieces back to the participant
+- Commission card — new line added: "The question we are most often asked now is not whether we can run a session, but whether we can deliver outcomes for a community."
+- Appendix B — fully rewritten around 4-stage EELA cycle (do/reflect/conceptualise/apply) and four grounding principles; table updated with new sub-programme names
+
+**EELA sub-programme names updated (`src/app/our-work/page.tsx`):**
+- `EELA_PROGRAMMES` array: Mind Body & Wellness → MindWell, Creative Expression & Arts → CreateWell, Outdoor & Adventure → ExploreWell, Team-Building & Leadership → ConnectWell
+
+**Outstanding:**
+- Prospectus to be rebuilt as a proper Next.js page at `/prospectus` (not the current standalone HTML file) — styled with Tailwind tokens, embedded in the app
+- Prospectus page to be linked from Get Involved and Work With Us pages once built
+
+---
+
 ## Session 29 — 2026-06-22
 
 **What was done:**

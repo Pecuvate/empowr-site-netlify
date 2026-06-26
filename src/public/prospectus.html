@@ -122,7 +122,7 @@
 
     .section--cream { background: var(--cream); }
     .section--pale  { background: var(--blue-pale); }
-    .section--dark  { background: var(--black); color: white; }
+    .section--dark  { background: var(--blue); color: white; }
 
     /* ── Typography ────────────────────────────────── */
     .section-label {
@@ -293,16 +293,20 @@
       display: flex;
       gap: 20px;
       align-items: flex-start;
-      background: white;
-      border: 1px solid var(--border);
+      background: var(--blue);
+      border: 1px solid var(--blue);
       border-radius: 10px;
       padding: 24px;
     }
 
+    .engine-card h3 { color: white; }
+    .engine-card p  { color: rgba(255,255,255,0.85); }
+    .engine-card p strong { color: white; }
+
     .engine-icon {
       width: 44px;
       height: 44px;
-      background: var(--blue-pale);
+      background: rgba(255,255,255,0.15);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -327,7 +331,7 @@
       align-items: flex-start;
       gap: 16px;
       padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid var(--border);
     }
 
     .flywheel-step:last-child { border-bottom: none; }
@@ -350,7 +354,7 @@
     .flywheel-text {
       font-size: 15px;
       font-weight: 600;
-      color: rgba(255,255,255,0.85);
+      color: var(--mid);
       padding-top: 3px;
     }
 
@@ -479,7 +483,7 @@
     </h1>
 
     <p class="cover-tagline">
-      &ldquo;Promoting lifelong well-being through the transformative power of experiential learning.&rdquo;
+      &ldquo;Promoting lifelong wellbeing through the transformative power of experiential learning.&rdquo;
     </p>
 
     <div class="cover-stats">
@@ -507,20 +511,20 @@
   <div class="section-label">Our Mission</div>
   <h2>We exist on a simple belief</h2>
 
-  <p class="lead">
-    That doing things &mdash; moving, learning, connecting with others &mdash; is the most powerful way a person can improve their own health and well-being.
+  <p>
+    Empowr was founded in October 2021 by Jasmine and Shaun Barnett &mdash; though the idea behind it had been forming for some time before that. It began with a simple observation: across their communities were countless empty halls and unused spaces, sitting idle for most of the week. At the same time, a deeper question was taking shape &mdash; what truly contributes to lifelong wellbeing?
   </p>
 
   <p>
-    Not therapy. Not prescription. Not watching from the side lines. <strong>Doing.</strong>
+    The answer kept pointing in the same direction. Real growth doesn&rsquo;t happen in theory. It happens through experience &mdash; through doing, trying, and learning in motion. That became the founding principle of Empowr: to bring life back into unused community spaces by turning them into hubs of experiential learning.
   </p>
 
   <p>
-    Empowr CIC was founded in South East London in October 2021 by Jasmine and Shaun Barnett, starting with a single skating session and a belief that physical, social experience is transformative. We have grown to deliver over 10,000 participant attendances annually &mdash; across community sessions, school programmes, holiday camps, and events &mdash; reaching children, young people, and adults across our community.
+    Three years later, that belief has more than 10,000 attendances behind it. We deliver across community sessions, school programmes, holiday camps, and events &mdash; reaching children, young people, and adults across South East London and beyond.
   </p>
 
   <blockquote>
-    <p>Experiential learning is our method. Lifelong well-being is our mission. Skating &mdash; for now &mdash; is our medium.</p>
+    <p>Experiential learning is our method. Lifelong wellbeing is our mission. Skating &mdash; for now &mdash; is our medium.</p>
   </blockquote>
 
   <p>
@@ -529,8 +533,39 @@
 </div>
 
 
-<!-- ══ THE NEED ════════════════════════════════════════════════════ -->
+<!-- ══ WHAT WE STAND FOR ══════════════════════════════════════════ -->
 <div class="section">
+  <div class="section-label">What We Stand For</div>
+  <h2>Four beliefs at the heart of what we do</h2>
+
+  <p>
+    Empowr is more than an organisation &mdash; it is a movement built on four core beliefs. They shape every session we design, every coach we train, and every partnership we build.
+  </p>
+
+  <h3>Wellbeing as a Way of Life</h3>
+  <p>
+    We support everyday habits and mindsets that build lasting health and joy &mdash; not one-off interventions. Wellbeing is something you live, not something you receive.
+  </p>
+
+  <h3>Community and Belonging</h3>
+  <p>
+    We create spaces where everyone feels valued and connected, united by authentic relationships and shared purpose. Belonging is one of the most powerful protective factors for long-term mental health, and we treat it that way.
+  </p>
+
+  <h3>Growth Through Learning</h3>
+  <p>
+    Transformation happens when people engage and experience. We help them grow through doing &mdash; not watching, not waiting. Every session is designed around the idea that learning lives in action.
+  </p>
+
+  <h3>Inclusion For All</h3>
+  <p>
+    Wellbeing is for everyone, at every age. No one is too old, too young, or too far behind to grow &mdash; every person has a place here.
+  </p>
+</div>
+
+
+<!-- ══ THE NEED ════════════════════════════════════════════════════ -->
+<div class="section section--cream">
   <div class="section-label">The Need</div>
   <h2>A health crisis that prescriptions alone cannot solve</h2>
 
@@ -551,17 +586,19 @@
   </blockquote>
 
   <p>
-    Empowr makes this case to commissioners, funders, and government &mdash; and our evidence is growing every year.
+    This is the principle Empowr was built on, and it is the case we now make to commissioners, funders, and government &mdash; supported by a growing evidence base.
   </p>
 </div>
 
 
 <!-- ══ HOW WE WORK ════════════════════════════════════════════════ -->
-<div class="section section--dark">
+<div class="section">
   <div class="section-label">How We Work</div>
   <h2>Three engines. One system.</h2>
 
-  <p>Empowr operates through three connected engines that compound on each other over time.</p>
+  <p>
+    Empowr did not start as a system. It started with one session &mdash; a skating jam in South East London, in February 2022. What we have built since has come from paying attention to what actually worked, and giving it structure. That structure now operates as three connected engines.
+  </p>
 
   <div class="engine-grid">
     <div class="engine-card">
@@ -627,7 +664,7 @@
   <div class="section-label">Our Impact</div>
   <h2>Three years of verified delivery</h2>
 
-  <p>All figures are verified from CIC 34 annual reports filed with the CIC Regulator.</p>
+  <p>All figures are drawn from our CIC 34 annual reports, filed with the CIC Regulator.</p>
 
   <div class="impact-row">
     <div class="impact-card impact-card--blue">
@@ -647,6 +684,10 @@
       <span class="impact-desc">Hours of<br>activity</span>
     </div>
   </div>
+
+  <p>
+    The three-year picture tells the story of an organisation finding its shape. Year 1 was a proof of concept &mdash; 7,000 attendances, the launch of Empowr Champions, the first six partner organisations, and early evidence that 4 in 5 participants reported improved mental health. Year 2 saw consolidation rather than growth: 5,000 attendances, but also our first year as a commissioned DfE HAF provider, our long-term partnership with Bankside Open Space Trust, and our first international activation in Badalona. Year 3 was the year the model came into its own &mdash; 10,000 attendances, 428 sessions, 700+ hours of activity, more than 500 paid and volunteer opportunities created, and 100% year-on-year growth.
+  </p>
 
   <table>
     <thead>
@@ -701,11 +742,11 @@
   <h3>In the near term</h3>
 
   <p>
-    <strong>ECCP launch</strong> &mdash; Our Empowr Certified Coaching Programme will convert participants into certified coaches, multiplying delivery capacity without proportionally increasing overhead. This is the infrastructure that makes national scale possible.
+    <strong>ECCP launch</strong> &mdash; Our Empowr Certified Coaching Programme converts participants into certified coaches, multiplying delivery capacity without proportionally increasing overhead. This is the infrastructure that makes national scale possible &mdash; and it is also the mechanism by which the Empowr ethos is preserved as the organisation grows. ECCP develops facilitators, not instructors.
   </p>
 
   <p>
-    <strong>EELA expansion</strong> &mdash; Beyond our current skating programmes (MoveWell), our EELA framework supports five activity types: Movement &amp; Wellness, Mind Body &amp; Wellness, Creative Expression &amp; Arts, Outdoor &amp; Adventure, and Team-Building &amp; Leadership. We are actively building the teams and partnerships to activate these.
+    <strong>EELA expansion</strong> &mdash; Skating is our current medium, but the EELA framework supports five sub-programmes: MoveWell (Movement &amp; Wellness), MindWell (Mindfulness &amp; Recovery), CreateWell (Creativity &amp; Self-Expression), ExploreWell (Nature &amp; Exploration), and ConnectWell (Collaboration &amp; Growth). MoveWell is active. We are actively building the teams and partnerships to activate the rest.
   </p>
 
   <p>
@@ -714,6 +755,10 @@
 
   <p>
     <strong>Evidence framework</strong> &mdash; Building a formal outcomes measurement system to support Social Return on Investment (SROI) reporting, enabling commissioner-grade funding applications and long-term government partnerships.
+  </p>
+
+  <p>
+    None of this is infrastructure for its own sake. ECCP, EELA, delivery hubs, the evidence framework &mdash; every piece is in service of one outcome: that more people, across more communities, have access to the experiences that support their wellbeing across a lifetime. Empowr is not designed around the session. It is designed around the person walking into the session, and the years of their life that follow.
   </p>
 </div>
 
@@ -728,7 +773,7 @@
     <div class="support-card">
       <h3>Commission Empowr</h3>
       <p>We deliver structured, evidenced experiential learning sessions for organisations with community wellbeing goals. Whether you are a school, local authority, housing association, NHS partnership, or wellbeing commissioner &mdash; we can design and deliver a programme for your community.</p>
-      <p>We are a proven DfE HAF provider with experience across SE London and a growing network of certified coaches.</p>
+      <p>We are a proven DfE HAF provider with experience across South East London and a growing network of certified coaches. The question we are most often asked now is not whether we can run a session, but whether we can deliver outcomes for a community. The answer, consistently, is yes.</p>
       <a class="contact-link" href="mailto:info@empowrcic.org">info@empowrcic.org &rarr;</a>
     </div>
 
@@ -805,20 +850,32 @@
   <div class="appendix-label">Appendix B &mdash; Programme Framework</div>
   <h2>The EELA Framework</h2>
 
-  <p>Every Empowr session follows a 5-stage experiential learning framework: <strong>Experience &rarr; Challenge &rarr; Support &rarr; Reflection &rarr; Transfer.</strong> Skating is the vehicle. Wellbeing is the destination.</p>
+  <p>
+    The Empowr Experiential Learning Activities (EELA) framework is the architecture every Empowr programme lives within. It is built on the established four-stage experiential learning cycle: people <em>do</em> (engage in purposeful, often novel activity), <em>reflect</em> (analyse the experience), <em>conceptualise</em> (draw general principles from what happened), and <em>apply</em> (transfer those insights to new situations). This is what allows movement to become wellbeing, and a single session to become a lasting shift.
+  </p>
+
+  <p>
+    Every EELA session is grounded in four principles: psychological safety, inclusion, meaningful challenge, and joy. These are not optional features. They are the conditions that make experiential learning actually work.
+  </p>
+
+  <p>
+    EELA operates as an umbrella across five sub-programmes, each with its own team and focus, all aligned to the same mission.
+  </p>
 
   <table>
     <thead>
       <tr><th>Sub-Programme</th><th>Focus</th><th>Status</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>MoveWell</strong></td><td>Movement and Wellness &mdash; skating, lessons, events</td><td>Active</td></tr>
-      <tr><td>Mind Body and Wellness</td><td>Mindfulness, breathwork, meditation, recovery</td><td>Planned</td></tr>
-      <tr><td>Creative Expression and Arts</td><td>Art, music, dance, creative writing</td><td>Planned</td></tr>
-      <tr><td>Outdoor and Adventure</td><td>Hiking, cycling, outdoor challenges</td><td>Planned</td></tr>
-      <tr><td>Team-Building and Leadership</td><td>Group challenges, leadership workshops</td><td>Planned</td></tr>
+      <tr><td><strong>MoveWell</strong></td><td>Movement &amp; Wellness</td><td>Active</td></tr>
+      <tr><td><strong>MindWell</strong></td><td>Mindfulness &amp; Recovery</td><td>Planned</td></tr>
+      <tr><td><strong>CreateWell</strong></td><td>Creativity &amp; Self-Expression</td><td>Planned</td></tr>
+      <tr><td><strong>ExploreWell</strong></td><td>Nature &amp; Exploration</td><td>Planned</td></tr>
+      <tr><td><strong>ConnectWell</strong></td><td>Collaboration &amp; Growth</td><td>Planned</td></tr>
     </tbody>
   </table>
+
+  <p>Skating is the vehicle. Wellbeing is the destination.</p>
 </div>
 
 <div class="section appendix-section">
