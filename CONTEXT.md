@@ -28,6 +28,7 @@ src/
       page.tsx            /news (list)
       [slug]/page.tsx     /news/[slug] (individual post)
     contact/page.tsx      /contact
+    prospectus/page.tsx   /prospectus — supporter prospectus (not in nav/footer; shared as a direct link in proposals)
     layout.tsx            Root layout (nav, footer)
     globals.css           All CSS variables and base styles
   components/             Shared UI components

@@ -2,6 +2,22 @@
 
 ---
 
+## Session 31 — 2026-06-26
+
+**What was done:**
+
+**Prospectus — converted to Next.js page (`src/app/prospectus/page.tsx`):**
+- Rebuilt as a proper Next.js page using the site's Tailwind tokens — no longer a standalone HTML file
+- Old `src/public/prospectus.html` deleted
+- `robots: { index: false }` — not indexed by search engines
+- Not in the nav. Not in the footer. Shared as a direct link (`empowrcic.org/prospectus`) in proposals and outreach
+- CONTEXT.md updated to document the page's purpose and access model
+
+**EELA sub-programme names (`src/app/our-work/page.tsx`):**
+- Already committed in Session 30 — no further changes
+
+---
+
 ## Session 30 — 2026-06-26
 
 **What was done:**
