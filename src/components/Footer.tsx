@@ -245,6 +245,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/prospectus"
+                  className="text-sm text-muted hover:text-white transition-colors"
+                >
+                  Supporter Prospectus
+                </Link>
+              </li>
+              <li>
                 <CookiePreferencesButton />
               </li>
             </ul>
