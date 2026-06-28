@@ -51,6 +51,14 @@ export default function Nav() {
             Shop
           </a>
           <a
+            href={LINKS.wixAccount}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold px-5 py-2 rounded-full border border-blue text-blue hover:bg-blue hover:text-white transition-colors"
+          >
+            My Account
+          </a>
+          <a
             href={LINKS.heroesplatform}
             target="_blank"
             rel="noopener noreferrer"
@@ -92,10 +100,19 @@ export default function Nav() {
             Shop
           </a>
           <a
+            href={LINKS.wixAccount}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 text-sm font-semibold px-5 py-2.5 rounded-full border border-blue text-blue hover:bg-blue hover:text-white transition-colors text-center"
+            onClick={() => setOpen(false)}
+          >
+            My Account
+          </a>
+          <a
             href={LINKS.heroesplatform}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-blue-dark transition-colors text-center"
+            className="mt-2 bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-blue-dark transition-colors text-center"
           >
             Support Us
           </a>
