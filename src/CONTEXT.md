@@ -2,6 +2,10 @@
 
 Next.js 15 (App Router), TypeScript strict, Tailwind v4, shadcn/ui. Built as a static export (`output: 'export'`). To unlock full server-side features, remove `output: 'export'` from `next.config.ts` — no other migration needed.
 
+## Next.js Rules
+
+This version may have breaking changes in APIs, conventions, and file structure. Read the relevant guide in `node_modules/next/dist/docs/` before writing Next.js code. Heed deprecation notices.
+
 ## Process
 1. Read `planning/architecture/` for the page or section being built
 2. Implement page at `app/[route]/page.tsx`

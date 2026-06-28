@@ -1,5 +1,7 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Empowr Main Site Source Agent Instructions
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+Read `CLAUDE.md` first. It is the canonical MWP Layer 0 file for this workspace and contains routing, project-wide rules, deployment metadata, and token-management guidance.
+
+Then read `CONTEXT.md`, `memory.md`, and `DEVLOG.md` when present and relevant to the task.
+
+These instructions are agent-generic unless a section is explicitly marked Claude-only.
