@@ -2,6 +2,21 @@
 
 ---
 
+## Session 32 — 2026-06-29
+
+**What was done:**
+
+**My Account nav placeholder (`feat/my-account-nav` — parked, not merged):**
+- `src/lib/links.ts` — added `membersUrl: ""` placeholder with TODO comment for future members platform URL
+- `src/components/Nav.tsx` — disabled account icon (person-circle SVG) added before "Support Us" on desktop; icon + "My Account" label with "Coming soon" pill added to mobile menu; both non-functional (`<button disabled>`)
+- Branch parked on GitHub pending new members platform build
+
+**Decisions:**
+- Team decided not to route to Wix (all Wix account URLs broken — 500 errors)
+- New standalone members platform to be built (separate project under Empowr CIC); this nav will be activated and merged once that platform has a live URL
+
+---
+
 ## Session 31 — 2026-06-26
 
 **What was done:**
