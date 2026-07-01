@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import ChatBubble from "@/components/ChatBubble";
 import PostHogProvider from "@/components/PostHogProvider";
 import { ConsentProvider } from "@/context/ConsentContext";
 
@@ -71,6 +72,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
             <CookieBanner />
+            <ChatBubble orgSlug="empowr-cic" />
           </ConsentProvider>
         </PostHogProvider>
       </body>
