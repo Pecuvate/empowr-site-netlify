@@ -10,6 +10,9 @@
 - `generate-favicons.mjs` updated to reference new source path; Python script at `AppData/Local/Temp/generate_favicons_v3.py` is the canonical regeneration tool going forward
 - Committed and pushed to `main` only — `feat/chat-bubble` branch kept clean and unchanged
 - Outstanding: if a proper SVG/vector source is obtained from the designer, rerun favicon generation for sharper edges at small sizes
+- Logo rolled out to all 5 other Empowr CIC sites (EELA, Landing Page, Waivers, Heroes, EFN) — all now use `empowr-logo-dark-transparent.png` as `logo.png`
+- Heroes + EFN switched from S3 CDN (`empowr-cic.s3.amazonaws.com/empowr_logo.png`) to local file; `links.ts` and `Hero.tsx` updated accordingly
+- Decided against centralised logo hosting — updates are infrequent enough that copying to each repo is acceptable; revisit if logo changes become frequent
 
 ---
 
