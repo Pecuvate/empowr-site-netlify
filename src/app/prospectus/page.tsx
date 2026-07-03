@@ -81,11 +81,11 @@ const YEAR_TABLE = [
 ];
 
 const EELA_PROGRAMMES = [
-  { name: "MoveWell", focus: "Movement & Wellness", status: "Active" },
-  { name: "MindWell", focus: "Mindfulness & Recovery", status: "Planned" },
-  { name: "CreateWell", focus: "Creativity & Self-Expression", status: "Planned" },
-  { name: "ExploreWell", focus: "Nature & Exploration", status: "Planned" },
-  { name: "ConnectWell", focus: "Collaboration & Growth", status: "Planned" },
+  { name: "MoveWell", focus: "Movement & Wellness", status: "Active", desc: "Dynamic ways to improve physical and mental health through movement." },
+  { name: "MindWell", focus: "Mindfulness & Recovery", status: "Planned", desc: "A space for relaxation and rejuvenation, nurturing inner peace, mental clarity, and physical flexibility." },
+  { name: "CreateWell", focus: "Creativity & Self-Expression", status: "Planned", desc: "Exploring personal expression as a meaningful pathway to wellbeing." },
+  { name: "ExploreWell", focus: "Nature & Exploration", status: "Planned", desc: "Building fitness, teamwork, and a genuine connection with the natural world." },
+  { name: "ConnectWell", focus: "Collaboration & Growth", status: "Planned", desc: "Group challenges and interactive workshops that develop leadership, problem-solving, and strategic thinking through hands-on experience." },
 ];
 
 const GOVERNANCE = [
@@ -372,8 +372,8 @@ export default function ProspectusPage() {
           </div>
           <div className="mt-8 space-y-3 text-mid text-base leading-relaxed">
             <p>
-              <strong className="text-black">Active partnerships include:</strong> Bankside Open
-              Space Trust (BOST), Department for Education HAF (second year as commissioned
+              <strong className="text-black">Active partnerships include:</strong><br />
+              Bankside Open Space Trust (BOST), Department for Education HAF (second year as commissioned
               provider), Lewisham Young Mayor&rsquo;s Team, and five named venue partners across SE
               London.
             </p>
@@ -462,10 +462,10 @@ export default function ProspectusPage() {
                 community. The answer, consistently, is yes.
               </p>
               <a
-                href="mailto:info@empowrcic.org"
+                href="mailto:outreach@empowrcic.org"
                 className="text-sm font-extrabold text-blue hover:opacity-75 transition-opacity tracking-wide"
               >
-                info@empowrcic.org →
+                outreach@empowrcic.org →
               </a>
             </div>
 
@@ -481,10 +481,10 @@ export default function ProspectusPage() {
                 of us could produce alone.
               </p>
               <a
-                href="mailto:info@empowrcic.org"
+                href="mailto:outreach@empowrcic.org"
                 className="text-sm font-extrabold text-blue hover:opacity-75 transition-opacity tracking-wide"
               >
-                info@empowrcic.org →
+                outreach@empowrcic.org →
               </a>
             </div>
 
@@ -509,7 +509,7 @@ export default function ProspectusPage() {
                 ))}
               </ul>
               <a
-                href="mailto:shaun@empowrcic.org"
+                href="mailto:shaun.barnett@empowrcic.org"
                 className="text-sm font-extrabold text-white underline underline-offset-4 hover:opacity-75 transition-opacity"
               >
                 Contact Shaun Barnett directly →
@@ -535,12 +535,12 @@ export default function ProspectusPage() {
             <p>Crown House, 27 Old Gloucester Street, London WC1N 3AX</p>
             <p>Company No. 13660924 · Registered Community Interest Company, England and Wales</p>
             <div className="pt-4 space-y-2">
-              <p><strong className="text-black">General enquiries:</strong> info@empowrcic.org</p>
-              <p><strong className="text-black">Commissioning &amp; partnerships:</strong> info@empowrcic.org</p>
-              <p><strong className="text-black">Legacy giving &amp; major support:</strong> shaun@empowrcic.org (Shaun Barnett, CVO)</p>
+              <p><strong className="text-black">General enquiries:</strong> outreach@empowrcic.org</p>
+              <p><strong className="text-black">Commissioning &amp; partnerships:</strong> outreach@empowrcic.org</p>
+              <p><strong className="text-black">Legacy giving &amp; major support:</strong> shaun.barnett@empowrcic.org (Shaun Barnett, Co-Founder and Executive Director)</p>
               <p><strong className="text-black">Website:</strong>{" "}
-                <Link href="/" className="text-blue font-semibold hover:opacity-75 transition-opacity">
-                  empowrcic.org
+                <Link href="https://www.empowrcic.org" className="text-blue font-semibold hover:opacity-75 transition-opacity">
+                  www.empowrcic.org
                 </Link>
               </p>
               <p><strong className="text-black">Donate:</strong>{" "}
@@ -642,8 +642,9 @@ export default function ProspectusPage() {
               <tbody>
                 {EELA_PROGRAMMES.map((row) => (
                   <tr key={row.name}>
-                    <td className="py-3 pr-6 border-b border-border font-bold text-black align-top">
-                      {row.name}
+                    <td className="py-3 pr-6 border-b border-border align-top">
+                      <span className="font-bold text-black">{row.name}</span>
+                      <p className="text-xs text-mid mt-1 leading-relaxed">{row.desc}</p>
                     </td>
                     <td className="py-3 pr-6 border-b border-border text-mid align-top">
                       {row.focus}
