@@ -8,3 +8,6 @@
 
 # Windows
 Thumbs.db
+
+# Local env backups
+.env.local.bak
