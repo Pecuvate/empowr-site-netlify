@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useConsent } from "@/context/ConsentContext";
+import { LINKS } from "@/lib/links";
 
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
@@ -45,14 +46,23 @@ export default function CookiePreferencesPage() {
           Manage how Empowr CIC uses cookies on this site. You can update your
           choices at any time. View our{" "}
           <Link
-            href="/legal/privacy-policy"
+            href={LINKS.cookiePolicy}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-blue underline underline-offset-2 hover:text-blue-dark"
+          >
+            cookie policy
+          </Link>{" "}
+          for details about the cookies we use, or our{" "}
+          <Link
+            href={LINKS.privacyPolicy}
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-blue underline underline-offset-2 hover:text-blue-dark"
           >
             privacy policy
           </Link>{" "}
-          to find out more.
+          for how we handle personal data.
         </p>
 
         <div className="space-y-4 mb-10">

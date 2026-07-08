@@ -2,6 +2,13 @@
 
 ---
 
+## 2026-07-08
+
+- Cookie consent UI: banner now links to the Cookie Policy instead of Privacy Policy; `/cookie-preferences` intro now links Cookie Policy for cookie details and Privacy Policy for personal data handling
+- Verified with `npm run build` from `src/`
+
+---
+
 ## 2026-07-03
 
 - Prospectus: updated `info@empowrcic.org` → `outreach@empowrcic.org` across 4 instances (2 mailto links, 2 contact section entries)

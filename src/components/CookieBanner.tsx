@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useConsent } from "@/context/ConsentContext";
+import { LINKS } from "@/lib/links";
 
 export default function CookieBanner() {
   const { bannerVisible, accept } = useConsent();
@@ -36,12 +37,12 @@ export default function CookieBanner() {
         may also use analytics cookies to understand how visitors use the site.
         View our{" "}
         <Link
-          href="/legal/privacy-policy"
+          href={LINKS.cookiePolicy}
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold text-blue underline underline-offset-2 hover:text-blue-dark"
         >
-          privacy policy
+          cookie policy
         </Link>{" "}
         to find out more.
       </p>
