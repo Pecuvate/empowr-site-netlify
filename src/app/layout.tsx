@@ -14,6 +14,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.empowrcic.org"),
   title: "Empowr CIC",
   description:
     "Promoting lifelong well-being through the transformative power of experiential learning.",
@@ -26,6 +27,23 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  openGraph: {
+    title: "Empowr CIC",
+    description:
+      "Promoting lifelong well-being through the transformative power of experiential learning.",
+    url: "https://www.empowrcic.org",
+    siteName: "Empowr CIC",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Empowr CIC",
+    description:
+      "Promoting lifelong well-being through the transformative power of experiential learning.",
+    images: ["/og-image.png"],
+  },
 };
 
 const jsonLd = [
