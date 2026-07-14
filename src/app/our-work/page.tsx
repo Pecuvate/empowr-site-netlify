@@ -326,6 +326,8 @@ export default function OurWorkPage() {
                     <img
                       src={p.image}
                       alt={p.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full aspect-video object-cover"
                     />
                   ) : (

@@ -59,6 +59,8 @@ export default function NewsPage() {
                     <img
                       src={post.coverImage}
                       alt={post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full aspect-video object-cover"
                     />
                   )}

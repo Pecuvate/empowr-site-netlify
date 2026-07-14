@@ -238,6 +238,8 @@ export default function HistoryPage() {
                       <img
                         src={milestone.image}
                         alt={milestone.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full aspect-video object-cover"
                       />
                     )}
@@ -289,6 +291,8 @@ export default function HistoryPage() {
                     <img
                       src={person.image}
                       alt={person.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full aspect-square object-cover object-top"
                     />
                   ) : (
@@ -328,6 +332,8 @@ export default function HistoryPage() {
                   <img
                     src={photo.image}
                     alt={photo.caption}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full aspect-square object-cover"
                   />
                   {photo.caption && (

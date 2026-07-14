@@ -68,6 +68,7 @@ export default async function NewsPostPage({ params }: Props) {
           <img
             src={post.coverImage}
             alt={post.title}
+            decoding="async"
             className="w-full aspect-video object-cover rounded-2xl mb-12"
           />
         )}
