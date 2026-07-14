@@ -34,6 +34,8 @@ function ContactFormInner() {
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       subject: (form.elements.namedItem("subject") as HTMLSelectElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      // Honeypot — real users leave this blank; bots fill it in.
+      company: (form.elements.namedItem("company") as HTMLInputElement).value,
     };
 
     try {
@@ -63,6 +65,27 @@ function ContactFormInner() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
+      {/* Honeypot — hidden from users, catches bots. Do not remove. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="company">Company (leave this blank)</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
