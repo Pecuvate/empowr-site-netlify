@@ -461,12 +461,12 @@ export default function ProspectusPage() {
                 not whether we can run a session, but whether we can deliver outcomes for a
                 community. The answer, consistently, is yes.
               </p>
-              <Link
-                href="/contact?source=prospectus"
+              <a
+                href="mailto:outreach@empowrcic.org"
                 className="text-sm font-extrabold text-blue hover:opacity-75 transition-opacity tracking-wide"
               >
-                Get in touch →
-              </Link>
+                outreach@empowrcic.org →
+              </a>
             </div>
 
             <div className="bg-white rounded-2xl p-8 border border-border">
@@ -480,12 +480,12 @@ export default function ProspectusPage() {
                 We bring the sessions. You bring the community. Together we create outcomes neither
                 of us could produce alone.
               </p>
-              <Link
-                href="/contact?source=prospectus"
+              <a
+                href="mailto:outreach@empowrcic.org"
                 className="text-sm font-extrabold text-blue hover:opacity-75 transition-opacity tracking-wide"
               >
-                Get in touch →
-              </Link>
+                outreach@empowrcic.org →
+              </a>
             </div>
 
             <div className="bg-blue rounded-2xl p-8">
@@ -535,16 +535,8 @@ export default function ProspectusPage() {
             <p>Crown House, 27 Old Gloucester Street, London WC1N 3AX</p>
             <p>Company No. 13660924 · Registered Community Interest Company, England and Wales</p>
             <div className="pt-4 space-y-2">
-              <p><strong className="text-black">General enquiries:</strong>{" "}
-                <Link href="/contact?source=prospectus" className="text-blue font-semibold hover:opacity-75 transition-opacity">
-                  empowrcic.org/contact
-                </Link>
-              </p>
-              <p><strong className="text-black">Commissioning &amp; partnerships:</strong>{" "}
-                <Link href="/contact?source=prospectus" className="text-blue font-semibold hover:opacity-75 transition-opacity">
-                  empowrcic.org/contact
-                </Link>
-              </p>
+              <p><strong className="text-black">General enquiries:</strong> outreach@empowrcic.org</p>
+              <p><strong className="text-black">Commissioning &amp; partnerships:</strong> outreach@empowrcic.org</p>
               <p><strong className="text-black">Legacy giving &amp; major support:</strong> shaun.barnett@empowrcic.org (Shaun Barnett, Co-Founder and Executive Director)</p>
               <p><strong className="text-black">Website:</strong>{" "}
                 <Link href="https://www.empowrcic.org" className="text-blue font-semibold hover:opacity-75 transition-opacity">

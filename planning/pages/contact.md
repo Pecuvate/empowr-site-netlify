@@ -28,8 +28,9 @@ All params are optional and independent:
 Current wired links:
 - `/partner-with-us` "Get In Touch" → `/contact?subject=Partnership`
 - `/work-with-us` role cards + bottom CTA → `/contact?subject=Work%20With%20Us`
-- `/prospectus` "Commission Empowr" / "Partner With Empowr" CTAs + "General enquiries" / "Commissioning & partnerships" contact block → `/contact?source=prospectus`
 - Empowr CIC Wix site (legacy shop/booking, `empowrcic.wixsite.com/empowrcic`) → `/contact?source=wix` (page content, not yet wired into a query-param link at time of writing — see `guides/contact-routing.md`)
+
+Note: `/prospectus` no longer links to the contact form. Its enquiry/commissioning CTAs go directly to `mailto:outreach@empowrcic.org` (reverted 2026-07-20 — the outreach inbox is active). The `?source=` attribution param itself remains valid and in use elsewhere (e.g. the Wix site above).
 
 ---
 
