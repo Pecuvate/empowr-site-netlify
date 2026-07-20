@@ -15,11 +15,17 @@ type Status = "idle" | "submitting" | "success" | "error";
 const inputClass =
   "w-full rounded-xl border border-border px-4 py-3 text-sm text-black bg-white focus:outline-none focus:ring-2 focus:ring-blue/30 transition-colors";
 
+// Only a short alphanumeric/hyphen token is a valid source tag — anything
+// else (including empty) is silently dropped rather than surfaced as an error.
+const SOURCE_PATTERN = /^[a-zA-Z0-9-]{1,32}$/;
+
 function ContactFormInner() {
   const searchParams = useSearchParams();
   const rawSubject = searchParams.get("subject") ?? "";
   const initialSubject = SUBJECTS.includes(rawSubject) ? rawSubject : "";
   const initialMessage = searchParams.get("message") ?? "";
+  const rawSource = searchParams.get("source") ?? "";
+  const source = SOURCE_PATTERN.test(rawSource) ? rawSource : "";
 
   const [subject, setSubject] = useState(initialSubject);
   const [status, setStatus] = useState<Status>("idle");
@@ -36,6 +42,8 @@ function ContactFormInner() {
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       // Honeypot — real users leave this blank; bots fill it in.
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      // Attribution — which site the enquiry originated from, if any.
+      source,
     };
 
     try {

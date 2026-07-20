@@ -19,14 +19,17 @@
 - Confirmation email sent to sender via Resend on every submission
 
 ### Query param pre-fill
-Both params are optional and independent:
+All params are optional and independent:
 - `?subject=Partnership` — pre-selects the subject dropdown (validated against allowed values)
 - `?message=...` — pre-fills the message textarea (any string, user can edit)
-- `?subject=Partnership&message=...` — both together
+- `?source=wix` — attribution tag, not shown in the form UI; validated as a short alphanumeric/hyphen token (max 32 chars), invalid values silently dropped. Forwarded to `netlify/functions/contact.ts`, which re-validates server-side and adds a "Source: {tag}" line to the internal notification email (not the sender's confirmation email) when present.
+- Params can be combined, e.g. `?subject=Partnership&message=...&source=prospectus`
 
 Current wired links:
 - `/partner-with-us` "Get In Touch" → `/contact?subject=Partnership`
 - `/work-with-us` role cards + bottom CTA → `/contact?subject=Work%20With%20Us`
+- `/prospectus` "Commission Empowr" / "Partner With Empowr" CTAs + "General enquiries" / "Commissioning & partnerships" contact block → `/contact?source=prospectus`
+- Empowr CIC Wix site (legacy shop/booking, `empowrcic.wixsite.com/empowrcic`) → `/contact?source=wix` (page content, not yet wired into a query-param link at time of writing — see `guides/contact-routing.md`)
 
 ---
 

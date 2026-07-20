@@ -7,6 +7,14 @@ const SUBJECT_ROUTING: Record<string, string> = {
 const DEFAULT_TO = process.env.CONTACT_EMAIL ?? "";
 const FROM = "Empowr CIC <noreply@empowrcic.org>";
 
+// Only a short alphanumeric/hyphen token is accepted as a source attribution
+// tag (e.g. "wix", "prospectus", "eccp") — anything else is silently dropped.
+const SOURCE_PATTERN = /^[a-zA-Z0-9-]{1,32}$/;
+
+function sanitiseSource(value: unknown): string {
+  return typeof value === "string" && SOURCE_PATTERN.test(value) ? value : "";
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -24,12 +32,14 @@ export const handler = async (event: {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  let name: string, email: string, subject: string, message: string, company: string;
+  let name: string, email: string, subject: string, message: string, company: string, source: unknown;
   try {
-    ({ name, email, subject, message, company } = JSON.parse(event.body ?? "{}"));
+    ({ name, email, subject, message, company, source } = JSON.parse(event.body ?? "{}"));
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: "Invalid request" }) };
   }
+
+  const safeSource = sanitiseSource(source);
 
   // Honeypot — real users never fill this. If it's populated, it's a bot.
   // Return 200 so the bot thinks it succeeded and doesn't retry, but send nothing.
@@ -70,6 +80,7 @@ export const handler = async (event: {
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
         <p><strong>Subject:</strong> ${safeSubject}</p>
+        ${safeSource ? `<p><strong>Source:</strong> ${escapeHtml(safeSource)}</p>` : ""}
         <hr />
         <p>${safeMessage}</p>
       `,
