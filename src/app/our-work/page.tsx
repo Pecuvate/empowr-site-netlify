@@ -11,35 +11,35 @@ export const metadata: Metadata = {
 const PROGRAMME_GROUPS = [
   {
     category: "Drop-in Sessions",
-    programmes: ["Each1teach1: Skate Jam — Ages 15+", "All Ages Roller Disco — Ages 5+"],
+    programmes: ["Each1teach1: Skate Jam", "All Ages Roller Disco"],
     description:
       "Open, welcoming sessions where skaters of all levels come together to practise, learn, and connect. No pressure, no performance — just movement, community, and growth at your own pace.",
   },
   {
     category: "Structured Lessons",
-    programmes: ["Sk8 Skool for Kidz — Ages 5–15", "SK8 Skool for All Ages — Ages 5+"],
+    programmes: ["Sk8 Skool for Kidz", "SK8 Skool for All Ages"],
     description:
       "Progressive skating programmes that build balance, coordination, confidence, and a love of movement. Coaches create an environment where trying, falling, and getting back up is exactly the point.",
   },
   {
     category: "Courses",
     programmes: [
-      "Beginners Foundations — Ages 13+",
-      "Beginners Outside — Ages 13+",
-      "Prep to Street Skating — Ages 13+ (Level 2)",
+      "Beginners Foundations",
+      "Beginners Outside",
+      "Prep to Street Skating (Level 2)",
     ],
     description:
       "Multi-session courses that take participants from their first steps on skates to genuine skill and confidence. By the end, skating feels like yours.",
   },
   {
     category: "Camps",
-    programmes: ["Roller Quad Camp — Ages 5–12", "Roller Skating Camp — Ages 5–15"],
+    programmes: ["Roller Quad Camp", "Roller Skating Camp"],
     description:
       "Immersive holiday skating experiences for children and young people. High-energy, inclusive, and genuinely memorable — the kind of experience that stays with you long after the skates come off.",
   },
   {
     category: "Advanced",
-    programmes: ["SYNKRON8 — Ages 15+"],
+    programmes: ["SYNKRON8"],
     description:
       "For skaters ready to go beyond the basics. Focused on routines, flow, and linking moves into sequences — building coordination, creativity, and a deeper relationship with movement.",
   },
