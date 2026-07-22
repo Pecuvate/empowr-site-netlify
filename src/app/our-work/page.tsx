@@ -11,35 +11,26 @@ export const metadata: Metadata = {
 const PROGRAMME_GROUPS = [
   {
     category: "Drop-in Sessions",
-    programmes: ["Each1teach1: Skate Jam", "All Ages Roller Disco"],
     description:
       "Open, welcoming sessions where skaters of all levels come together to practise, learn, and connect. No pressure, no performance — just movement, community, and growth at your own pace.",
   },
   {
     category: "Structured Lessons",
-    programmes: ["Sk8 Skool for Kidz", "SK8 Skool for All Ages"],
     description:
       "Progressive skating programmes that build balance, coordination, confidence, and a love of movement. Coaches create an environment where trying, falling, and getting back up is exactly the point.",
   },
   {
     category: "Courses",
-    programmes: [
-      "Beginners Foundations",
-      "Beginners Outside",
-      "Prep to Street Skating (Level 2)",
-    ],
     description:
       "Multi-session courses that take participants from their first steps on skates to genuine skill and confidence. By the end, skating feels like yours.",
   },
   {
     category: "Camps",
-    programmes: ["Roller Quad Camp", "Roller Skating Camp"],
     description:
       "Immersive holiday skating experiences for children and young people. High-energy, inclusive, and genuinely memorable — the kind of experience that stays with you long after the skates come off.",
   },
   {
     category: "Advanced",
-    programmes: ["SYNKRON8"],
     description:
       "For skaters ready to go beyond the basics. Focused on routines, flow, and linking moves into sequences — building coordination, creativity, and a deeper relationship with movement.",
   },
@@ -280,17 +271,9 @@ export default function OurWorkPage() {
                 <h3 className="text-lg font-bold text-blue mb-3">
                   {group.category}
                 </h3>
-                <p className="text-mid text-sm leading-relaxed flex-1 mb-5">
+                <p className="text-mid text-sm leading-relaxed">
                   {group.description}
                 </p>
-                <ul className="space-y-1">
-                  {group.programmes.map((p) => (
-                    <li key={p} className="text-xs text-muted flex items-start gap-2">
-                      <span className="text-blue mt-0.5">–</span>
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
