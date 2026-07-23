@@ -31,11 +31,8 @@
 
 ### 4. Our Programmes
 - Cream background, 3-column grid of white cards
-- **Drop-in Sessions** — Each1teach1: Skate Jam (15+), All Ages Roller Disco (5+)
-- **Structured Lessons** — Sk8 Skool for Kidz (5–15), SK8 Skool for All Ages (5+)
-- **Courses** — Beginners Foundations (13+), Beginners Outside (13+), Prep to Street Skating (13+, Level 2)
-- **Camps** — Roller Quad Camp (5–12), Roller Skating Camp (5–15)
-- **Advanced** — SYNKRON8 (15+)
+- Cards are **title + description only** (2026-07-22) — no per-programme names or ages. Ages were drifting out of sync between this site and `eela.empowrcic.org` with no single source of truth; EELA is now the canonical source for session/camp/course ages (see PecuvateCRM KB `entities/sessions.md` in the Empowr CIC vault). The Book a Session CTA already routes to EELA, which carries the real per-session age, so the overview cards don't need to restate it.
+- **Drop-in Sessions**, **Structured Lessons**, **Courses**, **Camps**, **Advanced** — category titles unchanged; each card's description is the only body copy
 - Book a Session CTA (top right) → `eela.empowrcic.org`
 - Past Programmes below with `border-t` separator: Bouldering · Hula Hoop Workshops · Kids Digital Art Club · Kids Coding Club · Zumba · Rubix Cube Workshop
 

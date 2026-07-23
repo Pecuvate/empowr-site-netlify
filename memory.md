@@ -10,6 +10,8 @@ Current phase status and key facts that would otherwise need re-explaining at th
 
 The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic.org`. Continue from `DEVLOG.md` for current post-launch work.
 
+**2026-07-22:** "Our Work" programme cards (`src/app/our-work/page.tsx`) now show title + description only — no ages, no per-programme name list. `eela.empowrcic.org` is the canonical source for session/camp/course ages across Empowr CIC now (decided during a PecuvateCRM KB accuracy pass); this site's own programme copy should not restate ages going forward. `planning/pages/our-work.md` updated to match. A chat-first Q&A concept for `/contact` (AI section above the existing form, escalating into it) was explored but not built — decision saved to Claude memory (`project_empowr_contact_chat_concept`), pick up whenever ready to prototype.
+
 ---
 
 ## Phase Status
@@ -64,6 +66,7 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 - Company year end: **31 October** | Accounts filed as "AA" on Companies House
 - CIC accounts confirmed: to 31 Oct 2025 (filed Feb 2026) and to 31 Oct 2024 (filed Feb 2025)
 
+- Supporter Prospectus: **live on site** (Next.js page, 2026-07-15) — KB master at `KNOWLEDGE BASE/synthesis/supporter-prospectus.md`; update KB first, then site page
 - Contact email: **enquiries@empowrcic.org**
 - Heroes URL: **hero.empowrcic.org**
 - Clifton George Barrett: **Director of Events**, Board of Directors
@@ -75,6 +78,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 - Three additional Board of Directors members (client adding to Notion) — add to TEAM array in `about/page.tsx` when confirmed
 - Client review of programme descriptions (`planning/architecture/programme-descriptions.md`)
 - Main site DNS is cut over to Netlify; continue post-launch work from `DEVLOG.md`
+- **"Work With Empowr" page** — needed to surface the prospectus with a clear link/CTA; three pathways: commission, partner, support/legacy gift
+- **Commissioning Pack** and **Partnership Proposition** — next two funding documents after the prospectus (see KB `synthesis/supporter-prospectus.md` for sequencing)
 
 ---
 
