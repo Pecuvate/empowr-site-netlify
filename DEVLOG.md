@@ -2,6 +2,18 @@
 
 ---
 
+## 2026-07-24
+
+- Built the contact-page "Ask Empowr" chat embed prototype (decided 2026-07-23, see `project_empowr_contact_chat_concept` memory): `src/components/ChatEmbed.tsx` sits above the existing `ContactForm` on `/contact`, additive — form untouched. On branch `feat/contact-chat-embed`, PR #1 open (github.com/Pecuvate/empowr-site-netlify/pull/1), not yet merged
+- Architecture: since this site is a static Next.js export (`output: "export"`, no server runtime), the browser can't call PecuvateCRM's widget API directly (no CORS there) — added 6 Netlify Functions (`chat-config`/`chat-session`/`chat-session-status`/`chat-message`/`chat-escalate`/`chat-end`) as a same-origin proxy that does server-to-server fetches to `crm.pecuvate.com`. Requires one companion CRM-side route (already live, see PecuvateCRM DEVLOG) and a new `CRM_API_BASE_URL` env var (set in both `production` and `deploy-preview` Netlify contexts)
+- Added `react-markdown`/`remark-gfm` deps (matching CRM's versions) to render the AI's formatted replies
+- Tested end-to-end via Playwright against the real Netlify deploy preview (not just curl): real greeting, real ~15s AI round-trip with correct live KB content, full escalate flow (name/email capture → confirmation) — all through the actual proxy chain, zero CORS errors. Test data cleaned from the prod CRM DB afterward
+- Decision: escalation notification email is NOT built here — it's a CRM-side change (see that project's DEVLOG) since the escalate route itself needed the fix regardless of which frontend calls it
+- UX gap found (not yet built): "Speak to the team" currently only appears before the first message is sent, then disappears for the rest of the conversation — no way to escalate after an unsatisfying AI answer. Next session: remove it from the initial quick-reply pills, add a persistent "Did that answer your question?" prompt after each AI reply with "That's all" (end chat) / "Speak to the team" options
+- Next: merge PR #1 once ready to go live; then build the post-reply escalate/end-chat prompt redesign
+
+---
+
 ## 2026-07-22
 
 - Removed all age labels and the per-programme name list from the "Our Work" cards (`src/app/our-work/page.tsx`) — left title + description only. Ages had drifted out of sync between this site and `eela.empowrcic.org`, and the Book a Session CTA already routes to EELA, which carries the real per-session age, so the overview cards no longer need to restate it
@@ -30,41 +42,15 @@
 
 ---
 
-## 2026-07-03
-
-- KB alignment audit: compared all live site content against Empowr KB entities; identified and fixed 8 gaps across founders, eccp, sessions, empowr-cic, collaborators, and experiential-learning
-- Reverted `ExperientialLearningTabs.tsx`: removed 6-stage learning framework cards from "What is EELA?" tab; restored original intro text + sub-programmes list
-- Reverted `our-work/page.tsx`: EELA description restored to original paragraph (4-step methodology reference removed)
-- Design decision: Empowr Learning Spiral (Challenge→Attempt→Reflect→Adjust→Improve→Develop) established as canonical methodology; `experiential-learning.md` KB updated with spiral model + 5-stage framework reframed as delivery conditions; site implementation deferred pending proper architectural placement
+## 2026-07-03 — KB alignment audit: fixed 8 gaps against Empowr KB entities; reverted EELA experiential-learning framework changes pending proper architectural placement; Empowr Learning Spiral established as canonical methodology
 
 ---
 
-## 2026-07-02
-
-- Updated Empowr logo across the site: replaced old illustrated multicolour eye with new clean monochromatic design; source PNGs saved to `_brand/logos/` (6 variants including transparent and dark-transparent)
-- Nav logo (`src/components/Nav.tsx`): now uses `_brand/logos/empowr-logo-dark-transparent.png` (navy #1a3a6c on transparent), sized `h-16` with `py-1` nav padding
-- Favicon set regenerated from new source (`empowr-logo-source.png`, 1080×1080): eye-only crop with auto-detected bounding box, white on brand blue (#1a3a6c) background; all 6 sizes + favicon.ico updated in `_brand/favicons/` and `src/public/`
-- `generate-favicons.mjs` updated to reference new source path; Python script at `AppData/Local/Temp/generate_favicons_v3.py` is the canonical regeneration tool going forward
-- Committed and pushed to `main` only — `feat/chat-bubble` branch kept clean and unchanged
-- Outstanding: if a proper SVG/vector source is obtained from the designer, rerun favicon generation for sharper edges at small sizes
-- Logo rolled out to all 5 other Empowr CIC sites (EELA, Landing Page, Waivers, Heroes, EFN) — all now use `empowr-logo-dark-transparent.png` as `logo.png`
-- Heroes + EFN switched from S3 CDN (`empowr-cic.s3.amazonaws.com/empowr_logo.png`) to local file; `links.ts` and `Hero.tsx` updated accordingly
-- Decided against centralised logo hosting — updates are infrequent enough that copying to each repo is acceptable; revisit if logo changes become frequent
+## 2026-07-02 — Rolled out new monochromatic Empowr logo + regenerated favicons across all 6 Empowr CIC sites; decided against centralised logo hosting
 
 ---
 
-## Session 32 — 2026-06-29
-
-**What was done:**
-
-**My Account nav placeholder (`feat/my-account-nav` — parked, not merged):**
-- `src/lib/links.ts` — added `membersUrl: ""` placeholder with TODO comment for future members platform URL
-- `src/components/Nav.tsx` — disabled account icon (person-circle SVG) added before "Support Us" on desktop; icon + "My Account" label with "Coming soon" pill added to mobile menu; both non-functional (`<button disabled>`)
-- Branch parked on GitHub pending new members platform build
-
-**Decisions:**
-- Team decided not to route to Wix (all Wix account URLs broken — 500 errors)
-- New standalone members platform to be built (separate project under Empowr CIC); this nav will be activated and merged once that platform has a live URL
+## Session 32 — 2026-06-29 — My Account nav placeholder built (feat/my-account-nav, parked, not merged) pending new standalone members platform; team decided against routing to Wix (broken account URLs)
 
 ---
 

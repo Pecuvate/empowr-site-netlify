@@ -10,7 +10,9 @@ Current phase status and key facts that would otherwise need re-explaining at th
 
 The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic.org`. Continue from `DEVLOG.md` for current post-launch work.
 
-**2026-07-22:** "Our Work" programme cards (`src/app/our-work/page.tsx`) now show title + description only — no ages, no per-programme name list. `eela.empowrcic.org` is the canonical source for session/camp/course ages across Empowr CIC now (decided during a PecuvateCRM KB accuracy pass); this site's own programme copy should not restate ages going forward. `planning/pages/our-work.md` updated to match. A chat-first Q&A concept for `/contact` (AI section above the existing form, escalating into it) was explored but not built — decision saved to Claude memory (`project_empowr_contact_chat_concept`), pick up whenever ready to prototype.
+**2026-07-22:** "Our Work" programme cards (`src/app/our-work/page.tsx`) now show title + description only — no ages, no per-programme name list. `eela.empowrcic.org` is the canonical source for session/camp/course ages across Empowr CIC now (decided during a PecuvateCRM KB accuracy pass); this site's own programme copy should not restate ages going forward. `planning/pages/our-work.md` updated to match.
+
+**2026-07-24:** The `/contact` chat-first Q&A concept is now **built and Playwright-tested**, not just decided — `src/components/ChatEmbed.tsx` + 6 Netlify Functions proxy on branch `feat/contact-chat-embed`, PR #1 open at `github.com/Pecuvate/empowr-site-netlify/pull/1`. **NOT yet merged to `main`** — do not assume this is live on `empowrcic.org`. Full detail in `project_empowr_contact_chat_concept` memory. Known follow-up: "Speak to the team" currently disappears after the first message is sent (only shows pre-first-message) — redesign planned for next session, not yet built.
 
 ---
 
