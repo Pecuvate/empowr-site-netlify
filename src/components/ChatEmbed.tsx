@@ -292,6 +292,7 @@ export default function ChatEmbed() {
   const isEscalated = sessionStatus === "escalated" || isResolved;
   const isPendingContact = sessionStatus === "escalated_pending_contact";
   const showQuickReplies = messages.length === 0 && !waiting && sessionStatus === "active";
+  const showPersistentSpeakToTeam = messages.length > 0 && sessionStatus === "active";
 
   if (!configLoaded) {
     return (
@@ -439,26 +440,37 @@ export default function ChatEmbed() {
             {isResolved ? "Your enquiry has been handled." : "The team will be in touch soon."}
           </p>
         ) : (
-          <div className="flex items-end gap-2">
-            <textarea
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type a message…"
-              rows={1}
-              disabled={isPendingContact || waiting}
-              className="flex-1 resize-none rounded-xl border border-border px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue/30 max-h-24 disabled:opacity-40 disabled:bg-cream transition-colors"
-            />
-            <button
-              onClick={sendMessage}
-              disabled={!input.trim() || sending || waiting || isPendingContact}
-              className="shrink-0 w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center disabled:opacity-40 hover:bg-blue-dark transition-colors"
-              aria-label="Send message"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2 21l21-9L2 3v7l15 2-15 2z" />
-              </svg>
-            </button>
+          <div className="flex flex-col gap-2">
+            {showPersistentSpeakToTeam && !isPendingContact && (
+              <button
+                onClick={handleSpeakToTeam}
+                disabled={sending || waiting}
+                className="self-start text-xs text-muted hover:text-black underline underline-offset-2 disabled:opacity-40"
+              >
+                Speak to the team instead
+              </button>
+            )}
+            <div className="flex items-end gap-2">
+              <textarea
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a message…"
+                rows={1}
+                disabled={isPendingContact || waiting}
+                className="flex-1 resize-none rounded-xl border border-border px-3 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue/30 max-h-24 disabled:opacity-40 disabled:bg-cream transition-colors"
+              />
+              <button
+                onClick={sendMessage}
+                disabled={!input.trim() || sending || waiting || isPendingContact}
+                className="shrink-0 w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center disabled:opacity-40 hover:bg-blue-dark transition-colors"
+                aria-label="Send message"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2 21l21-9L2 3v7l15 2-15 2z" />
+                </svg>
+              </button>
+            </div>
           </div>
         )}
       </div>
