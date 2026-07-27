@@ -14,6 +14,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-24:** The `/contact` chat-first Q&A concept is now **built and Playwright-tested**, not just decided — `src/components/ChatEmbed.tsx` + 6 Netlify Functions proxy on branch `feat/contact-chat-embed`, PR #1 open at `github.com/Pecuvate/empowr-site-netlify/pull/1`. **NOT yet merged to `main`** — do not assume this is live on `empowrcic.org`. Full detail in `project_empowr_contact_chat_concept` memory. Known follow-up: "Speak to the team" currently disappears after the first message is sent (only shows pre-first-message) — redesign planned for next session, not yet built.
 
+**2026-07-27:** `/faqs` expanded from 2 to 15 questions across 5 grouped sections, content sourced from the Empowr KB. Merged to `main` and deployed (commit `ce70e15`). `FaqsAccordion.tsx` structure changed: flat `FAQS` array → `FAQ_SECTIONS`. Content rule going forward: never hardcode schedules/prices/ages in FAQ answers — route to `eela.empowrcic.org`.
+
 ---
 
 ## Phase Status

@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-07-27
+
+- Expanded `/faqs` from 2 to 15 questions across 5 grouped sections (About Empowr, Programmes, Sessions & Booking, Getting Involved, Impact & Accountability) — content sourced from the Empowr KB (`entities/*`, `concepts/experiential-learning`, `synthesis/impact-report`)
+- Refactored `FaqsAccordion.tsx` from a flat `FAQS` array to `FAQ_SECTIONS` (`{title, items[]}`), each section rendering its own heading + card
+- Content rules baked into `planning/pages/faqs.md`: never hardcode schedules/prices/ages (route to eela.empowrcic.org instead), cancellation answer must track legal policy version (currently T&Cs/Programme Policies v1.1), impact figures CIC 34-verified only
+- Typecheck + `npm run build` both passed before push; deployed via Netlify auto-deploy on push to `main` (commit `ce70e15`)
+- Process note: user asked for a plan first intending to hand execution to Sonnet — I implemented directly on Fable instead; saved as a standing feedback memory (`feedback_plan_first_means_stop_at_plan`) to stop at the plan next time unless told to proceed
+
+---
+
 ## 2026-07-24
 
 - Built the contact-page "Ask Empowr" chat embed prototype (decided 2026-07-23, see `project_empowr_contact_chat_concept` memory): `src/components/ChatEmbed.tsx` sits above the existing `ContactForm` on `/contact`, additive — form untouched. On branch `feat/contact-chat-embed`, PR #1 open (github.com/Pecuvate/empowr-site-netlify/pull/1), not yet merged
@@ -31,14 +41,7 @@
 
 ---
 
-## 2026-07-03
-
-- Prospectus: updated `info@empowrcic.org` → `outreach@empowrcic.org` across 4 instances (2 mailto links, 2 contact section entries)
-- Prospectus: updated `shaun@empowrcic.org` → `shaun.barnett@empowrcic.org`
-- Prospectus: updated Shaun Barnett's title from CVO to Co-Founder and Executive Director
-- Prospectus: website field updated to `www.empowrcic.org` with full `https://` href (was relative `/`)
-- Prospectus: Active Partnerships sentence now breaks onto new line below the bold title via `<br />`
-- Prospectus: added descriptions to all 5 EELA sub-programme rows in `EELA_PROGRAMMES` array, sourced from `our-work/page.tsx`
+## 2026-07-03 — Prospectus contact-detail fixes (outreach@/shaun.barnett@ emails, Shaun's title, website link, layout tweak) + EELA sub-programme descriptions added to `EELA_PROGRAMMES`
 
 ---
 
