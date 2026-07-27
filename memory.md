@@ -16,6 +16,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-27:** `/faqs` expanded from 2 to 15 questions across 5 grouped sections, content sourced from the Empowr KB. Merged to `main` and deployed (commit `ce70e15`). `FaqsAccordion.tsx` structure changed: flat `FAQS` array → `FAQ_SECTIONS`. Content rule going forward: never hardcode schedules/prices/ages in FAQ answers — route to `eela.empowrcic.org`.
 
+**2026-07-27 — floating chat bubble rebuilt, still not merged.** The old `feat/chat-bubble` branch (23 commits stale) is superseded by `feat/chat-bubble-v2` — `ChatBubble.tsx` + `layout.tsx` wiring, PR #2 open at `github.com/Pecuvate/empowr-site-netlify/pull/2`, live Netlify deploy preview at `deploy-preview-2--empowr-main-site.netlify.app`. A real bug was found and fixed during review (CRM-side): the embedded widget went completely inert in restricted third-party-storage browser contexts — fixed, verified on this site's own preview. **NOT yet merged to `main`** — do not assume the bubble is live on `empowrcic.org`. Open UX decision at merge time: `/contact` will show both this bubble and the separate inline chat embed (`feat/contact-chat-embed`, PR #1, also not merged) — see `project_empowr_contact_chat_concept` memory.
+
 ---
 
 ## Phase Status

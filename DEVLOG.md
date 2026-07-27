@@ -4,6 +4,15 @@
 
 ## 2026-07-27
 
+- Rebuilt the floating chat bubble fresh on `feat/chat-bubble-v2` (old `feat/chat-bubble` branch was 23 commits stale) — `ChatBubble.tsx` + `layout.tsx` wiring, mobile-safe sizing added; PR #2 open (github.com/Pecuvate/empowr-site-netlify/pull/2) with a live Netlify deploy preview at `deploy-preview-2--empowr-main-site.netlify.app`; NOT yet merged
+- Found and fixed a real bug during review: the bubble iframes the CRM widget from a third-party origin, and `WidgetClient.tsx`'s unguarded `localStorage` access threw in that context — widget rendered but was completely inert with no error shown. Fix landed CRM-side (see that project's DEVLOG), verified working on this site's preview under simulated blocked storage
+- Open decision, not yet made: if `feat/chat-bubble-v2` merges, `/contact` will show both the floating bubble and the existing inline chat embed (`feat/contact-chat-embed`, PR #1) — needs a UX call at merge time
+- Next: get sign-off on the deploy preview, then merge; decide the `/contact` double-chat question
+
+---
+
+## 2026-07-27
+
 - Expanded `/faqs` from 2 to 15 questions across 5 grouped sections (About Empowr, Programmes, Sessions & Booking, Getting Involved, Impact & Accountability) — content sourced from the Empowr KB (`entities/*`, `concepts/experiential-learning`, `synthesis/impact-report`)
 - Refactored `FaqsAccordion.tsx` from a flat `FAQS` array to `FAQ_SECTIONS` (`{title, items[]}`), each section rendering its own heading + card
 - Content rules baked into `planning/pages/faqs.md`: never hardcode schedules/prices/ages (route to eela.empowrcic.org instead), cancellation answer must track legal policy version (currently T&Cs/Programme Policies v1.1), impact figures CIC 34-verified only
@@ -34,10 +43,7 @@
 
 ---
 
-## 2026-07-08
-
-- Cookie consent UI: banner now links to the Cookie Policy instead of Privacy Policy; `/cookie-preferences` intro now links Cookie Policy for cookie details and Privacy Policy for personal data handling
-- Verified with `npm run build` from `src/`
+## 2026-07-08 — Cookie consent UI: banner + preferences page links corrected (Cookie Policy vs Privacy Policy); verified with `npm run build`
 
 ---
 
