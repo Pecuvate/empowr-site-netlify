@@ -19,27 +19,59 @@
 
 ### 2. FAQ Accordion
 - Cream background
-- Single card (`bg-warm-white`, rounded-2xl, border) containing all FAQ items
+- **Grouped sections** — each section: heading (`h2`) + card (`bg-warm-white`, rounded-2xl, border) containing that section's items, sections spaced `space-y-12`
 - Each item: question row (button) + collapsible answer paragraph
 - Icon: `+` rotates to `×` on open (`rotate-45`)
-- Questions live in the `FAQS` array in `FaqsAccordion.tsx`
+- Content lives in the `FAQ_SECTIONS` array in `FaqsAccordion.tsx` (`{ title, items[] }`)
 
 ---
 
-## Current FAQs
+## Current FAQs (15, across 5 sections)
 
-1. **What is a Community Interest Company (CIC)?** — CIC structure, profit reinvestment, CIC Regulator link (gov.uk), annual CIC 34 reporting
-2. **Why did Empowr become a CIC?** — reinvesting surpluses into community; flexibility vs charities and traditional businesses; community commitment
+**About Empowr**
+1. **What is a Community Interest Company (CIC)?** — CIC structure, profit reinvestment, CIC Regulator link (gov.uk), CIC 34 reporting
+2. **Why did Empowr become a CIC?** — reinvesting surpluses; flexibility vs charities and traditional businesses
+3. **What does Empowr CIC actually do?** — health activities provider, SE London, founded 2021; skating as current medium; links `/our-work`
+4. **What is experiential learning?** — doing as the mechanism; three science pillars; links `/experiential-learning`
+
+**Programmes**
+5. **What is EELA?** — programme framework; MoveWell active, others planned; links eela.empowrcic.org
+6. **What is ECCP?** — coaching certification pathway, 3 levels, pilot phase; links `/eccp`
+7. **What ages do you work with?** — Kidz Space + Adults & Teens streams; **no hardcoded ages** — routes to eela.empowrcic.org (canonical for ages)
+
+**Sessions & Booking**
+8. **How do I book a session?** — advance payment, cashless, walk-in fee, waivers, quiz at start.empowrcic.org/quiz; **no hardcoded schedules/prices**
+9. **What do I need to bring to a skating session?** — kit list (helmet, knee/elbow pads, wrist guards); skate hire notes
+10. **What is your cancellation and refund policy?** — matches T&Cs/Programme Policies v1.1 (no-refund/no-cancel/no-transfer by default, discretionary exceptions via contact form); links `/legal/terms-and-conditions` + `/legal/programme-policies`
+
+**Getting Involved**
+11. **How can I get involved beyond attending sessions?** — Champions / Ambassadors / Heroes; links `/get-involved`
+12. **How do donations work?** — Heroes platform hero.empowrcic.org; surplus reinvestment
+13. **Can my school or organisation work with Empowr?** — four partnership categories; links `/partner-with-us`
+
+**Impact & Accountability**
+14. **What impact has Empowr had?** — CIC 34-verified only: ~10,000 attendances / 428 sessions / 700+ hours (YE2025), 4/5 wellbeing improvement (2023); links `/impact`
+15. **How is Empowr governed?** — board of directors, public CIC 34 reports, profit reinvestment
+
+---
+
+## Content Rules
+
+- **Source of truth is the Empowr KB** (`F:\Projects\vaults\EMPOWR CIC\KNOWLEDGE BASE`) — answers are derived from KB pages, not invented. Grounding pages: `entities/empowr-cic`, `entities/eela-programme`, `entities/sessions`, `entities/eccp`, `entities/heroes-platform`, `entities/community-roles`, `concepts/experiential-learning`, `synthesis/impact-report`, `entities/governance`
+- **Never hardcode schedules, prices, or ages** — eela.empowrcic.org is canonical for session specifics; link there instead
+- **Cancellation answer must track legal policy** (currently v1.1) — if T&Cs change, this FAQ changes
+- **Impact figures only from CIC 34 reports** — nothing aspirational
+- Public-facing links use empowrcic.org proxies (`/legal/:slug`, `/contact` form) — never raw legalhub.pecuvate.com or raw email addresses
 
 ---
 
 ## Status
 
-**Live — 2 FAQs.** Build out the full question set when content is ready.
+**Live — 15 FAQs across 5 grouped sections** (expanded from 2 on 2026-07-27, sourced from the Empowr KB).
 
-**To add more FAQs:** append to the `FAQS` array in `app/faqs/FaqsAccordion.tsx`.
+**To add more FAQs:** add to the relevant section's `items` in the `FAQ_SECTIONS` array in `app/faqs/FaqsAccordion.tsx`.
 
-**Note:** `answer` type is `ReactNode` (not `string`) — use JSX for answers that need inline links or multiple paragraphs.
+**Note:** `answer` type is `ReactNode` (not `string`) — use JSX for answers that need inline links or multiple paragraphs. Internal links use `next/link`; external links use `<a target="_blank">`.
 
 ---
 

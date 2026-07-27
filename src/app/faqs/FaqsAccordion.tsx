@@ -1,55 +1,394 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
-const FAQS: { question: string; answer: ReactNode }[] = [
+const linkClass =
+  "text-blue underline hover:text-blue-dark transition-colors";
+
+type Faq = { question: string; answer: ReactNode };
+type FaqSection = { title: string; items: Faq[] };
+
+const FAQ_SECTIONS: FaqSection[] = [
   {
-    question: "What is a Community Interest Company (CIC)?",
-    answer: (
-      <>
-        <p>
-          A Community Interest Company (CIC) is a type of company specifically
-          designed to benefit the community rather than private shareholders. Any
-          profits are reinvested back into the community purpose — not
-          distributed to owners.
-        </p>
-        <p className="mt-3">
-          CICs are regulated by the{" "}
-          <a
-            href="https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue underline hover:text-blue-dark transition-colors"
-          >
-            CIC Regulator
-          </a>{" "}
-          and are required to submit annual reports — called CIC 34 reports —
-          demonstrating how their work has benefited the community. These
-          reports are publicly available.
-        </p>
-      </>
-    ),
+    title: "About Empowr",
+    items: [
+      {
+        question: "What is a Community Interest Company (CIC)?",
+        answer: (
+          <>
+            <p>
+              A Community Interest Company (CIC) is a type of company
+              specifically designed to benefit the community rather than
+              private shareholders. Any profits are reinvested back into the
+              community purpose — not distributed to owners.
+            </p>
+            <p className="mt-3">
+              CICs are regulated by the{" "}
+              <a
+                href="https://www.gov.uk/government/organisations/office-of-the-regulator-of-community-interest-companies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                CIC Regulator
+              </a>{" "}
+              and are required to submit annual reports — called CIC 34 reports
+              — demonstrating how their work has benefited the community. These
+              reports are publicly available.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "Why did Empowr become a CIC?",
+        answer: (
+          <>
+            <p>
+              As a community interest company, our primary goal is to reinvest
+              our surpluses back into the company or community, rather than
+              maximizing profits for shareholders or owners.
+            </p>
+            <p className="mt-3">
+              Being a CIC sets us apart from charities and traditional
+              businesses, giving us the flexibility to undertake a diverse
+              range of projects and activities without being bound by the same
+              regulations and limitations. Our commitment to serving our
+              community remains our top priority, and we strive to create a
+              positive impact through all our initiatives.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "What does Empowr CIC actually do?",
+        answer: (
+          <>
+            <p>
+              Empowr is a health activities provider based in SE London,
+              founded in 2021. Our mission is to promote lifelong wellbeing
+              through experiential learning — doing new things, in motion,
+              with others.
+            </p>
+            <p className="mt-3">
+              Right now our main delivery is roller skating: weekly sessions,
+              structured lessons, courses, camps, and community events for
+              children and adults. Skating is the medium, not the mission —
+              over time our programmes will expand into other activities built
+              on the same approach. See{" "}
+              <Link href="/our-work" className={linkClass}>
+                Our Work
+              </Link>{" "}
+              for what we deliver today.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "What is experiential learning?",
+        answer: (
+          <>
+            <p>
+              Experiential learning is the principle that doing — not watching
+              or passively studying — is the most effective mechanism for
+              physical and mental wellbeing. New experiences form new neural
+              connections, movement and challenge together improve how the
+              body handles stress, and regular novel challenges build the
+              adaptability to navigate setbacks.
+            </p>
+            <p className="mt-3">
+              It's the method behind every programme we run. Read the full
+              science and evidence base on our{" "}
+              <Link href="/experiential-learning" className={linkClass}>
+                Experiential Learning
+              </Link>{" "}
+              page.
+            </p>
+          </>
+        ),
+      },
+    ],
   },
   {
-    question: "Why did Empowr become a CIC?",
-    answer: (
-      <>
-        <p>
-          As a community interest company, our primary goal is to reinvest our
-          surpluses back into the company or community, rather than maximizing
-          profits for shareholders or owners.
-        </p>
-        <p className="mt-3">
-          Being a CIC sets us apart from charities and traditional businesses,
-          giving us the flexibility to undertake a diverse range of projects and
-          activities without being bound by the same regulations and
-          limitations. Our commitment to serving our community remains our top
-          priority, and we strive to create a positive impact through all our
-          initiatives.
-        </p>
-      </>
-    ),
+    title: "Programmes",
+    items: [
+      {
+        question: "What is EELA?",
+        answer: (
+          <>
+            <p>
+              EELA — Empowr Experiential Learning Activities — is the
+              framework that every Empowr programme sits under. Each activity
+              is organised as a named sub-programme with its own dedicated
+              team, all built on the same experiential learning approach.
+            </p>
+            <p className="mt-3">
+              The currently active sub-programme is MoveWell (movement &
+              wellness — home of our skating programmes), with further
+              sub-programmes covering creativity, outdoor exploration,
+              body-mind skills, and collaboration planned. Visit{" "}
+              <a
+                href="https://eela.empowrcic.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                eela.empowrcic.org
+              </a>{" "}
+              for current sessions and programmes.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "What is ECCP?",
+        answer: (
+          <>
+            <p>
+              The Empowr Certified Coaching Programme (ECCP) is our coaching
+              certification pathway — it develops participants and
+              practitioners into certified coaches who can deliver sessions
+              across Empowr programmes. It has three levels: Foundation,
+              Practitioner, and Advanced Coach.
+            </p>
+            <p className="mt-3">
+              ECCP is currently in its pilot phase. If you're a practitioner
+              interested in coaching with us, you can register interest on the{" "}
+              <Link href="/eccp" className={linkClass}>
+                ECCP page
+              </Link>
+              .
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "What ages do you work with?",
+        answer: (
+          <>
+            <p>
+              Our sessions run in two streams: Kidz Space for children and
+              young people, and Adults & Teens sessions. Age ranges vary by
+              individual session, lesson, course, and camp.
+            </p>
+            <p className="mt-3">
+              For current age ranges, schedules, and availability, check the
+              individual session pages at{" "}
+              <a
+                href="https://eela.empowrcic.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                eela.empowrcic.org
+              </a>
+              .
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    title: "Sessions & Booking",
+    items: [
+      {
+        question: "How do I book a session?",
+        answer: (
+          <>
+            <p>
+              Sessions are booked online through the individual session pages
+            at{" "}
+              <a
+                href="https://eela.empowrcic.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                eela.empowrcic.org
+              </a>
+              . Payment in advance is required to secure a place. Walk-ins are
+              accepted at some sessions but charged an additional fee, and all
+              payments are cashless — we can't take cash on the day.
+            </p>
+            <p className="mt-3">
+              Before a first session you'll also need to complete a risk
+              waiver and photography consent form — links are in the footer of
+              this site. Not sure which session is right for you? Take the
+              quiz at{" "}
+              <a
+                href="https://start.empowrcic.org/quiz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                start.empowrcic.org/quiz
+              </a>
+              .
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "What do I need to bring to a skating session?",
+        answer: (
+          <>
+            <p>
+              Protective gear is required at all skating sessions: a properly
+              fitted helmet (not a bike helmet), knee pads, elbow pads, and
+              wrist guards. Participants arriving without required protective
+              gear can't take part.
+            </p>
+            <p className="mt-3">
+              Most sessions require you to bring your own quad skates. Skate
+              hire is available at some sessions — included at the Roller
+              Disco, and available on request at camps with advance notice.
+              Check the individual session page for details.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "What is your cancellation and refund policy?",
+        answer: (
+          <>
+            <p>
+              All bookings are final. Participant-initiated cancellations,
+              transfers, and refunds — including no-shows — are not available
+              by default. Exceptions are granted only at Empowr's discretion,
+              on request via our{" "}
+              <Link href="/contact" className={linkClass}>
+                contact form
+              </Link>
+              .
+            </p>
+            <p className="mt-3">
+              If we have to cancel a session (weather, venue, or staffing),
+              we'll offer an alternative date. For the full terms, see our{" "}
+              <Link href="/legal/terms-and-conditions" className={linkClass}>
+                Terms & Conditions
+              </Link>{" "}
+              and{" "}
+              <Link href="/legal/programme-policies" className={linkClass}>
+                Programme Policies
+              </Link>
+              .
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    title: "Getting Involved",
+    items: [
+      {
+        question: "How can I get involved beyond attending sessions?",
+        answer: (
+          <>
+            <p>
+              Empowr's community is built on three roles. Champions support on
+              the ground — volunteer marshals who help manage sessions and
+              carry the culture. Ambassadors represent Empowr outwards, in
+              their own networks, schools, and communities. Heroes sustain the
+              work through donations and ongoing support.
+            </p>
+            <p className="mt-3">
+              See the{" "}
+              <Link href="/get-involved" className={linkClass}>
+                Get Involved
+              </Link>{" "}
+              page to find the path that fits you.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "How do donations work?",
+        answer: (
+          <>
+            <p>
+              Donations are made through our Heroes platform at{" "}
+              <a
+                href="https://hero.empowrcic.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                hero.empowrcic.org
+              </a>
+              . As a CIC, every surplus is reinvested into delivery — coaching,
+              equipment, venue hire, and community outreach — never
+              distributed to owners.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "Can my school or organisation work with Empowr?",
+        answer: (
+          <>
+            <p>
+              Yes — we partner in four ways: schools and education providers
+              (enrichment, curriculum support, holiday provision),
+              organisations and charities commissioning programmes for their
+              beneficiaries, commissioners and funders working with us at a
+              strategic level, and venues with spaces to activate.
+            </p>
+            <p className="mt-3">
+              Start on the{" "}
+              <Link href="/partner-with-us" className={linkClass}>
+                Partner With Us
+              </Link>{" "}
+              page.
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    title: "Impact & Accountability",
+    items: [
+      {
+        question: "What impact has Empowr had?",
+        answer: (
+          <>
+            <p>
+              In the year ending October 2025, Empowr delivered around 10,000
+              participant attendances across 428 sessions and 700+ hours of
+              activity — double the previous year. Our 2023 reporting found
+              that 4 out of 5 participants reported mental health and
+              wellbeing improvements.
+            </p>
+            <p className="mt-3">
+              These figures come from our CIC 34 annual reports, filed with
+              the CIC Regulator and publicly available. See the full picture
+              on our{" "}
+              <Link href="/impact" className={linkClass}>
+                Impact
+              </Link>{" "}
+              page.
+            </p>
+          </>
+        ),
+      },
+      {
+        question: "How is Empowr governed?",
+        answer: (
+          <>
+            <p>
+              Empowr CIC is governed by a Board of Directors responsible for
+              protecting the mission, guiding strategic growth, and holding
+              leadership to account. As a Community Interest Company we file
+              public CIC 34 annual reports demonstrating community benefit,
+              and all profits are reinvested into the organisation's purpose.
+            </p>
+          </>
+        ),
+      },
+    ],
   },
 ];
 
@@ -95,9 +434,22 @@ function FaqItem({
 
 export default function FaqsAccordion() {
   return (
-    <div className="bg-warm-white rounded-2xl border border-border px-8">
-      {FAQS.map((faq) => (
-        <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+    <div className="space-y-12">
+      {FAQ_SECTIONS.map((section) => (
+        <section key={section.title}>
+          <h2 className="text-xl md:text-2xl font-extrabold text-black mb-4">
+            {section.title}
+          </h2>
+          <div className="bg-warm-white rounded-2xl border border-border px-8">
+            {section.items.map((faq) => (
+              <FaqItem
+                key={faq.question}
+                question={faq.question}
+                answer={faq.answer}
+              />
+            ))}
+          </div>
+        </section>
       ))}
     </div>
   );
