@@ -18,6 +18,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-27 — floating chat bubble rebuilt, still not merged.** The old `feat/chat-bubble` branch (23 commits stale) is superseded by `feat/chat-bubble-v2` — `ChatBubble.tsx` + `layout.tsx` wiring, PR #2 open at `github.com/Pecuvate/empowr-site-netlify/pull/2`, live Netlify deploy preview at `deploy-preview-2--empowr-main-site.netlify.app`. A real bug was found and fixed during review (CRM-side): the embedded widget went completely inert in restricted third-party-storage browser contexts — fixed, verified on this site's own preview. **NOT yet merged to `main`** — do not assume the bubble is live on `empowrcic.org`. Open UX decision at merge time: `/contact` will show both this bubble and the separate inline chat embed (`feat/contact-chat-embed`, PR #1, also not merged) — see `project_empowr_contact_chat_concept` memory.
 
+**2026-07-27 (session 2) — contact form now routes into PecuvateCRM, merged and live.** `src/netlify/functions/contact.ts` calls a new CRM channel route (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` in `src/.env.local`, not the root one) as its primary path — submissions land in the CRM's Escalations dashboard as `escalated` sessions, grouped by subject (General Enquiry, Work With Us, etc., added same day CRM-side). Falls back to the old direct Resend internal email only if the CRM call fails; the visitor's own auto-reply is unchanged. Verified with a real production submission. Committed `63b7dfc`/`07fc9dc`. Full detail in PecuvateCRM's own memory.md and DEVLOG.
+
 ---
 
 ## Phase Status
@@ -39,7 +41,7 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 - Hosting: Netlify (`empowr-main-site.netlify.app` behind the custom domains)
 - Stack: Next.js 16 + Tailwind v4 + shadcn/ui. Static export (`output: "export"`). One line to go full dynamic.
 - CIC reports: external links to Companies House — not hosted PDFs
-- Contact form: mailto link in Phase 1, Resend in Phase 2 if needed
+- Contact form: routes into PecuvateCRM Escalations as of 2026-07-27, Resend internal email is now a fallback only (visitor auto-reply always via Resend)
 - News: MDX files in `src/content/news/` — no CMS in Phase 1
 
 ---

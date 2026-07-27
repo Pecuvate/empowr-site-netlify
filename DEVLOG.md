@@ -43,13 +43,7 @@
 
 ---
 
-## 2026-07-22
-
-- Removed all age labels and the per-programme name list from the "Our Work" cards (`src/app/our-work/page.tsx`) — left title + description only. Ages had drifted out of sync between this site and `eela.empowrcic.org`, and the Book a Session CTA already routes to EELA, which carries the real per-session age, so the overview cards no longer need to restate it
-- Decision: EELA is now the canonical source for session/camp/course ages across Empowr CIC (see PecuvateCRM's KB accuracy pass, same day) — this site's programme content should defer to it rather than maintaining its own age figures
-- Updated `planning/pages/our-work.md` Section 4 to match — it still described the old per-programme age list, including the same wrong course-age figures (13+) the KB pass caught
-- Explored (not built) a chat-first Q&A concept for the `/contact` page — an AI section above the existing form, escalating into it when it can't answer, reusing PecuvateCRM's widget escalation flow. Decision + rationale saved to Claude memory (`project_empowr_contact_chat_concept`); nothing in this repo yet
-- Next: pick up the contact-page chat prototype when ready; unrelated EELA sub-programme name drift in this same planning doc (Section 3 — "Mind Body & Wellness" vs. code's "MindWell" etc.) noticed but out of scope this session
+## 2026-07-22 — Removed age labels from "Our Work" cards, deferring to eela.empowrcic.org as canonical; explored (not built) a chat-first Q&A concept for /contact
 
 ---
 
