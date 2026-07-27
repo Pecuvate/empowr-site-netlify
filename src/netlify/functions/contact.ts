@@ -24,6 +24,41 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#39;");
 }
 
+// Routes the submission into PecuvateCRM's Escalations dashboard as the primary
+// path — falls back to a direct internal-notification email (below) if the CRM
+// is unreachable or misconfigured, so a submission is never silently lost.
+async function notifyCrm(fields: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  source: string;
+}): Promise<boolean> {
+  const apiUrl = process.env.CRM_CONTACT_API_URL;
+  const apiKey = process.env.CRM_CONTACT_API_KEY;
+  if (!apiUrl || !apiKey) return false;
+
+  try {
+    const res = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-contact-form-secret": apiKey,
+      },
+      body: JSON.stringify({ orgSlug: "empowr-cic", ...fields }),
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!res.ok) {
+      console.error("[contact] CRM notify returned", res.status, await res.text());
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[contact] CRM notify failed:", err);
+    return false;
+  }
+}
+
 export const handler = async (event: {
   httpMethod: string;
   body: string | null;
@@ -56,12 +91,7 @@ export const handler = async (event: {
     return { statusCode: 400, body: JSON.stringify({ error: "Missing required fields" }) };
   }
 
-  const toEmail = SUBJECT_ROUTING[subject] || DEFAULT_TO;
-
-  if (!toEmail) {
-    console.error("[contact] No destination email configured");
-    return { statusCode: 500, body: JSON.stringify({ error: "Server configuration error" }) };
-  }
+  const crmDelivered = await notifyCrm({ name, email, subject, message, source: safeSource });
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -71,20 +101,29 @@ export const handler = async (event: {
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
 
   try {
-    await resend.emails.send({
-      from: FROM,
-      to: toEmail,
-      replyTo: email,
-      subject: `[Website Enquiry] ${subject} — ${name}`,
-      html: `
-        <p><strong>Name:</strong> ${safeName}</p>
-        <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
-        <p><strong>Subject:</strong> ${safeSubject}</p>
-        ${safeSource ? `<p><strong>Source:</strong> ${escapeHtml(safeSource)}</p>` : ""}
-        <hr />
-        <p>${safeMessage}</p>
-      `,
-    });
+    if (!crmDelivered) {
+      const toEmail = SUBJECT_ROUTING[subject] || DEFAULT_TO;
+
+      if (!toEmail) {
+        console.error("[contact] CRM notify failed and no fallback destination email configured");
+        return { statusCode: 500, body: JSON.stringify({ error: "Server configuration error" }) };
+      }
+
+      await resend.emails.send({
+        from: FROM,
+        to: toEmail,
+        replyTo: email,
+        subject: `[Website Enquiry] ${subject} — ${name}`,
+        html: `
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
+          <p><strong>Subject:</strong> ${safeSubject}</p>
+          ${safeSource ? `<p><strong>Source:</strong> ${escapeHtml(safeSource)}</p>` : ""}
+          <hr />
+          <p>${safeMessage}</p>
+        `,
+      });
+    }
 
     await resend.emails.send({
       from: FROM,
