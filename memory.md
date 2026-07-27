@@ -20,6 +20,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-27 (session 2) — contact form now routes into PecuvateCRM, merged and live.** `src/netlify/functions/contact.ts` calls a new CRM channel route (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` in `src/.env.local`, not the root one) as its primary path — submissions land in the CRM's Escalations dashboard as `escalated` sessions, grouped by subject (General Enquiry, Work With Us, etc., added same day CRM-side). Falls back to the old direct Resend internal email only if the CRM call fails; the visitor's own auto-reply is unchanged. Verified with a real production submission. Committed `63b7dfc`/`07fc9dc`. Full detail in PecuvateCRM's own memory.md and DEVLOG.
 
+**2026-07-27:** The `/contact` chat embed concept above was built on `feat/contact-chat-embed` (PR #1, not yet merged) — see that branch and `project_empowr_contact_chat_concept` in Claude memory for the full build. This session: fixed the "speak to the team" option disappearing after the first message (`ChatEmbed.tsx`, commit `22f23a1`), and reverted the contact form's live routing from CRM-primary back to direct-Resend-only at the owner's request ahead of a launch (env-var toggle on Netlify, no code change — `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` currently unset in production). Re-enabling CRM routing later is just restoring those two vars + a Netlify rebuild.
+
 ---
 
 ## Phase Status
@@ -41,7 +43,7 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 - Hosting: Netlify (`empowr-main-site.netlify.app` behind the custom domains)
 - Stack: Next.js 16 + Tailwind v4 + shadcn/ui. Static export (`output: "export"`). One line to go full dynamic.
 - CIC reports: external links to Companies House — not hosted PDFs
-- Contact form: routes into PecuvateCRM Escalations as of 2026-07-27, Resend internal email is now a fallback only (visitor auto-reply always via Resend)
+- Contact form: currently direct-Resend-only (CRM routing temporarily reverted 2026-07-27, see Current Phase) — `contact.ts` supports both paths, toggled by whether `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` are set on Netlify; visitor auto-reply always via Resend either way
 - News: MDX files in `src/content/news/` — no CMS in Phase 1
 
 ---

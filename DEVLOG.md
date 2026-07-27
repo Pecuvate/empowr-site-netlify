@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-07-27 (session 3)
+
+- Reverted the contact form from the CRM-primary pipeline back to direct-Resend-only at the owner's request ahead of a launch — unset `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` on Netlify prod and triggered a rebuild via the Netlify API (`createSiteBuild`) since Functions bake env vars in at build time. No code change either direction — `contact.ts`'s CRM-then-fallback logic (session 2, below) is already env-driven; re-enabling later is just restoring those two vars + a rebuild
+- Fixed `ChatEmbed.tsx` (PR #1, `feat/contact-chat-embed`): the "Speak to the team" option lived only inside the zero-message quick-replies block (the UX gap flagged 2026-07-24, below), so it disappeared the instant a visitor sent anything, with no way back to a human handoff. Shipped a simpler fix than the redesign planned 2026-07-24 — a persistent "Speak to the team instead" footer link once the conversation is active with ≥1 message, rather than a post-reply "Did that answer your question?" prompt. Verified live in a browser against the real CRM backend (sent a message, confirmed the link stayed visible, clicked it, confirmed the escalation form appeared); found the identical bug copied into PecuvateCRM's own live widget and fixed it there too (see that repo's DEVLOG). Committed `22f23a1`, pushed to PR #1
+- Next: Queries/Cost-breakdown UI polish is the last item PecuvateCRM owner wants done before switching this site's contact form back to the CRM path; PR #1 and PR #2 (`feat/chat-bubble-v2`) both still open, unmerged
+
+---
+
 ## 2026-07-27 (session 2)
 
 - `src/netlify/functions/contact.ts` now routes submissions into PecuvateCRM's Escalations dashboard as the primary path (new `notifyCrm()` call, authenticated via `CRM_CONTACT_API_KEY` shared-secret header) instead of only sending an internal Resend email — the CRM record is what agents actually work from now. Falls back to the original direct Resend notification if the CRM call fails or the env vars aren't set, so a submission can't silently vanish; the visitor's own auto-reply email is unchanged. Honeypot/validation still run first, unchanged — bots never reach the CRM.
@@ -31,15 +39,7 @@
 
 ---
 
-## 2026-07-24
-
-- Built the contact-page "Ask Empowr" chat embed prototype (decided 2026-07-23, see `project_empowr_contact_chat_concept` memory): `src/components/ChatEmbed.tsx` sits above the existing `ContactForm` on `/contact`, additive — form untouched. On branch `feat/contact-chat-embed`, PR #1 open (github.com/Pecuvate/empowr-site-netlify/pull/1), not yet merged
-- Architecture: since this site is a static Next.js export (`output: "export"`, no server runtime), the browser can't call PecuvateCRM's widget API directly (no CORS there) — added 6 Netlify Functions (`chat-config`/`chat-session`/`chat-session-status`/`chat-message`/`chat-escalate`/`chat-end`) as a same-origin proxy that does server-to-server fetches to `crm.pecuvate.com`. Requires one companion CRM-side route (already live, see PecuvateCRM DEVLOG) and a new `CRM_API_BASE_URL` env var (set in both `production` and `deploy-preview` Netlify contexts)
-- Added `react-markdown`/`remark-gfm` deps (matching CRM's versions) to render the AI's formatted replies
-- Tested end-to-end via Playwright against the real Netlify deploy preview (not just curl): real greeting, real ~15s AI round-trip with correct live KB content, full escalate flow (name/email capture → confirmation) — all through the actual proxy chain, zero CORS errors. Test data cleaned from the prod CRM DB afterward
-- Decision: escalation notification email is NOT built here — it's a CRM-side change (see that project's DEVLOG) since the escalate route itself needed the fix regardless of which frontend calls it
-- UX gap found (not yet built): "Speak to the team" currently only appears before the first message is sent, then disappears for the rest of the conversation — no way to escalate after an unsatisfying AI answer. Next session: remove it from the initial quick-reply pills, add a persistent "Did that answer your question?" prompt after each AI reply with "That's all" (end chat) / "Speak to the team" options
-- Next: merge PR #1 once ready to go live; then build the post-reply escalate/end-chat prompt redesign
+## 2026-07-24 — Built the contact-page "Ask Empowr" chat embed prototype (`ChatEmbed.tsx` + 6 Netlify Functions proxy to PecuvateCRM's widget API), PR #1 open, not merged; Playwright-verified end-to-end against the real deploy preview; "speak to the team" disappearing-after-first-message gap found (fixed 2026-07-27, above)
 
 ---
 
