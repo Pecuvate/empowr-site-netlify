@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-07-27 (session 2)
+
+- `src/netlify/functions/contact.ts` now routes submissions into PecuvateCRM's Escalations dashboard as the primary path (new `notifyCrm()` call, authenticated via `CRM_CONTACT_API_KEY` shared-secret header) instead of only sending an internal Resend email — the CRM record is what agents actually work from now. Falls back to the original direct Resend notification if the CRM call fails or the env vars aren't set, so a submission can't silently vanish; the visitor's own auto-reply email is unchanged. Honeypot/validation still run first, unchanged — bots never reach the CRM.
+- New env vars `CRM_CONTACT_API_URL` / `CRM_CONTACT_API_KEY` — added to `src/.env.local` (not the root one; `netlify.toml`'s `base = "src"` means `netlify dev` only loads env from there, confirmed via its injection log) and set on Netlify production.
+- Verified with a real live submission through `empowrcic.org`'s contact form after both sites deployed — landed as a genuine `escalated` `chat_sessions` row in PecuvateCRM, cleaned up after.
+- Committed `63b7dfc`; CRM-side changes + full design detail in that project's DEVLOG (2026-07-27 session 2).
+- Next: the chat-bubble-v2 merge decision above is still open; contact-form → CRM was the other queued item and is now done.
+
+---
+
 ## 2026-07-27
 
 - Rebuilt the floating chat bubble fresh on `feat/chat-bubble-v2` (old `feat/chat-bubble` branch was 23 commits stale) — `ChatBubble.tsx` + `layout.tsx` wiring, mobile-safe sizing added; PR #2 open (github.com/Pecuvate/empowr-site-netlify/pull/2) with a live Netlify deploy preview at `deploy-preview-2--empowr-main-site.netlify.app`; NOT yet merged
