@@ -45,7 +45,7 @@ export default function Nav() {
           <a
             href={LINKS.shop}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="text-sm font-medium text-mid hover:text-blue transition-colors"
           >
             Shop
@@ -53,7 +53,7 @@ export default function Nav() {
           <a
             href={LINKS.heroesplatform}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="bg-blue text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-dark transition-colors"
           >
             Support Us
@@ -85,7 +85,7 @@ export default function Nav() {
           <a
             href={LINKS.shop}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="text-sm font-medium text-mid hover:text-blue transition-colors py-3 border-b border-border"
             onClick={() => setOpen(false)}
           >
@@ -94,7 +94,7 @@ export default function Nav() {
           <a
             href={LINKS.heroesplatform}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="mt-3 bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-blue-dark transition-colors text-center"
           >
             Support Us

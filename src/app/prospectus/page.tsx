@@ -547,7 +547,7 @@ export default function ProspectusPage() {
                 <a
                   href="https://hero.empowrcic.org"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-blue font-semibold hover:opacity-75 transition-opacity"
                 >
                   hero.empowrcic.org

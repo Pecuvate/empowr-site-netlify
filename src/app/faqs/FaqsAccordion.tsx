@@ -313,7 +313,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <a
                 href="https://hero.empowrcic.org"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className={linkClass}
               >
                 hero.empowrcic.org
