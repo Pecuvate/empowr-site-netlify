@@ -15,6 +15,9 @@ const ROUTES = [
     cta: "Become a Hero",
     href: LINKS.heroesplatform,
     external: true,
+    // Empowr-owned destination — keep the Referer header so cross-property
+    // traffic stays attributable in analytics. See noreferrer note below.
+    empowrOwned: true,
     accent: "bg-blue text-white",
     ctaClass:
       "bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors",
@@ -25,6 +28,7 @@ const ROUTES = [
     cta: "Find Out More",
     href: "/partner-with-us",
     external: false,
+    empowrOwned: true,
     accent: "bg-warm-white border border-border text-black",
     ctaClass:
       "bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors",
@@ -35,6 +39,7 @@ const ROUTES = [
     cta: "Find Out More",
     href: "/work-with-us",
     external: false,
+    empowrOwned: true,
     accent: "bg-warm-white border border-border text-black",
     ctaClass:
       "bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors",
@@ -45,6 +50,8 @@ const ROUTES = [
     cta: "Join on WhatsApp",
     href: LINKS.socialWhatsApp,
     external: true,
+    // Third party — keep noreferrer.
+    empowrOwned: false,
     accent: "bg-warm-white border border-border text-black",
     ctaClass:
       "bg-blue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-dark transition-colors",
@@ -87,7 +94,7 @@ export default function GetInvolvedPage() {
                   <a
                     href={route.href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel={route.empowrOwned ? "noopener" : "noopener noreferrer"}
                     className={`self-start ${route.ctaClass}`}
                   >
                     {route.cta}

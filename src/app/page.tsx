@@ -79,7 +79,7 @@ export default function Home() {
             <a
               href={LINKS.booking}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="bg-white text-blue font-semibold px-7 py-3 rounded-full hover:bg-blue-pale transition-colors"
             >
               Book a Session
@@ -87,7 +87,7 @@ export default function Home() {
             <a
               href={LINKS.heroesplatform}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="border-2 border-white text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-colors"
             >
               Support Our Work
@@ -124,7 +124,7 @@ export default function Home() {
             <a
               href={LINKS.booking}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="bg-blue text-white font-semibold px-8 py-3.5 rounded-full hover:bg-blue-dark transition-colors inline-block"
             >
               Book a Session
@@ -225,7 +225,7 @@ export default function Home() {
                   <a
                     href={card.href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                     className="bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-blue-dark transition-colors text-center"
                   >
                     {card.cta}

@@ -282,7 +282,7 @@ export default function OurWorkPage() {
             <a
               href={LINKS.booking}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="bg-blue text-white font-semibold px-8 py-3.5 rounded-full hover:bg-blue-dark transition-colors inline-block"
             >
               Book a Session

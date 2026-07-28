@@ -131,7 +131,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <a
                 href="https://eela.empowrcic.org"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className={linkClass}
               >
                 eela.empowrcic.org
@@ -178,7 +178,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <a
                 href="https://eela.empowrcic.org"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className={linkClass}
               >
                 eela.empowrcic.org
@@ -203,7 +203,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <a
                 href="https://eela.empowrcic.org"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className={linkClass}
               >
                 eela.empowrcic.org
@@ -220,7 +220,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <a
                 href="https://start.empowrcic.org/quiz"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className={linkClass}
               >
                 start.empowrcic.org/quiz

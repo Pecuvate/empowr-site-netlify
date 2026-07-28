@@ -53,7 +53,7 @@ export default function ExperientialLearningPage() {
             <a
               href={LINKS.booking}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="border-2 border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
             >
               Join a Session
@@ -61,7 +61,7 @@ export default function ExperientialLearningPage() {
             <a
               href={LINKS.heroesplatform}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="border-2 border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
             >
               Support Our Work

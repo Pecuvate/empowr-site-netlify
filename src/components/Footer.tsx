@@ -102,7 +102,7 @@ export default function Footer() {
                 <a
                   href={LINKS.heroesplatform}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-sm text-muted hover:text-white transition-colors"
                 >
                   Empowr Heroes
@@ -221,7 +221,7 @@ export default function Footer() {
                 <a
                   href={LINKS.shop}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-sm text-muted hover:text-white transition-colors"
                 >
                   Visit Shop
