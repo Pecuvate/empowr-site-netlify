@@ -22,6 +22,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-27:** The `/contact` chat embed concept above was built on `feat/contact-chat-embed` (PR #1, not yet merged) — see that branch and `project_empowr_contact_chat_concept` in Claude memory for the full build. This session: fixed the "speak to the team" option disappearing after the first message (`ChatEmbed.tsx`, commit `22f23a1`), and reverted the contact form's live routing from CRM-primary back to direct-Resend-only at the owner's request ahead of a launch (env-var toggle on Netlify, no code change — `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` currently unset in production). Re-enabling CRM routing later is just restoring those two vars + a Netlify rebuild — but only do that on the owner's explicit go-ahead, not automatically once other CRM work (e.g. the Queries/Cost-breakdown UI polish) is finished.
 
+**2026-07-28:** PostHog switched from `persistence: 'memory'` to `cookieless_mode: 'always'` (`src/components/PostHogProvider.tsx`, commit `30e4f06`) — part of the Empowr CIC-wide cookieless rollout, fixes bounce rate/session data that was structurally invalid under memory mode. No other change. Full detail in AnalyticsHub DEVLOG/memory.
+
 ---
 
 ## Phase Status

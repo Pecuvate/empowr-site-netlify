@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-07-28
+
+- Switched PostHog from `persistence: 'memory'` to `cookieless_mode: 'always'` in `src/components/PostHogProvider.tsx` (`30e4f06`) — rollout following a verified pilot on Empowr Landing Page; fixes bounce rate and session data being structurally invalid under memory mode (every pageview was its own session)
+- Legal basis: legitimate interest (same as Plausible/Fathom), confirmed via live research rather than assumption; PECR doesn't apply since nothing is stored on the device (ICO 2026 guidance)
+- Netlify deploy verified `ready` post-push
+
+---
+
 ## 2026-07-27 (session 3)
 
 - Reverted the contact form from the CRM-primary pipeline back to direct-Resend-only at the owner's request ahead of a launch — unset `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` on Netlify prod and triggered a rebuild via the Netlify API (`createSiteBuild`) since Functions bake env vars in at build time. No code change either direction — `contact.ts`'s CRM-then-fallback logic (session 2, below) is already env-driven; re-enabling later is just restoring those two vars + a rebuild. **Stays off until the owner explicitly says to re-enable it — finishing the remaining queued CRM items is not itself the trigger.**
@@ -29,13 +37,7 @@
 
 ---
 
-## 2026-07-27
-
-- Expanded `/faqs` from 2 to 15 questions across 5 grouped sections (About Empowr, Programmes, Sessions & Booking, Getting Involved, Impact & Accountability) — content sourced from the Empowr KB (`entities/*`, `concepts/experiential-learning`, `synthesis/impact-report`)
-- Refactored `FaqsAccordion.tsx` from a flat `FAQS` array to `FAQ_SECTIONS` (`{title, items[]}`), each section rendering its own heading + card
-- Content rules baked into `planning/pages/faqs.md`: never hardcode schedules/prices/ages (route to eela.empowrcic.org instead), cancellation answer must track legal policy version (currently T&Cs/Programme Policies v1.1), impact figures CIC 34-verified only
-- Typecheck + `npm run build` both passed before push; deployed via Netlify auto-deploy on push to `main` (commit `ce70e15`)
-- Process note: user asked for a plan first intending to hand execution to Sonnet — I implemented directly on Fable instead; saved as a standing feedback memory (`feedback_plan_first_means_stop_at_plan`) to stop at the plan next time unless told to proceed
+## 2026-07-27 — Expanded `/faqs` from 2 to 15 questions across 5 grouped sections, sourced from the Empowr KB; refactored `FaqsAccordion.tsx` to `FAQ_SECTIONS`; deployed `ce70e15`
 
 ---
 
