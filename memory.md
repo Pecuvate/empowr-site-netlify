@@ -24,6 +24,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-28:** PostHog switched from `persistence: 'memory'` to `cookieless_mode: 'always'` (`src/components/PostHogProvider.tsx`, commit `30e4f06`) — part of the Empowr CIC-wide cookieless rollout, fixes bounce rate/session data that was structurally invalid under memory mode. No other change. Full detail in AnalyticsHub DEVLOG/memory.
 
+**2026-07-28 (session 2):** `netlify.toml` gained a `/product-page/*` → `https://empowrcic.wixsite.com/empowrcic/shop` redirect (301, commit `0ce523e`) — leftover Wix product URLs from the pre-migration site, still indexed by Google, were 404ing and (before this fix) firing PostHog pageviews from the 404 page. Investigated first: ~330 hits/14d, but 330/331 came from just 2 headless-Chrome UAs with zero mobile/Windows/Mac — bot traffic, not lost sales. **This redirect target is temporary** — the shop is leaving Wix as part of the broader Wix exit (see `project_empowr_members_platform` memory); update the redirect when that happens, or it'll 301 people to a dead Wix site instead of a dead Next.js route.
+
 ---
 
 ## Phase Status

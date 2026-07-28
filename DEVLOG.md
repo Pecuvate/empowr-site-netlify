@@ -2,6 +2,17 @@
 
 ---
 
+## 2026-07-28 (session 2)
+
+- Added a `netlify.toml` redirect: `/product-page/*` → `https://empowrcic.wixsite.com/empowrcic/shop` (301, `force = true`, commit `0ce523e`) — these are leftover Wix product URLs from before the 2026-06-13 DNS cutover, still indexed by Google, 404ing on the current Next.js export
+- Investigated via PostHog before building anything: ~330 hits/14d on these dead URLs, all `$direct` referrer, one pageview per session every time, and **330 of 331 hits came from just 2 distinct user agents, all "X11; Linux" headless-Chrome, zero mobile/Windows/Mac** — this is automated crawler/bot traffic, not real customers hitting a dead end. Corrected an earlier overclaim in-session that this was "lost sales"
+- Because this is a static-export site (`publish = "out"`), the redirect fires at Netlify's edge before the app (and its PostHog script) ever loads — verified live (`301` → correct Location header) and confirmed via HogQL that this stops these hits from generating `empowr-main` pageview/bounce events in Analytics Hub going forward
+- One hit slipped through ~45 min after the deploy was confirmed live (different product slug, `colour-edit-sk8-fam-t-shirt-by-empowr`) — most likely caught in CDN propagation right after deploy; re-tested that exact URL afterward and it redirects correctly, so treated as a one-off, not a leak
+- **Contamination timeline for Analytics Hub** (rolling windows, not a hard cutover): last observed contaminated hit `2026-07-28T21:40:23+01:00`. 7-day trend badge (14-day window) clears **11 August 2026**; pageviews/visitors/bounce/top-pages/referrers (30-day window) clears **27 August 2026**. Immediate cleanup would need a manual PostHog data deletion — not done, would need explicit go-ahead first
+- **Wix exit context surfaced by the user this session** (recorded in `project_empowr_members_platform` memory): booking (already being rebuilt on Empowr Members) and the shop are the only remaining Wix uses; plan is basic-plan downgrade once booking cuts over, then full exit once Members platform is live. Today's redirect target is a bridge — it'll need repointing when the shop leaves Wix
+
+---
+
 ## 2026-07-28
 
 - Switched PostHog from `persistence: 'memory'` to `cookieless_mode: 'always'` in `src/components/PostHogProvider.tsx` (`30e4f06`) — rollout following a verified pilot on Empowr Landing Page; fixes bounce rate and session data being structurally invalid under memory mode (every pageview was its own session)
@@ -28,12 +39,7 @@
 
 ---
 
-## 2026-07-27
-
-- Rebuilt the floating chat bubble fresh on `feat/chat-bubble-v2` (old `feat/chat-bubble` branch was 23 commits stale) — `ChatBubble.tsx` + `layout.tsx` wiring, mobile-safe sizing added; PR #2 open (github.com/Pecuvate/empowr-site-netlify/pull/2) with a live Netlify deploy preview at `deploy-preview-2--empowr-main-site.netlify.app`; NOT yet merged
-- Found and fixed a real bug during review: the bubble iframes the CRM widget from a third-party origin, and `WidgetClient.tsx`'s unguarded `localStorage` access threw in that context — widget rendered but was completely inert with no error shown. Fix landed CRM-side (see that project's DEVLOG), verified working on this site's preview under simulated blocked storage
-- Open decision, not yet made: if `feat/chat-bubble-v2` merges, `/contact` will show both the floating bubble and the existing inline chat embed (`feat/contact-chat-embed`, PR #1) — needs a UX call at merge time
-- Next: get sign-off on the deploy preview, then merge; decide the `/contact` double-chat question
+## 2026-07-27 — Rebuilt floating chat bubble on `feat/chat-bubble-v2` (PR #2, not merged); fixed a real bug where the iframed CRM widget went inert under blocked third-party storage; open decision on `/contact` double-chat UX at merge time
 
 ---
 
