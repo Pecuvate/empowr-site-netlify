@@ -15,6 +15,12 @@
   status = 200
   force  = true
 
+[[redirects]]
+  from   = "/product-page/*"
+  to     = "https://empowrcic.wixsite.com/empowrcic/shop"
+  status = 301
+  force  = true
+
 [[headers]]
   for = "/*"
   [headers.values]
