@@ -545,7 +545,7 @@ export default function ProspectusPage() {
               </p>
               <p><strong className="text-black">Donate:</strong>{" "}
                 <a
-                  href="https://hero.empowrcic.org"
+                  href="https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
                   target="_blank"
                   rel="noopener"
                   className="text-blue font-semibold hover:opacity-75 transition-opacity"

@@ -129,7 +129,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               sub-programmes covering creativity, outdoor exploration,
               body-mind skills, and collaboration planned. Visit{" "}
               <a
-                href="https://eela.empowrcic.org"
+                href="https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
                 target="_blank"
                 rel="noopener"
                 className={linkClass}
@@ -176,7 +176,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               For current age ranges, schedules, and availability, check the
               individual session pages at{" "}
               <a
-                href="https://eela.empowrcic.org"
+                href="https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
                 target="_blank"
                 rel="noopener"
                 className={linkClass}
@@ -201,7 +201,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               Sessions are booked online through the individual session pages
             at{" "}
               <a
-                href="https://eela.empowrcic.org"
+                href="https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
                 target="_blank"
                 rel="noopener"
                 className={linkClass}
@@ -218,7 +218,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               this site. Not sure which session is right for you? Take the
               quiz at{" "}
               <a
-                href="https://start.empowrcic.org/quiz"
+                href="https://start.empowrcic.org/quiz?utm_source=empowr-main&utm_medium=internal"
                 target="_blank"
                 rel="noopener"
                 className={linkClass}
@@ -311,7 +311,7 @@ const FAQ_SECTIONS: FaqSection[] = [
             <p>
               Donations are made through our Heroes platform at{" "}
               <a
-                href="https://hero.empowrcic.org"
+                href="https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
                 target="_blank"
                 rel="noopener"
                 className={linkClass}

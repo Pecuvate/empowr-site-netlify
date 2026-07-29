@@ -1,8 +1,8 @@
 export const LINKS = {
-  heroesplatform: "https://hero.empowrcic.org",
+  heroesplatform: "https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
   experientialLearningReport: "/experiential-learning/report",
-  booking: "https://eela.empowrcic.org/",
-  eelaAbout: "https://eela.empowrcic.org/about",
+  booking: "https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
+  eelaAbout: "https://eela.empowrcic.org/about?utm_source=empowr-main&utm_medium=internal",
   experientialLearning: "/experiential-learning",
   contactEmail: "enquiries@empowrcic.org",
   opportunitiesEmail: "opportunities@empowrcic.org",
