@@ -2,6 +2,13 @@
 
 ---
 
+## 2026-07-29 — Cross-site UTM tagging (T5 alternative)
+
+- `src/lib/links.ts`, `FaqsAccordion.tsx`, `prospectus/page.tsx`: every outbound link to hero.empowrcic.org, eela.empowrcic.org, and start.empowrcic.org now carries `?utm_source=empowr-main&utm_medium=internal` — the practical alternative to full cross-domain session linking, which was ruled out this session as incompatible with the site's cookieless PostHog mode (`identify()` is disallowed under `cookieless_mode: 'always'`; full reasoning in AnalyticsHub DEVLOG)
+- Commit `2cbb95d`, pushed to `main`, Netlify auto-deployed
+
+---
+
 ## 2026-07-28 (session 2)
 
 - Added a `netlify.toml` redirect: `/product-page/*` → `https://empowrcic.wixsite.com/empowrcic/shop` (301, `force = true`, commit `0ce523e`) — these are leftover Wix product URLs from before the 2026-06-13 DNS cutover, still indexed by Google, 404ing on the current Next.js export
@@ -29,13 +36,7 @@
 
 ---
 
-## 2026-07-27 (session 2)
-
-- `src/netlify/functions/contact.ts` now routes submissions into PecuvateCRM's Escalations dashboard as the primary path (new `notifyCrm()` call, authenticated via `CRM_CONTACT_API_KEY` shared-secret header) instead of only sending an internal Resend email — the CRM record is what agents actually work from now. Falls back to the original direct Resend notification if the CRM call fails or the env vars aren't set, so a submission can't silently vanish; the visitor's own auto-reply email is unchanged. Honeypot/validation still run first, unchanged — bots never reach the CRM.
-- New env vars `CRM_CONTACT_API_URL` / `CRM_CONTACT_API_KEY` — added to `src/.env.local` (not the root one; `netlify.toml`'s `base = "src"` means `netlify dev` only loads env from there, confirmed via its injection log) and set on Netlify production.
-- Verified with a real live submission through `empowrcic.org`'s contact form after both sites deployed — landed as a genuine `escalated` `chat_sessions` row in PecuvateCRM, cleaned up after.
-- Committed `63b7dfc`; CRM-side changes + full design detail in that project's DEVLOG (2026-07-27 session 2).
-- Next: the chat-bubble-v2 merge decision above is still open; contact-form → CRM was the other queued item and is now done.
+## 2026-07-27 (session 2) — Routed contact form submissions into PecuvateCRM's Escalations dashboard as primary path (direct-Resend as fallback); verified live with a real submission; committed `63b7dfc`
 
 ---
 
