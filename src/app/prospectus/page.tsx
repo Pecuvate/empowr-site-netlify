@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Supporter Prospectus 2025–2026 | Empowr CIC",
@@ -545,7 +546,7 @@ export default function ProspectusPage() {
               </p>
               <p><strong className="text-black">Donate:</strong>{" "}
                 <a
-                  href="https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
+                  href={LINKS.heroesplatform}
                   target="_blank"
                   rel="noopener"
                   className="text-blue font-semibold hover:opacity-75 transition-opacity"

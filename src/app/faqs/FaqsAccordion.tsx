@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { LINKS } from "@/lib/links";
 
 const linkClass =
   "text-blue underline hover:text-blue-dark transition-colors";
@@ -311,7 +312,7 @@ const FAQ_SECTIONS: FaqSection[] = [
             <p>
               Donations are made through our Heroes platform at{" "}
               <a
-                href="https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal"
+                href={LINKS.heroesplatform}
                 target="_blank"
                 rel="noopener"
                 className={linkClass}
