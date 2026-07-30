@@ -13,11 +13,15 @@ const ROUTES = [
     heading: "Support Our Work",
     body: "Give monthly or one-time to fund Empowr programmes and activities in the community. Every contribution helps us reach more people.",
     cta: "Become a Hero",
-    href: LINKS.heroesplatform,
+    // Explicit ask — land on the tier chooser, not the Heroes mission page.
+    href: LINKS.heroesDonate,
     external: true,
     // Empowr-owned destination — keep the Referer header so cross-property
     // traffic stays attributable in analytics. See noreferrer note below.
     empowrOwned: true,
+    // Conversion path, not a reference link — keep it in the same tab so the
+    // visitor commits to the journey rather than spawning a background tab.
+    sameTab: true,
     accent: "bg-blue text-white",
     ctaClass:
       "bg-white text-blue font-semibold px-6 py-3 rounded-full hover:bg-blue-pale transition-colors",
@@ -93,7 +97,7 @@ export default function GetInvolvedPage() {
                 {route.external ? (
                   <a
                     href={route.href}
-                    target="_blank"
+                    target={"sameTab" in route && route.sameTab ? undefined : "_blank"}
                     rel={route.empowrOwned ? "noopener" : "noopener noreferrer"}
                     className={`self-start ${route.ctaClass}`}
                   >

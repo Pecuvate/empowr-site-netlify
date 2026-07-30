@@ -1,5 +1,12 @@
 export const LINKS = {
+  // Heroes landing (`/`) — for informational mentions, where the visitor has
+  // not yet responded to an ask and still needs the mission pitch.
   heroesplatform: "https://hero.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
+  // Heroes tier chooser (`/become`) — for explicit asks ("Support Us",
+  // "Become a Hero"). The visitor has already decided; do not make them read
+  // the mission page again before they can give.
+  heroesDonate:
+    "https://hero.empowrcic.org/become?utm_source=empowr-main&utm_medium=internal",
   experientialLearningReport: "/experiential-learning/report",
   booking: "https://eela.empowrcic.org/?utm_source=empowr-main&utm_medium=internal",
   eelaAbout: "https://eela.empowrcic.org/about?utm_source=empowr-main&utm_medium=internal",

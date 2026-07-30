@@ -16,7 +16,7 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 | Work With Us | `/work-with-us` |
 | Contact | `/contact` |
 
-**CTA button (right):** Support Us → `hero.empowrcic.org` (external, opens in new tab)
+**CTA button (right):** Support Us → `hero.empowrcic.org/become` (external, same tab)
 
 ---
 
@@ -36,3 +36,5 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 - `/news` restored to nav (between Our Work and Impact) — 6 historical posts live
 - `/experiential-learning` nav placement pending client decision — currently linked-only
 - The Support Us CTA routes directly to the Heroes donation platform, not to any internal page
+- It lands on `/become` (the tier chooser), not the Heroes home page. Someone clicking "Support Us" has already responded to the ask — sending them to the Heroes mission page makes them read a second pitch before they can give. Informational mentions of Heroes (footer, FAQs, prospectus) still point at `/`.
+- Same tab, not `_blank` (changed 2026-07-30). This is a conversion path, not a reference link — a new tab turns a decision into a background tab and removes any sense of having committed to the journey.

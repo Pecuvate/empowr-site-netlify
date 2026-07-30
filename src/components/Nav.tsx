@@ -51,8 +51,7 @@ export default function Nav() {
             Shop
           </a>
           <a
-            href={LINKS.heroesplatform}
-            target="_blank"
+            href={LINKS.heroesDonate}
             rel="noopener"
             className="bg-blue text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-dark transition-colors"
           >
@@ -92,8 +91,7 @@ export default function Nav() {
             Shop
           </a>
           <a
-            href={LINKS.heroesplatform}
-            target="_blank"
+            href={LINKS.heroesDonate}
             rel="noopener"
             className="mt-3 bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-blue-dark transition-colors text-center"
           >
