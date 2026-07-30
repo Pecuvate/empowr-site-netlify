@@ -79,13 +79,7 @@ Heroes gets ~70 pageviews/30d against this site's ~1,634, and produced 2 referre
 
 ---
 
-## 2026-07-28
-
-- Switched PostHog from `persistence: 'memory'` to `cookieless_mode: 'always'` in `src/components/PostHogProvider.tsx` (`30e4f06`) — rollout following a verified pilot on Empowr Landing Page; fixes bounce rate and session data being structurally invalid under memory mode (every pageview was its own session)
-- Legal basis: legitimate interest (same as Plausible/Fathom), confirmed via live research rather than assumption; PECR doesn't apply since nothing is stored on the device (ICO 2026 guidance)
-- Netlify deploy verified `ready` post-push
-
----
+## 2026-07-28 — PostHog switched to cookieless server hash mode (`cookieless_mode: 'always'`), replacing memory-mode persistence; cookie banner retained at the time
 
 ## 2026-07-27 (session 3) — Reverted contact form to direct-Resend-only at owner's request (stays off until explicitly re-enabled); fixed "Speak to the team" disappearing-after-first-message bug in ChatEmbed.tsx (PR #1), same bug found + fixed in PecuvateCRM's own widget
 
