@@ -13,6 +13,20 @@ Came out of a full review of Empowr Heroes; both findings apply here.
 - **Dropped `target="_blank"`** from those same explicit-ask CTAs. A conversion path shouldn't spawn a background tab. `/get-involved` gained a `sameTab` flag on the route object so the shared renderer keeps `_blank` for genuinely external links (the WhatsApp community).
 - Planning docs updated per the sync rule — `planning/layout/nav.md`, `planning/pages/get-involved.md`.
 
+### Follow-up, same day — three CTAs missed on the first pass
+
+The first commit only caught the nav and `/get-involved`. My initial audit grepped for the literal `hero.empowrcic.org` string, which silently skipped every file referencing `LINKS.heroesplatform` by constant. Caught it verifying the live deploy — three `target="_blank"` Heroes links remained on the homepage where I expected one (the footer).
+
+Also repointed, now on `LINKS.heroesDonate` + same tab:
+
+- `src/app/page.tsx` — `ROUTE_CARDS` "Become a Hero" card (gained a `sameTab` flag, same pattern as `/get-involved`)
+- `src/app/page.tsx` — closing band "Support Our Work"
+- `src/app/experiential-learning/page.tsx` — closing band "Support Our Work"
+
+**The rule, recorded in `planning/layout/nav.md`:** explicit asks → `heroesDonate` → `/become`, same tab. Informational mentions → `heroesplatform` → `/`, new tab. Six explicit asks total (nav ×2, home ×2, get-involved, experiential-learning); three informational (footer, FAQs, prospectus).
+
+Noted, not changed: `faqs/FaqsAccordion.tsx` and `prospectus/page.tsx` hardcode the Heroes URL instead of using `LINKS`, against this project's own "external URLs → `src/lib/links.ts`" rule. Destination is correct, so left alone rather than widening this change.
+
 ### Checked, no action
 
 Security headers are **fine here**. This site is a static export (`output: "export"`, `publish = "out"`), so `netlify.toml` `[[headers]]` apply normally — all four verified live on `www.empowrcic.org`. An earlier check appeared to show them missing; that was `curl` against the apex domain reading the 301's headers instead of the destination's. (Heroes *is* affected, because it runs the Next.js runtime — fixed separately in that repo.)

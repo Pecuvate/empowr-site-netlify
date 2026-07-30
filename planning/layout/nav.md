@@ -38,3 +38,5 @@ Sticky header, appears on all pages via `src/app/layout.tsx`.
 - The Support Us CTA routes directly to the Heroes donation platform, not to any internal page
 - It lands on `/become` (the tier chooser), not the Heroes home page. Someone clicking "Support Us" has already responded to the ask — sending them to the Heroes mission page makes them read a second pitch before they can give. Informational mentions of Heroes (footer, FAQs, prospectus) still point at `/`.
 - Same tab, not `_blank` (changed 2026-07-30). This is a conversion path, not a reference link — a new tab turns a decision into a background tab and removes any sense of having committed to the journey.
+
+**The rule, site-wide:** every *explicit ask* ("Support Us", "Support Our Work", "Become a Hero") uses `LINKS.heroesDonate` → `/become`, same tab. Every *informational mention* of the Heroes platform (footer programme list, FAQs, prospectus) uses `LINKS.heroesplatform` → `/`, new tab. Six explicit asks currently: nav ×2, home ×2, `/get-involved`, `/experiential-learning`.

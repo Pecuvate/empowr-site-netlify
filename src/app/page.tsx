@@ -22,8 +22,10 @@ const ROUTE_CARDS = [
     heading: "Support Our Work",
     body: "Give monthly or one-time to fund Empowr programmes and activities in the community.",
     cta: "Become a Hero",
-    href: LINKS.heroesplatform,
+    // Explicit ask — tier chooser, same tab. See planning/layout/nav.md.
+    href: LINKS.heroesDonate,
     external: true,
+    sameTab: true,
   },
   {
     heading: "See Our Impact",
@@ -85,8 +87,7 @@ export default function Home() {
               Book a Session
             </a>
             <a
-              href={LINKS.heroesplatform}
-              target="_blank"
+              href={LINKS.heroesDonate}
               rel="noopener"
               className="border-2 border-white text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-colors"
             >
@@ -224,7 +225,7 @@ export default function Home() {
                 {card.external ? (
                   <a
                     href={card.href}
-                    target="_blank"
+                    target={"sameTab" in card && card.sameTab ? undefined : "_blank"}
                     rel="noopener"
                     className="bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-blue-dark transition-colors text-center"
                   >

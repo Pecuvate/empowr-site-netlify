@@ -11,7 +11,7 @@
 - Blue background, white text
 - Headline: *"Live by growing. Grow by learning. Learn by doing."*
 - Sub-copy: *"We design and deliver [experiential learning](/experiential-learning) programmes that improve long-term mental, physical, and emotional wellbeing — for people of every age."* — "experiential learning" is an inline `<Link>` → `/experiential-learning`
-- CTAs: **Book a Session** → `eela.empowrcic.org` (primary, white button) | **Support Our Work** → `hero.empowrcic.org` (ghost)
+- CTAs: **Book a Session** → `eela.empowrcic.org` (primary, white button) | **Support Our Work** → `hero.empowrcic.org/become` (ghost, same tab)
 
 ### 2. Everyone Is Welcome Here — Find Your Session
 - Cream background
@@ -41,7 +41,7 @@
 
 ### 5. Get Involved
 - Cream background, 4 cards
-- **Support Our Work** → `hero.empowrcic.org` (external)
+- **Support Our Work** → `hero.empowrcic.org/become` (external, same tab)
 - **See Our Impact** → `/impact`
 - **Work With Us** → `/work-with-us`
 - **Partner With Us** → `/partner-with-us`
