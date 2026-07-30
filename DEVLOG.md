@@ -2,6 +2,26 @@
 
 ---
 
+## 2026-07-29 (session 2) — Removed dead cookie consent banner + preferences system
+
+### Done
+
+- Deleted `CookieBanner.tsx`, `ConsentContext.tsx`, `lib/consent.ts`, `CookiePreferencesButton.tsx`, `/cookie-preferences` page; updated `layout.tsx` (unwrapped `ConsentProvider`) and `Footer.tsx` (removed the dead link). 7 files changed, 341 lines removed.
+- Root cause: `PostHogProvider.tsx` runs `cookieless_mode: 'always'` — nothing is ever written to the device, so the banner's Accept/Decline/Manage-preferences choices did nothing (`posthog.init()` ran unconditionally either way), and the deleted `/cookie-preferences` page described fictional "analytics cookies... duration up to 2 years" that were never actually set.
+- Verified live via Playwright: home page loads with zero console errors, no banner, Footer Legal column shows only "All Our Policies." Planning docs (`footer.md`, `_index.md`) already didn't document the dead system, so no doc updates were needed.
+- Commit `c4c77b5`, pushed to `main` — Netlify auto-deploys (static export).
+
+### Decisions
+
+- User confirmed removal after the legal reasoning: PECR doesn't apply (nothing stored on device), GDPR lawful basis is legitimate interest documented via the Privacy Policy — same basis already adopted project-wide during the T3 cookieless migration. Standard practice for this pattern is no banner, disclosure via a standard footer Privacy Policy link — which Main Site already has, independent of the deleted system.
+- Left `/legal/cookie-policy` (Netlify redirect to LegalHub/Sanity content) untouched — separate CMS system; its copy likely still needs a cookieless-wording update but that's a `/update-sanity` task.
+
+### Next
+
+- Follow-up flagged, not scoped: update the LegalHub `cookie-policy` Sanity document to cookieless wording.
+
+---
+
 ## 2026-07-29 — Cross-site UTM tagging (T5 alternative)
 
 - `src/lib/links.ts`, `FaqsAccordion.tsx`, `prospectus/page.tsx`: every outbound link to hero.empowrcic.org, eela.empowrcic.org, and start.empowrcic.org now carries `?utm_source=empowr-main&utm_medium=internal` — the practical alternative to full cross-domain session linking, which was ruled out this session as incompatible with the site's cookieless PostHog mode (`identify()` is disallowed under `cookieless_mode: 'always'`; full reasoning in AnalyticsHub DEVLOG)
@@ -28,11 +48,7 @@
 
 ---
 
-## 2026-07-27 (session 3)
-
-- Reverted the contact form from the CRM-primary pipeline back to direct-Resend-only at the owner's request ahead of a launch — unset `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` on Netlify prod and triggered a rebuild via the Netlify API (`createSiteBuild`) since Functions bake env vars in at build time. No code change either direction — `contact.ts`'s CRM-then-fallback logic (session 2, below) is already env-driven; re-enabling later is just restoring those two vars + a rebuild. **Stays off until the owner explicitly says to re-enable it — finishing the remaining queued CRM items is not itself the trigger.**
-- Fixed `ChatEmbed.tsx` (PR #1, `feat/contact-chat-embed`): the "Speak to the team" option lived only inside the zero-message quick-replies block (the UX gap flagged 2026-07-24, below), so it disappeared the instant a visitor sent anything, with no way back to a human handoff. Shipped a simpler fix than the redesign planned 2026-07-24 — a persistent "Speak to the team instead" footer link once the conversation is active with ≥1 message, rather than a post-reply "Did that answer your question?" prompt. Verified live in a browser against the real CRM backend (sent a message, confirmed the link stayed visible, clicked it, confirmed the escalation form appeared); found the identical bug copied into PecuvateCRM's own live widget and fixed it there too (see that repo's DEVLOG). Committed `22f23a1`, pushed to PR #1
-- Next: Queries/Cost-breakdown UI polish is the last item PecuvateCRM owner wants done, but is not itself what re-enables the CRM contact-form path — that needs an explicit owner decision separately; PR #1 and PR #2 (`feat/chat-bubble-v2`) both still open, unmerged
+## 2026-07-27 (session 3) — Reverted contact form to direct-Resend-only at owner's request (stays off until explicitly re-enabled); fixed "Speak to the team" disappearing-after-first-message bug in ChatEmbed.tsx (PR #1), same bug found + fixed in PecuvateCRM's own widget
 
 ---
 

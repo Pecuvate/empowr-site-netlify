@@ -28,6 +28,8 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 
 **2026-07-28 (session 2):** `netlify.toml` gained a `/product-page/*` → `https://empowrcic.wixsite.com/empowrcic/shop` redirect (301, commit `0ce523e`) — leftover Wix product URLs from the pre-migration site, still indexed by Google, were 404ing and (before this fix) firing PostHog pageviews from the 404 page. Investigated first: ~330 hits/14d, but 330/331 came from just 2 headless-Chrome UAs with zero mobile/Windows/Mac — bot traffic, not lost sales. **This redirect target is temporary** — the shop is leaving Wix as part of the broader Wix exit (see `project_empowr_members_platform` memory); update the redirect when that happens, or it'll 301 people to a dead Wix site instead of a dead Next.js route.
 
+**2026-07-29 (session 2):** The cookie consent banner system built in Session 29 is now **gone entirely** — `CookieBanner.tsx`, `ConsentContext.tsx`, `lib/consent.ts`, `CookiePreferencesButton.tsx`, and the `/cookie-preferences` page were deleted; `layout.tsx` and `Footer.tsx` updated to match. Reason: PostHog here runs `cookieless_mode: 'always'` (see 2026-07-28 entry above) — nothing is ever written to the device, so the banner's Accept/Decline/Manage-preferences choices did nothing, and `/cookie-preferences` described fictional "analytics cookies" that were never set. No consent is legally required under this mode (legitimate interest, disclosed via the Privacy Policy footer link, which is untouched). **Do not re-add a cookie banner to this site without first checking whether the underlying PostHog config is still `cookieless_mode: 'always'`** — if that ever changes (e.g. a members area gets added and cross-day identity becomes needed), the Variant B pattern (EELA's `CookieConsentBanner` + `on_reject` mode) is the rebuild template, not this deleted code. Commit `c4c77b5`, pushed.
+
 ---
 
 ## Phase Status
@@ -51,6 +53,7 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 - CIC reports: external links to Companies House — not hosted PDFs
 - Contact form: currently direct-Resend-only (CRM routing temporarily reverted 2026-07-27, see Current Phase) — `contact.ts` supports both paths, toggled by whether `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` are set on Netlify; visitor auto-reply always via Resend either way
 - News: MDX files in `src/content/news/` — no CMS in Phase 1
+- Cookie consent: **none** — no banner, no `/cookie-preferences` page (removed 2026-07-29). Analytics runs cookieless under legitimate interest; disclosure is the Privacy Policy footer link only
 
 ---
 
