@@ -14,7 +14,16 @@ PostHog showed a visit to `/service-page/kids-skate-jam-with-coaching-5-15-yrs`,
   - Ambiguous slugs (`sk8-skool-backwards-skating-masterclass`, `each1teach1-skate-jam`, the `sk8-skool-*-13-*` ones — the `13` isn't reliably an age, Wix also uses numeric suffixes for duplicate service names) were **not** guessed — EELA's own age bands are `kids-space` = 5+ (no cap) and `adults` = 15+ explicitly, so a wrong guess on a 13-year-old's class is plausible. These fall through the `/service-page/*` wildcard to `eela.empowrcic.org` (has both a "Kids Space (5+)" and "Adults (15+)" CTA for self-select).
   - Netlify redirects are first-match-wins, so the explicit slug rules are ordered before the wildcard.
 - `/product-page/*` left as-is (still bridges to the Wix shop — out of scope for this pass).
-- Not committed/pushed yet — pending user confirmation.
+- Committed + pushed as `3f524ce`; Netlify auto-deployed.
+
+**Correction to the traffic figures.** The audit query omitted the bot filter the `/posthog-analyse` skill mandates, and counted the user's own testing — 7 of the 12 hits on the headline URL were from investigating it that day. Honest volume is ~24 hits across all `/service-page/*` slugs in 90 days, concentrated late June/early July. The redirects still stand; the urgency did not.
+
+### Same day — sitemap added (`4a3ed7c`)
+
+- No `sitemap.xml` existed, yet `robots.txt` had been declaring `Sitemap: https://empowrcic.org/sitemap.xml` — a 404, and on the wrong host (the apex 301s to `www`). Both fixed.
+- Added `src/app/sitemap.ts` — 22 URLs: 16 static routes plus the 6 MDX news posts derived from `getAllPosts()` so publishing can't leave it stale, with `lastModified` from each post's date.
+- **`export const dynamic = 'force-static'` is required** under `output: 'export'` — without it the build fails collecting page data for `/sitemap.xml`. Not a type error, so `tsc` and review both pass it. Caught only by running the build.
+- Verified live (200, 22 URLs) after deploy, not just pushed.
 
 ## 2026-07-30 — PostHog route-change tracking fix + "Support Us" conversion path
 
@@ -82,14 +91,7 @@ Heroes gets ~70 pageviews/30d against this site's ~1,634, and produced 2 referre
 
 ---
 
-## 2026-07-28 (session 2)
-
-- Added a `netlify.toml` redirect: `/product-page/*` → `https://empowrcic.wixsite.com/empowrcic/shop` (301, `force = true`, commit `0ce523e`) — these are leftover Wix product URLs from before the 2026-06-13 DNS cutover, still indexed by Google, 404ing on the current Next.js export
-- Investigated via PostHog before building anything: ~330 hits/14d on these dead URLs, all `$direct` referrer, one pageview per session every time, and **330 of 331 hits came from just 2 distinct user agents, all "X11; Linux" headless-Chrome, zero mobile/Windows/Mac** — this is automated crawler/bot traffic, not real customers hitting a dead end. Corrected an earlier overclaim in-session that this was "lost sales"
-- Because this is a static-export site (`publish = "out"`), the redirect fires at Netlify's edge before the app (and its PostHog script) ever loads — verified live (`301` → correct Location header) and confirmed via HogQL that this stops these hits from generating `empowr-main` pageview/bounce events in Analytics Hub going forward
-- One hit slipped through ~45 min after the deploy was confirmed live (different product slug, `colour-edit-sk8-fam-t-shirt-by-empowr`) — most likely caught in CDN propagation right after deploy; re-tested that exact URL afterward and it redirects correctly, so treated as a one-off, not a leak
-- **Contamination timeline for Analytics Hub** (rolling windows, not a hard cutover): last observed contaminated hit `2026-07-28T21:40:23+01:00`. 7-day trend badge (14-day window) clears **11 August 2026**; pageviews/visitors/bounce/top-pages/referrers (30-day window) clears **27 August 2026**. Immediate cleanup would need a manual PostHog data deletion — not done, would need explicit go-ahead first
-- **Wix exit context surfaced by the user this session** (recorded in `project_empowr_members_platform` memory): booking (already being rebuilt on Empowr Members) and the shop are the only remaining Wix uses; plan is basic-plan downgrade once booking cuts over, then full exit once Members platform is live. Today's redirect target is a bridge — it'll need repointing when the shop leaves Wix
+## 2026-07-28 (session 2) - Added `/product-page/*` -> Wix shop redirect (`0ce523e`); PostHog showed the ~330 hits/14d were headless-Chrome bot traffic, not lost sales; Analytics Hub contamination clears 27 Aug 2026
 
 ---
 
