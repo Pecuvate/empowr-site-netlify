@@ -21,4 +21,4 @@ Allow: /
 User-agent: FacebookBot
 Allow: /
 
-Sitemap: https://empowrcic.org/sitemap.xml
+Sitemap: https://www.empowrcic.org/sitemap.xml
