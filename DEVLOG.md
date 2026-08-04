@@ -2,6 +2,20 @@
 
 ---
 
+## 2026-08-04 — `/service-page/*` 404s fixed + full legacy-Wix-URL audit via PostHog
+
+PostHog showed a visit to `/service-page/kids-skate-jam-with-coaching-5-15-yrs`, which 404s on the current Next.js export. Same root cause as the `/product-page/*` fix (2026-08-01): Wix Bookings/Stores auto-generate `/service-page/*` and `/product-page/*` URLs per bookable item, Google indexed them pre-cutover (2026-06-13), and the Next.js export has no equivalent routes.
+
+- Ran a 90-day HogQL query against `empowr-main` for every `/service-page/*` and `/product-page/*` hit — found 19 distinct legacy slugs still receiving traffic, not just the one reported.
+- User wants these routed forward to EELA (kids vs adult section) rather than back to Wix.
+- Classified each `/service-page/*` slug by audience from its name:
+  - Explicit **kids** matches (`kids-skate-jam-with-coaching-5-15-yrs`, `wednesday-skate-lesson-5-12-yrs`, `sk8-skool-for-kidz-5-15-yrs-1`, `roller-skating-camp-5-12years`) → individual `netlify.toml` redirects to `eela.empowrcic.org/kids-space`.
+  - Explicit **adult** match (`adult-skate-jam-with-coaching-15`) → redirect to `eela.empowrcic.org/adults`.
+  - Ambiguous slugs (`sk8-skool-backwards-skating-masterclass`, `each1teach1-skate-jam`, the `sk8-skool-*-13-*` ones — the `13` isn't reliably an age, Wix also uses numeric suffixes for duplicate service names) were **not** guessed — EELA's own age bands are `kids-space` = 5+ (no cap) and `adults` = 15+ explicitly, so a wrong guess on a 13-year-old's class is plausible. These fall through the `/service-page/*` wildcard to `eela.empowrcic.org` (has both a "Kids Space (5+)" and "Adults (15+)" CTA for self-select).
+  - Netlify redirects are first-match-wins, so the explicit slug rules are ordered before the wildcard.
+- `/product-page/*` left as-is (still bridges to the Wix shop — out of scope for this pass).
+- Not committed/pushed yet — pending user confirmation.
+
 ## 2026-07-30 — PostHog route-change tracking fix + "Support Us" conversion path
 
 Came out of a full review of Empowr Heroes; both findings apply here.

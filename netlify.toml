@@ -21,6 +21,46 @@
   status = 301
   force  = true
 
+# Explicit kids/adult matches (from PostHog audit of live legacy traffic) — must
+# precede the /service-page/* wildcard below, first-match-wins.
+[[redirects]]
+  from   = "/service-page/kids-skate-jam-with-coaching-5-15-yrs"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/service-page/wednesday-skate-lesson-5-12-yrs"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/service-page/sk8-skool-for-kidz-5-15-yrs-1"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/service-page/roller-skating-camp-5-12years"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/service-page/adult-skate-jam-with-coaching-15"
+  to     = "https://eela.empowrcic.org/adults"
+  status = 301
+  force  = true
+
+# Fallback for any other legacy Wix service slug — EELA home lets the visitor
+# self-select Kids Space vs Adults rather than guessing wrong from the slug.
+[[redirects]]
+  from   = "/service-page/*"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
 [[headers]]
   for = "/*"
   [headers.values]
