@@ -2,6 +2,19 @@
 
 ---
 
+## 2026-08-05 — Legacy Wix *page* URLs redirected (`c3438a0`) — a much bigger class than `/service-page/*`
+
+Started as "verify the domain in Search Console" and turned up a far larger problem. **The domain is already verified** — a `google-site-verification` TXT record is live on the apex (`2bygrBV5H6yayACEvbpjnrG5qxJBaD9WGiYhHRWkjWU`), so no setup was needed. But a Google `site:` search immediately revealed indexed Wix URLs that had never appeared in any PostHog query.
+
+- **Method that found it.** A `site:` search showed stale URLs; querying PostHog for *every trafficked path that isn't a real route* then quantified it: **~300 visits/180d (bot-filtered, excluding today) landing on 404s**. The yesterday pass only looked at `/service-page/*` and `/product-page/*`, so it saw ~26 of them. The lesson generalises — grepping for a known pattern only finds that pattern; enumerate against the real route list instead.
+- **Highest impact: `/risk-waiver` (11) and `/photograph-consent` (7) were dead ends.** `waiver.empowrcic.org` is the only place risk waivers and photo consent are captured, so these were people trying to complete compliance forms and failing.
+- Biggest by volume: `/sk8-skool` (105) and `/kidzspace` (51) → EELA. `/sk8-skool` covers both kids and adult variants so it goes to EELA home to self-select.
+- Pages with equivalents *here*: `/contact-us` → `/contact`, `/t-c-s` → `/legal`, and two Wix news URLs → their dated `/news/` slugs.
+- Added `/event-details/*` and `/booking-calendar/*` wildcards — two more Wix-generated URL families.
+- **Deliberately left to 404:** `/a-night-to-remember`, `/bouldering-support-group`, `/international-streetskate`, `/copy-of-empowr-champion-program`, `/team-4`, and our own deleted `/cookie-preferences`. Redirecting dead content to the home page is treated as a **soft 404** by Google and delays de-indexing; a real 404 is the honest signal. Redirect only where a genuine equivalent exists.
+- Rejected a bad check along the way: testing candidate paths for 404 proves nothing on a static export, since *every* unknown path 404s. Guesses like `/gallery` and `/team` "passed" that test with no evidence they ever existed — evidence came from the search index and PostHog, not from probing.
+- 29 redirect rules total, TOML validated, no duplicate `from=`. All verified live after deploy, including that the deliberate-404 set still 404s.
+
 ## 2026-08-04 — `/service-page/*` 404s fixed + full legacy-Wix-URL audit via PostHog
 
 PostHog showed a visit to `/service-page/kids-skate-jam-with-coaching-5-15-yrs`, which 404s on the current Next.js export. Same root cause as the `/product-page/*` fix (2026-08-01): Wix Bookings/Stores auto-generate `/service-page/*` and `/product-page/*` URLs per bookable item, Google indexed them pre-cutover (2026-06-13), and the Next.js export has no equivalent routes.
@@ -84,10 +97,7 @@ Heroes gets ~70 pageviews/30d against this site's ~1,634, and produced 2 referre
 
 ---
 
-## 2026-07-29 — Cross-site UTM tagging (T5 alternative)
-
-- `src/lib/links.ts`, `FaqsAccordion.tsx`, `prospectus/page.tsx`: every outbound link to hero.empowrcic.org, eela.empowrcic.org, and start.empowrcic.org now carries `?utm_source=empowr-main&utm_medium=internal` — the practical alternative to full cross-domain session linking, which was ruled out this session as incompatible with the site's cookieless PostHog mode (`identify()` is disallowed under `cookieless_mode: 'always'`; full reasoning in AnalyticsHub DEVLOG)
-- Commit `2cbb95d`, pushed to `main`, Netlify auto-deployed
+## 2026-07-29 - Cross-site UTM tagging (T5 alternative): every outbound link to hero/eela/start now carries ?utm_source=empowr-main&utm_medium=internal, after full cross-domain session linking was ruled out as incompatible with cookieless mode (`2cbb95d`)
 
 ---
 
