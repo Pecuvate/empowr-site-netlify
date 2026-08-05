@@ -21,6 +21,140 @@
   status = 301
   force  = true
 
+# --- Legacy Wix top-level pages ---
+# Wix page URLs from before the 2026-06-13 cutover, still indexed by Google and
+# still taking real traffic (~300 visits/180d, bot-filtered). Only paths with a
+# genuine equivalent are redirected — see the note at the end of this block.
+
+# Compliance forms. These matter most: waiver.empowrcic.org is the only place
+# risk waivers and photo consent are captured, so these were hard dead ends.
+[[redirects]]
+  from   = "/risk-waiver"
+  to     = "https://waiver.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/photograph-consent"
+  to     = "https://waiver.empowrcic.org"
+  status = 301
+  force  = true
+
+# Pages whose equivalent lives on this site.
+[[redirects]]
+  from   = "/contact-us"
+  to     = "/contact"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/t-c-s"
+  to     = "/legal"
+  status = 301
+  force  = true
+
+# News posts that survived the migration under dated slugs.
+[[redirects]]
+  from   = "/street-skate-support-group"
+  to     = "/news/2022-06-05-street-skate-support-group"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/copy-of-street-skate-support-group-1"
+  to     = "/news/2022-06-05-street-skate-support-group"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/donated-computer-from-catbytes-cic"
+  to     = "/news/2022-05-28-donated-computer-from-catbytes-cic"
+  status = 301
+  force  = true
+
+# Kids programme pages.
+[[redirects]]
+  from   = "/kidzspace"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/kidz-skate-jam-with-coaching"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/children-skate-lessons"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+# Session discovery / booking pages. `/sk8-skool` covers both kids and adult
+# variants, so it goes to EELA home to self-select rather than guessing.
+[[redirects]]
+  from   = "/sk8-skool"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/book-online"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/skate-jam"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/roller-skating"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/roller-skating-menu"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/roller-skate-events"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/birthday-parties"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+# Wix-generated event and booking URL families.
+[[redirects]]
+  from   = "/event-details/*"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/booking-calendar/*"
+  to     = "https://eela.empowrcic.org"
+  status = 301
+  force  = true
+
+# Deliberately NOT redirected — old Wix content with no equivalent anywhere
+# (/a-night-to-remember, /bouldering-support-group, /international-streetskate,
+# /copy-of-empowr-champion-program, /team-4). Pointing dead content at the home
+# page is treated as a soft 404 by Google and delays de-indexing; a real 404 is
+# the honest signal that the content is gone. /cookie-preferences is also left
+# to 404 — it was deliberately deleted on 2026-07-29.
+
 # Explicit kids/adult matches (from PostHog audit of live legacy traffic) — must
 # precede the /service-page/* wildcard below, first-match-wins.
 [[redirects]]
@@ -48,7 +182,19 @@
   force  = true
 
 [[redirects]]
+  from   = "/service-page/monday-skate-lesson-5"
+  to     = "https://eela.empowrcic.org/kids-space"
+  status = 301
+  force  = true
+
+[[redirects]]
   from   = "/service-page/adult-skate-jam-with-coaching-15"
+  to     = "https://eela.empowrcic.org/adults"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/service-page/all-levels-adults-skate-jam"
   to     = "https://eela.empowrcic.org/adults"
   status = 301
   force  = true
