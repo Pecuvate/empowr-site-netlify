@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-08-12 — Inline chat embed and CRM-routed contact form both tried live, then both deliberately reverted
+
+- **Merged PR #1** (`feat/contact-chat-embed`, open since 24 Jul) — the inline "Ask Empowr" chat box above the `/contact` form. **Closed PR #2** (`feat/chat-bubble-v2`) without merging — a site-wide floating bubble would have doubled up with the inline box on this one page; branch left in place, not deleted, in case that pattern is wanted elsewhere later.
+- **Re-enabled the contact-form → CRM pipeline** (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` back on Netlify prod) — this completes the 2026-07-27 note that said it "stays off until the owner explicitly says to re-enable it." **Found and fixed a mistake in the process**: first attempt copied the value straight from local `.env.local`, which correctly points at `localhost:3001` for dev — wrong on production, where it silently fell back to direct email every time. Corrected to `https://crm.pecuvate.com/api/channels/contact-form`, rebuilt, verified with a real submission that landed in the CRM as an `escalated` session.
+- **Owner reviewed the live result and reverted both**, same session. Two separate reasons: the chat embed wasn't wanted live yet at all; the CRM routing, on inspection, only sends the team a bare "new enquiry, click here" link-notification (`notifyEscalation.ts`) rather than the actual message content — not what "you get an email" was expected to mean. Reverted `/contact` to the pre-embed form-only layout, and unset the two Netlify env vars again, restoring the exact pre-session direct-Resend-only behaviour.
+- **Net effect: `/contact` is unchanged from before this session** — but `ChatEmbed.tsx`, its five Netlify Function proxies, and the CRM routing are all still in the codebase, dormant, one page-edit and two env vars away from switching back on whenever the team is ready to commit to it (likely alongside a fix to `notifyEscalation.ts` so the inbox gets real content, not just a link).
+- Two throwaway test escalations created while verifying the CRM path were deleted from prod afterward.
+
 ## 2026-08-05 — Legacy Wix *page* URLs redirected (`c3438a0`) — a much bigger class than `/service-page/*`
 
 Started as "verify the domain in Search Console" and turned up a far larger problem. **The domain is already verified** — a `google-site-verification` TXT record is live on the apex (`2bygrBV5H6yayACEvbpjnrG5qxJBaD9WGiYhHRWkjWU`), so no setup was needed. But a Google `site:` search immediately revealed indexed Wix URLs that had never appeared in any PostHog query.
@@ -78,22 +86,6 @@ Heroes gets ~70 pageviews/30d against this site's ~1,634, and produced 2 referre
 ---
 
 ## 2026-07-29 (session 2) — Removed dead cookie consent banner + preferences system
-
-### Done
-
-- Deleted `CookieBanner.tsx`, `ConsentContext.tsx`, `lib/consent.ts`, `CookiePreferencesButton.tsx`, `/cookie-preferences` page; updated `layout.tsx` (unwrapped `ConsentProvider`) and `Footer.tsx` (removed the dead link). 7 files changed, 341 lines removed.
-- Root cause: `PostHogProvider.tsx` runs `cookieless_mode: 'always'` — nothing is ever written to the device, so the banner's Accept/Decline/Manage-preferences choices did nothing (`posthog.init()` ran unconditionally either way), and the deleted `/cookie-preferences` page described fictional "analytics cookies... duration up to 2 years" that were never actually set.
-- Verified live via Playwright: home page loads with zero console errors, no banner, Footer Legal column shows only "All Our Policies." Planning docs (`footer.md`, `_index.md`) already didn't document the dead system, so no doc updates were needed.
-- Commit `c4c77b5`, pushed to `main` — Netlify auto-deploys (static export).
-
-### Decisions
-
-- User confirmed removal after the legal reasoning: PECR doesn't apply (nothing stored on device), GDPR lawful basis is legitimate interest documented via the Privacy Policy — same basis already adopted project-wide during the T3 cookieless migration. Standard practice for this pattern is no banner, disclosure via a standard footer Privacy Policy link — which Main Site already has, independent of the deleted system.
-- Left `/legal/cookie-policy` (Netlify redirect to LegalHub/Sanity content) untouched — separate CMS system; its copy likely still needs a cookieless-wording update but that's a `/update-sanity` task.
-
-### Next
-
-- Follow-up flagged, not scoped: update the LegalHub `cookie-policy` Sanity document to cookieless wording.
 
 ---
 
