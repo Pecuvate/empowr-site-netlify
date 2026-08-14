@@ -43,5 +43,12 @@ This file is the map. Workspace detail lives in each CONTEXT.md.
 - Branch: main
 - Base directory: src/
 
-## Skills and Tools
-- /netlify-deploy — deploy to Netlify and configure Route 53 DNS
+## Skills and Tools Available
+
+| Tool / Skill | Trigger | Purpose |
+|---|---|---|
+| `/netlify-deploy` | deploying to Netlify | Deploy to Netlify and configure `empowrcic.org` + Route 53 DNS |
+| `/pre-build-check` | before any deploy | Validate build structure and frontend quality |
+| `/pre-deploy-security` | before any deploy | Security hygiene scan — secrets, CVEs, headers, RLS; FAILs block the deploy |
+| `/webapp-testing` | after frontend changes | Test UI with Playwright, capture screenshots |
+| `/simplify` | after a feature is built | Review changed code for reuse, quality, and efficiency |
