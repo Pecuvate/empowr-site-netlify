@@ -2,6 +2,13 @@
 
 ---
 
+## 2026-08-14
+
+- Created `README.md` at the project root, closing an M10 gap flagged by the scheduled mwp-health compliance audit.
+- Converted a near-miss "Skills and Tools Available" heading in `CLAUDE.md` to the compliant M8 table format.
+
+---
+
 ## 2026-08-12 — Inline chat embed and CRM-routed contact form both tried live, then both deliberately reverted
 
 - **Merged PR #1** (`feat/contact-chat-embed`, open since 24 Jul) — the inline "Ask Empowr" chat box above the `/contact` form. **Closed PR #2** (`feat/chat-bubble-v2`) without merging — a site-wide floating bubble would have doubled up with the inline box on this one page; branch left in place, not deleted, in case that pattern is wanted elsewhere later.
@@ -46,42 +53,7 @@ PostHog showed a visit to `/service-page/kids-skate-jam-with-coaching-5-15-yrs`,
 - **`export const dynamic = 'force-static'` is required** under `output: 'export'` — without it the build fails collecting page data for `/sitemap.xml`. Not a type error, so `tsc` and review both pass it. Caught only by running the build.
 - Verified live (200, 22 URLs) after deploy, not just pushed.
 
-## 2026-07-30 — PostHog route-change tracking fix + "Support Us" conversion path
-
-Came out of a full review of Empowr Heroes; both findings apply here.
-
-### Done
-
-- **`capture_pageview: 'history_change'`** in `PostHogProvider.tsx` (was `true`). posthog-js gates `HistoryAutocapture` on an exact string match, so `true` captures hard page loads only — client-side `<Link>` navigation produced **no pageview at all**. Every internal navigation on this site has been invisible; bounce rate and pages/session were artefacts. Fixed fleet-wide (Heroes, EELA, Members, Landing) plus the canonical templates in `_config/guides/posthog-consent.md`.
-- **"Support Us" CTA now lands on `/become`, not `/`.** Added `LINKS.heroesDonate` alongside the existing `heroesplatform`. Heroes' home page is a long-form mission page with the tier chooser several screens down — someone clicking "Support Us" has already responded to the ask and shouldn't have to read a second pitch. Informational mentions (footer, FAQs, prospectus) still point at `/`; explicit asks (nav "Support Us" ×2, `/get-involved` "Become a Hero") point at `/become`.
-- **Dropped `target="_blank"`** from those same explicit-ask CTAs. A conversion path shouldn't spawn a background tab. `/get-involved` gained a `sameTab` flag on the route object so the shared renderer keeps `_blank` for genuinely external links (the WhatsApp community).
-- Planning docs updated per the sync rule — `planning/layout/nav.md`, `planning/pages/get-involved.md`.
-
-### Follow-up, same day — three CTAs missed on the first pass
-
-The first commit only caught the nav and `/get-involved`. My initial audit grepped for the literal `hero.empowrcic.org` string, which silently skipped every file referencing `LINKS.heroesplatform` by constant. Caught it verifying the live deploy — three `target="_blank"` Heroes links remained on the homepage where I expected one (the footer).
-
-Also repointed, now on `LINKS.heroesDonate` + same tab:
-
-- `src/app/page.tsx` — `ROUTE_CARDS` "Become a Hero" card (gained a `sameTab` flag, same pattern as `/get-involved`)
-- `src/app/page.tsx` — closing band "Support Our Work"
-- `src/app/experiential-learning/page.tsx` — closing band "Support Our Work"
-
-**The rule, recorded in `planning/layout/nav.md`:** explicit asks → `heroesDonate` → `/become`, same tab. Informational mentions → `heroesplatform` → `/`, new tab. Six explicit asks total (nav ×2, home ×2, get-involved, experiential-learning); three informational (footer, FAQs, prospectus).
-
-Noted, not changed: `faqs/FaqsAccordion.tsx` and `prospectus/page.tsx` hardcode the Heroes URL instead of using `LINKS`, against this project's own "external URLs → `src/lib/links.ts`" rule. Destination is correct, so left alone rather than widening this change.
-
-### Checked, no action
-
-Security headers are **fine here**. This site is a static export (`output: "export"`, `publish = "out"`), so `netlify.toml` `[[headers]]` apply normally — all four verified live on `www.empowrcic.org`. An earlier check appeared to show them missing; that was `curl` against the apex domain reading the 301's headers instead of the destination's. (Heroes *is* affected, because it runs the Next.js runtime — fixed separately in that repo.)
-
-### Context
-
-Heroes gets ~70 pageviews/30d against this site's ~1,634, and produced 2 referred visits in that window. A fundraising campaign is being planned; these changes are part of making the path convert and be measurable before it launches.
-
-### Verified
-
-`npx tsc --noEmit` clean · `npm run build` clean
+## 2026-07-30 — PostHog `capture_pageview` fixed to `'history_change'` fleet-wide (was `true`, which silently dropped every client-side `<Link>` pageview); all explicit "Support Us"/"Become a Hero" CTAs repointed to `/become` in the same tab via new `LINKS.heroesDonate` (informational mentions kept at `/` in a new tab), rule recorded in `planning/layout/nav.md`; security headers confirmed fine on this static export
 
 ---
 
