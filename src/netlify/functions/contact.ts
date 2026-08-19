@@ -1,5 +1,23 @@
 import { Resend } from "resend";
 
+// Sites beyond empowrcic.org itself that are allowed to submit into this form
+// cross-origin (browsers block this by default — CORS). Each one is another
+// Empowr CIC property, not an arbitrary third party.
+const ALLOWED_ORIGINS = [
+  "https://eela.empowrcic.org",
+  "https://empowr-eela.netlify.app",
+];
+
+function corsHeaders(requestOrigin: string | undefined): Record<string, string> {
+  const allowOrigin =
+    requestOrigin && ALLOWED_ORIGINS.includes(requestOrigin) ? requestOrigin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowOrigin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
 const SUBJECT_ROUTING: Record<string, string> = {
   "Work With Us": process.env.OPPORTUNITIES_EMAIL ?? "",
 };
@@ -62,16 +80,26 @@ async function notifyCrm(fields: {
 export const handler = async (event: {
   httpMethod: string;
   body: string | null;
+  headers?: Record<string, string | undefined>;
 }) => {
+  const origin = event.headers?.origin ?? event.headers?.Origin;
+  const cors = corsHeaders(origin);
+
+  // Preflight — browsers send this ahead of any cross-origin POST with a
+  // JSON content type before they'll send the real request.
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers: cors, body: "" };
+  }
+
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+    return { statusCode: 405, headers: cors, body: "Method Not Allowed" };
   }
 
   let name: string, email: string, subject: string, message: string, company: string, source: unknown;
   try {
     ({ name, email, subject, message, company, source } = JSON.parse(event.body ?? "{}"));
   } catch {
-    return { statusCode: 400, body: JSON.stringify({ error: "Invalid request" }) };
+    return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Invalid request" }) };
   }
 
   const safeSource = sanitiseSource(source);
@@ -82,13 +110,13 @@ export const handler = async (event: {
     console.warn("[contact] Honeypot triggered — dropping submission");
     return {
       statusCode: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: { ...cors, "Content-Type": "application/json" },
       body: JSON.stringify({ success: true }),
     };
   }
 
   if (!name?.trim() || !email?.trim() || !subject?.trim() || !message?.trim()) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Missing required fields" }) };
+    return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Missing required fields" }) };
   }
 
   const crmDelivered = await notifyCrm({ name, email, subject, message, source: safeSource });
@@ -106,7 +134,7 @@ export const handler = async (event: {
 
       if (!toEmail) {
         console.error("[contact] CRM notify failed and no fallback destination email configured");
-        return { statusCode: 500, body: JSON.stringify({ error: "Server configuration error" }) };
+        return { statusCode: 500, headers: cors, body: JSON.stringify({ error: "Server configuration error" }) };
       }
 
       await resend.emails.send({
@@ -140,13 +168,14 @@ export const handler = async (event: {
 
     return {
       statusCode: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: { ...cors, "Content-Type": "application/json" },
       body: JSON.stringify({ success: true }),
     };
   } catch (err) {
     console.error("[contact] Resend error:", err);
     return {
       statusCode: 500,
+      headers: cors,
       body: JSON.stringify({ error: "Failed to send message" }),
     };
   }
