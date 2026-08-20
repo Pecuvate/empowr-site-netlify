@@ -6,6 +6,8 @@ Current phase status and key facts that would otherwise need re-explaining at th
 
 ## Current Phase
 
+- **♿ 2026-08-20 (new, unfixed): accessibility findings from the first multi-viewport audit** (Web Build Framework harness, read-only — no code changed). `button.text-blue "See more"` on `/about` has no visible focus indicator; ~48/109 sampled text nodes fall below WCAG AA (`p.text-lg` at 3.45:1, `span.text-[#00b67a]` at 2.63:1); 34-35 tap targets below 44x44px including the mobile menu button at 34x40; one unsized `<img>`. Contrast is approximate (blind to gradients/overlays) so confirm before bulk-changing tokens — but body text at 3.45:1 is very likely real. Re-run: `node design-audit.mjs --url https://empowrcic.org --routes / /about /contact /our-work /legal/privacy-policy`.
+
 **Live — post-launch iteration**
 
 The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic.org`. Continue from `DEVLOG.md` for current post-launch work.

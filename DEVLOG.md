@@ -2,6 +2,15 @@
 
 ---
 
+## 2026-08-20 — First multi-viewport audit: contrast and tap-target findings across 5 routes
+
+Read-only audit from outside this project; **no files here were changed.**
+
+- Swept `/`, `/about`, `/contact`, `/our-work`, `/legal/privacy-policy` at 8 viewports (320-1920), 40/40 combinations, by the Web Build Framework harness.
+- **`button.text-blue "See more"` on `/about` has no visible focus indicator** at any viewport — a keyboard-accessibility defect, and the only HIGH finding.
+- **~48 of 109 sampled text nodes fall below WCAG AA**, including `p.text-lg` at 3.45:1 and `span.text-[#00b67a]` at 2.63:1. The check is approximate (nearest opaque ancestor, blind to gradients) so these are leads to confirm — but body text at 3.45:1 is very likely real.
+- **34-35 interactive targets below 44x44px** at mobile widths, including the mobile menu button at 34x40, plus one unsized `<img>` (layout-shift risk).
+- Nothing fixed this session — logged so the next session on this site has the list.
 ## 2026-08-14
 
 - Created `README.md` at the project root, closing an M10 gap flagged by the scheduled mwp-health compliance audit.
@@ -32,159 +41,33 @@ Started as "verify the domain in Search Console" and turned up a far larger prob
 
 ## 2026-08-04 — `/service-page/*` 404s fixed + full legacy-Wix-URL audit via PostHog
 
-PostHog showed a visit to `/service-page/kids-skate-jam-with-coaching-5-15-yrs`, which 404s on the current Next.js export. Same root cause as the `/product-page/*` fix (2026-08-01): Wix Bookings/Stores auto-generate `/service-page/*` and `/product-page/*` URLs per bookable item, Google indexed them pre-cutover (2026-06-13), and the Next.js export has no equivalent routes.
-
-- Ran a 90-day HogQL query against `empowr-main` for every `/service-page/*` and `/product-page/*` hit — found 19 distinct legacy slugs still receiving traffic, not just the one reported.
-- User wants these routed forward to EELA (kids vs adult section) rather than back to Wix.
-- Classified each `/service-page/*` slug by audience from its name:
-  - Explicit **kids** matches (`kids-skate-jam-with-coaching-5-15-yrs`, `wednesday-skate-lesson-5-12-yrs`, `sk8-skool-for-kidz-5-15-yrs-1`, `roller-skating-camp-5-12years`) → individual `netlify.toml` redirects to `eela.empowrcic.org/kids-space`.
-  - Explicit **adult** match (`adult-skate-jam-with-coaching-15`) → redirect to `eela.empowrcic.org/adults`.
-  - Ambiguous slugs (`sk8-skool-backwards-skating-masterclass`, `each1teach1-skate-jam`, the `sk8-skool-*-13-*` ones — the `13` isn't reliably an age, Wix also uses numeric suffixes for duplicate service names) were **not** guessed — EELA's own age bands are `kids-space` = 5+ (no cap) and `adults` = 15+ explicitly, so a wrong guess on a 13-year-old's class is plausible. These fall through the `/service-page/*` wildcard to `eela.empowrcic.org` (has both a "Kids Space (5+)" and "Adults (15+)" CTA for self-select).
-  - Netlify redirects are first-match-wins, so the explicit slug rules are ordered before the wildcard.
-- `/product-page/*` left as-is (still bridges to the Wix shop — out of scope for this pass).
-- Committed + pushed as `3f524ce`; Netlify auto-deployed.
-
-**Correction to the traffic figures.** The audit query omitted the bot filter the `/posthog-analyse` skill mandates, and counted the user's own testing — 7 of the 12 hits on the headline URL were from investigating it that day. Honest volume is ~24 hits across all `/service-page/*` slugs in 90 days, concentrated late June/early July. The redirects still stand; the urgency did not.
-
-### Same day — sitemap added (`4a3ed7c`)
-
-- No `sitemap.xml` existed, yet `robots.txt` had been declaring `Sitemap: https://empowrcic.org/sitemap.xml` — a 404, and on the wrong host (the apex 301s to `www`). Both fixed.
-- Added `src/app/sitemap.ts` — 22 URLs: 16 static routes plus the 6 MDX news posts derived from `getAllPosts()` so publishing can't leave it stale, with `lastModified` from each post's date.
-- **`export const dynamic = 'force-static'` is required** under `output: 'export'` — without it the build fails collecting page data for `/sitemap.xml`. Not a type error, so `tsc` and review both pass it. Caught only by running the build.
-- Verified live (200, 22 URLs) after deploy, not just pushed.
-
 ## 2026-07-30 — PostHog `capture_pageview` fixed to `'history_change'` fleet-wide (was `true`, which silently dropped every client-side `<Link>` pageview); all explicit "Support Us"/"Become a Hero" CTAs repointed to `/become` in the same tab via new `LINKS.heroesDonate` (informational mentions kept at `/` in a new tab), rule recorded in `planning/layout/nav.md`; security headers confirmed fine on this static export
-
----
 
 ## 2026-07-29 (session 2) — Removed dead cookie consent banner + preferences system
 
----
-
 ## 2026-07-29 - Cross-site UTM tagging (T5 alternative): every outbound link to hero/eela/start now carries ?utm_source=empowr-main&utm_medium=internal, after full cross-domain session linking was ruled out as incompatible with cookieless mode (`2cbb95d`)
 
----
-
 ## 2026-07-28 (session 2) - Added `/product-page/*` -> Wix shop redirect (`0ce523e`); PostHog showed the ~330 hits/14d were headless-Chrome bot traffic, not lost sales; Analytics Hub contamination clears 27 Aug 2026
-
----
 
 ## 2026-07-28 — PostHog switched to cookieless server hash mode (`cookieless_mode: 'always'`), replacing memory-mode persistence; cookie banner retained at the time
 
 ## 2026-07-27 (session 3) — Reverted contact form to direct-Resend-only at owner's request (stays off until explicitly re-enabled); fixed "Speak to the team" disappearing-after-first-message bug in ChatEmbed.tsx (PR #1), same bug found + fixed in PecuvateCRM's own widget
 
----
-
 ## 2026-07-27 (session 2) — Routed contact form submissions into PecuvateCRM's Escalations dashboard as primary path (direct-Resend as fallback); verified live with a real submission; committed `63b7dfc`
-
----
 
 ## 2026-07-27 — Rebuilt floating chat bubble on `feat/chat-bubble-v2` (PR #2, not merged); fixed a real bug where the iframed CRM widget went inert under blocked third-party storage; open decision on `/contact` double-chat UX at merge time
 
----
-
 ## 2026-07-27 — Expanded `/faqs` from 2 to 15 questions across 5 grouped sections, sourced from the Empowr KB; refactored `FaqsAccordion.tsx` to `FAQ_SECTIONS`; deployed `ce70e15`
-
----
 
 ## 2026-07-24 — Built the contact-page "Ask Empowr" chat embed prototype (`ChatEmbed.tsx` + 6 Netlify Functions proxy to PecuvateCRM's widget API), PR #1 open, not merged; Playwright-verified end-to-end against the real deploy preview; "speak to the team" disappearing-after-first-message gap found (fixed 2026-07-27, above)
 
----
-
 ## 2026-07-22 — Removed age labels from "Our Work" cards, deferring to eela.empowrcic.org as canonical; explored (not built) a chat-first Q&A concept for /contact
-
----
 
 ## 2026-07-08 — Cookie consent UI: banner + preferences page links corrected (Cookie Policy vs Privacy Policy); verified with `npm run build`
 
----
-
 ## 2026-07-03 — Prospectus contact-detail fixes (outreach@/shaun.barnett@ emails, Shaun's title, website link, layout tweak) + EELA sub-programme descriptions added to `EELA_PROGRAMMES`
-
----
 
 ## 2026-07-03 — KB alignment audit: fixed 8 gaps against Empowr KB entities; reverted EELA experiential-learning framework changes pending proper architectural placement; Empowr Learning Spiral established as canonical methodology
 
----
-
 ## 2026-07-02 — Rolled out new monochromatic Empowr logo + regenerated favicons across all 6 Empowr CIC sites; decided against centralised logo hosting
 
----
-
-## Session 32 — 2026-06-29 — My Account nav placeholder built (feat/my-account-nav, parked, not merged) pending new standalone members platform; team decided against routing to Wix (broken account URLs)
-
----
-
-## Session 31 — 2026-06-26 — Prospectus converted to Next.js page (src/app/prospectus/page.tsx); old HTML deleted; not indexed, shared as direct link at empowrcic.org/prospectus
-
----
-
-## Session 30 — 2026-06-26 — Prospectus full content overhaul (mission rewrite, founding story intro, beliefs section, how-we-work redesign, impact narrative); EELA sub-programme names updated to MoveWell/MindWell/CreateWell/ExploreWell/ConnectWell in our-work/page.tsx
-
----
-
-## Session 29 — 2026-06-22 — Built full PECR-compliant cookie consent system (ConsentContext, CookieBanner, /cookie-preferences page, PostHog guard)
-
-## Session 28 — 2026-06-13 — Fixed /legal route redirect bug (netlify.toml splat → :slug pattern); verified contact form routing in production
-
-## Session 27 — 2026-06-13 — KB sync: updated Empowr CIC Obsidian vault to align with live site (8 entity/planning updates)
-
-## Session 26 — 2026-06-13 — DNS cutover executed (empowrcic.org → Netlify); 8 planning docs audited and updated; footer Legal link text updated
-
-## Session 25 — 2026-06-13 — Planning doc audit: 4 gaps fixed across footer.md, home.md, experiential-learning.md, _index.md; planning doc sync memory saved
-
-## Session 24 — 2026-06-13 — Report page emoji + layout polish; footer Shop column added; Empowr brand favicon replaced Vercel default
-
-## Session 23 — 2026-06-12 — Built /experiential-learning/report sub-page; condensed ExperientialLearningTabs "Why It Matters" tab to teaser + link
-
-## Session 22 — 2026-06-12 — Built /experiential-learning EELA philosophy page (5-tab client component); DNS cutover executed
-
-## Session 21 — 2026-06-12 — Home page "Everyone is welcome" section updated to 3 audience cards (Children/Adults/All Ages)
-
-## Session 20 — 2026-06-10 — About page (Jasmine role, Meet Team button); History + FAQs (2 new entries); Impact + Work With Us layout polish
-
-## Session 19 — 2026-06-09 — Video hero added (portrait video, FFmpeg); centred layouts across home, about, our-work pages
-
-## Session 18 — 2026-06-09 — Wix page coverage audit; 6 news posts migrated to MDX; News restored to nav; Shop link placeholder added
-
-## Session 17 — 2026-06-06 — About page: real team PNGs added; C# flood fill to remove AI checkerboard background; .gitignore created
-
-## Session 16 — 2026-06-06 — Nav logo added; About page headline + Our Story expand/collapse; contact form subject column fix
-
-## Session 15 — 2026-06-05 — Contact form query-param pre-fill (?subject, ?message); mobile responsive pass across all pages
-
-## Session 14 — 2026-06-05 — Our Work page full pass: content fixes, EELA Framework redesign, 2-col layout, planning doc updated
-
-## Session 13 — 2026-06-04 — Get Involved + Work With Us rebuilt; ECCP practitioner sections added; Contact form built (Netlify Function + Resend, live)
-
-## Session 12 — 2026-06-04 — About page full pass (values reorder, Our Story, bios); FAQs page created; planning docs updated
-
-## Session 11 — 2026-06-04 — Home hero restructured (new headline, sub copy); News section removed temporarily pending content
-
-## Session 10 — 2026-06-04 — Planning docs audited; footer restructured (6 columns, SVG social icons, LinkedIn + WhatsApp)
-
-## Session 9 — 2026-06-04 — 3 new pages (/eccp, /partner-with-us, /legal); footer rebuilt (6 columns); planning/pages/ created with 11 docs
-
-## Session 8 — 2026-06-03 — Content consistency audit; policy link audit; footer restructured (5 columns, dedicated Legal + Connect columns)
-
-## Session 7 — 2026-06-01 — Companies House filing URLs wired; Impact page overhauled with real stats; all 6 policy links activated
-
-## Session 6 — 2026-05-21 — 6 org-wide Empowr policies written + published to LegalHub; policy naming convention established; links.ts updated
-
-## Session 5 — 2026-05-21 — Deployed to Netlify; all 5 Wix policies audited; decision: all policies to be hosted on LegalHub
-
-## Session 4 — 2026-05-20 — All 7 remaining pages built; MDX news system set up; first news post created; build clean (12 static pages)
-
-## Session 3 — 2026-05-20 — Stack decisions (Tailwind v4 + shadcn/ui, static export); Next.js scaffolded; Nav, Footer, Home built; build clean
-
-## Session 2 — 2026-05-20 — Wix site analysis; narrative.md + founding-story.md + programme-descriptions.md created from Notion; key decisions confirmed
-
-## Session 1 — 2026-05-19 — Project scaffolded: folder created, site plan written, CLAUDE.md/CONTEXT.md/DEVLOG.md created
-
----
-
-<!--
-COMPRESSED SESSION DETAIL — 2026-07-03
-Sessions 1–31 compressed from ~1100 lines to summary lines above.
-Full detail available in git history.
--->
