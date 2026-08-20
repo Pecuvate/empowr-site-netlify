@@ -2,6 +2,12 @@
 
 ---
 
+## 2026-08-20 — Contact form's Netlify Function opened up to accept cross-origin submissions from EELA
+
+- `src/netlify/functions/contact.ts` gained a CORS origin allow-list (`eela.empowrcic.org` + its Netlify preview domain) and `OPTIONS` preflight handling, commit `5fe0c69`, live. Driven by EELA's new Private Bookings enquiry modal, which reuses this exact function (same CRM routing, honeypot spam check, confirmation email) instead of duplicating a backend on EELA's own site — see EELA's `DEVLOG.md` for the full feature.
+- **This push also carried 3 unrelated, already-committed mwp-health doc-compliance commits** that had been sitting unpushed on `main` since 2026-08-14 (README/M8 formatting) — pushed together at the user's explicit go-ahead, not created this session.
+- **Confirmed with the user: CRM routing (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY`) is currently deliberately unset**, paused while deciding how best to wire it — so both this site's own form and EELA's new cross-origin one currently fall to the existing Resend-direct-to-`enquiries@empowrcic.org` path. No code change needed when CRM routing resumes; both forms pick it up automatically since they share this one function.
+
 ## 2026-08-20 — First multi-viewport audit: contrast and tap-target findings across 5 routes
 
 Read-only audit from outside this project; **no files here were changed.**
@@ -26,18 +32,7 @@ Read-only audit from outside this project; **no files here were changed.**
 - **Net effect: `/contact` is unchanged from before this session** — but `ChatEmbed.tsx`, its five Netlify Function proxies, and the CRM routing are all still in the codebase, dormant, one page-edit and two env vars away from switching back on whenever the team is ready to commit to it (likely alongside a fix to `notifyEscalation.ts` so the inbox gets real content, not just a link).
 - Two throwaway test escalations created while verifying the CRM path were deleted from prod afterward.
 
-## 2026-08-05 — Legacy Wix *page* URLs redirected (`c3438a0`) — a much bigger class than `/service-page/*`
-
-Started as "verify the domain in Search Console" and turned up a far larger problem. **The domain is already verified** — a `google-site-verification` TXT record is live on the apex (`2bygrBV5H6yayACEvbpjnrG5qxJBaD9WGiYhHRWkjWU`), so no setup was needed. But a Google `site:` search immediately revealed indexed Wix URLs that had never appeared in any PostHog query.
-
-- **Method that found it.** A `site:` search showed stale URLs; querying PostHog for *every trafficked path that isn't a real route* then quantified it: **~300 visits/180d (bot-filtered, excluding today) landing on 404s**. The yesterday pass only looked at `/service-page/*` and `/product-page/*`, so it saw ~26 of them. The lesson generalises — grepping for a known pattern only finds that pattern; enumerate against the real route list instead.
-- **Highest impact: `/risk-waiver` (11) and `/photograph-consent` (7) were dead ends.** `waiver.empowrcic.org` is the only place risk waivers and photo consent are captured, so these were people trying to complete compliance forms and failing.
-- Biggest by volume: `/sk8-skool` (105) and `/kidzspace` (51) → EELA. `/sk8-skool` covers both kids and adult variants so it goes to EELA home to self-select.
-- Pages with equivalents *here*: `/contact-us` → `/contact`, `/t-c-s` → `/legal`, and two Wix news URLs → their dated `/news/` slugs.
-- Added `/event-details/*` and `/booking-calendar/*` wildcards — two more Wix-generated URL families.
-- **Deliberately left to 404:** `/a-night-to-remember`, `/bouldering-support-group`, `/international-streetskate`, `/copy-of-empowr-champion-program`, `/team-4`, and our own deleted `/cookie-preferences`. Redirecting dead content to the home page is treated as a **soft 404** by Google and delays de-indexing; a real 404 is the honest signal. Redirect only where a genuine equivalent exists.
-- Rejected a bad check along the way: testing candidate paths for 404 proves nothing on a static export, since *every* unknown path 404s. Guesses like `/gallery` and `/team` "passed" that test with no evidence they ever existed — evidence came from the search index and PostHog, not from probing.
-- 29 redirect rules total, TOML validated, no duplicate `from=`. All verified live after deploy, including that the deliberate-404 set still 404s.
+## 2026-08-05 — Legacy Wix *page* URLs redirected (`c3438a0`, 29 rules total) — found via PostHog "every trafficked path that isn't a real route", ~300 visits/180d hitting 404s; `/risk-waiver`+`/photograph-consent` → waiver.empowrcic.org were the highest-impact fix; content with no real equivalent deliberately left to 404 rather than soft-404'd to home
 
 ## 2026-08-04 — `/service-page/*` 404s fixed + full legacy-Wix-URL audit via PostHog
 

@@ -6,6 +6,7 @@ Current phase status and key facts that would otherwise need re-explaining at th
 
 ## Current Phase
 
+- **🔗 2026-08-20: `contact.ts` now accepts cross-origin submissions from EELA.** CORS allow-list (`eela.empowrcic.org` + its Netlify preview domain) and `OPTIONS` preflight handling added, commit `5fe0c69`, live. EELA's new Private Bookings enquiry modal reuses this exact function rather than a duplicate backend — same CRM routing, spam protection, confirmation email. **If this function is ever refactored, the CORS headers must be preserved or EELA's enquiry form breaks.** CRM routing (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY`) is still deliberately unset as of this date (see 2026-08-12 entry below) — both this site's form and EELA's fall to direct-Resend until those vars are restored.
 - **♿ 2026-08-20 (new, unfixed): accessibility findings from the first multi-viewport audit** (Web Build Framework harness, read-only — no code changed). `button.text-blue "See more"` on `/about` has no visible focus indicator; ~48/109 sampled text nodes fall below WCAG AA (`p.text-lg` at 3.45:1, `span.text-[#00b67a]` at 2.63:1); 34-35 tap targets below 44x44px including the mobile menu button at 34x40; one unsized `<img>`. Contrast is approximate (blind to gradients/overlays) so confirm before bulk-changing tokens — but body text at 3.45:1 is very likely real. Re-run: `node design-audit.mjs --url https://empowrcic.org --routes / /about /contact /our-work /legal/privacy-policy`.
 
 **Live — post-launch iteration**
@@ -61,7 +62,7 @@ The custom Next.js site is live on Netlify at `empowrcic.org` and `www.empowrcic
 - Hosting: Netlify (`empowr-main-site.netlify.app` behind the custom domains)
 - Stack: Next.js 16 + Tailwind v4 + shadcn/ui. Static export (`output: "export"`). One line to go full dynamic.
 - CIC reports: external links to Companies House — not hosted PDFs
-- Contact form: currently direct-Resend-only (CRM routing temporarily reverted 2026-07-27, see Current Phase) — `contact.ts` supports both paths, toggled by whether `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` are set on Netlify; visitor auto-reply always via Resend either way
+- Contact form: currently direct-Resend-only (CRM routing temporarily reverted 2026-07-27, see Current Phase) — `contact.ts` supports both paths, toggled by whether `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` are set on Netlify; visitor auto-reply always via Resend either way. Also serves cross-origin submissions from EELA's Private Bookings enquiry modal since 2026-08-20 (CORS allow-list) — same function, same behavior, not a separate integration to reason about
 - News: MDX files in `src/content/news/` — no CMS in Phase 1
 - Cookie consent: **none** — no banner, no `/cookie-preferences` page (removed 2026-07-29). Analytics runs cookieless under legitimate interest; disclosure is the Privacy Policy footer link only
 
