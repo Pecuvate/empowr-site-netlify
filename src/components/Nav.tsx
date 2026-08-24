@@ -60,7 +60,7 @@ export default function Nav() {
         </div>
 
         <button
-          className="md:hidden text-mid p-2"
+          className="md:hidden text-mid flex h-11 w-11 items-center justify-center"
           onClick={() => setOpen(!open)}
           aria-label="Toggle navigation menu"
           aria-expanded={open}

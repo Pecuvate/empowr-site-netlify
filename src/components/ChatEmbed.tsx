@@ -18,7 +18,7 @@ const POLL_INTERVAL = 2500;
 const STORAGE_KEY = "crm_session_token_empowr-cic";
 
 const inputClass =
-  "w-full rounded-xl border border-border px-3 py-2 text-sm text-black bg-white focus:outline-none focus:ring-2 focus:ring-blue/30 transition-colors";
+  "w-full rounded-xl border border-border px-3 py-2 text-sm text-black bg-white focus:outline-none focus:ring-2 focus:ring-blue/30 transition-colors min-h-11";
 
 export default function ChatEmbed() {
   const [orgName, setOrgName] = useState("");

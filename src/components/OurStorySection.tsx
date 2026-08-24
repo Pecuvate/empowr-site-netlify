@@ -31,7 +31,7 @@ export default function OurStorySection() {
             {!expanded && (
               <button
                 onClick={() => setExpanded(true)}
-                className="text-blue font-semibold text-base hover:underline focus:outline-none"
+                className="inline-flex min-h-11 items-center rounded text-blue font-semibold text-base hover:underline focus:outline-none focus:ring-2 focus:ring-blue/30"
               >
                 See more →
               </button>

@@ -2,6 +2,18 @@
 
 ---
 
+## 2026-08-24 — Fixed the focus/contrast/tap-target findings from the 2026-08-20 harness audit, re-verified against a rebuilt static export
+
+Picked up the open items from the read-only audit below. Rebuilt (`next build`, static export served via `npx serve out`) and re-ran `design-audit.mjs` three times over the course of the session to verify each fix against real rendered output, not just the source.
+
+- **Focus indicator, `/about` "See more" button**: `focus:outline-none` had no replacement ring. Added `focus:ring-2 focus:ring-blue/30` to match the convention already used elsewhere in this codebase (ContactForm, ChatEmbed). [OurStorySection.tsx:34](src/components/OurStorySection.tsx#L34).
+- **Contrast token**: `--color-blue-light` (`#c8ddf8` on `bg-blue`) measured 3.45:1, below the 4.5:1 AA floor for normal text — used as "secondary text on blue background" across 16 files. Lightened to `#f5f9fe` (~4.53:1) in [globals.css](src/app/globals.css) so every page inherits the fix from one edit. **This did not fix contrast sitewide** — the harness still shows 26-64 low-contrast text nodes per page, driven by unrelated combos (`text-muted`/`text-mid` on certain backgrounds, hover states, a Trustpilot badge). That's a separate, larger initiative, not touched this session.
+- **Mobile nav hamburger** (`button.md:hidden`, 34×40px) was failing the 44px tap-target floor on **every single page** — highest-leverage single fix. Given a guaranteed `h-11 w-11 flex items-center justify-center` hit area instead of relying on padding math. [Nav.tsx:63](src/components/Nav.tsx#L63). Confirmed gone from every subsequent audit.
+- **Footer links** (both the ~24 sidebar nav links and the 5 social icons), also present on every page, were sized to their text/icon content only (as low as 16-20px tall). Given `inline-flex min-h-11 min-w-11 items-center` (text links) and `flex h-11 w-11 items-center justify-center` (icon links) — hit area only, no visible size change. [Footer.tsx](src/components/Footer.tsx). Deliberately **left untouched**: the "Company no." link and the bottom Privacy Policy/Terms & Conditions links, which sit inline in a sentence/copyright line — the same WCAG target-size exception the framework's own 44px floor was raised past (AAA, not the letter of AA).
+- **`/contact` "input 186x24"** turned out to be a false positive, not a real defect: ContactForm's honeypot field (`id="company"`) is wrapped in a 1×1px `overflow:hidden` div with `aria-hidden`, but the harness measures the *input's own* unclipped intrinsic box, not what's actually visible. No code change — this is a checker blind spot worth fixing in the harness itself another time, not a site bug.
+- **Verified progression on `/about` and `/faqs`** (re-run after each fix): tap-target findings went 27→11→8→3 medium rows per page. What's left on those 3: the two intentionally-exempted inline-sentence links, and a ~2px shortfall on 2 social icons at the 320px viewport only (a flex-shrink edge case, not chased down).
+- **Still open, not attempted this session** (full list only exists in the harness's own report, not restated here): sitewide contrast beyond the one token, unsized `<img>` tags (layout-shift risk) on nearly every route, `clipped-content` overflow on a handful of pages, missing `aria-current` on 6 routes, and homepage-specific undersized CTA links. None are HIGH severity.
+
 ## 2026-08-20 — Contact form's Netlify Function opened up to accept cross-origin submissions from EELA
 
 - `src/netlify/functions/contact.ts` gained a CORS origin allow-list (`eela.empowrcic.org` + its Netlify preview domain) and `OPTIONS` preflight handling, commit `5fe0c69`, live. Driven by EELA's new Private Bookings enquiry modal, which reuses this exact function (same CRM routing, honeypot spam check, confirmation email) instead of duplicating a backend on EELA's own site — see EELA's `DEVLOG.md` for the full feature.
@@ -24,13 +36,7 @@ Read-only audit from outside this project; **no files here were changed.**
 
 ---
 
-## 2026-08-12 — Inline chat embed and CRM-routed contact form both tried live, then both deliberately reverted
-
-- **Merged PR #1** (`feat/contact-chat-embed`, open since 24 Jul) — the inline "Ask Empowr" chat box above the `/contact` form. **Closed PR #2** (`feat/chat-bubble-v2`) without merging — a site-wide floating bubble would have doubled up with the inline box on this one page; branch left in place, not deleted, in case that pattern is wanted elsewhere later.
-- **Re-enabled the contact-form → CRM pipeline** (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` back on Netlify prod) — this completes the 2026-07-27 note that said it "stays off until the owner explicitly says to re-enable it." **Found and fixed a mistake in the process**: first attempt copied the value straight from local `.env.local`, which correctly points at `localhost:3001` for dev — wrong on production, where it silently fell back to direct email every time. Corrected to `https://crm.pecuvate.com/api/channels/contact-form`, rebuilt, verified with a real submission that landed in the CRM as an `escalated` session.
-- **Owner reviewed the live result and reverted both**, same session. Two separate reasons: the chat embed wasn't wanted live yet at all; the CRM routing, on inspection, only sends the team a bare "new enquiry, click here" link-notification (`notifyEscalation.ts`) rather than the actual message content — not what "you get an email" was expected to mean. Reverted `/contact` to the pre-embed form-only layout, and unset the two Netlify env vars again, restoring the exact pre-session direct-Resend-only behaviour.
-- **Net effect: `/contact` is unchanged from before this session** — but `ChatEmbed.tsx`, its five Netlify Function proxies, and the CRM routing are all still in the codebase, dormant, one page-edit and two env vars away from switching back on whenever the team is ready to commit to it (likely alongside a fix to `notifyEscalation.ts` so the inbox gets real content, not just a link).
-- Two throwaway test escalations created while verifying the CRM path were deleted from prod afterward.
+## 2026-08-12 — Inline chat embed and CRM-routed contact form both tried live, then both deliberately reverted; net effect /contact unchanged, ChatEmbed.tsx + CRM routing left dormant in codebase
 
 ## 2026-08-05 — Legacy Wix *page* URLs redirected (`c3438a0`, 29 rules total) — found via PostHog "every trafficked path that isn't a real route", ~300 visits/180d hitting 404s; `/risk-waiver`+`/photograph-consent` → waiver.empowrcic.org were the highest-impact fix; content with no real equivalent deliberately left to 404 rather than soft-404'd to home
 
