@@ -83,7 +83,7 @@ const YEAR_TABLE = [
 
 const EELA_PROGRAMMES = [
   { name: "MoveWell", focus: "Movement & Wellness", status: "Active", desc: "Dynamic ways to improve physical and mental health through movement." },
-  { name: "MindWell", focus: "Mindfulness & Recovery", status: "Planned", desc: "A space for relaxation and rejuvenation, nurturing inner peace, mental clarity, and physical flexibility." },
+  { name: "MindWell", focus: "Body-Mind Skill Development", status: "Planned", desc: "Building body control, awareness, and resilience through active, skill-based practice." },
   { name: "CreateWell", focus: "Creativity & Self-Expression", status: "Planned", desc: "Exploring personal expression as a meaningful pathway to wellbeing." },
   { name: "ExploreWell", focus: "Nature & Exploration", status: "Planned", desc: "Building fitness, teamwork, and a genuine connection with the natural world." },
   { name: "ConnectWell", focus: "Collaboration & Growth", status: "Planned", desc: "Group challenges and interactive workshops that develop leadership, problem-solving, and strategic thinking through hands-on experience." },
@@ -414,7 +414,7 @@ export default function ProspectusPage() {
             <p>
               <strong className="text-black">EELA expansion</strong> — Skating is our current
               medium, but the EELA framework supports five sub-programmes: MoveWell (Movement &amp;
-              Wellness), MindWell (Mindfulness &amp; Recovery), CreateWell (Creativity &amp;
+              Wellness), MindWell (Body-Mind Skill Development), CreateWell (Creativity &amp;
               Self-Expression), ExploreWell (Nature &amp; Exploration), and ConnectWell
               (Collaboration &amp; Growth). MoveWell is active. We are actively building the teams
               and partnerships to activate the rest.

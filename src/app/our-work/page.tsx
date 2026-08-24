@@ -88,8 +88,8 @@ const EELA_PROGRAMMES = [
   },
   {
     name: "MindWell",
-    tagline: "Mindfulness & Recovery",
-    description: "A space for relaxation and rejuvenation, nurturing inner peace, mental clarity, and physical flexibility.",
+    tagline: "Body-Mind Skill Development",
+    description: "Building body control, awareness, and resilience through active, skill-based practice.",
     active: false,
   },
   {
