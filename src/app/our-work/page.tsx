@@ -22,7 +22,7 @@ const PROGRAMME_GROUPS = [
   {
     category: "Courses",
     description:
-      "Multi-session courses that take participants from their first steps on skates to genuine skill and confidence. By the end, skating feels like yours.",
+      "Multi-session courses that take members from their first steps on skates to genuine skill and confidence. By the end, skating feels like yours.",
   },
   {
     category: "Camps",
@@ -157,7 +157,7 @@ export default function OurWorkPage() {
                     Our facilitators are trained through{" "}
                     <strong className="text-black">ECCP</strong> — the Empowr
                     Certified Coaching Programme. Rather than recruiting externally,
-                    ECCP converts participants into certified coaches — building
+                    ECCP converts members into certified coaches — building
                     Empowr&apos;s delivery capacity from within the community, and
                     ensuring every coach carries Empowr&apos;s values into every
                     session.

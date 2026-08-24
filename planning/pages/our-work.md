@@ -23,11 +23,12 @@
 - Blue-pale background
 - Vertical list format — each programme on its own row: name + tagline + status badge + description
 - **MoveWell** — Movement & Wellness — Active — `bg-white border-blue/30`
-- **Mind Body & Wellness** — Mindfulness & Recovery — Coming soon
-- **Creative Expression & Arts** — Creativity & Self-Expression — Coming soon
-- **Outdoor & Adventure** — Nature & Exploration — Coming soon
-- **Team-Building & Leadership** — Collaboration & Growth — Coming soon
+- **MindWell** — Mindfulness & Recovery — Coming soon
+- **CreateWell** — Creativity & Self-Expression — Coming soon
+- **ExploreWell** — Nature & Exploration — Coming soon
+- **ConnectWell** — Collaboration & Growth — Coming soon
 - Content aligned with `eela.empowrcic.org/about`
+- Doc was out of sync with the live `EELA_PROGRAMMES` array in `our-work/page.tsx` (still had the pre-Well-branding names) until corrected 2026-08-24 — see [[project_empowr_main_site]]. MindWell's tagline/description here still carries the superseded "Mindfulness & Recovery" framing pending Empowr's decision — see the vault's Open Question 3.
 
 ### 4. Our Programmes
 - Cream background, 3-column grid of white cards

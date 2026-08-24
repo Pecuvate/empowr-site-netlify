@@ -16,7 +16,7 @@ const LEVELS = [
   {
     level: "Level 2",
     name: "Practitioner",
-    desc: "Deeper facilitation skills, session planning, and participant wellbeing.",
+    desc: "Deeper facilitation skills, session planning, and member wellbeing.",
   },
   {
     level: "Level 3",
@@ -61,7 +61,7 @@ export default function ECCPPage() {
                 The programme spans three certification levels — each building
                 on the last to develop deeper knowledge, stronger facilitation
                 skills, and a greater ability to create transformative
-                experiences for participants.
+                experiences for members.
               </p>
               <p>
                 ECCP is currently in its pilot phase. We are building the

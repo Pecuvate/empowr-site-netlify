@@ -148,7 +148,7 @@ const FAQ_SECTIONS: FaqSection[] = [
           <>
             <p>
               The Empowr Certified Coaching Programme (ECCP) is our coaching
-              certification pathway — it develops participants and
+              certification pathway — it develops members and
               practitioners into certified coaches who can deliver sessions
               across Empowr programmes. It has three levels: Foundation,
               Practitioner, and Advanced Coach.
@@ -236,16 +236,22 @@ const FAQ_SECTIONS: FaqSection[] = [
         answer: (
           <>
             <p>
-              Protective gear is required at all skating sessions: a properly
-              fitted helmet (not a bike helmet), knee pads, elbow pads, and
-              wrist guards. Participants arriving without required protective
-              gear can't take part.
+              Protective gear and quad skates are required for structured
+              lessons, courses, and camps: a properly fitted helmet (not a
+              bike helmet), knee pads, elbow pads, wrist guards, and your own
+              quad roller skates. Members arriving without this can't take
+              part in a structured lesson, course, or camp.
             </p>
             <p className="mt-3">
-              Most sessions require you to bring your own quad skates. Skate
-              hire is available at some sessions — included at the Roller
-              Disco, and available on request at camps with advance notice.
-              Check the individual session page for details.
+              Open-skate and social sessions — Skate Jam, Roller Disco, and
+              Roller Skate Events — don't require this kit list; protective
+              gear is recommended but not mandatory there, and Skate Jam
+              welcomes both quads and inline skates.
+            </p>
+            <p className="mt-3">
+              Skate hire is available at some sessions — included at the
+              Roller Disco, and available on request at camps with advance
+              notice. Check the individual session page for details.
             </p>
           </>
         ),
@@ -255,7 +261,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         answer: (
           <>
             <p>
-              All bookings are final. Participant-initiated cancellations,
+              All bookings are final. Member-initiated cancellations,
               transfers, and refunds — including no-shows — are not available
               by default. Exceptions are granted only at Empowr's discretion,
               on request via our{" "}
