@@ -2,6 +2,17 @@
 
 ---
 
+## 2026-08-24 (session 2) — Synced site copy to the Empowr CIC vault's participant→member rename and MindWell correction
+
+Cross-project session, driven from the KB vault (`vaults/EMPOWR CIC`) — full narrative in that project's `log.md` and the Empowr CIC workspace `DEVLOG.md`. This entry covers only what changed in this repo.
+
+- **`participant` → `member` sweep**: `FaqsAccordion.tsx` (ECCP answer, Kit List answer, cancellation-policy answer), `eccp/page.tsx` (Level 2 description, "experiences for..."), `our-work/page.tsx` (Courses card description, ECCP paragraph) — brought in line with the KB's same-day rename, which the FAQ page's own "Content Rules" declare as source of truth.
+- **Kit List answer rewritten**: now scoped to structured lessons/courses/camps only (Skate Jam, Roller Disco, Roller Skate Events explicitly exempted), Quad Roller Skates added to the required list — matches the KB's `entities/sessions` Kit List change same session.
+- **MindWell definition corrected** on `our-work/page.tsx` and `prospectus/page.tsx`: tagline "Mindfulness & Recovery" → "Body-Mind Skill Development", description rewritten from passive framing ("relaxation and rejuvenation") to outcome-focused, no-activity-list copy ("Building body control, awareness, and resilience through active, skill-based practice") — the same superseded definition already tracked in the KB against the prospectus (Open Question 3) turned out to also be live here; found while doing the sweep above, confirmed with the user, fixed in both places same session.
+- **Two stale planning-doc references fixed**: `planning/pages/our-work.md` had pre-Well-branding EELA sub-programme names (the actual `EELA_PROGRAMMES` array in code was already correct — doc-only drift); `planning/pages/faqs.md`'s KB grounding-page list cited `entities/governance`, which was split into `entities/board` + `processes/governance` in the vault back on 2026-08-18.
+- Type-checked clean (`tsc --noEmit`) before each commit. Two commits, both pushed to `main`: `ad19c8b` (participant/member + Kit List + doc refs), `04a7975` (MindWell).
+- **Left untouched, not part of this session**: pre-existing uncommitted changes to `Footer.tsx`, `Nav.tsx`, `ChatEmbed.tsx`, `OurStorySection.tsx`, `globals.css`, `DEVLOG.md` were already sitting in the working tree when this session started — staged and committed only the files this session actually edited, left the rest for whoever's mid-work on them.
+
 ## 2026-08-24 — Fixed the focus/contrast/tap-target findings from the 2026-08-20 harness audit, re-verified against a rebuilt static export
 
 Picked up the open items from the read-only audit below. Rebuilt (`next build`, static export served via `npx serve out`) and re-ran `design-audit.mjs` three times over the course of the session to verify each fix against real rendered output, not just the source.
@@ -29,12 +40,7 @@ Read-only audit from outside this project; **no files here were changed.**
 - **~48 of 109 sampled text nodes fall below WCAG AA**, including `p.text-lg` at 3.45:1 and `span.text-[#00b67a]` at 2.63:1. The check is approximate (nearest opaque ancestor, blind to gradients) so these are leads to confirm — but body text at 3.45:1 is very likely real.
 - **34-35 interactive targets below 44x44px** at mobile widths, including the mobile menu button at 34x40, plus one unsized `<img>` (layout-shift risk).
 - Nothing fixed this session — logged so the next session on this site has the list.
-## 2026-08-14
-
-- Created `README.md` at the project root, closing an M10 gap flagged by the scheduled mwp-health compliance audit.
-- Converted a near-miss "Skills and Tools Available" heading in `CLAUDE.md` to the compliant M8 table format.
-
----
+## 2026-08-14 — Created README.md (closing an mwp-health M10 gap) and converted a near-miss heading in CLAUDE.md to compliant M8 table format
 
 ## 2026-08-12 — Inline chat embed and CRM-routed contact form both tried live, then both deliberately reverted; net effect /contact unchanged, ChatEmbed.tsx + CRM routing left dormant in codebase
 
