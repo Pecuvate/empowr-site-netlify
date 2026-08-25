@@ -33,6 +33,41 @@ function sanitiseSource(value: unknown): string {
   return typeof value === "string" && SOURCE_PATTERN.test(value) ? value : "";
 }
 
+// Deliberately simple — this only needs to catch garbage/bot-typed addresses
+// before we send a "confirmation" to them (which bounces and damages the
+// sending domain's reputation for every form sharing it). Real deliverability
+// isn't checked; that's what the confirmation send itself is for.
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Set in Netlify's production context only, so preview and branch deploys have
+// no secret and skip verification rather than failing closed. The widget still
+// renders there (the sitekey is set in every context) and its token is simply
+// ignored — that keeps previews testable without registering a Turnstile
+// hostname for every deploy-preview URL.
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY ?? "";
+
+async function verifyTurnstile(token: unknown, remoteIp: string | undefined): Promise<boolean> {
+  if (!TURNSTILE_SECRET_KEY) return true;
+  if (typeof token !== "string" || !token) return false;
+
+  try {
+    const body = new URLSearchParams({ secret: TURNSTILE_SECRET_KEY, response: token });
+    if (remoteIp) body.set("remoteip", remoteIp);
+
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+      signal: AbortSignal.timeout(8000),
+    });
+    const data = await res.json();
+    return data.success === true;
+  } catch (err) {
+    console.error("[contact] Turnstile verification failed:", err);
+    return false;
+  }
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -95,9 +130,9 @@ export const handler = async (event: {
     return { statusCode: 405, headers: cors, body: "Method Not Allowed" };
   }
 
-  let name: string, email: string, subject: string, message: string, company: string, source: unknown;
+  let name: string, email: string, subject: string, message: string, company: string, source: unknown, turnstileToken: unknown;
   try {
-    ({ name, email, subject, message, company, source } = JSON.parse(event.body ?? "{}"));
+    ({ name, email, subject, message, company, source, turnstileToken } = JSON.parse(event.body ?? "{}"));
   } catch {
     return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Invalid request" }) };
   }
@@ -119,6 +154,20 @@ export const handler = async (event: {
     return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Missing required fields" }) };
   }
 
+  if (!EMAIL_PATTERN.test(email.trim())) {
+    return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Invalid email address" }) };
+  }
+
+  // A real bot challenge, unlike the honeypot above — tells a genuine user to
+  // retry rather than silently swallowing the submission. Volume from a bot
+  // that got past the honeypot is what damaged the sending domain's shared
+  // reputation for every form on it (2026-08-17 spam incident).
+  const remoteIp = event.headers?.["x-nf-client-connection-ip"] ?? event.headers?.["client-ip"];
+  const humanVerified = await verifyTurnstile(turnstileToken, remoteIp);
+  if (!humanVerified) {
+    return { statusCode: 400, headers: cors, body: JSON.stringify({ error: "Verification failed — please try again" }) };
+  }
+
   const crmDelivered = await notifyCrm({ name, email, subject, message, source: safeSource });
 
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -137,7 +186,13 @@ export const handler = async (event: {
         return { statusCode: 500, headers: cors, body: JSON.stringify({ error: "Server configuration error" }) };
       }
 
-      await resend.emails.send({
+      // Checked explicitly — the Resend SDK returns { error } rather than
+      // throwing on API-level failures (rate limit, domain issue, etc.), so
+      // an unchecked call here can fail silently while still reporting
+      // success to the visitor. This is what let the 2026-08-17 spam-driven
+      // deliverability hit go unnoticed for over a week: the team's copy
+      // never arrived and nothing logged it.
+      const { error: notifyError } = await resend.emails.send({
         from: FROM,
         to: toEmail,
         replyTo: email,
@@ -151,9 +206,16 @@ export const handler = async (event: {
           <p>${safeMessage}</p>
         `,
       });
+
+      if (notifyError) {
+        // Neither the CRM nor this fallback reached the team — don't tell
+        // the visitor it succeeded when nobody on our end will ever see it.
+        console.error("[contact] Internal notification email failed:", notifyError);
+        return { statusCode: 500, headers: cors, body: JSON.stringify({ error: "Failed to send message" }) };
+      }
     }
 
-    await resend.emails.send({
+    const { error: confirmError } = await resend.emails.send({
       from: FROM,
       to: email,
       subject: "We've received your message — Empowr CIC",
@@ -165,6 +227,12 @@ export const handler = async (event: {
         <p style="color:#888;font-size:12px;">enquiries@empowrcic.org | empowrcic.org</p>
       `,
     });
+
+    // Not fatal — the team's copy (CRM or the send above) already landed,
+    // which is the part that matters. Just make the failure visible.
+    if (confirmError) {
+      console.error("[contact] Confirmation email to visitor failed:", confirmError);
+    }
 
     return {
       statusCode: 200,

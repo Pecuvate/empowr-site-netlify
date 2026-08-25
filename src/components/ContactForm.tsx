@@ -2,6 +2,12 @@
 
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Script from "next/script";
+
+// Public by design — this ships in the page HTML; only the paired secret is
+// sensitive. Set in every Netlify context. Guarded anyway so a missing value
+// renders the form without a widget instead of a broken one.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 const SUBJECTS = [
   "General Enquiry",
@@ -44,6 +50,10 @@ function ContactFormInner() {
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       // Attribution — which site the enquiry originated from, if any.
       source,
+      // Turnstile's implicit rendering injects this hidden input into the
+      // enclosing form itself — no callback wiring needed. Absent entirely
+      // when TURNSTILE_SITE_KEY is unset, which contact.ts treats as "skip".
+      turnstileToken: (form.elements.namedItem("cf-turnstile-response") as HTMLInputElement | null)?.value,
     };
 
     try {
@@ -170,6 +180,13 @@ function ContactFormInner() {
           </a>
           .
         </p>
+      )}
+
+      {TURNSTILE_SITE_KEY && (
+        <>
+          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
+          <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
+        </>
       )}
 
       <button
