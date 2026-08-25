@@ -2,6 +2,17 @@
 
 ---
 
+## 2026-08-25 — Contact form had been accepting enquiries and silently losing them since ~08-17; three defects fixed, Turnstile added
+
+Started as "EELA's private-booking alerts aren't arriving" and turned out to be this function failing for **every** form using it. Bot submissions against the `Work With Us` subject drove enough volume through here to degrade `empowrcic.org`'s sending reputation; from roughly 08-17 the **team notification** stopped being delivered while the **visitor confirmation** still went out. Nobody saw it because nothing checked.
+
+- **The silent failure, and why it was silent**: the Resend SDK returns `{ error }` rather than throwing on API-level failures, and neither `emails.send()` call inspected it. A failed team notification still fell through to `return { success: true }`, so the visitor was told we'd received a message nobody would ever see. Both sends now check `.error`; a failed *internal* notification returns 500 instead of a false success, while a failed *visitor confirmation* is logged but non-fatal (the team's copy already landed, which is the part that matters).
+- **Cloudflare Turnstile added**, verified server-side in `verifyTurnstile()` before `notifyCrm()` or any send. The honeypot alone hadn't stopped whatever drove the volume. Secret is set in Netlify's **production context only** — previews therefore skip verification rather than failing closed, which avoids registering every deploy-preview URL as a Turnstile hostname.
+- **Server-side email-format validation** added before any send. The confirmation was previously sent to whatever string arrived, so bot-typed addresses bounced — and bounce rate is one of the two signals that degrades a sending domain, so the spam was compounding its own damage.
+- 🔴 **Explicit Turnstile rendering, not the `cf-turnstile` class** — this nearly shipped broken. The implicit script scans the DOM once when it loads and never watches for later changes, so client-side navigation away from `/contact` and back remounted the form with no widget, no token, and a backend that had just started rejecting tokenless submissions. Switched to `@marsidev/react-turnstile` (already used in EFN Dashboard) and verified in a real browser that the widget survives remount. Submit stays disabled until a token is issued.
+- Commits `b7846ba` (the three fixes) and `457462c` (explicit rendering), both pushed to `main` and deployed. Verified against production: malformed email → 400, missing token → 400, honeypot → silent 200. User confirmed a real submission now reaches `enquiries@empowrcic.org`.
+- **Clarifies a phrase in the 2026-08-20 entry below**: it describes this function as carrying "same CRM routing", which reads as if CRM delivery were live. It isn't — `CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY` exist only in local `src/.env.local` and are not set on Netlify, so `notifyCrm()` short-circuits straight to the email fallback. That pause is **deliberate and was already known** (EELA's own 2026-08-20 entry records it as confirmed with the user); the thing that was actually wrong was `_config/registry/env-vars.md`, which recorded both vars as "set 2026-07-27". Verified against the live site with `netlify env:get` and corrected. Nothing about the CRM decision changed this session.
+
 ## 2026-08-24 (session 2) — Synced site copy to the Empowr CIC vault's participant→member rename and MindWell correction
 
 Cross-project session, driven from the KB vault (`vaults/EMPOWR CIC`) — full narrative in that project's `log.md` and the Empowr CIC workspace `DEVLOG.md`. This entry covers only what changed in this repo.
@@ -31,15 +42,7 @@ Picked up the open items from the read-only audit below. Rebuilt (`next build`, 
 - **This push also carried 3 unrelated, already-committed mwp-health doc-compliance commits** that had been sitting unpushed on `main` since 2026-08-14 (README/M8 formatting) — pushed together at the user's explicit go-ahead, not created this session.
 - **Confirmed with the user: CRM routing (`CRM_CONTACT_API_URL`/`CRM_CONTACT_API_KEY`) is currently deliberately unset**, paused while deciding how best to wire it — so both this site's own form and EELA's new cross-origin one currently fall to the existing Resend-direct-to-`enquiries@empowrcic.org` path. No code change needed when CRM routing resumes; both forms pick it up automatically since they share this one function.
 
-## 2026-08-20 — First multi-viewport audit: contrast and tap-target findings across 5 routes
-
-Read-only audit from outside this project; **no files here were changed.**
-
-- Swept `/`, `/about`, `/contact`, `/our-work`, `/legal/privacy-policy` at 8 viewports (320-1920), 40/40 combinations, by the Web Build Framework harness.
-- **`button.text-blue "See more"` on `/about` has no visible focus indicator** at any viewport — a keyboard-accessibility defect, and the only HIGH finding.
-- **~48 of 109 sampled text nodes fall below WCAG AA**, including `p.text-lg` at 3.45:1 and `span.text-[#00b67a]` at 2.63:1. The check is approximate (nearest opaque ancestor, blind to gradients) so these are leads to confirm — but body text at 3.45:1 is very likely real.
-- **34-35 interactive targets below 44x44px** at mobile widths, including the mobile menu button at 34x40, plus one unsized `<img>` (layout-shift risk).
-- Nothing fixed this session — logged so the next session on this site has the list.
+## 2026-08-20 — First multi-viewport audit (read-only, 5 routes x 8 viewports): one HIGH focus-indicator defect, ~48/109 text nodes below WCAG AA, 34-35 undersized tap targets; nothing fixed, logged for the next session
 ## 2026-08-14 — Created README.md (closing an mwp-health M10 gap) and converted a near-miss heading in CLAUDE.md to compliant M8 table format
 
 ## 2026-08-12 — Inline chat embed and CRM-routed contact form both tried live, then both deliberately reverted; net effect /contact unchanged, ChatEmbed.tsx + CRM routing left dormant in codebase
