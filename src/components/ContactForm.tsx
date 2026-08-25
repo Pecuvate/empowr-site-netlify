@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Script from "next/script";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 // Public by design — this ships in the page HTML; only the paired secret is
 // sensitive. Set in every Netlify context. Guarded anyway so a missing value
@@ -35,6 +35,7 @@ function ContactFormInner() {
 
   const [subject, setSubject] = useState(initialSubject);
   const [status, setStatus] = useState<Status>("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,10 +51,7 @@ function ContactFormInner() {
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       // Attribution — which site the enquiry originated from, if any.
       source,
-      // Turnstile's implicit rendering injects this hidden input into the
-      // enclosing form itself — no callback wiring needed. Absent entirely
-      // when TURNSTILE_SITE_KEY is unset, which contact.ts treats as "skip".
-      turnstileToken: (form.elements.namedItem("cf-turnstile-response") as HTMLInputElement | null)?.value,
+      turnstileToken,
     };
 
     try {
@@ -182,16 +180,23 @@ function ContactFormInner() {
         </p>
       )}
 
+      {/* Explicitly rendered, not via the `cf-turnstile` class. The implicit
+          script only scans the DOM once on load and never watches for later
+          changes, so client-side navigation away from /contact and back
+          remounts this form with no widget — no token, and the backend
+          rejects the enquiry. */}
       {TURNSTILE_SITE_KEY && (
-        <>
-          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
-          <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
-        </>
+        <Turnstile
+          siteKey={TURNSTILE_SITE_KEY}
+          onSuccess={setTurnstileToken}
+          onError={() => setTurnstileToken("")}
+          onExpire={() => setTurnstileToken("")}
+        />
       )}
 
       <button
         type="submit"
-        disabled={status === "submitting"}
+        disabled={status === "submitting" || (!!TURNSTILE_SITE_KEY && !turnstileToken)}
         className="bg-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "submitting" ? "Sending…" : "Send Message"}
