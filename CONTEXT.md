@@ -42,7 +42,6 @@ src/
     news/                 MDX files for news posts (one per post)
 planning/
   site-plan.md            Full site plan and page blueprints
-DEVLOG.md                 Running dev log — read before every session
 CLAUDE.md                 Project rules
 ```
 
@@ -56,7 +55,7 @@ CLAUDE.md                 Project rules
 | `src/app/globals.css` | All CSS variables and base styles |
 | `src/app/layout.tsx` | Root layout — Nav and Footer live here |
 | `planning/site-plan.md` | Full content plan, page blueprints, phase plan |
-| `DEVLOG.md` | Session-by-session decisions and in-progress state |
+| `../workspace-docs/empowr-site-netlify/DEVLOG.md` | Session-by-session decisions and in-progress state — in the private hub, not this repo |
 
 ---
 
