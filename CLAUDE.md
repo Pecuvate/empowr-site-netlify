@@ -1,5 +1,18 @@
 # Empowr Main Site
 
+> **This repository is PUBLIC** (`PecuvateOrg/empowr-site-netlify`).
+>
+> **Devlog and memory location:** `../workspace-docs/empowr-site-netlify/`
+>
+> `DEVLOG.md` and `memory.md` are **not** kept in this repo — they hold operational
+> detail that must not be world-readable. Write session entries to the path above,
+> in the private Empowr CIC hub. Both filenames are gitignored here, so a copy created
+> in this directory is silently never committed.
+>
+> Never put live identifiers, unremediated security findings, or commercial state
+> in any file tracked here. See `../CONTEXT.md` and
+> `_config/guides/public-repo-collaboration.md`.
+
 ## Identity
 Public website for Empowr CIC (empowrcic.org) — mission, programmes, impact, and audience routing. Replacing Wix. Not a transactional site.
 
